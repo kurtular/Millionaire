@@ -10,7 +10,6 @@ public class GameCenter {
     private Question[] questionList = new Question[15];
    private  int timeInSecond = 0;
     Timer timer = new Timer();
-    // set the time
     public GameCenter(){
         displayIntro();
         loadGame();
@@ -29,7 +28,7 @@ public class GameCenter {
             case 1:
                 System.out.println("Please enter your name");
                 name = scanner.next();
-                Player player = new Player();
+                Player player = new Player(name,0,0,0);
                 break;
             case 2:
                 System.out.println("Please enter name player 1");
@@ -112,6 +111,7 @@ public class GameCenter {
     private  void startGame(){
 
     }
+    // set time
     private void setTimer (){
         TimerTask task = new TimerTask() {
             @Override
