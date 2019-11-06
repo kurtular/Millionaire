@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Upload questions</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js.js"></script>
+</head>
+
+<body>
+    <div id="msg">hellofgfgfg</div>
+    <div id="form">
+        <h1> Inmata en ny fråga</h1><br>
+        <select name="category">
+            <option disabled selected>Välj kategorien:</option>
+            <option value="Java">Java</option>
+            <option value="JS">Java Script</option>
+            <option value="html">html</option>
+            <option value="css">css</option>
+        </select>
+        <select name="lvl">
+            <option disabled selected>Välj svårighetsnivå:</option>
+            <option value="1">lätt</option>
+            <option value="2">normal</option>
+            <option value="3">hård</option>
+        </select>
+        <input type="text" name="question" placeholder="Inmata en ny fråga">
+        <input type="text" name="answer" placeholder="Inmata svaret">
+        <input type="text" name="option1" placeholder="Falsk alternativ 1">
+        <input type="text" name="option2" placeholder="Falsk alternativ 2">
+        <input type="text" name="option3" placeholder="Falsk alternativ 3">
+        <button name="send" onclick="send()">Skicka</button>
+    </div>
+</body>
+
+</html>
