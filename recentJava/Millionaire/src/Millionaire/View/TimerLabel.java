@@ -30,7 +30,7 @@ class TimerLabel extends Label {
         if(value==0)
             this.setText("0");
         else if(value>0 &&value<31)
-            this.setText(Integer.toString(value));
+            this.setText(Integer.toString(value)); //todo add to the actual seconds.
         else if(value == -1)
             this.setText(Integer.toString(Integer.parseInt(this.getText())-1));
         else System.out.println("!!Wrong data!!.\nCheck setTimer method location: View > QuestionArea >setTimer()");

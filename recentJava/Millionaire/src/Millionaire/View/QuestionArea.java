@@ -8,7 +8,7 @@ import javafx.scene.layout.VBox;
 public class QuestionArea extends BorderPane {
     private static QuestionArea questionArea;
     private OptionButton buttonA,buttonB,buttonC,buttonD;
-    private textLabel question,balance;
+    private TextLabel question,balance;
     private TimerLabel timer;
     private static GuiListners questionAreaListner;
 
@@ -16,12 +16,12 @@ public class QuestionArea extends BorderPane {
         super();
         int space = 10;                                                                                                  // Empty space between option buttons.
         this.setPadding(new Insets(0, 0, space, 0));
-        question = new textLabel(790,99);
+        question = new TextLabel(790,99);
         buttonA = new OptionButton();
         buttonB = new OptionButton();
         buttonC = new OptionButton();
         buttonD = new OptionButton();
-        balance = new textLabel(494,56);
+        balance = new TextLabel(494,56);
         timer=new TimerLabel(110, 110);
         timer.setId("timer");
 
@@ -47,27 +47,26 @@ public class QuestionArea extends BorderPane {
 
         this.setActions();
     }
-    //
+//
     protected static void setQuestionAreaListner(GuiListners listner){
         questionAreaListner = listner;
-
     }
-    //
+//
     private void setActions(){
         buttonA.setOnMouseClicked(event->questionAreaListner.setAnswer(this,'A'));
         buttonB.setOnMouseClicked(event->questionAreaListner.setAnswer(this,'B'));
         buttonC.setOnMouseClicked(event->questionAreaListner.setAnswer(this,'C'));
         buttonD.setOnMouseClicked(event->questionAreaListner.setAnswer(this,'D'));
     }
-    //
-    protected void enableActions(){
+//
+    public void enableActions(){
         buttonA.setDisable(false);
         buttonB.setDisable(false);
         buttonC.setDisable(false);
         buttonD.setDisable(false);
     }
-    //
-    protected void disableActions(){
+//
+    public void disableActions(){
         buttonA.setDisable(true);
         buttonB.setDisable(true);
         buttonC.setDisable(true);
@@ -77,13 +76,24 @@ public class QuestionArea extends BorderPane {
         buttonC.setOpacity(1);
         buttonD.setOpacity(1);
     }
-    //
-    protected static QuestionArea createQuestionArea(){
+//
+    public void setOptionButtonState(char optionButtonSymbol,int optionButtonState){
+        switch (optionButtonSymbol){
+            case 'A':buttonA.setState(optionButtonState);break;
+            case 'B':buttonB.setState(optionButtonState);break;
+            case 'C':buttonC.setState(optionButtonState);break;
+            case 'D':buttonD.setState(optionButtonState);break;
+            default:
+                System.out.println("!!Something went wrong!!\nCheck setOptionButtonState method : View > QuestionArea > setOptionButtonState().");
+        }
+    }
+//
+    protected static QuestionArea getInstance(){
         if(questionArea == null)
             questionArea=new QuestionArea();
         return questionArea;
     }
-    //
+//
     public void setQuestionArea(String question,String option1,String option2,String option3,String option4,int balance){
         this.question.setText(question);
         this.buttonA.setText(option1);
@@ -92,7 +102,7 @@ public class QuestionArea extends BorderPane {
         this.buttonA.setText(option4);
         this.balance.setText(balance+" $");
     }
-    //
+//
     public void setTimer(int value){
         if(value==0)
             this.timer.setText("0");

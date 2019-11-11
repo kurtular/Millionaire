@@ -21,18 +21,19 @@
   </component>
   <component name="ProjectId" id="1T0UxVlQmOFcUGXxZAG4hZWgEdg" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pass reference" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../swingIntro" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Millionaire.View" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\95mohahm\IdeaProjects\Millionaire\src\Millionaire\Jesse" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Millionaire" />
+      <recent name="Millionaire.View" />
     </key>
   </component>
   <component name="RunDashboard">
