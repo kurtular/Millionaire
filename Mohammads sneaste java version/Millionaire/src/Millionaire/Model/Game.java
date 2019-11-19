@@ -16,7 +16,7 @@ public class Game implements getJson{
 
     public Game(){
         try {
-            getJsonText("http://localhost/millionaire/get/");                                                       // Link to the questions rest api.
+            getJsonText("http://localhost/get/");                                                       // Link to the questions rest api.
         }catch (Exception e){
             System.out.println(e);
         }

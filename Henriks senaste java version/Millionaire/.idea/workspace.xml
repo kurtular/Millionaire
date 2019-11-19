@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b0665650-3051-4fb5-a229-c0689bbe2764" name="Default Changelist" comment="senaste">
+      <change afterPath="$PROJECT_DIR$/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Millionaire.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/json-20190722.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/.idea/src.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/.idea/Millionaire.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Controller$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Controller.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Model/Game.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Model/Question.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Model/getJson.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/EventsListner.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/Gui.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/IntroScreen$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/IntroScreen$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/IntroScreen.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/OptionButton.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/PlayScreen.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/QuestionArea.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/TextLabel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/TimerLabel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/img/Asset 21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/img/Asset 22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/img/b11k.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/img/b1k.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/img/bk.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/img/checking.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/img/default.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/img/hover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/img/logo1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/img/logo2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/img/right.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/img/right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/img/timer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/img/wrong.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/img/wrong.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Millionaire/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.idea/src.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/.idea/Millionaire.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/Model/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/Model/Question.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/Model/getJson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/View/EventsListner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/View/Gui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/View/IntroScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/View/LifeLineArea.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/View/OptionButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/View/PlayScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/View/QuestionArea.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/View/TextLabel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Millionaire/View/TimerLabel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/Asset 21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/Asset 22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/b11k.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/b1k.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/bk.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/change-used.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/change.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/checking.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/default.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/friend-used.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/friend.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/half-used.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/half.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/hover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/logo1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/logo2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/people-used.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/people.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/right.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/timer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/wrong.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/wrong.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Mohammads sneaste java version/Millionaire/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Mohammads sneaste java version/Millionaire/src/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Mohammads sneaste java version/Millionaire/src/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Mohammads sneaste java version/Millionaire/src/.idea/src.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Mohammads sneaste java version/Millionaire/src/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Mohammads sneaste java version/Millionaire/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Mohammads sneaste java version/Millionaire/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Mohammads sneaste java version/Millionaire/out/production/Millionaire/META-INF/Millionaire.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Mohammads sneaste java version/Millionaire/out/production/Millionaire/Millionaire/Model/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Mohammads sneaste java version/Millionaire/out/production/Millionaire/Millionaire/Model/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Mohammads sneaste java version/Millionaire/src/Millionaire/Model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Mohammads sneaste java version/Millionaire/src/Millionaire/Model/Game.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Millionaire" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1T0UxVlQmOFcUGXxZAG4hZWgEdg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\95mohahm\IdeaProjects\Millionaire\src\Millionaire\Jesse" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Millionaire" />
+      <recent name="Millionaire.View" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Controller" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Millionaire.Controller" />
+      <module name="Millionaire" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Millionaire.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Gui" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Millionaire.View.Gui" />
+      <module name="Millionaire" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Millionaire.View.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="Millionaire.Main" />
+      <module name="Millionaire" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RoundButton" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="RoundButton" />
+      <module name="Millionaire" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Gui" />
+        <item itemvalue="Application.Controller" />
+        <item itemvalue="Application.RoundButton" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b0665650-3051-4fb5-a229-c0689bbe2764" name="Default Changelist" comment="" />
+      <created>1572596752554</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572596752554</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="senaste" />
+    <option name="LAST_COMMIT_MESSAGE" value="senaste" />
+  </component>
+</project>
