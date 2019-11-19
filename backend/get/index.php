@@ -28,7 +28,7 @@ class Question{
 
 // First time when random index is = 0 then answer will be replaced in the option array of the question object. 
             if($amount == 1){
-                $this->token = $this->encodeToken($i);
+                $this->token = $this->encodeToken($i+1);
                 $amount++;
             }
 
