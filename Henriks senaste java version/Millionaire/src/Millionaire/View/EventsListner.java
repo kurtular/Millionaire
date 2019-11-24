@@ -7,6 +7,6 @@ public interface EventsListner{
     public void startTheGame();
 // setAnswer() will be fired the game behavior when the player select an answer for a question.
     public void setAnswer(QuestionArea questionArea,char buttonSymbol);
-    public void setLifeLine(LifeLineArea lifeLineArea,char buttonSymbol);
+    public void setLifeLine(LifeLineArea lifeLineArea,String lifeLineSelection);
 
 }

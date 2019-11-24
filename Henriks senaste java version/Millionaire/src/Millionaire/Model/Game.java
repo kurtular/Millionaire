@@ -53,4 +53,42 @@ public class Game implements getJson{
     public void nextQuestion(){
         currentQuestion++;
     }
+
+    public String phoneAFriend() {
+         boolean rightAnswer;
+         String friendHint = "";
+        int rand = (int) (Math.random()*100);
+        if (rand>60) {
+            for (char i = 'A'; i<='D';i++) {
+              rightAnswer =  checkAnswer(i);
+              if (rightAnswer == true) {
+                  int j = (int) i-65;
+                  friendHint = "Jag är säker på att det är" + questions[currentQuestion].options[j];
+                  break;}
+            }
+
+        }
+        else if (rand>35) {
+            for (char i = 'A'; i<='D';i++) {
+                rightAnswer =  checkAnswer(i);
+                if (rightAnswer == true) {
+                    int j = (int) i-65;
+                    friendHint = "Jag TROR att det är" + questions[currentQuestion].options[j];
+                    break;}
+            }
+
+        }
+        else {
+            for (char i = 'A'; i<='D';i++) {
+                rightAnswer =  checkAnswer(i);
+                if (rightAnswer == false) {
+                    int j = (int) i-65;
+                    friendHint = "Jag TROR att det är" + questions[currentQuestion].options[j];
+                    break;}
+            }
+
+        }
+
+    return friendHint;
+    }
 }

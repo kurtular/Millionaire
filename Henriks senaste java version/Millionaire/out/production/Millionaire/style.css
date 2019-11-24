@@ -26,3 +26,5 @@ OptionButton:hover{
 #rightAnswer{
 -fx-background-image:url(img/right.gif);
 }
+Image: {
+-fx-opacity: 0.5;}

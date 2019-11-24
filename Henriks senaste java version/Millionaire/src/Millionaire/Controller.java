@@ -3,6 +3,10 @@ package Millionaire;
 import Millionaire.Model.Game;
 import Millionaire.View.*;
 
+import static Millionaire.View.LifeLineArea.lifeLineArea;
+import static Millionaire.View.LifeLineHintArea.lifeLineHintArea;
+
+
 // Controller class ( MVC design pattern).
 // game variable represents the Model of MVC design pattern.
 // gui variable represents the View of MVC design pattern.
@@ -48,9 +52,9 @@ public class Controller {
                 }
             }
             @Override
-            public void setLifeLine(LifeLineArea lifeLineArea, char buttonSymbol) {
-                System.out.println(buttonSymbol);
-                lifeLineArea.setLifeLineImgState(buttonSymbol);
+            public void setLifeLine(LifeLineArea lifeLineArea, String lifeLineSelection) {
+                System.out.println(lifeLineSelection);
+                setLifeLineImgState(lifeLineSelection);
                 lifeLineArea.disableActions();
             }};
         return guiListners;
@@ -63,5 +67,28 @@ public class Controller {
         String option3 = game.getValue(Game.Option3);
         String option4 = game.getValue(Game.Option4);
         gui.updateQuestion(question, option1, option2, option3, option4, 6); //TODO balance
+    }
+    public static void setLifeLineImgState(String lifeLineSelection){
+        switch (lifeLineSelection){
+            case "askThePeople":
+                LifeLineArea.imgView0.setImage(LifeLineArea.img4);break;
+            case "callAFriend":
+                LifeLineArea.imgView1.setImage(LifeLineArea.img5);
+                displayPhoneAFriend();
+                break;
+
+            case "removeHalf":
+                LifeLineArea.imgView2.setImage(LifeLineArea.img6);break;
+            case "changeQuestion":
+                LifeLineArea.imgView3.setImage(LifeLineArea.img7);break;
+            default:
+                System.out.println("!!Something went wrong!!\nCheck setLifeLineImgState method : View > LifeLineArea > setLifeLineImgState().");
+        }
+    }
+    public static void displayPhoneAFriend() {
+        System.out.println(game.phoneAFriend());
+        lifeLineHintArea.label0.setText(game.phoneAFriend());
+       // playScreen.setCenter(LifeLinePollArea.getInstance());
+
     }
 }

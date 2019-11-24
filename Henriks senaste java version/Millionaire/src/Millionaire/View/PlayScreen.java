@@ -6,17 +6,23 @@ import javafx.stage.Stage;
 
 public class PlayScreen extends BorderPane {
     private static EventsListner Listner;
-    protected static PlayScreen playScreen;
-    private PlayScreen(){
+    public static PlayScreen playScreen;
+    public PlayScreen(){
         super();
         this.setPrefSize(1024, 768);
 
 // Create the question area (the contain the question text with it's option and the current balance that player have under the competition)
         setBottom(QuestionArea.getInstance());
         setTop(LifeLineArea.getInstance());
-//TODO bring the other parts
+       //  void displayLifeLinePollArea() {
+
+     //   }
+
+//TODO bring the other part
 
     }
+
+
 //
     public static void setListner(EventsListner listner){
         Listner = listner;
