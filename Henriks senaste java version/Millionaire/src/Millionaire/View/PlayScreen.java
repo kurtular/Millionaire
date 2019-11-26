@@ -4,6 +4,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import static Millionaire.View.LifeLineHintArea.lifeLineHintArea;
+
 public class PlayScreen extends BorderPane {
     private static EventsListner Listner;
     public static PlayScreen playScreen;
@@ -14,12 +16,14 @@ public class PlayScreen extends BorderPane {
 // Create the question area (the contain the question text with it's option and the current balance that player have under the competition)
         setBottom(QuestionArea.getInstance());
         setTop(LifeLineArea.getInstance());
-       //  void displayLifeLinePollArea() {
-
-     //   }
+        setCenter(LifeLineHintArea.getInstance());
 
 //TODO bring the other part
 
+    }
+    public void changeTextPAF(String text) {
+        lifeLineHintArea.label1.setText("Din vän säger i telefonen:");
+        lifeLineHintArea.label0.setText(text);
     }
 
 

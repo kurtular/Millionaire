@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import static Millionaire.View.PlayScreen.playScreen;
+
 // The main class of the View packet and it's represent the View class of the MVC design pattern.
 public class Gui extends Application {
 
@@ -38,5 +40,8 @@ public class Gui extends Application {
 // updateQuestion() method pass the question that will be shown to the PlayContent class (window will be shown during the match)
    public static void updateQuestion(String question,String option1,String option2,String option3,String option4,int balance){
     PlayScreen.updateQuestion(question, option1, option2, option3, option4, balance);
+    }
+    public void changeLabelsPAF(String label) {
+        playScreen.changeTextPAF(label);
     }
 }

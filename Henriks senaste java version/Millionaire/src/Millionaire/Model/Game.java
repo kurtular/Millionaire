@@ -63,18 +63,19 @@ public class Game implements getJson{
               rightAnswer =  checkAnswer(i);
               if (rightAnswer == true) {
                   int j = (int) i-65;
-                  friendHint = "Jag är säker på att det är" + questions[currentQuestion].options[j];
-                  break;}
+                  friendHint = "Jag är säker på att det är: "+i+ ". " + questions[currentQuestion].options[j];
+                  break;
+              }
             }
-
         }
         else if (rand>35) {
             for (char i = 'A'; i<='D';i++) {
                 rightAnswer =  checkAnswer(i);
                 if (rightAnswer == true) {
                     int j = (int) i-65;
-                    friendHint = "Jag TROR att det är" + questions[currentQuestion].options[j];
-                    break;}
+                    friendHint = "Jag TROR att det är: "+i+ ". " + questions[currentQuestion].options[j];
+                    break;
+                }
             }
 
         }
@@ -83,8 +84,9 @@ public class Game implements getJson{
                 rightAnswer =  checkAnswer(i);
                 if (rightAnswer == false) {
                     int j = (int) i-65;
-                    friendHint = "Jag TROR att det är" + questions[currentQuestion].options[j];
-                    break;}
+                    friendHint = "Jag TROR att det är: "+i+ ". " + questions[currentQuestion].options[j];
+                    break;
+                }
             }
 
         }

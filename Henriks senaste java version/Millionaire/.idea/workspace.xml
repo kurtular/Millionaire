@@ -2,24 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0665650-3051-4fb5-a229-c0689bbe2764" name="Default Changelist" comment="senaste">
-      <change afterPath="$PROJECT_DIR$/src/Millionaire/View/LifeLineHintArea.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dokumentation/Veckomöte v47.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Model/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Model/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Model/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Model/Question.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/EventsListner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/EventsListner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/LifeLineArea.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/LifeLineArea.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/PlayScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/PlayScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Millionaire/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Millionaire/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Millionaire/Model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Millionaire/Model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Millionaire/Model/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Millionaire/Model/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Millionaire/View/EventsListner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Millionaire/View/EventsListner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Millionaire/View/LifeLineArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Millionaire/View/LifeLineArea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Millionaire/View/Gui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Millionaire/View/Gui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Millionaire/View/LifeLineHintArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Millionaire/View/LifeLineHintArea.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Millionaire/View/PlayScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Millionaire/View/PlayScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +141,13 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1574154738862</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="senaste">
+      <created>1574620164386</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1574620164386</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnknownFeatures">

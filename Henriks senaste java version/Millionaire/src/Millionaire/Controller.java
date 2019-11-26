@@ -74,7 +74,7 @@ public class Controller {
                 LifeLineArea.imgView0.setImage(LifeLineArea.img4);break;
             case "callAFriend":
                 LifeLineArea.imgView1.setImage(LifeLineArea.img5);
-                displayPhoneAFriend();
+                gui.changeLabelsPAF(game.phoneAFriend());
                 break;
 
             case "removeHalf":
@@ -85,10 +85,5 @@ public class Controller {
                 System.out.println("!!Something went wrong!!\nCheck setLifeLineImgState method : View > LifeLineArea > setLifeLineImgState().");
         }
     }
-    public static void displayPhoneAFriend() {
-        System.out.println(game.phoneAFriend());
-        lifeLineHintArea.label0.setText(game.phoneAFriend());
-       // playScreen.setCenter(LifeLinePollArea.getInstance());
 
-    }
 }
