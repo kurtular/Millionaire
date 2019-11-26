@@ -41,7 +41,7 @@ public class Gui extends Application {
    public static void updateQuestion(String question,String option1,String option2,String option3,String option4,int balance){
     PlayScreen.updateQuestion(question, option1, option2, option3, option4, balance);
     }
-    public void changeLabelsPAF(String label) {
-        playScreen.changeTextPAF(label);
+    public void changeLabelsPAF(String standard,String hint) {
+        playScreen.changeTextPAF(standard,hint);
     }
 }

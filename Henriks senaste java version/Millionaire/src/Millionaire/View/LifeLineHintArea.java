@@ -11,8 +11,6 @@ public class LifeLineHintArea extends VBox {
     public static LifeLineHintArea lifeLineHintArea;
     public Label label0, label1;
 
-
-
     public LifeLineHintArea(){
         super();
         label1 = new Label(" ");
@@ -23,9 +21,6 @@ public class LifeLineHintArea extends VBox {
         setAlignment(Pos.CENTER);
         setPadding(new Insets(5));
     }
-
-
-
     public static LifeLineHintArea getInstance(){
         if(lifeLineHintArea == null)
             lifeLineHintArea=new LifeLineHintArea();

@@ -50,12 +50,13 @@ public class Controller {
                 } else {
                     questionArea.setOptionButtonState(buttonSymbol, OptionButton.Wrong);
                 }
+                gui.changeLabelsPAF(" ", " ");
             }
             @Override
             public void setLifeLine(LifeLineArea lifeLineArea, String lifeLineSelection) {
-                System.out.println(lifeLineSelection);
+
                 setLifeLineImgState(lifeLineSelection);
-                lifeLineArea.disableActions();
+
             }};
         return guiListners;
     }
@@ -71,16 +72,22 @@ public class Controller {
     public static void setLifeLineImgState(String lifeLineSelection){
         switch (lifeLineSelection){
             case "askThePeople":
-                LifeLineArea.imgView0.setImage(LifeLineArea.img4);break;
+                LifeLineArea.imgView0.setImage(LifeLineArea.img4);
+                lifeLineArea.disableActions(1);
+                break;
             case "callAFriend":
                 LifeLineArea.imgView1.setImage(LifeLineArea.img5);
-                gui.changeLabelsPAF(game.phoneAFriend());
+                gui.changeLabelsPAF("Din vän säger i telefonen:", game.phoneAFriend());
+                lifeLineArea.disableActions(2);
                 break;
-
-            case "removeHalf":
-                LifeLineArea.imgView2.setImage(LifeLineArea.img6);break;
+                case "removeHalf":
+                LifeLineArea.imgView2.setImage(LifeLineArea.img6);
+                lifeLineArea.disableActions(3);
+                break;
             case "changeQuestion":
-                LifeLineArea.imgView3.setImage(LifeLineArea.img7);break;
+                LifeLineArea.imgView3.setImage(LifeLineArea.img7);
+                lifeLineArea.disableActions(4);
+                break;
             default:
                 System.out.println("!!Something went wrong!!\nCheck setLifeLineImgState method : View > LifeLineArea > setLifeLineImgState().");
         }

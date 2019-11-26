@@ -21,9 +21,9 @@ public class PlayScreen extends BorderPane {
 //TODO bring the other part
 
     }
-    public void changeTextPAF(String text) {
-        lifeLineHintArea.label1.setText("Din vän säger i telefonen:");
-        lifeLineHintArea.label0.setText(text);
+    public void changeTextPAF(String standard, String hint) {
+        lifeLineHintArea.label1.setText(standard);
+        lifeLineHintArea.label0.setText(hint);
     }
 
 

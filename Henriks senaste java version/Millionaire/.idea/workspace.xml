@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0665650-3051-4fb5-a229-c0689bbe2764" name="Default Changelist" comment="senaste">
+    <list default="true" id="b0665650-3051-4fb5-a229-c0689bbe2764" name="Default Changelist" comment="fixat Lifelinehintarea">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Controller$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Model/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/Model/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/Gui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/Gui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/LifeLineArea.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/LifeLineArea.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/PlayScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/Millionaire/View/PlayScreen.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Millionaire/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Millionaire/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Millionaire/Model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Millionaire/Model/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Millionaire/View/Gui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Millionaire/View/Gui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Millionaire/View/LifeLineArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Millionaire/View/LifeLineArea.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Millionaire/View/LifeLineHintArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Millionaire/View/LifeLineHintArea.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Millionaire/View/PlayScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Millionaire/View/PlayScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Mohammads sneaste java version/Millionaire/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Mohammads sneaste java version/Millionaire/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,12 +53,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\95mohahm\IdeaProjects\Millionaire\src\Millionaire\Jesse" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Millionaire" />
       <recent name="Millionaire.View" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\95mohahm\IdeaProjects\Millionaire\src\Millionaire\Jesse" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -147,7 +155,13 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1574620164386</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="fixat Lifelinehintarea">
+      <created>1574754602557</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1574754602557</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -169,6 +183,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="senaste" />
-    <option name="LAST_COMMIT_MESSAGE" value="senaste" />
+    <MESSAGE value="fixat Lifelinehintarea" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixat Lifelinehintarea" />
   </component>
 </project>

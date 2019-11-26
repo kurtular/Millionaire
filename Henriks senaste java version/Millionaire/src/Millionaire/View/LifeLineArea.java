@@ -65,12 +65,22 @@ public class LifeLineArea extends HBox {
         sPane3.setOnMouseClicked(event->lifeLineAreaListner.setLifeLine(this,"changeQuestion"));
     }
 
-    public void disableActions(){
-        imgView0.setDisable(true);
-        imgView1.setDisable(true);
-        imgView2.setDisable(true);
-        imgView3.setDisable(true);
+    public void disableActions(int x){
+        switch (x) {
+            case 1: {
+                sPane0.setOnMouseClicked(null);
+            }
+            case 2: {
+                sPane1.setOnMouseClicked(null);
+            }
+            case 3: {
+                sPane2.setOnMouseClicked(null);
+            }
+            case 4: {
+                sPane3.setOnMouseClicked(null);
+            }
 
+        }
     }
     //
 

@@ -79,7 +79,7 @@ public class Game implements getJson{
             }
 
         }
-        else {
+        else {           //TODO fix if lifeLine 50/50 have already been chosen
             for (char i = 'A'; i<='D';i++) {
                 rightAnswer =  checkAnswer(i);
                 if (rightAnswer == false) {
