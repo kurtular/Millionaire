@@ -26,3 +26,14 @@ OptionButton:hover{
 #rightAnswer{
 -fx-background-image:url(img/right.gif);
 }
+#vBox{
+-fx-padding: 10;
+-fx-border-style: solid;
+-fx-border-width: 3;
+-fx-border-insets: 5;
+-fx-border-radius: 5;
+-fx-border-color: white;
+}
+#textLabel{
+-fx-text-fill: #00d6a0;
+}
