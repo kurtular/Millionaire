@@ -26,14 +26,18 @@ OptionButton:hover{
 #rightAnswer{
 -fx-background-image:url(img/right.gif);
 }
-#vBox{
--fx-padding: 10;
+
+#PriceTable{
+-fx-padding: 5 0;
+
 -fx-border-style: solid;
 -fx-border-width: 3;
--fx-border-insets: 5;
--fx-border-radius: 5;
 -fx-border-color: white;
-}
-#textLabel{
--fx-text-fill: #00d6a0;
+-fx-border-insets:5 5 0 0;
+-fx-border-radius: 10;
+
+-fx-background-insets:5 5 0 0;
+-fx-background-radius:10;
+-fx-background-color: rgb(0,0,0,0.3);
+
 }

@@ -5,6 +5,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import millionaire.FINAL_GLOBAL_VARIABLES;
 
 public class QuestionArea extends BorderPane {
     final private static QuestionArea instance = new QuestionArea();
@@ -60,14 +61,14 @@ public class QuestionArea extends BorderPane {
         buttonD.setOnMouseClicked(event-> Controller.getInstance().setAnswer('D'));
     }
 //
-    public void enableActions(){
+    void enableActions(){
         buttonA.setDisable(false);
         buttonB.setDisable(false);
         buttonC.setDisable(false);
         buttonD.setDisable(false);
     }
 //
-    public void disableActions(){
+    void disableActions(){
         buttonA.setDisable(true);
         buttonB.setDisable(true);
         buttonC.setDisable(true);
@@ -78,7 +79,7 @@ public class QuestionArea extends BorderPane {
         buttonD.setOpacity(1);
     }
 //
-    public void setOptionButtonState(char optionButtonSymbol,int optionButtonState){
+    void setOptionButtonState(char optionButtonSymbol,int optionButtonState){
         switch (optionButtonSymbol){
             case 'A':buttonA.setState(optionButtonState);break;
             case 'B':buttonB.setState(optionButtonState);break;
@@ -99,7 +100,7 @@ public class QuestionArea extends BorderPane {
         instance.buttonB.setText(option2);
         instance.buttonC.setText(option3);
         instance.buttonD.setText(option4);
-        instance.balance.setText(balance+" $");
+        instance.balance.setText(balance+ FINAL_GLOBAL_VARIABLES.getCurrencySymbol());
     }
 //
     public void setTimer(int value){

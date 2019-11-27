@@ -1,57 +1,48 @@
 package millionaire.View;
 
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.text.Font;
+import javafx.scene.layout.VBox;
+import millionaire.FINAL_GLOBAL_VARIABLES;
 
-public class PriceTable extends BorderPane {
-    private static PriceTable priceListArea;
-    private PriceLabel priceLabel;
-    private VBox vBox;
+class PriceTable extends VBox {
+//
+    private static PriceTable instance = new PriceTable();
+    static PriceTable getInstance() {
+        return instance;
+    }
+//
+    private PriceLabel[] priceLabels;
 
-    public PriceTable() {
-        priceLabel = new PriceLabel();
-        vBox = new VBox(priceLabel.hBox[14], priceLabel.hBox[13], priceLabel.hBox[12], priceLabel.hBox[11], priceLabel.hBox[10], priceLabel.hBox[9], priceLabel.hBox[8], priceLabel.hBox[7], priceLabel.hBox[6], priceLabel.hBox[5], priceLabel.hBox[4], priceLabel.hBox[3], priceLabel.hBox[2], priceLabel.hBox[1], priceLabel.hBox[0]);
-        vBox.setId("vBox");
-        vBox.setSpacing(5);
-        setCircleInvisible();
-        currentPlace(6);
-        this.setRight(vBox);
+    private PriceTable() {
+        super();
+//
+        final String[] priceList = FINAL_GLOBAL_VARIABLES.getPRIZES();
+        priceLabels = new PriceLabel[priceList.length];
+//
+        for(byte i = 1 ; i < priceList.length ; i++){
+            if (i%5!=0){
+                priceLabels[i] = new PriceLabel(Byte.toString(i), priceList[i] , PriceLabel.NORMAL_PRICE_LABEL);
+
+            }else {
+                priceLabels[i] = new PriceLabel(Byte.toString(i),priceList[i],PriceLabel.SAFE_LEVEL_PRICE_LABEL);
+            }
+        }
+//
+        for(byte i = (byte) (priceList.length-1) ; i > 0 ; i--){
+            getChildren().add(priceLabels[i]);
+        }
+
+        setId("PriceTable");
+        setSpacing(5);
+        setMaxHeight(320);
     }
 
-    protected static PriceTable getInstance() {
-        if (priceListArea == null)
-            priceListArea = new PriceTable();
-        return priceListArea;
-    }
+    void setCurrentPlace(int position) {
+        priceLabels[position].showCircle();
+        priceLabels[position].setStyle("-fx-background-color: orange;");
 
-
-    private void setActions() {
-    }
-
-    private void setCircleInvisible() {
-        for (int i = 0; i < 15; i++) {
-            priceLabel.circle[i].setVisible(false);
+        if(position>1) {
+            priceLabels[position - 1].setStyle("");
         }
     }
 
-    private void currentPlace(int position) {
-        String style = "-fx-background-color: orange;";
-        priceLabel.hBox[position - 1].setStyle(style);
-        priceLabel.circle[position - 1].setFill(Color.WHITE);
-        for (int i = 0; i < position; i++) {
-            priceLabel.circle[i].setVisible(true);
-        }
-    }
-
-    public void setCurrentPlace(byte parseByte) {
-    }
-
-    public String getCurrentBalance(byte parseByte) {
-        return " ";
-    }
 }

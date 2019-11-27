@@ -53,12 +53,12 @@ public class Controller {
         String option2 = game.getValue(Game.OPTION2);
         String option3 = game.getValue(Game.OPTION3);
         String option4 = game.getValue(Game.OPTION4);
-        String currentQuestion = game.getValue(Game.CURRENT_QUESTION);
+        byte currentQuestion = Byte.parseByte(game.getValue(Game.CURRENT_QUESTION));
         gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
     }
 
 //
-    public static void setupController (Game game,Gui gui){
+    static void setupController (Game game,Gui gui){
         instance.game = game;
         instance.gui = gui;
     }
@@ -68,7 +68,7 @@ public class Controller {
         setLifeLineImgState(lifeLineSelection);
     }
 
-    public static void setLifeLineImgState(String lifeLineSelection){
+    static void setLifeLineImgState(String lifeLineSelection){
         switch (lifeLineSelection){
             case "askThePeople":
                 LifeLineArea.getInstance().disableActions(1);

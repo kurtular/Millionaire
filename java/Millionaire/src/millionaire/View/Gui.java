@@ -5,10 +5,11 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import millionaire.FINAL_GLOBAL_VARIABLES;
 
 // The main class of the View packet and it's represent the View class of the MVC design pattern.
 public class Gui extends Application {
-    Pane content;
+    private Pane content;
 // start() will be run after calling launch(args) that is inside launchGui(). It's an overridden method after extending Application class. (javaFx).
     @Override
     public void start(Stage stage) {
@@ -34,10 +35,10 @@ public class Gui extends Application {
     }
 
 // updateQuestion() method pass the question that will be shown to the PlayContent class (window will be shown during the match)
-   public void updateQuestion(String question,String option1,String option2,String option3,String option4,String currentQuestion){
-        PriceTable.getInstance().setCurrentPlace(Byte.parseByte(currentQuestion));
-        String balance = PriceTable.getInstance().getCurrentBalance( Byte.parseByte(currentQuestion));
-        QuestionArea.getInstance().updateQuestion(question, option1, option2, option3, option4,balance);
+   public void updateQuestion(String question,String option1,String option2,String option3,String option4,byte currentQuestion){
+        PriceTable.getInstance().setCurrentPlace(currentQuestion);
+        String balance = FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion-1];
+        QuestionArea.getInstance().updateQuestion(question, option1, option2, option3, option4, balance);
     }
 //
     public void setOptionButtonState(char optionButtonSymbol,int optionButtonState){
