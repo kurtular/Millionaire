@@ -51,7 +51,8 @@ public class Gui extends Application {
     public void disableActions(){
         QuestionArea.getInstance().disableActions();
     }
-//
+
+//A method who recieves the lifelinehint from controller and push it forward to Lifelineareaclass
     public void setLifeLineHint(String hint) {
         LifeLineArea.getInstance().setLifeLineHint(hint);
     }

@@ -9,13 +9,13 @@ import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import millionaire.Controller;
 
-
+// LifeLineArea class will create the the images of the lifelines and the result of the lifelines.
 public class LifeLineArea extends VBox {
     private static LifeLineArea lifeLineArea = new LifeLineArea();
     public LifeLine audience,friend,half,change;
     private Label lifeLineHint;
 
-
+// The constructor
     private LifeLineArea(){
         super();
         audience = new LifeLine(LifeLine.AUDIENCE);
@@ -40,18 +40,24 @@ public class LifeLineArea extends VBox {
         this.setActions();
     }
 
-    //
+    // Creating actionevents if click on the images.
 
     private void setActions(){
-        audience.setOnMouseClicked(event-> Controller.getInstance().setActionsPressingLifeline("askThePeople"));
-        friend.setOnMouseClicked(event->{
+        audience.setOnMouseClicked(event-> {
+                disableActions(1);
+                Controller.getInstance().callTheHintMethods("askThePeople");});
+        friend.setOnMouseClicked(event-> {
                 disableActions(2);
-                Controller.getInstance().setActionsPressingLifeline("callAFriend");});
-        half.setOnMouseClicked(event->Controller.getInstance().setActionsPressingLifeline("removeHalf"));
-        change.setOnMouseClicked(event->Controller.getInstance().setActionsPressingLifeline("changeQuestion"));
+                Controller.getInstance().callTheHintMethods("callAFriend");});
+        half.setOnMouseClicked(event-> {
+                disableActions(3);
+                Controller.getInstance().callTheHintMethods("removeHalf");});
+        change.setOnMouseClicked(event-> {
+                 disableActions(4);
+                Controller.getInstance().callTheHintMethods("changeQuestion");});
     }
 
-    //
+    // A method to change the image to the one with the red X(used) and turn off the actionevent.
     public void disableActions(int x){
         switch (x) {
             case 1: {
@@ -78,11 +84,11 @@ public class LifeLineArea extends VBox {
         }
     }
 
-//
-    public static LifeLineArea getInstance(){ // todo make it protected
+    // A method to return the object because lifeLineArea object is private.
+    protected static LifeLineArea getInstance(){
         return lifeLineArea;
     }
-//
+    // A method to set the text to screen showing friends answer.
     public void setLifeLineHint(String lifeLineHint) {
         this.lifeLineHint.setText(lifeLineHint);
     }

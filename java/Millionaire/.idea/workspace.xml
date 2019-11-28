@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0665650-3051-4fb5-a229-c0689bbe2764" name="Default Changelist" comment="test v48">
+    <list default="true" id="b0665650-3051-4fb5-a229-c0689bbe2764" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Millionaire/millionaire/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/millionaire/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/millionaire/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/millionaire/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/millionaire/Model/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/millionaire/Model/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Millionaire/millionaire/View/Gui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/millionaire/View/Gui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/millionaire/View/LifeLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/millionaire/View/LifeLine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Millionaire/millionaire/View/LifeLineArea.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/millionaire/View/LifeLineArea.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/millionaire/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/millionaire/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/millionaire/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/millionaire/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/millionaire/Model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/millionaire/Model/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/millionaire/View/Gui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/millionaire/View/Gui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/millionaire/View/LifeLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/millionaire/View/LifeLine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/millionaire/View/LifeLineArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/millionaire/View/LifeLineArea.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -143,7 +142,13 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1574858952593</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL−00002" summary="Henriks branch. Ändrat några metoder.">
+      <created>1574941042623</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1574941042623</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -164,6 +169,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test v48" />
-    <option name="LAST_COMMIT_MESSAGE" value="test v48" />
+    <MESSAGE value="Henriks branch. Ändrat några metoder." />
+    <option name="LAST_COMMIT_MESSAGE" value="Henriks branch. Ändrat några metoder." />
   </component>
 </project>

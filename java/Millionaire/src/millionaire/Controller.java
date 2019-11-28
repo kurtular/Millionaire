@@ -65,23 +65,19 @@ public class Controller {
 
 //Henriks code
 
-
-    public void setActionsPressingLifeline(String lifeLineSelection){
+// A method to recieve which lifeline is clicked and call the different lifelines.
+    public void callTheHintMethods(String lifeLineSelection){
         switch (lifeLineSelection){
             case "askThePeople":
-              //  gui.setLifeLineHint( getInstance().game.askTheAudience(),1);
                 break;
             case "callAFriend":
                 gui.setLifeLineHint(game.callAFriend());
                 break;
             case "removeHalf":
-            //    gui.setLifeLineHint( getInstance().game.removeHalf(),3);
                 break;
             case "changeQuestion":
-           //     gui.setLifeLineHint( getInstance().game.switchQuestion(),4);
                 break;
-            default:
-                System.out.println("!!Something went wrong!!\nCheck setLifeLineImgState method : View > LifeLineArea > setLifeLineImgState().");
+            
         }
     }
 
