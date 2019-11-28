@@ -43,7 +43,7 @@ public class Controller {
         } else {
             gui.setOptionButtonState(buttonSymbol, OptionButton.Wrong);
         }
-        gui.setLifeLineHint("");
+        gui.setLifeLineHint("",0);
     }
 
 // setQuestion() method brings the question and its options and send them to View (gui) that will show it on the screen.
@@ -64,25 +64,21 @@ public class Controller {
     }
 
 //Henriks code
-    public void setLifeLine(String lifeLineSelection) {
-        setLifeLineImgState(lifeLineSelection);
-    }
 
-    public static void setLifeLineImgState(String lifeLineSelection){
+
+    public void setActionsPressingLifeline(String lifeLineSelection){
         switch (lifeLineSelection){
             case "askThePeople":
-                LifeLineArea.getInstance().disableActions(1);
+              //  gui.setLifeLineHint( getInstance().game.askTheAudience(),1);
                 break;
             case "callAFriend":
-                LifeLineArea.getInstance().friend.disable();
-                getInstance().gui.setLifeLineHint( getInstance().game.phoneAFriend());
-                LifeLineArea.getInstance().disableActions(2);
+                gui.setLifeLineHint( getInstance().game.callAFriend(),2);
                 break;
             case "removeHalf":
-                LifeLineArea.getInstance().disableActions(3);
+            //    gui.setLifeLineHint( getInstance().game.removeHalf(),3);
                 break;
             case "changeQuestion":
-                LifeLineArea.getInstance().disableActions(4);
+           //     gui.setLifeLineHint( getInstance().game.switchQuestion(),4);
                 break;
             default:
                 System.out.println("!!Something went wrong!!\nCheck setLifeLineImgState method : View > LifeLineArea > setLifeLineImgState().");

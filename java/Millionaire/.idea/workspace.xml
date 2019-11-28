@@ -2,22 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0665650-3051-4fb5-a229-c0689bbe2764" name="Default Changelist" comment="test v48">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/Backend filar ska laddasupp här.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/connectioninfo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/database.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/get/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/set/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/set/js.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/set/send.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/set/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dokumentation/Veckomöte v48 - kopia.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/META-INF/Millionaire.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/millionaire/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/millionaire/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/millionaire/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/millionaire/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Millionaire/millionaire/View/Gui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/millionaire/View/Gui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/millionaire/View/PlayScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/millionaire/View/PlayScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/millionaire/View/PriceTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/millionaire/View/PriceTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/millionaire/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/millionaire/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/millionaire/View/LifeLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/millionaire/View/LifeLine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Millionaire/millionaire/View/LifeLineArea.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Millionaire/millionaire/View/LifeLineArea.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/millionaire/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/millionaire/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/millionaire/Model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/millionaire/Model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/millionaire/View/Gui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/millionaire/View/Gui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/millionaire/View/LifeLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/millionaire/View/LifeLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/millionaire/View/LifeLineArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/millionaire/View/LifeLineArea.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,9 +119,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.RoundButton" />
         <item itemvalue="Application.Gui" />
         <item itemvalue="Application.Controller" />
-        <item itemvalue="Application.RoundButton" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -158,7 +154,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

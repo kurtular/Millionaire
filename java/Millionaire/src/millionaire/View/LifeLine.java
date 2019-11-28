@@ -24,7 +24,7 @@ public class LifeLine extends Label {
     }
 
 //
-    public void disable(){
+    public void switchToUsedImage(){
         img.setImage(new Image("img/"+type+"-used.png"));
     }
 

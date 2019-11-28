@@ -78,41 +78,42 @@ public class Game implements getJson {
     }
 
     //Henriks kod
-    public String phoneAFriend() {
-        boolean rightAnswer;
-        String friendHint = "";
-        int rand = (int) (Math.random()*100);
-        if (rand > 50) {
-            for (char i = 'A'; i<='D';i++) {
-                rightAnswer =  checkAnswer(i);
-                if (rightAnswer == true) {
-                    int j = (int) i-65;
-                    friendHint = "Jag är säker på att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));
+    public String callAFriend() {     //A method when using lifeLine Call a friend.
+        boolean answer;                // For use when checking if answer is true or false and save it in this.
+        String friendSays = "";        //Creating the empty String.
+        int rand = (int) (Math.random()*100);   //Get a number between 1 and 100
+
+        if (rand > 50) {                   //50% of the times your friend is completely sure what the answer is.
+            for (char i = 'A'; i<='D';i++) {   //looping the chars A to D because the method "checkAnswer()" demand chars.
+                answer =  checkAnswer(i);      //Checking if the answer is true and save it into "answer".
+                if (answer) {                /* If its true the right answer to current question stores into
+                                                "friendSays". Beacuse of "i" is a char and getValue of the answer
+                                                demand a byte the method subtract 64 using ASCInumbers. */
+                    friendSays = "Jag är säker på att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));
                     break;
                 }
             }
         }
-        else if (rand>25) {
+        else if (rand>25) {                   // 25% the friend is pretty sure and guessing at the right answer.
             for (char i = 'A'; i<='D';i++) {
-                rightAnswer =  checkAnswer(i);
-                if (rightAnswer == true) {
-                    friendHint = "Jag TROR att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));
+                answer =  checkAnswer(i);
+                if (answer) {
+                    friendSays = "Jag TROR att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));
                     break;
                 }
             }
-
         }
         else {
-            for (char i = 'A'; i<='D';i++) {
-                rightAnswer =  checkAnswer(i);
-                if (rightAnswer == false) {
-                    friendHint = "Jag TROR att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));
+            for (char i = 'A'; i<='D';i++) {   //25% the friend is pretty sure but guessing at the wrong answer.
+                answer =  checkAnswer(i);
+                if (!answer) {
+                    friendSays = "Jag TROR att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));
                     break;
                 }
             }
 
         }
 
-        return "Din vän säger i telefonen:\n"+friendHint;
+        return "Din vän säger i telefonen:\n"+friendSays;   //The friend says this.
     }
 }
