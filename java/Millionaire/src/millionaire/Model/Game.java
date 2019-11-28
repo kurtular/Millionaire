@@ -78,10 +78,12 @@ public class Game implements getJson {
     }
 
     //Henriks kod
+
     public String callAFriend() {     //A method when using lifeLine Call a friend.
         boolean answer;                // For use when checking if answer is true or false and save it in this.
         String friendSays = "";        //Creating the empty String.
         int rand = (int) (Math.random()*100);   //Get a number between 1 and 100
+
 
         if (rand > 50) {                   //50% of the times your friend is completely sure what the answer is.
             for (char i = 'A'; i<='D';i++) {   //looping the chars A to D because the method "checkAnswer()" demand chars.
@@ -94,6 +96,7 @@ public class Game implements getJson {
                 }
             }
         }
+
         else if (rand>25) {                   // 25% the friend is pretty sure and guessing at the right answer.
             for (char i = 'A'; i<='D';i++) {
                 answer =  checkAnswer(i);

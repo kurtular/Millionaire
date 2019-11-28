@@ -44,7 +44,9 @@ public class LifeLineArea extends VBox {
 
     private void setActions(){
         audience.setOnMouseClicked(event-> Controller.getInstance().setActionsPressingLifeline("askThePeople"));
-        friend.setOnMouseClicked(event->Controller.getInstance().setActionsPressingLifeline("callAFriend"));
+        friend.setOnMouseClicked(event->{
+                disableActions(2);
+                Controller.getInstance().setActionsPressingLifeline("callAFriend");});
         half.setOnMouseClicked(event->Controller.getInstance().setActionsPressingLifeline("removeHalf"));
         change.setOnMouseClicked(event->Controller.getInstance().setActionsPressingLifeline("changeQuestion"));
     }

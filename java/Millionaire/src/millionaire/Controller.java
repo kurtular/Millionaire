@@ -43,7 +43,7 @@ public class Controller {
         } else {
             gui.setOptionButtonState(buttonSymbol, OptionButton.Wrong);
         }
-        gui.setLifeLineHint("",0);
+        gui.setLifeLineHint("");
     }
 
 // setQuestion() method brings the question and its options and send them to View (gui) that will show it on the screen.
@@ -72,7 +72,7 @@ public class Controller {
               //  gui.setLifeLineHint( getInstance().game.askTheAudience(),1);
                 break;
             case "callAFriend":
-                gui.setLifeLineHint( getInstance().game.callAFriend(),2);
+                gui.setLifeLineHint(game.callAFriend());
                 break;
             case "removeHalf":
             //    gui.setLifeLineHint( getInstance().game.removeHalf(),3);

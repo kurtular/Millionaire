@@ -52,9 +52,8 @@ public class Gui extends Application {
         QuestionArea.getInstance().disableActions();
     }
 //
-    public void setLifeLineHint(String hint,int x) {
+    public void setLifeLineHint(String hint) {
         LifeLineArea.getInstance().setLifeLineHint(hint);
-        LifeLineArea.getInstance().disableActions(x);
     }
 
 }
