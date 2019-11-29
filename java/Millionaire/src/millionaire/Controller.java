@@ -58,34 +58,26 @@ public class Controller {
     }
 
 //
-    static void setupController (Game game,Gui gui){
+    public static void setupController (Game game,Gui gui){
         instance.game = game;
         instance.gui = gui;
     }
 
 //Henriks code
-    public void setLifeLine(String lifeLineSelection) {
-        setLifeLineImgState(lifeLineSelection);
-    }
 
-    static void setLifeLineImgState(String lifeLineSelection){
+// A method to recieve which lifeline is clicked and call the different lifelines.
+    public void callTheHintMethods(String lifeLineSelection){
         switch (lifeLineSelection){
             case "askThePeople":
-                LifeLineArea.getInstance().disableActions(1);
                 break;
             case "callAFriend":
-                LifeLineArea.getInstance().friend.disable();
-                getInstance().gui.setLifeLineHint( getInstance().game.phoneAFriend());
-                LifeLineArea.getInstance().disableActions(2);
+                gui.setLifeLineHint(game.callAFriend());
                 break;
             case "removeHalf":
-                LifeLineArea.getInstance().disableActions(3);
                 break;
             case "changeQuestion":
-                LifeLineArea.getInstance().disableActions(4);
                 break;
-            default:
-                System.out.println("!!Something went wrong!!\nCheck setLifeLineImgState method : View > LifeLineArea > setLifeLineImgState().");
+            
         }
     }
 

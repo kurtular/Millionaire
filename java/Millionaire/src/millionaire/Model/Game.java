@@ -78,41 +78,44 @@ public class Game implements getJson {
     }
 
     //Henriks kod
-    public String phoneAFriend() {
-        boolean rightAnswer;
-        String friendHint = "";
+    //A method when using lifeLine "Call a friend".
+    public String callAFriend() {
+        boolean answer;
+        String friendSays = "";
         int rand = (int) (Math.random()*100);
+
+        //50% of the times your friend is completely sure what the answer is.
         if (rand > 50) {
-            for (char i = 'A'; i<='D';i++) {
-                rightAnswer =  checkAnswer(i);
-                if (rightAnswer == true) {
-                    int j = (int) i-65;
-                    friendHint = "Jag är säker på att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));
+            for (char i = 'A'; i<='D';i++) {                                                                                  //looping the chars A to D because the method "checkAnswer()" demand chars.
+                answer =  checkAnswer(i);
+                if (answer) {
+                    friendSays = "Jag är säker på att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));  //  Beacuse of "i" is a char and getValue of the answer demand a byte the method subtract 64 using ASCInumbers.
                     break;
                 }
             }
         }
+        // 25% the friend is pretty sure and guessing at the right answer.
         else if (rand>25) {
             for (char i = 'A'; i<='D';i++) {
-                rightAnswer =  checkAnswer(i);
-                if (rightAnswer == true) {
-                    friendHint = "Jag TROR att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));
+                answer =  checkAnswer(i);
+                if (answer) {
+                    friendSays = "Jag TROR att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));
                     break;
                 }
             }
-
         }
+        //25% the friend is pretty sure but guessing at the wrong answer.
         else {
             for (char i = 'A'; i<='D';i++) {
-                rightAnswer =  checkAnswer(i);
-                if (rightAnswer == false) {
-                    friendHint = "Jag TROR att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));
+                answer =  checkAnswer(i);
+                if (!answer) {
+                    friendSays = "Jag TROR att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));
                     break;
                 }
             }
 
         }
 
-        return "Din vän säger i telefonen:\n"+friendHint;
+        return "Din vän säger i telefonen:\n"+friendSays;
     }
 }
