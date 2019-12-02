@@ -15,9 +15,9 @@ public class Game implements getJson {
     //The member variables.
     final private Question[] questions = new Question[16];
     private byte currentQuestion;
+    final private Player player = Player.getInstance();
 
     private Game() {
-        currentQuestion = 1;
     }
 
     // To set questions array from the server this method will called inside getJsonData.
@@ -30,7 +30,11 @@ public class Game implements getJson {
         }
         return false;
     }
-
+    public void newGame(String playerName){
+        setQuestions();
+        currentQuestion=1;
+        player.setName(playerName);
+    }
     // getValue() return a specific string value of the question object depending on value parameter (check class variables above).
     public String getValue(byte value) {
         if(value==5) {
@@ -65,7 +69,7 @@ public class Game implements getJson {
         currentQuestion++;
     }
 
-    public void setQuestions() {
+    private void setQuestions() {
         try {
             getJsonText("http://localhost/millionaire/get/");                                                       // Link to the questions rest api.
         } catch (Exception e) {

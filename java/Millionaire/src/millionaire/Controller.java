@@ -24,9 +24,8 @@ public class Controller {
     private Controller(){ }
 
 ///////////////////////////////////////////////////////////
-    public void startTheGame() {
-        game.setQuestions();
-        setQuestion();                                                                                  //TODO checking if the game is full loaded before show game gui
+    public void startTheGame(String playerName) {
+        game.newGame(playerName);
     }
 
 // setAnswer() will be called when the player will select an answer for the question.

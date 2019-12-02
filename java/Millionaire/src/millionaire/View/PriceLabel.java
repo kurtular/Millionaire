@@ -10,7 +10,7 @@ import javafx.scene.text.Font;
 import millionaire.FINAL_GLOBAL_VARIABLES;
 
 
- class PriceLabel extends HBox {
+class PriceLabel extends HBox {
     final static boolean SAFE_LEVEL_PRICE_LABEL = true;
     final static boolean NORMAL_PRICE_LABEL = false;
     private Label balanceLabel;

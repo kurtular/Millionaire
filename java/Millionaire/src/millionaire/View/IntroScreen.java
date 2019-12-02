@@ -15,8 +15,11 @@ import java.util.TimerTask;
 // GameContent class include the methods that is responsible to switch between game scenes.
 class IntroScreen extends BorderPane{
     private static final IntroScreen instance = new IntroScreen();
-    private static OptionButton start;
+    private static IntroScreen getInstance(){
+        return instance;
+    }
 
+    private static OptionButton start;
     private IntroScreen(){
         super();
         ImageView logo =new ImageView();
@@ -42,7 +45,7 @@ class IntroScreen extends BorderPane{
 
 // Create and add a start button with its style and action commands when it will be clicked
         start = new OptionButton();
-        start.setText("Start");
+        start.setText("New Game");
         setBottom(start);
         setAlignment(start, Pos.BOTTOM_CENTER);
         setPadding(new Insets(25, 0, 50, 0));
@@ -50,16 +53,13 @@ class IntroScreen extends BorderPane{
     }
 
 //
-    private static IntroScreen getInstance(){
-        return instance;
-}
+
 ///////////////////////////////////////////////////////////////////////
 //  addTo() will return a scene that contain game intro.
 static void addTo(Pane pane){
     pane.getChildren().add(getInstance());
     start.setOnMouseClicked(event -> {
-        PlayScreen.addTo(pane);
-        Controller.getInstance().startTheGame();
+        PlayerNameScreen.addTo(pane);
     });
 }
 
