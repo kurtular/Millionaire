@@ -26,6 +26,7 @@ public class Controller {
 ///////////////////////////////////////////////////////////
     public void startTheGame(String playerName) {
         game.newGame(playerName);
+        setQuestion();
     }
 
 // setAnswer() will be called when the player will select an answer for the question.
@@ -65,7 +66,7 @@ public class Controller {
 //Henriks code
 
 // A method to recieve which lifeline is clicked and call the different lifelines.
-    public void callTheHintMethods(String lifeLineSelection){
+    public void callTheHintMethods(String lifeLineSelection){                          //todo change method name
         switch (lifeLineSelection){
             case "askThePeople":
                 break;
