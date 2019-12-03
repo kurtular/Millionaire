@@ -34,7 +34,7 @@ public class Controller {
     public void setAnswer(char buttonSymbol) { // TODO PlayContent instead of QuestionArea and add delay to button effects-+
         gui.setOptionButtonState(buttonSymbol, OptionButton.Checking);
         gui.disableActions();
-        if (game.checkAnswer(buttonSymbol)) {
+        if (game.checkShownAnswer(buttonSymbol)) {
             gui.setOptionButtonState(buttonSymbol, OptionButton.Right);
             game.nextQuestion();
             setQuestion();

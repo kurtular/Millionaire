@@ -45,7 +45,7 @@ public class Game implements getJson {
     }
 
     // checkAnswer() will return either true or false depending on the playerAnswer value. ()
-    public boolean checkAnswer(char playerAnswer) {
+    private boolean checkAnswer(char playerAnswer) {
         boolean returnedValue;
         // To be able to check the reserve question answer
         byte currentQuestion;
@@ -71,11 +71,15 @@ public class Game implements getJson {
             default:
                 returnedValue = false;
         }
+        return returnedValue;
+    }
+//
+    public boolean checkShownAnswer(char playerAnswer){
+        boolean returnedResult = checkAnswer(playerAnswer);
         if (reserQuestionIsrunning){
             reserQuestionIsrunning = false;
         }
-
-        return returnedValue;
+        return returnedResult;
     }
 
     public void nextQuestion() {
