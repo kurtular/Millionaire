@@ -76,6 +76,14 @@ public class Controller {
             case "removeHalf":
                 break;
             case "changeQuestion":
+                String[] reservQeustion = game.changeQuestion();
+                String question = reservQeustion[0];
+                String option1 = reservQeustion[1];
+                String option2 = reservQeustion[2];
+                String option3 = reservQeustion[3];
+                String option4 = reservQeustion[4];
+                byte currentQuestion = Byte.parseByte(game.getValue(Game.CURRENT_QUESTION));
+                gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
                 break;
             
         }

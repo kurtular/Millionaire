@@ -15,6 +15,7 @@ public class Game implements getJson {
     //The member variables.
     final private Question[] questions = new Question[16];
     private byte currentQuestion;
+    private boolean reserQuestionIsrunning = false;
     final private Player player = Player.getInstance();
 
     private Game() {
@@ -46,6 +47,14 @@ public class Game implements getJson {
     // checkAnswer() will return either true or false depending on the playerAnswer value. ()
     public boolean checkAnswer(char playerAnswer) {
         boolean returnedValue;
+        // To be able to check the reserve question answer
+        byte currentQuestion;
+        if (!reserQuestionIsrunning){
+            currentQuestion=this.currentQuestion;
+        }
+        else{
+            currentQuestion=0;
+        }
         switch (playerAnswer) {
             case 'A':
                 returnedValue = questions[currentQuestion].checkAnswer((byte) 1);
@@ -62,6 +71,10 @@ public class Game implements getJson {
             default:
                 returnedValue = false;
         }
+        if (reserQuestionIsrunning){
+            reserQuestionIsrunning = false;
+        }
+
         return returnedValue;
     }
 
@@ -81,12 +94,30 @@ public class Game implements getJson {
         return game;
     }
 
+
+    // lifeLines
+    //Mohammads kod
+    public String[] changeQuestion(){
+        reserQuestionIsrunning=true;
+        String [] returnedResult = {questions[0].getValue(QUESTION_TEXT),questions[0].getValue(OPTION1),questions[0].getValue(OPTION2),questions[0].getValue(OPTION3),questions[0].getValue(OPTION4)};
+        return returnedResult;
+    }
+
     //Henriks kod
     //A method when using lifeLine "Call a friend".
     public String callAFriend() {
         boolean answer;
         String friendSays = "";
         int rand = (int) (Math.random()*100);
+
+        // To be able to check the reserve question answer
+        byte currentQuestion;
+        if (!reserQuestionIsrunning){
+            currentQuestion=this.currentQuestion;
+        }
+        else{
+            currentQuestion=0;
+        }
 
         //50% of the times your friend is completely sure what the answer is.
         if (rand > 50) {
