@@ -73,7 +73,15 @@ public class Controller {
             case "callAFriend":
                 gui.setLifeLineHint(game.callAFriend());
                 break;
-            case "removeHalf":
+            case "removeHalf":                                                          //todo change variables name
+                String[] shownQuestionAfterRemovingHalfOfOptions = game.removeHalf();
+                String questionText = shownQuestionAfterRemovingHalfOfOptions[0];
+                String option_1 = shownQuestionAfterRemovingHalfOfOptions[1];
+                String option_2 = shownQuestionAfterRemovingHalfOfOptions[2];
+                String option_3 = shownQuestionAfterRemovingHalfOfOptions[3];
+                String option_4 = shownQuestionAfterRemovingHalfOfOptions[4];
+                byte current_Question = Byte.parseByte(game.getValue(Game.CURRENT_QUESTION));
+                gui.updateQuestion(questionText, option_1, option_2, option_3, option_4, current_Question);
                 break;
             case "changeQuestion":
                 String[] reservQeustion = game.changeQuestion();

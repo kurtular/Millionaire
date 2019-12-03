@@ -11,6 +11,9 @@ public class Game implements getJson {
     public final static byte OPTION4 = 4;
     public final static byte CURRENT_QUESTION = 5;
     static private final Game game = new Game();
+    public static Game getInstance() {
+        return game;
+    }
 
     //The member variables.
     final private Question[] questions = new Question[16];
@@ -94,10 +97,6 @@ public class Game implements getJson {
         }
     }
 
-    public static Game getInstance() {
-        return game;
-    }
-
 
     // lifeLines
     //Mohammads kod
@@ -106,7 +105,32 @@ public class Game implements getJson {
         String [] returnedResult = {questions[0].getValue(QUESTION_TEXT),questions[0].getValue(OPTION1),questions[0].getValue(OPTION2),questions[0].getValue(OPTION3),questions[0].getValue(OPTION4)};
         return returnedResult;
     }
-
+//
+    public String[] removeHalf(){
+        byte currentQuestion;
+        if (!reserQuestionIsrunning){
+            currentQuestion=this.currentQuestion;
+        }
+        else{
+            currentQuestion=0;
+        }
+        for (int i = 0; i<2 ; i++){
+            boolean foundWrongOption = false;
+            byte latestFoundedWrongOptionIndex=-1;
+            while(!foundWrongOption){
+                byte rand = (byte)(Math.random()*4+1);
+                while (rand == latestFoundedWrongOptionIndex){
+                    rand = (byte)(Math.random()*4+1);
+                }
+                if (!checkAnswer((char)(rand+64))) {
+                    questions[currentQuestion].removeOption((rand));
+                    foundWrongOption = true;
+                }
+            }
+        }
+        String [] returnedResult = {questions[currentQuestion].getValue(QUESTION_TEXT),questions[currentQuestion].getValue(OPTION1),questions[currentQuestion].getValue(OPTION2),questions[currentQuestion].getValue(OPTION3),questions[currentQuestion].getValue(OPTION4)};
+        return returnedResult;
+    }
     //Henriks kod
     //A method when using lifeLine "Call a friend".
     public String callAFriend() {
