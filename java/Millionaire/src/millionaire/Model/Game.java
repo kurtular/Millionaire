@@ -115,4 +115,50 @@ public class Game implements getJson {
 
         return "Din vän säger i telefonen:\n"+friendHint;
     }
+    public String askAudience() {
+        StringBuilder returnedResult = new StringBuilder(" ");
+        char[] alternatives = {'A', 'B', 'C', 'D'};
+        int rand = (int) (Math.random() * 100 + 1);
+        int max = 100;
+        int[] percent = new int[4];
+        byte correctAnswerIndex = 0;
+
+        for (int i = 0; i < alternatives.length; i++) {
+            if (i == alternatives.length - 1) {
+                percent[i] = max;
+            } else {
+                percent[i] = (int) (Math.random() * max + 1);
+                max -= percent[i];
+            }
+        }
+// find the correct answer.
+        for (byte i = 0; i < alternatives.length; i++) {
+            if (checkAnswer(alternatives[i])) {
+                correctAnswerIndex = i;
+                break;
+            }
+        }
+        if (rand < 75) {
+            for (int i = 0; i < percent.length; i++) {
+                if (percent[correctAnswerIndex] < percent[i]) {
+                    int temp = percent[correctAnswerIndex];
+                    percent[correctAnswerIndex] = percent[i];
+                    percent[i] = temp;
+                }
+            }
+        } else {
+            for (int i = 0; i < percent.length; i++) {
+                if (percent[correctAnswerIndex] > percent[i]) {
+                    int temp = percent[correctAnswerIndex];
+                    percent[correctAnswerIndex] = percent[i];
+                    percent[i] = temp;
+                    break;
+                }
+            }
+        }
+        for (byte i = 0; i < alternatives.length; i++) {
+            returnedResult.append(alternatives[i]).append(" : ").append(percent[i]).append("% ");
+        }
+        return returnedResult.toString();
+    }
 }
