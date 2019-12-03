@@ -39,7 +39,16 @@ String getValue(byte value) {
     }
 
 // checkAnswer() will return either true or false depending on the playerAnswerIndex value. ()
-    public boolean checkAnswer(byte playerAnswerIndex){
+boolean checkAnswer(byte playerAnswerIndex){
         return (playerAnswerIndex == decodeToken(token));
+    }
+// removeOption()
+    void removeOption(byte optionIndex){
+    if (optionIndex>0 && optionIndex<5){
+        options[optionIndex-1] ="";
+    }
+    else {
+        System.out.println("wrong option index to remove");
+    }
     }
 }

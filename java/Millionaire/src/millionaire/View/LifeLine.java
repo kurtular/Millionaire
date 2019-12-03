@@ -4,6 +4,7 @@ import javafx.scene.Cursor;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Ellipse;
 
 public class LifeLine extends Label {
     public final static String AUDIENCE = "audience";
@@ -19,12 +20,13 @@ public class LifeLine extends Label {
         img = new ImageView("img/"+type+".gif");
         img.setFitWidth(150);
         img.setFitHeight(100);
+        setClip(new Ellipse(75, 50,75,50));
         setGraphic(img);
         setCursor(Cursor.HAND);
     }
 
 //
-    public void disable(){
+    public void switchToUsedImage(){
         img.setImage(new Image("img/"+type+"-used.png"));
     }
 

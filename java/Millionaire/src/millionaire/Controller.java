@@ -24,9 +24,9 @@ public class Controller {
     private Controller(){ }
 
 ///////////////////////////////////////////////////////////
-    public void startTheGame() {
-        game.setQuestions();
-        setQuestion();                                                                                  //TODO checking if the game is full loaded before show game gui
+    public void startTheGame(String playerName) {
+        game.newGame(playerName);
+        setQuestion();
     }
 
 // setAnswer() will be called when the player will select an answer for the question.
@@ -34,7 +34,7 @@ public class Controller {
     public void setAnswer(char buttonSymbol) { // TODO PlayContent instead of QuestionArea and add delay to button effects-+
         gui.setOptionButtonState(buttonSymbol, OptionButton.Checking);
         gui.disableActions();
-        if (game.checkAnswer(buttonSymbol)) {
+        if (game.checkShownAnswer(buttonSymbol)) {
             gui.setOptionButtonState(buttonSymbol, OptionButton.Right);
             game.nextQuestion();
             setQuestion();
@@ -53,7 +53,7 @@ public class Controller {
         String option2 = game.getValue(Game.OPTION2);
         String option3 = game.getValue(Game.OPTION3);
         String option4 = game.getValue(Game.OPTION4);
-        String currentQuestion = game.getValue(Game.CURRENT_QUESTION);
+        byte currentQuestion = Byte.parseByte(game.getValue(Game.CURRENT_QUESTION));
         gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
     }
 
@@ -64,28 +64,36 @@ public class Controller {
     }
 
 //Henriks code
-    public void setLifeLine(String lifeLineSelection) {
-        setLifeLineImgState(lifeLineSelection);
-    }
 
-    public static void setLifeLineImgState(String lifeLineSelection){
+// A method to recieve which lifeline is clicked and call the different lifelines.
+    public void callTheHintMethods(String lifeLineSelection){                          //todo change method name
         switch (lifeLineSelection){
             case "askThePeople":
-                LifeLineArea.getInstance().disableActions(1);
                 break;
             case "callAFriend":
-                LifeLineArea.getInstance().friend.disable();
-                getInstance().gui.setLifeLineHint( getInstance().game.phoneAFriend());
-                LifeLineArea.getInstance().disableActions(2);
+                gui.setLifeLineHint(game.callAFriend());
                 break;
-            case "removeHalf":
-                LifeLineArea.getInstance().disableActions(3);
+            case "removeHalf":                                                          //todo change variables name
+                String[] shownQuestionAfterRemovingHalfOfOptions = game.removeHalf();
+                String questionText = shownQuestionAfterRemovingHalfOfOptions[0];
+                String option_1 = shownQuestionAfterRemovingHalfOfOptions[1];
+                String option_2 = shownQuestionAfterRemovingHalfOfOptions[2];
+                String option_3 = shownQuestionAfterRemovingHalfOfOptions[3];
+                String option_4 = shownQuestionAfterRemovingHalfOfOptions[4];
+                byte current_Question = Byte.parseByte(game.getValue(Game.CURRENT_QUESTION));
+                gui.updateQuestion(questionText, option_1, option_2, option_3, option_4, current_Question);
                 break;
             case "changeQuestion":
-                LifeLineArea.getInstance().disableActions(4);
+                String[] reservQeustion = game.changeQuestion();
+                String question = reservQeustion[0];
+                String option1 = reservQeustion[1];
+                String option2 = reservQeustion[2];
+                String option3 = reservQeustion[3];
+                String option4 = reservQeustion[4];
+                byte currentQuestion = Byte.parseByte(game.getValue(Game.CURRENT_QUESTION));
+                gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
                 break;
-            default:
-                System.out.println("!!Something went wrong!!\nCheck setLifeLineImgState method : View > LifeLineArea > setLifeLineImgState().");
+            
         }
     }
 

@@ -11,13 +11,17 @@ public class Game implements getJson {
     public final static byte OPTION4 = 4;
     public final static byte CURRENT_QUESTION = 5;
     static private final Game game = new Game();
+    public static Game getInstance() {
+        return game;
+    }
 
     //The member variables.
     final private Question[] questions = new Question[16];
     private byte currentQuestion;
+    private boolean reserQuestionIsrunning = false;
+    final private Player player = Player.getInstance();
 
     private Game() {
-        currentQuestion = 1;
     }
 
     // To set questions array from the server this method will called inside getJsonData.
@@ -30,7 +34,11 @@ public class Game implements getJson {
         }
         return false;
     }
-
+    public void newGame(String playerName){
+        setQuestions();
+        currentQuestion=1;
+        player.setName(playerName);
+    }
     // getValue() return a specific string value of the question object depending on value parameter (check class variables above).
     public String getValue(byte value) {
         if(value==5) {
@@ -40,8 +48,16 @@ public class Game implements getJson {
     }
 
     // checkAnswer() will return either true or false depending on the playerAnswer value. ()
-    public boolean checkAnswer(char playerAnswer) {
+    private boolean checkAnswer(char playerAnswer) {
         boolean returnedValue;
+        // To be able to check the reserve question answer
+        byte currentQuestion;
+        if (!reserQuestionIsrunning){
+            currentQuestion=this.currentQuestion;
+        }
+        else{
+            currentQuestion=0;
+        }
         switch (playerAnswer) {
             case 'A':
                 returnedValue = questions[currentQuestion].checkAnswer((byte) 1);
@@ -60,12 +76,20 @@ public class Game implements getJson {
         }
         return returnedValue;
     }
+//
+    public boolean checkShownAnswer(char playerAnswer){
+        boolean returnedResult = checkAnswer(playerAnswer);
+        if (reserQuestionIsrunning){
+            reserQuestionIsrunning = false;
+        }
+        return returnedResult;
+    }
 
     public void nextQuestion() {
         currentQuestion++;
     }
 
-    public void setQuestions() {
+    private void setQuestions() {
         try {
             getJsonText("http://localhost/millionaire/get/");                                                       // Link to the questions rest api.
         } catch (Exception e) {
@@ -73,47 +97,89 @@ public class Game implements getJson {
         }
     }
 
-    public static Game getInstance() {
-        return game;
-    }
 
+    // lifeLines
+    //Mohammads kod
+    public String[] changeQuestion(){
+        reserQuestionIsrunning=true;
+        String [] returnedResult = {questions[0].getValue(QUESTION_TEXT),questions[0].getValue(OPTION1),questions[0].getValue(OPTION2),questions[0].getValue(OPTION3),questions[0].getValue(OPTION4)};
+        return returnedResult;
+    }
+//
+    public String[] removeHalf(){
+        byte currentQuestion;
+        if (!reserQuestionIsrunning){
+            currentQuestion=this.currentQuestion;
+        }
+        else{
+            currentQuestion=0;
+        }
+        for (int i = 0; i<2 ; i++){
+            boolean foundWrongOption = false;
+            byte latestFoundedWrongOptionIndex=-1;
+            while(!foundWrongOption){
+                byte rand = (byte)(Math.random()*4+1);
+                while (rand == latestFoundedWrongOptionIndex){
+                    rand = (byte)(Math.random()*4+1);
+                }
+                if (!checkAnswer((char)(rand+64))) {
+                    questions[currentQuestion].removeOption((rand));
+                    foundWrongOption = true;
+                }
+            }
+        }
+        String [] returnedResult = {questions[currentQuestion].getValue(QUESTION_TEXT),questions[currentQuestion].getValue(OPTION1),questions[currentQuestion].getValue(OPTION2),questions[currentQuestion].getValue(OPTION3),questions[currentQuestion].getValue(OPTION4)};
+        return returnedResult;
+    }
     //Henriks kod
-    public String phoneAFriend() {
-        boolean rightAnswer;
-        String friendHint = "";
+    //A method when using lifeLine "Call a friend".
+    public String callAFriend() {
+        boolean answer;
+        String friendSays = "";
         int rand = (int) (Math.random()*100);
+
+        // To be able to check the reserve question answer
+        byte currentQuestion;
+        if (!reserQuestionIsrunning){
+            currentQuestion=this.currentQuestion;
+        }
+        else{
+            currentQuestion=0;
+        }
+
+        //50% of the times your friend is completely sure what the answer is.
         if (rand > 50) {
-            for (char i = 'A'; i<='D';i++) {
-                rightAnswer =  checkAnswer(i);
-                if (rightAnswer == true) {
-                    int j = (int) i-65;
-                    friendHint = "Jag är säker på att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));
+            for (char i = 'A'; i<='D';i++) {                                                                                  //looping the chars A to D because the method "checkAnswer()" demand chars.
+                answer =  checkAnswer(i);
+                if (answer) {
+                    friendSays = "Jag är säker på att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));  //  Beacuse of "i" is a char and getValue of the answer demand a byte the method subtract 64 using ASCInumbers.
                     break;
                 }
             }
         }
+        // 25% the friend is pretty sure and guessing at the right answer.
         else if (rand>25) {
             for (char i = 'A'; i<='D';i++) {
-                rightAnswer =  checkAnswer(i);
-                if (rightAnswer == true) {
-                    friendHint = "Jag TROR att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));
+                answer =  checkAnswer(i);
+                if (answer) {
+                    friendSays = "Jag TROR att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));
                     break;
                 }
             }
-
         }
+        //25% the friend is pretty sure but guessing at the wrong answer.
         else {
             for (char i = 'A'; i<='D';i++) {
-                rightAnswer =  checkAnswer(i);
-                if (rightAnswer == false) {
-                    friendHint = "Jag TROR att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));
+                answer =  checkAnswer(i);
+                if (!answer) {
+                    friendSays = "Jag TROR att det är: "+i+ ". " + questions[currentQuestion].getValue((byte)(i-64));
                     break;
                 }
             }
 
         }
 
-        return "Din vän säger i telefonen:\n"+friendHint;
+        return "Din vän säger i telefonen:\n"+friendSays;
     }
     public String askAudience() {
         StringBuilder returnedResult = new StringBuilder(" ");
