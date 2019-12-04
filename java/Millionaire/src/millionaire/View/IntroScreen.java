@@ -59,6 +59,7 @@ class IntroScreen extends BorderPane{
 static void addTo(Pane pane){
     pane.getChildren().add(getInstance());
     start.setOnMouseClicked(event -> {
+
         //todo the following line be active when playerNameScreen is done.
         //PlayerNameScreen.addTo(pane);
         //todo the following lines be moved to playerNameScreen when it is done.

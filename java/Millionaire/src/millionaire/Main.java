@@ -1,7 +1,6 @@
 package millionaire;
 
 import millionaire.Model.Game;
-import millionaire.Model.Player;
 import millionaire.View.Gui;
 
 class Main {
