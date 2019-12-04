@@ -114,9 +114,9 @@ public class Game implements getJson {
         else{
             currentQuestion=0;
         }
+        byte latestFoundedWrongOptionIndex=-1;
         for (int i = 0; i<2 ; i++){
             boolean foundWrongOption = false;
-            byte latestFoundedWrongOptionIndex=-1;
             while(!foundWrongOption){
                 byte rand = (byte)(Math.random()*4+1);
                 while (rand == latestFoundedWrongOptionIndex){
@@ -125,6 +125,7 @@ public class Game implements getJson {
                 if (!checkAnswer((char)(rand+64))) {
                     questions[currentQuestion].removeOption((rand));
                     foundWrongOption = true;
+                    latestFoundedWrongOptionIndex =rand;
                 }
             }
         }

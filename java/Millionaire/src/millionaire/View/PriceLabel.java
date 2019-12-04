@@ -40,7 +40,7 @@ class PriceLabel extends HBox {
             numberLabel.setTextFill(Color.WHITE);
         }else {
             balanceLabel.setTextFill(Color.valueOf("#00d6a0"));
-            numberLabel.setTextFill(Color.WHITE);
+            numberLabel.setTextFill(Color.valueOf("#00d6a0"));
         }
 
         setPadding(new Insets(0,10,0,10));
