@@ -45,7 +45,7 @@ class IntroScreen extends BorderPane{
 
 // Create and add a start button with its style and action commands when it will be clicked
         start = new OptionButton();
-        start.setText("New Game");
+        start.setText("Nytt spel");
         setBottom(start);
         setAlignment(start, Pos.BOTTOM_CENTER);
         setPadding(new Insets(25, 0, 50, 0));
@@ -59,11 +59,7 @@ class IntroScreen extends BorderPane{
 static void addTo(Pane pane){
     pane.getChildren().add(getInstance());
     start.setOnMouseClicked(event -> {
-        //todo the following line be active when playerNameScreen is done.
-        //PlayerNameScreen.addTo(pane);
-        //todo the following lines be moved to playerNameScreen when it is done.
-        PlayScreen.addTo(pane);
-        Controller.getInstance().startTheGame("testplayer");
+        PlayerNameScreen.addTo(pane);
     });
 }
 
