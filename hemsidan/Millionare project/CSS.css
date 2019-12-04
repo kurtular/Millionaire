@@ -1,25 +1,24 @@
-body {
-    background: #000000;
-}
+/*Everything associated with header.*/
 .header {
     padding: px;
     text-align: center;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 111, 214);
     color: white;
     font-size: 20px;
   }
+  /* Styling for navbar - Making it horizontal. */
   ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     overflow: hidden;
-    background-color: rgb(15, 15, 15);
+    background-color: rgb(1, 94, 180);
   }
-  
+/*Making bar start from the left*/
   li {
     float: left;
   }
-  
+  /* Links in the navbar List */
   li a {
     display: block;
     color: white;
@@ -27,15 +26,41 @@ body {
     padding: 14px 16px;
     text-decoration: none;
   }
-  
-  /* Change the link color to #111 (black) on hover */
+  /*Changes text color on hover */
   li a:hover {
-    color: blueviolet;
+    color: rgb(0, 24, 90);
   }
+  /*Makes it so the page you currently are in is underlined in bar*/
   .active {
-      text-decoration-line: underline; color: blueviolet;
-    
-      
+      text-decoration-line: underline; color: rgb(255, 255, 255);
   }
-  
+  #logo {
+    float: left;
+    width: 90px;
+    height: 90px;
+  }
+
+
+
+  /* Everything associated with the body */
+  body {
+    background: #00a2ff;
+}
+#titeltext{
+  text-align: center;
+  font-size: 40px;
+  color: white;
+}
+.generalinfo{
+  color: white;
+  font-size: 15px;
+}
+#playboard {
+  height: 300px;
+  width: 350px;
+  float: right;
+  padding: 0px;
+  margin-right: 200px;
+ 
+}
   
