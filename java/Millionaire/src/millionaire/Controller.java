@@ -3,9 +3,6 @@ package millionaire;
 import millionaire.Model.Game;
 import millionaire.View.*;
 
-import javax.print.attribute.standard.MediaSize;
-import java.util.Arrays;
-
 // Controller class (MVC design pattern).
 
 public class Controller {
@@ -39,7 +36,7 @@ public class Controller {
     public void setAnswer(char buttonSymbol) { // TODO PlayContent instead of QuestionArea and add delay to button effects-+
         gui.setOptionButtonState(buttonSymbol, OptionButton.Checking);
         gui.disableActions();
-        if (game.checkShownAnswer(buttonSymbol)) {
+        if (game.checkAnswer(buttonSymbol)) {
             gui.setOptionButtonState(buttonSymbol, OptionButton.Right);
             game.nextQuestion();
             setQuestion();

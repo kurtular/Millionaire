@@ -5,6 +5,7 @@ import org.json.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class Game implements getJson {
     // Class variables.
@@ -23,7 +24,7 @@ public class Game implements getJson {
     //The member variables.
     final private Question[] questions = new Question[16];
     private byte currentQuestion;
-    private boolean reserQuestionIsrunning = false;
+    private boolean reserveQuestionIsrunning = false;
     final private Player player = Player.getInstance();
 
     private Game() {
@@ -59,16 +60,22 @@ public class Game implements getJson {
         if (value == 5) {
             return Byte.toString(currentQuestion);
         } else {
+            byte currentQuestion;
+            if (!reserveQuestionIsrunning) {
+                currentQuestion = this.currentQuestion;
+            } else {
+                currentQuestion = 0;
+            }
             return questions[currentQuestion].getValue(value);
         }
     }
 
     // checkAnswer() will return either true or false depending on the playerAnswer value. ()
-    private boolean checkAnswer(char playerAnswer) {
+    public boolean checkAnswer(char playerAnswer) {
         boolean returnedValue;
         // To be able to check the reserve question answer
         byte currentQuestion;
-        if (!reserQuestionIsrunning) {
+        if (!reserveQuestionIsrunning) {
             currentQuestion = this.currentQuestion;
         } else {
             currentQuestion = 0;
@@ -92,17 +99,12 @@ public class Game implements getJson {
         return returnedValue;
     }
 
-    //
-    public boolean checkShownAnswer(char playerAnswer) {
-        boolean returnedResult = checkAnswer(playerAnswer);
-        if (reserQuestionIsrunning) {
-            reserQuestionIsrunning = false;
-        }
-        return returnedResult;
-    }
-
+//
     public void nextQuestion() {
         currentQuestion++;
+        if (reserveQuestionIsrunning) {
+            reserveQuestionIsrunning = false;
+        }
     }
 
     private void setQuestions() {
@@ -113,14 +115,10 @@ public class Game implements getJson {
         }
     }
 
-    public String getPlayerName(){
-        return player.getName();
-    }
-
     // lifeLines
-    //Mohammads kod
+    //
     public String[] changeQuestion() {
-        reserQuestionIsrunning = true;
+        reserveQuestionIsrunning = true;
         String[] returnedResult = {questions[0].getValue(QUESTION_TEXT), questions[0].getValue(OPTION1), questions[0].getValue(OPTION2), questions[0].getValue(OPTION3), questions[0].getValue(OPTION4)};
         return returnedResult;
     }
@@ -128,7 +126,7 @@ public class Game implements getJson {
     //
     public String[] removeHalf() {
         byte currentQuestion;
-        if (!reserQuestionIsrunning) {
+        if (!reserveQuestionIsrunning) {
             currentQuestion = this.currentQuestion;
         } else {
             currentQuestion = 0;
@@ -148,31 +146,22 @@ public class Game implements getJson {
                 }
             }
         }
-        String[] returnedResult = {questions[currentQuestion].getValue(QUESTION_TEXT), questions[currentQuestion].getValue(OPTION1), questions[currentQuestion].getValue(OPTION2), questions[currentQuestion].getValue(OPTION3), questions[currentQuestion].getValue(OPTION4)};
+        String[] returnedResult = {getValue(QUESTION_TEXT), getValue(OPTION1), getValue(OPTION2), getValue(OPTION3), getValue(OPTION4)};
         return returnedResult;
     }
 
-    //Henriks kod
     //A method when using lifeLine "Call a friend".
     public String callAFriend() {
         boolean answer;
         String friendSays = "";
         int rand = (int) (Math.random() * 100);
 
-        // To be able to check the reserve question answer
-        byte currentQuestion;
-        if (!reserQuestionIsrunning) {
-            currentQuestion = this.currentQuestion;
-        } else {
-            currentQuestion = 0;
-        }
-
         //50% of the times your friend is completely sure what the answer is.
         if (rand > 50) {
             for (char i = 'A'; i <= 'D'; i++) {                                                                                  //looping the chars A to D because the method "checkAnswer()" demand chars.
                 answer = checkAnswer(i);
                 if (answer) {
-                    friendSays = "Jag är säker på att det är: " + i + ". " + questions[currentQuestion].getValue((byte) (i - 64));  //  Beacuse of "i" is a char and getValue of the answer demand a byte the method subtract 64 using ASCInumbers.
+                    friendSays = "Jag är säker på att det är: " + i + ". " + getValue((byte) (i - 64));  //  Beacuse of "i" is a char and getValue of the answer demand a byte the method subtract 64 using ASCInumbers.
                     break;
                 }
             }
@@ -182,17 +171,19 @@ public class Game implements getJson {
             for (char i = 'A'; i <= 'D'; i++) {
                 answer = checkAnswer(i);
                 if (answer) {
-                    friendSays = "Jag TROR att det är: " + i + ". " + questions[currentQuestion].getValue((byte) (i - 64));
+                    friendSays = "Jag TROR att det är: " + i + ". " + getValue((byte) (i - 64));
                     break;
                 }
             }
         }
         //25% the friend is pretty sure but guessing at the wrong answer.
         else {
-            for (char i = 'A'; i <= 'D'; i++) {
-                answer = checkAnswer(i);
-                if (!answer) {
-                    friendSays = "Jag TROR att det är: " + i + ". " + questions[currentQuestion].getValue((byte) (i - 64));
+            while (true){
+                int i =(int) (Math.random()*4+1);
+                answer = checkAnswer((char)(i+64));
+                String answerText = getValue((byte) (i));
+                if (!answer && answerText!=null) {
+                    friendSays = "Jag TROR att det är: " + (char)(i+64) + ". " + answerText;
                     break;
                 }
             }
@@ -204,25 +195,31 @@ public class Game implements getJson {
 
     public String askAudience() {
         StringBuilder returnedResult = new StringBuilder("Folk röst: \n");
-        char[] alternatives = {'A', 'B', 'C', 'D'};
+        char[] options = {'A', 'B', 'C', 'D'};
+        ArrayList <Character> shownOptions = new ArrayList<>();
+        for (int i=0;i<options.length;i++){
+            if (getValue((byte) (options[i]-64))!=null)
+                shownOptions.add(options[i]);
+        }
+
         int rand = (int) (Math.random() * 100 + 1);
         int max = 100;
-        int[] percent = new int[4];
+        int[] percent = new int[shownOptions.size()];
         byte correctAnswerIndex = 0;
 
-        for (int i = 0; i < alternatives.length; i++) {
-            if (i == alternatives.length - 1) {
+
+        for (int i = 0; i < shownOptions.size(); i++) {
+            if (i == shownOptions.size() - 1) {
                 percent[i] = max;
             } else {
-                percent[i] = (int) (Math.random() * max + 1);
+                percent[i] =(int) Math.round(Math.random() * max);
                 max -= percent[i];
             }
         }
 // find the correct answer.
-        for (byte i = 0; i < alternatives.length; i++) {
-            if (checkAnswer(alternatives[i])) {
+        for (byte i = 0; i < shownOptions.size(); i++) {
+            if (checkAnswer(shownOptions.get(i))) {
                 correctAnswerIndex = i;
-                break;
             }
         }
         if (rand < 75) {
@@ -231,6 +228,7 @@ public class Game implements getJson {
                     int temp = percent[correctAnswerIndex];
                     percent[correctAnswerIndex] = percent[i];
                     percent[i] = temp;
+
                 }
             }
         } else {
@@ -243,8 +241,21 @@ public class Game implements getJson {
                 }
             }
         }
-        for (byte i = 0; i < alternatives.length; i++) {
-            returnedResult.append(alternatives[i]).append(" : ").append(percent[i]).append("% ");
+
+        for (byte j=0,i = 0; i < options.length; i++) {
+            if (shownOptions.size() != options.length){
+                    if(j<shownOptions.size() && options[i]==shownOptions.get(j)){
+                        returnedResult.append(shownOptions.get(j)).append(" : ").append(percent[j]).append("% ");
+                        j++;
+                    }
+                else {
+                    returnedResult.append(options[i]).append(" : 0%");
+                }
+
+            }
+            else {
+            returnedResult.append(shownOptions.get(i)).append(" : ").append(percent[i]).append("% ");
+            }
         }
         return returnedResult.toString();
     }

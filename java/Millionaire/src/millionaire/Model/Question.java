@@ -45,7 +45,7 @@ boolean checkAnswer(byte playerAnswerIndex){
 // removeOption()
     void removeOption(byte optionIndex){
     if (optionIndex>0 && optionIndex<5){
-        options[optionIndex-1] ="";
+        options[optionIndex-1] =null;
     }
     else {
         System.out.println("wrong option index to remove");
