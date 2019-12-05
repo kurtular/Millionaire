@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 import millionaire.Controller;
 
 import static javafx.geometry.Pos.CENTER;
@@ -16,14 +17,10 @@ import static javafx.geometry.Pos.CENTER;
 
 class PlayerNameScreen extends VBox {
     final private static PlayerNameScreen instance = new PlayerNameScreen();
-    private final Label hintText;
+
     private static  Label errorMessage;
     private static TextField aliasInput;
     private static TextLabel confirmButton;
-    private final Image playerImage;
-    private final ImageView imageView;
-    private final VBox innerVBox;
-
 
     static PlayerNameScreen getInstance() {
         return instance;
@@ -31,26 +28,31 @@ class PlayerNameScreen extends VBox {
 
     private PlayerNameScreen() {
         super();
-        playerImage = new Image("img/player.png");
-        imageView = new ImageView(playerImage);
+
+        ImageView imageView = new ImageView("img/player.png");
         imageView.setFitWidth(250);
         imageView.setFitHeight(250);
+
         aliasInput = new TextField();
         aliasInput.setPromptText("Skriv in ditt alias:");
         aliasInput.setFocusTraversable(false);
         aliasInput.setMaxSize(150, 20);
         aliasInput.setFont(Font.font(15));
-        hintText = new Label();
-        hintText.setText("Detta alias kommer sedan synas publikt tillsammans med ditt resultat ");
+
+        Label hintText = new Label();
+        hintText.setText("Detta alias kommer sedan synas publikt tillsammans med ditt resultat.");
         hintText.setPrefSize(350, 60);
-        hintText.setFont(Font.font("arial", 11));
+        hintText.setFont(Font.font("arial", 15));
+        hintText.setWrapText(true);
+        hintText.setTextAlignment(TextAlignment.CENTER);
         hintText.setTextFill(Color.valueOf("#fff"));
+
         errorMessage = new Label();
         errorMessage.setTextFill(Color.RED);
         confirmButton = new TextLabel(200, 50);
-        confirmButton.setText("Registrera spel");
+        confirmButton.setText("strata spelet");
 
-        innerVBox = new VBox(imageView,aliasInput,hintText,errorMessage,confirmButton);
+        VBox innerVBox = new VBox(imageView,aliasInput,hintText,errorMessage,confirmButton);
         innerVBox.setId("vBox");
         innerVBox.setAlignment(CENTER);
         innerVBox.setSpacing(40);
@@ -58,9 +60,6 @@ class PlayerNameScreen extends VBox {
 
         getChildren().add(innerVBox);
         setMargin(innerVBox,new Insets(100,200,100,330));
-
-
-
 
     }
 
