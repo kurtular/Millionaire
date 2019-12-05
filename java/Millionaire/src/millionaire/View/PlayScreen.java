@@ -27,5 +27,6 @@ class PlayScreen extends BorderPane {
     static void addTo(Pane pane){
         pane.getChildren().clear();
         pane.getChildren().add(getInstance());
+        // TODO: Decide when PlayScreen move to EndGameScreen.
     }
 }

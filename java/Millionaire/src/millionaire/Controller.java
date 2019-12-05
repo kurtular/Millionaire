@@ -3,33 +3,38 @@ package millionaire;
 import millionaire.Model.Game;
 import millionaire.View.*;
 
+import javax.print.attribute.standard.MediaSize;
+import java.util.Arrays;
+
 // Controller class (MVC design pattern).
 
 public class Controller {
 
     final private static Controller instance = new Controller();
+
     public static Controller getInstance() {
         return instance;
     }
 
-///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
 // Controller member variables.
 // game variable represents the Model of MVC design pattern.
 // gui variable represents the View of MVC design pattern.
     private Gui gui;
     private Game game;
 
-///////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////
 // Controller constructor.
-    private Controller(){ }
+    private Controller() {
+    }
 
-///////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////
     public void startTheGame(String playerName) {
         game.newGame(playerName);
         setQuestion();
     }
 
-// setAnswer() will be called when the player will select an answer for the question.
+    // setAnswer() will be called when the player will select an answer for the question.
 // It's make some changes that fits the situation for example: making the background color of the selection button yellow and disable the other selections.
     public void setAnswer(char buttonSymbol) { // TODO PlayContent instead of QuestionArea and add delay to button effects-+
         gui.setOptionButtonState(buttonSymbol, OptionButton.Checking);
@@ -46,8 +51,8 @@ public class Controller {
         gui.setLifeLineHint("");
     }
 
-// setQuestion() method brings the question and its options and send them to View (gui) that will show it on the screen.
-    private void setQuestion(){
+    // setQuestion() method brings the question and its options and send them to View (gui) that will show it on the screen.
+    private void setQuestion() {
         String question = game.getValue(Game.QUESTION_TEXT);
         String option1 = game.getValue(Game.OPTION1);
         String option2 = game.getValue(Game.OPTION2);
@@ -57,18 +62,19 @@ public class Controller {
         gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
     }
 
-//
-    public static void setupController (Game game,Gui gui){
+    //
+    public static void setupController(Game game, Gui gui) {
         instance.game = game;
         instance.gui = gui;
     }
 
 //Henriks code
 
-// A method to recieve which lifeline is clicked and call the different lifelines.
-    public void callTheHintMethods(String lifeLineSelection){                          //todo change method name
-        switch (lifeLineSelection){
+    // A method to recieve which lifeline is clicked and call the different lifelines.
+    public void callTheHintMethods(String lifeLineSelection) {                          //todo change method name
+        switch (lifeLineSelection) {
             case "askThePeople":
+                gui.setLifeLineHint(game.askAudience());
                 break;
             case "callAFriend":
                 gui.setLifeLineHint(game.callAFriend());
@@ -93,8 +99,10 @@ public class Controller {
                 byte currentQuestion = Byte.parseByte(game.getValue(Game.CURRENT_QUESTION));
                 gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
                 break;
-            
         }
     }
-
+    // This function can cause java.lang.NoClassDefFoundError when it calls. Can not find the cause. ////////////////
+    public void sendCheck() {
+        EndGameScreen.setCheck("game.getPlayerName()","100$", "2019-12-04");
+    }
 }
