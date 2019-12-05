@@ -29,9 +29,11 @@ public class Controller {
         setQuestion();
     }
 
-// setAnswer() will be called when the player will select an answer for the question.
-// It's make some changes that fits the situation for example: making the background color of the selection button yellow and disable the other selections.
+/* setAnswer() will be called when the player will select an answer for the question.
+ It's make some changes that fits the situation for example: making the background color of the selection button yellow
+ and disable the other selections. It will also temporarily disabling the lifelines. */
     public void setAnswer(char buttonSymbol) { // TODO PlayContent instead of QuestionArea and add delay to button effects-+
+        LifeLineArea.getInstance().tempDisableLifeLinesAfterAnswer();
         gui.setOptionButtonState(buttonSymbol, OptionButton.Checking);
         gui.disableActions();
         if (game.checkShownAnswer(buttonSymbol)) {
