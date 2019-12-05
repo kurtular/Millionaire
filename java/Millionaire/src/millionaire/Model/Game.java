@@ -1,6 +1,10 @@
 package millionaire.Model;
 
+import millionaire.FINAL_GLOBAL_VARIABLES;
 import org.json.*;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Game implements getJson {
     // Class variables.
@@ -41,8 +45,13 @@ public class Game implements getJson {
         currentQuestion = 1;
         player.setName(playerName);
     }
-    public Player getPlayer(){
-        return player;
+    public String[] getMoneyCheckData(){
+        String[] returnedData = new String[3];
+        returnedData[0] = player.getName();
+        returnedData[1] = FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion-1];
+        DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        returnedData[2] = date.format(LocalDateTime.now());
+        return returnedData;
     }
 
     // getValue() return a specific string value of the question object depending on value parameter (check class variables above).

@@ -47,6 +47,8 @@ public class Controller {
             gui.setOptionButtonState(buttonSymbol, OptionButton.Default);
         } else {
             gui.setOptionButtonState(buttonSymbol, OptionButton.Wrong);
+            String[] moneyCheckData = game.getMoneyCheckData();
+            gui.showEndGameScreen(moneyCheckData[0],moneyCheckData[1],moneyCheckData[2]);
         }
         gui.setLifeLineHint("");
     }
@@ -100,9 +102,5 @@ public class Controller {
                 gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
                 break;
         }
-    }
-    // This function can cause java.lang.NoClassDefFoundError when it calls. Can not find the cause. ////////////////
-    public void sendCheck() {
-        EndGameScreen.setCheck("game.getPlayerName()","100$", "2019-12-04");
     }
 }

@@ -1,10 +1,8 @@
 package millionaire.View;
 
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -20,7 +18,7 @@ class PlayerNameScreen extends VBox {
 
     private static  Label errorMessage;
     private static TextField aliasInput;
-    private static TextLabel confirmButton;
+    private static OptionButton confirmButton;
 
     static PlayerNameScreen getInstance() {
         return instance;
@@ -36,7 +34,7 @@ class PlayerNameScreen extends VBox {
         aliasInput = new TextField();
         aliasInput.setPromptText("Skriv in ditt alias:");
         aliasInput.setFocusTraversable(false);
-        aliasInput.setMaxSize(150, 20);
+        aliasInput.setMaxSize(250, 20);
         aliasInput.setFont(Font.font(15));
 
         Label hintText = new Label();
@@ -49,17 +47,23 @@ class PlayerNameScreen extends VBox {
 
         errorMessage = new Label();
         errorMessage.setTextFill(Color.RED);
-        confirmButton = new TextLabel(200, 50);
+
+        confirmButton = new OptionButton();
         confirmButton.setText("strata spelet");
+        confirmButton.setScaleX(0.7);
+        confirmButton.setScaleY(0.7);
+        confirmButton.setFont(Font.font(30));
 
         VBox innerVBox = new VBox(imageView,aliasInput,hintText,errorMessage,confirmButton);
         innerVBox.setId("vBox");
         innerVBox.setAlignment(CENTER);
         innerVBox.setSpacing(40);
-        innerVBox.setPadding(new Insets(20));
+        innerVBox.setMaxSize(500, 700);
+        innerVBox.setPadding(new Insets(10,0,0,0));
 
         getChildren().add(innerVBox);
-        setMargin(innerVBox,new Insets(100,200,100,330));
+        setAlignment(CENTER);
+        setPrefSize(1024, 768);
 
     }
 

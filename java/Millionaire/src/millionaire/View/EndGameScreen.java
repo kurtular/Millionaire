@@ -3,69 +3,75 @@ package millionaire.View;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
-import millionaire.Controller;
+import millionaire.FINAL_GLOBAL_VARIABLES;
 
 public class EndGameScreen extends VBox {
     private static EndGameScreen instance = new EndGameScreen();
-    private Label label1;
-    private Label label2;
-    private Label label3;
+    private Label playerName;
+    private Label balance;
+    private Label date;
     private static OptionButton home;
 
 
     private EndGameScreen() {
         super();
 
-        label1 = new Label();
-        label2 = new Label();
-        label3 = new Label();
+        playerName = new Label();
+        balance = new Label();
+        date = new Label();
 
 
-        label1.setTranslateX(350);
-        label1.setTranslateY(45);
-        label1.setFont(Font.font(30));
+        playerName.setTranslateX(220);
+        playerName.setTranslateY(45);
+        playerName.setFont(Font.font(30));
+        playerName.setMaxWidth(400);
 
-        label2.setTranslateX(270);
-        label2.setTranslateY(35);
-        label2.setFont(Font.font(30));
+        balance.setTranslateX(150);
+        balance.setTranslateY(35);
+        balance.setFont(Font.font(30));
 
-        label3.setTranslateX(170);
-        label3.setTranslateY(10);
-        label3.setFont(Font.font(30));
+        date.setTranslateX(110);
+        date.setTranslateY(20);
+        date.setFont(Font.font(20));
 
         home = new OptionButton();
         home.setText("HOME");
-        setPrefSize(900, 400);
-        getStylesheets().add("style.css");
+        home.setScaleX(0.7);
+        home.setScaleY(0.7);
+        home.setFont(Font.font(30));
 
-        Image imageView = new Image("img/moneycheck.png");
-        ImageView imageView2 = new ImageView(imageView);
 
-        imageView2.setFitHeight(400);
-        imageView2.setFitWidth(900);
+        ImageView moneyCheck = new ImageView("img/moneycheck.png");
+        moneyCheck.setFitHeight(400);
+        moneyCheck.setFitWidth(900);
 
-        VBox vBox = new VBox(label1, label2, label3);
-        vBox.setAlignment(Pos.CENTER_LEFT);
-        vBox.setSpacing(60);
+        VBox CheckData = new VBox(playerName, balance, date);
+        CheckData.setAlignment(Pos.CENTER_LEFT);
+        CheckData.setSpacing(60);
 
         StackPane pane = new StackPane();
-        pane.getChildren().addAll(imageView2, vBox);
+        pane.getChildren().addAll(moneyCheck, CheckData);
         pane.setId("pane");
-        getChildren().addAll(pane, home);
-        this.setSpacing(70);
-        this.setMinWidth(1024);
-        this.setMinHeight(768);
-        this.setAlignment(Pos.CENTER);
-    }
 
-   public static void setCheck(String name, String balance, String date) {
-        instance.label1.setText(name);
-        instance.label2.setText(balance);
-        instance.label3.setText(date);
+        VBox content = new VBox();
+        content.getChildren().addAll(pane, home);
+        content.setSpacing(70);
+        content.setMaxSize(920,600);
+        content.setPadding(new Insets(20));
+        content.setAlignment(Pos.CENTER);
+        content.setId("EndGameScreenContent");
+
+        getChildren().add(content);
+        setAlignment(Pos.CENTER);
+        setPrefSize(1024, 768);
+    }
+    private void setCheckData(String playerName, String playerBalance, String gameDate) {
+        instance.playerName.setText(playerName);
+        instance.balance.setText(playerBalance+FINAL_GLOBAL_VARIABLES.getCurrencySymbol());
+        instance.date.setText(gameDate);
     }
 
     public static EndGameScreen getInstance() {
@@ -73,11 +79,12 @@ public class EndGameScreen extends VBox {
     }
 
     // Back to intro screen.
-    static void addTo(Pane pane) {
+    static void addTo(Pane pane,String playerName, String playerBalance,String gameDate) {
+        instance.setCheckData(playerName,playerBalance,gameDate);
+        pane.getChildren().clear();
         pane.getChildren().add(getInstance());
         home.setOnMouseClicked(event -> {
             IntroScreen.addTo(pane);
-            Controller.getInstance().startTheGame("testplayer");
         });
     }
 }

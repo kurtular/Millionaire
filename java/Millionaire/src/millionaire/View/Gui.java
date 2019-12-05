@@ -9,7 +9,7 @@ import millionaire.FINAL_GLOBAL_VARIABLES;
 
 // The main class of the View packet and it's represent the View class of the MVC design pattern.
 public class Gui extends Application {
-    private Pane content;
+    static private Pane content;
 // start() will be run after calling launch(args) that is inside launchGui(). It's an overridden method after extending Application class. (javaFx).
     @Override
     public void start(Stage stage) {
@@ -57,5 +57,8 @@ public class Gui extends Application {
 //A method who recieves the lifelinehint from controller and push it forward to Lifelineareaclass
     public void setLifeLineHint(String hint) { LifeLineArea.getInstance().setLifeLineHint(hint);
     }
-
+//
+    public void showEndGameScreen(String playerName, String playerBalance,String gameDate){
+        EndGameScreen.addTo(content,playerName,playerBalance,gameDate);
+    }
 }

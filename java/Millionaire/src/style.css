@@ -40,22 +40,11 @@ OptionButton:hover{
 -fx-background-radius:10;
 -fx-background-color: rgb(0,0,0,0.3);
 }
-#pane{
--fx-border-width: 3;
--fx-background-radius:30;
--fx-background-color: rgb(0,0,0,0.3);
-}
- #vBox {
+
+#EndGameScreenContent , #vBox {
 -fx-background-color: rgb(0,0,0,0.3);
 -fx-background-radius: 20;
 
--fx-border-style: solid;
--fx-border-width: 3;
--fx-border-color: white;
-
--fx-border-radius: 20;
-}
-#playerImage{
 -fx-border-style: solid;
 -fx-border-width: 3;
 -fx-border-color: white;
