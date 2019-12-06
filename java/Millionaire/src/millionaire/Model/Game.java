@@ -98,7 +98,16 @@ public class Game implements getJson {
         }
         return returnedValue;
     }
-
+//
+    public char getCorrectAnswerSymbol(){
+        char symbol = '0';
+        for (symbol='A';symbol<='D';symbol++){
+            if (checkAnswer(symbol)) {
+                break;
+            }
+        }
+        return symbol;
+    }
 //
     public void nextQuestion() {
         currentQuestion++;
@@ -131,6 +140,7 @@ public class Game implements getJson {
         } else {
             currentQuestion = 0;
         }
+        //
         byte latestFoundedWrongOptionIndex=-1;
         for (int i = 0; i<2 ; i++){
             boolean foundWrongOption = false;
@@ -152,44 +162,30 @@ public class Game implements getJson {
 
     //A method when using lifeLine "Call a friend".
     public String callAFriend() {
-        boolean answer;
         String friendSays = "";
         int rand = (int) (Math.random() * 100);
 
         //50% of the times your friend is completely sure what the answer is.
         if (rand > 50) {
-            for (char i = 'A'; i <= 'D'; i++) {                                                                                  //looping the chars A to D because the method "checkAnswer()" demand chars.
-                answer = checkAnswer(i);
-                if (answer) {
-                    friendSays = "Jag är säker på att det är: " + i + ". " + getValue((byte) (i - 64));  //  Beacuse of "i" is a char and getValue of the answer demand a byte the method subtract 64 using ASCInumbers.
-                    break;
-                }
-            }
+            friendSays = "Jag är säker på att det är: " + getCorrectAnswerSymbol() + ". " + getValue((byte) (getCorrectAnswerSymbol() - 64));  //  Beacuse of "i" is a char and getValue of the answer demand a byte the method subtract 64 using ASCInumbers.
         }
         // 25% the friend is pretty sure and guessing at the right answer.
         else if (rand > 25) {
-            for (char i = 'A'; i <= 'D'; i++) {
-                answer = checkAnswer(i);
-                if (answer) {
-                    friendSays = "Jag TROR att det är: " + i + ". " + getValue((byte) (i - 64));
-                    break;
-                }
-            }
+            friendSays = "Jag TROR att det är: " + getCorrectAnswerSymbol() + ". " + getValue((byte) (getCorrectAnswerSymbol() - 64));
         }
         //25% the friend is pretty sure but guessing at the wrong answer.
         else {
+            boolean isAnswerCorrect;
             while (true){
                 int i =(int) (Math.random()*4+1);
-                answer = checkAnswer((char)(i+64));
+                isAnswerCorrect = checkAnswer((char)(i+64));
                 String answerText = getValue((byte) (i));
-                if (!answer && answerText!=null) {
+                if (!isAnswerCorrect && answerText!=null) {
                     friendSays = "Jag TROR att det är: " + (char)(i+64) + ". " + answerText;
                     break;
                 }
             }
-
         }
-
         return "Din vän säger i telefonen:\n" + friendSays;
     }
 

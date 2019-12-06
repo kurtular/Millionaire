@@ -40,25 +40,23 @@ public class Controller {
     // setAnswer() will be called when the player will select an answer for the question.
 // It's make some changes that fits the situation for example: making the background color of the selection button yellow and disable the other selections.
     public void setAnswer(char buttonSymbol) {
-        gui.setOptionButtonState(buttonSymbol, OptionButton.Checking);
+        gui.setOptionButtonState(buttonSymbol, OptionButton.CHECKING);
         gui.disableActions();
         Gui.stop = true;
         Timer.delay(() -> {
             if (game.checkAnswer(buttonSymbol)) {
-                gui.setOptionButtonState(buttonSymbol, OptionButton.Right);
+                gui.setOptionButtonState(buttonSymbol, OptionButton.CORRECT);
                 Timer.delay(()->{
                     game.nextQuestion();
                     setQuestion(true);
                     gui.enableActions();
-                    gui.setOptionButtonState(buttonSymbol, OptionButton.Default);
+                    gui.setOptionButtonState(buttonSymbol, OptionButton.DEFAULT);
                 }, 3);
 
 
             } else {
-                gui.setOptionButtonState(buttonSymbol, OptionButton.Wrong);
-                Timer.delay(()->{
+                    gui.setOptionButtonState(buttonSymbol, OptionButton.WRONG);
                     endTheGame();
-                    }, 3);
             }
         },3);
         gui.setLifeLineHint("");
@@ -87,8 +85,11 @@ public class Controller {
     }
     //
     private void endTheGame(){
-        String[] moneyCheckData = game.getMoneyCheckData();
-        gui.showEndGameScreen(moneyCheckData[0],moneyCheckData[1],moneyCheckData[2]);
+        gui.setOptionButtonState(game.getCorrectAnswerSymbol() , OptionButton.CORRECT);
+        Timer.delay(()->{
+            String[] moneyCheckData = game.getMoneyCheckData();
+            gui.showEndGameScreen(moneyCheckData[0],moneyCheckData[1],moneyCheckData[2]);
+        }, 3);
     }
     //
     private void checkTimerSeconds(){

@@ -9,10 +9,10 @@ import javafx.scene.text.TextAlignment;
 // OptionButton class will create the options buttons that will be shown underneath question text.
 public class OptionButton extends Label {
 // Some static variable that represents the states of an option button. These will be usable when  calling setState().
-    public static final int Wrong = -1;
-    public static final int Checking = 0;
-    public static final int Right = 1;
-    public static final int Default = 2;
+    public static final int WRONG = -1;
+    public static final int CHECKING = 0;
+    public static final int CORRECT = 1;
+    public static final int DEFAULT = 2;
 
 /////////////////////////////////////////////////////////////////////
 // Constructor
