@@ -6,8 +6,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
+import millionaire.Timer;
 
-class TimerLabel extends Label {
+public class TimerLabel extends Label {
     private static final TimerLabel instance = new TimerLabel();
     private TimerLabel(){
         super();
@@ -26,14 +27,14 @@ class TimerLabel extends Label {
         this.setContentDisplay(ContentDisplay.CENTER);
         this.setFocusTraversable(false);
     }
-    protected void setTimerValue(int value){
-        if(value==0)
-            this.setText("0");
-        else if(value>0 &&value<31)
-            this.setText(Integer.toString(value)); //todo add to the actual seconds.
-        else if(value == -1)
-            this.setText(Integer.toString(Integer.parseInt(this.getText())-1));
-        else System.out.println("!!Wrong data!!.\nCheck setTimer method location: View > QuestionArea >setTimer()");
+    protected static void startTimer(){
+        instance.setText(Integer.toString(Gui.shownSecondsInTimerLabel));
+        Timer.delay(()->{
+            if(Gui.shownSecondsInTimerLabel>0 && !Gui.stop){
+                Gui.shownSecondsInTimerLabel--;
+                startTimer();
+            }
+        }, 1);
     }
     static TimerLabel getInstance(){
         return instance;

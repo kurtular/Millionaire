@@ -45,16 +45,16 @@ public class LifeLineArea extends VBox {
     private void setActions(){
         audience.setOnMouseClicked(event-> {
                 disableActions(1);
-                Controller.getInstance().callTheHintMethods("askThePeople");});
+                Controller.getInstance().useLifeLine("askThePeople");});
         friend.setOnMouseClicked(event-> {
                 disableActions(2);
-                Controller.getInstance().callTheHintMethods("callAFriend");});
+                Controller.getInstance().useLifeLine("callAFriend");});
         half.setOnMouseClicked(event-> {
                 disableActions(3);
-                Controller.getInstance().callTheHintMethods("removeHalf");});
+                Controller.getInstance().useLifeLine("removeHalf");});
         change.setOnMouseClicked(event-> {
                  disableActions(4);
-                Controller.getInstance().callTheHintMethods("changeQuestion");});
+                Controller.getInstance().useLifeLine("changeQuestion");});
     }
 
     // A method to change the image to the one with the red X(used) and turn off the actionevent.

@@ -11,10 +11,9 @@ public abstract class FINAL_GLOBAL_VARIABLES {
         return CURRENCY_SYMBOL;
     }
 
-    private static final int SECONDS_TO_WAITE = 30;
-    public static int getSecondsToWaite() {
-        return SECONDS_TO_WAITE;
+    private static final int QUESTION_DURATION  = 30;
+    public static int getQuestionDuration() {
+        return QUESTION_DURATION;
     }
-
 
 }

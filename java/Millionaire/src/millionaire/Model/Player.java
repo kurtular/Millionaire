@@ -30,7 +30,7 @@ class Player {
     }
 
     void addToScore(int seconds, int currentBalance) {
-        score += currentBalance + (currentBalance / 2 * (seconds / (double) FINAL_GLOBAL_VARIABLES.getSecondsToWaite()));
+        score += currentBalance + (currentBalance / 2 * (seconds / (double) FINAL_GLOBAL_VARIABLES.getQuestionDuration()));
     }
 
     void resetPlayer() {
