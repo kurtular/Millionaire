@@ -47,25 +47,25 @@ public class LifeLineArea extends VBox {
             if (i==1) {
                 audience.setOnMouseClicked(event -> {
                     disableActions(1);
-                    Controller.getInstance().callTheHintMethods("askThePeople");
+                    Controller.getInstance().useLifeLine("askThePeople");
                 });
             }
             if (i==2) {
                 friend.setOnMouseClicked(event -> {
                     disableActions(2);
-                    Controller.getInstance().callTheHintMethods("callAFriend");
+                    Controller.getInstance().useLifeLine("callAFriend");
                 });
             }
             if (i==3) {
                 half.setOnMouseClicked(event -> {
                     disableActions(3);
-                    Controller.getInstance().callTheHintMethods("removeHalf");
+                    Controller.getInstance().useLifeLine("removeHalf");
                 });
             }
             if (i==4) {
                 change.setOnMouseClicked(event -> {
                     disableActions(4);
-                    Controller.getInstance().callTheHintMethods("changeQuestion");
+                    Controller.getInstance().useLifeLine("changeQuestion");
                 });
             }
         }

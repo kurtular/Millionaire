@@ -42,7 +42,7 @@ public class Controller {
  and disable the other selections. It will also temporarily disabling the lifelines. */
     public void setAnswer(char buttonSymbol) { // TODO PlayContent instead of QuestionArea and add delay to button effects-+
         LifeLineArea.getInstance().tempDisableLifeLinesAfterAnswer();
-        gui.setOptionButtonState(buttonSymbol, OptionButton.Checking);
+        gui.setOptionButtonState(buttonSymbol, OptionButton.CHECKING);
         gui.disableActions();
         Gui.stop = true;
         Timer.delay(() -> {
