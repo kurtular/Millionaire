@@ -8,7 +8,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import millionaire.FINAL_GLOBAL_VARIABLES;
 
-public class EndGameScreen extends VBox {
+class EndGameScreen extends VBox {
     private static EndGameScreen instance = new EndGameScreen();
     private Label playerName;
     private Label balance;

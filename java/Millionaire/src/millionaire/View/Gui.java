@@ -15,7 +15,6 @@ public class Gui extends Application {
 // start() will be run after calling launch(args) that is inside launchGui(). It's an overridden method after extending Application class. (javaFx).
     @Override
     public void start(Stage stage) {
-        SoundEffects.getInstance("intro").play();
         content=new Pane();
 // set the game intro (IntroScreen) and add it to .
         IntroScreen.addTo(content);

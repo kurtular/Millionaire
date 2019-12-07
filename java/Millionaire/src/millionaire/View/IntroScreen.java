@@ -58,6 +58,7 @@ class IntroScreen extends BorderPane{
 //  addTo() will return a scene that contain game intro.
 static void addTo(Pane pane){
         pane.getChildren().clear();
+        SoundEffects.getInstance("intro").play();
         pane.getChildren().add(getInstance());
         start.setOnMouseClicked(event -> {
             PlayerNameScreen.addTo(pane);

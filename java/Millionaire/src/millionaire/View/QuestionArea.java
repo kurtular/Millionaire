@@ -7,7 +7,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import millionaire.FINAL_GLOBAL_VARIABLES;
 
-public class QuestionArea extends BorderPane {
+class QuestionArea extends BorderPane {
     final private static QuestionArea instance = new QuestionArea();
     private final OptionButton buttonA;
     private final OptionButton buttonB;
@@ -55,10 +55,10 @@ public class QuestionArea extends BorderPane {
 
 //
     private void setActions(){
-        buttonA.setOnMouseClicked(event-> Controller.getInstance().setAnswer('A'));
-        buttonB.setOnMouseClicked(event-> Controller.getInstance().setAnswer('B'));
-        buttonC.setOnMouseClicked(event-> Controller.getInstance().setAnswer('C'));
-        buttonD.setOnMouseClicked(event-> Controller.getInstance().setAnswer('D'));
+        buttonA.setOnMouseClicked(event-> setAnswer('A'));
+        buttonB.setOnMouseClicked(event-> setAnswer('B'));
+        buttonC.setOnMouseClicked(event-> setAnswer('C'));
+        buttonD.setOnMouseClicked(event-> setAnswer('D'));
     }
 //
     void enableActions(){
@@ -103,13 +103,8 @@ public class QuestionArea extends BorderPane {
         instance.balance.setText(balance+ FINAL_GLOBAL_VARIABLES.getCurrencySymbol());
     }
 //
-    public void setTimer(int value){
-        if(value==0)
-            this.timer.setText("0");
-        else if(value>0 &&value<31)
-            this.timer.setText(Integer.toString(value));
-        else if(value == -1)
-            this.timer.setText(Integer.toString(Integer.parseInt(this.timer.getText())-1));
-        else System.out.println("!!Wrong data!!.\nCheck setTimer method location: View > QuestionArea >setTimer()");
+    private void setAnswer(char answerSymbol){
+        LifeLineArea.getInstance().tempDisableLifeLinesAfterAnswer();
+        Controller.getInstance().setAnswer(answerSymbol);
     }
 }

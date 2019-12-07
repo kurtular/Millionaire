@@ -10,7 +10,7 @@ import javafx.scene.text.TextAlignment;
 import millionaire.Controller;
 
 // LifeLineArea class will create the the images of the lifelines and the result of the lifelines.
-public class LifeLineArea extends VBox {
+class LifeLineArea extends VBox {
     private static LifeLineArea lifeLineArea = new LifeLineArea();
     public LifeLine audience,friend,half,change;
     private Label lifeLineHint;

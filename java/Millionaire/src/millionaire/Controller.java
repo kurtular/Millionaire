@@ -41,7 +41,6 @@ public class Controller {
  It's make some changes that fits the situation for example: making the background color of the selection button yellow
  and disable the other selections. It will also temporarily disabling the lifelines. */
     public void setAnswer(char buttonSymbol) { // TODO PlayContent instead of QuestionArea and add delay to button effects-+
-        LifeLineArea.getInstance().tempDisableLifeLinesAfterAnswer();
         gui.setOptionButtonState(buttonSymbol, OptionButton.CHECKING);
         gui.disableActions();
         Gui.stop = true;

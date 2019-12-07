@@ -3,7 +3,7 @@ package millionaire.View;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-public class SoundEffects {
+class SoundEffects {
 
     public MediaPlayer mediaPlayer;
     public static SoundEffects returningSoundEffect;

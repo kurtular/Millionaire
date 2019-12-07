@@ -75,9 +75,8 @@ class PlayerNameScreen extends VBox {
                 errorMessage.setText("Du måste ange ett alias!");
             }
             else {
-                SoundEffects.getInstance("letsPlay").play();
-                Controller.getInstance().startTheGame(aliasInput.getText());
                 PlayScreen.addTo(pane);
+                Controller.getInstance().startTheGame(aliasInput.getText());
             }
             });
         }

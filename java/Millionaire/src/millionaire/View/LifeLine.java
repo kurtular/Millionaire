@@ -6,7 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Ellipse;
 
-public class LifeLine extends Label {
+class LifeLine extends Label {
     public final static String AUDIENCE = "audience";
     public final static String FRIEND = "friend";
     public final static String HALF = "half";
