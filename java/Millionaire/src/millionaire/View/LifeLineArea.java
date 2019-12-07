@@ -81,7 +81,7 @@ class LifeLineArea extends VBox {
                 break;
             }
             case 2: {
-                SoundEffects.getInstance("phoneAFriend").play();
+                SoundEffect.play(SoundEffect.CALL_FRIEND);
                 friend.switchToUsedImage();
                 friend.setOnMouseClicked(null);
                 friend.used = true;

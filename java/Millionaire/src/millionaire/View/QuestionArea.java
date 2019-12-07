@@ -101,6 +101,7 @@ class QuestionArea extends BorderPane {
         instance.buttonC.setText(option3);
         instance.buttonD.setText(option4);
         instance.balance.setText(balance+ FINAL_GLOBAL_VARIABLES.getCurrencySymbol());
+        SoundEffect.play(SoundEffect.QUESTION_BACKGROUND_SOUND);
     }
 //
     private void setAnswer(char answerSymbol){

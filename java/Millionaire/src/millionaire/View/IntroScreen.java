@@ -1,14 +1,12 @@
 package millionaire.View;
 
 import javafx.scene.layout.Pane;
-import millionaire.Controller;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -58,7 +56,7 @@ class IntroScreen extends BorderPane{
 //  addTo() will return a scene that contain game intro.
 static void addTo(Pane pane){
         pane.getChildren().clear();
-        SoundEffects.getInstance("intro").play();
+        SoundEffect.play(SoundEffect.INTRO);
         pane.getChildren().add(getInstance());
         start.setOnMouseClicked(event -> {
             PlayerNameScreen.addTo(pane);
