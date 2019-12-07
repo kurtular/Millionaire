@@ -18,6 +18,8 @@ abstract class SoundEffect {
 //
     static void play(String effectName) {
         try {
+            if (mediaPlayer!=null)
+                mediaPlayer.stop();
             mediaPlayer = new MediaPlayer( new Media(Main.class.getClassLoader().getResource("sounds/"+effectName).toString()));
             mediaPlayer.play();
         }catch (Exception e){
