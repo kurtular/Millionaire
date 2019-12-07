@@ -14,6 +14,7 @@ public class LifeLineArea extends VBox {
     private static LifeLineArea lifeLineArea = new LifeLineArea();
     public LifeLine audience,friend,half,change;
     private Label lifeLineHint;
+    public SoundEffects rightAnswer;
 
 // The constructor
     private LifeLineArea(){
@@ -81,7 +82,7 @@ public class LifeLineArea extends VBox {
                 break;
             }
             case 2: {
-                SoundEffects.getInstance("phoneAFriend").play();
+                rightAnswer.play();
                 friend.switchToUsedImage();
                 friend.setOnMouseClicked(null);
                 friend.used = true;

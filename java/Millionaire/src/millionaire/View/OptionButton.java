@@ -6,6 +6,8 @@ import javafx.scene.shape.SVGPath;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 
+import static millionaire.View.SoundEffects.rightAnswer;
+
 // OptionButton class will create the options buttons that will be shown underneath question text.
 public class OptionButton extends Label {
 // Some static variable that represents the states of an option button. These will be usable when  calling setState().
@@ -37,8 +39,8 @@ OptionButton(){
 void setState(int state){
         switch (state){
             case -1:{SoundEffects.getInstance("wrongAnswer").play();setId("wrongAnswer");break;}
-            case 0: setId("checkingAnswer");break;
-            case 1: setId("rightAnswer");break;
+            case 0: {SoundEffects.getInstance("finalAnswer").play();setId("checkingAnswer");break;}
+            case 1: {SoundEffects.getInstance("rightAnswer").play();setId("rightAnswer");break;}
             case 2: idProperty().setValue("");break;
             default: System.out.println("!!Please use possible state!!");
         }
