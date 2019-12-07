@@ -13,14 +13,14 @@ public class Controller {
         return instance;
     }
 
-    ///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
 // Controller member variables.
 // game variable represents the Model of MVC design pattern.
 // gui variable represents the View of MVC design pattern.
     private Gui gui;
     private Game game;
 
-    ///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 // Controller constructor.
     private Controller() {
     }
@@ -30,17 +30,19 @@ public class Controller {
         instance.gui = gui;
     }
 
-    ///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
     public void startTheGame(String playerName) {
         game.newGame(playerName);
         setQuestion(true);
         checkTimerSeconds();
     }
 
-    // setAnswer() will be called when the player will select an answer for the question.
-// It's make some changes that fits the situation for example: making the background color of the selection button yellow and disable the other selections.
-    public void setAnswer(char buttonSymbol) {
-        gui.setOptionButtonState(buttonSymbol, OptionButton.CHECKING);
+/* setAnswer() will be called when the player will select an answer for the question.
+ It's make some changes that fits the situation for example: making the background color of the selection button yellow
+ and disable the other selections. It will also temporarily disabling the lifelines. */
+    public void setAnswer(char buttonSymbol) { // TODO PlayContent instead of QuestionArea and add delay to button effects-+
+        LifeLineArea.getInstance().tempDisableLifeLinesAfterAnswer();
+        gui.setOptionButtonState(buttonSymbol, OptionButton.Checking);
         gui.disableActions();
         Gui.stop = true;
         Timer.delay(() -> {
@@ -118,6 +120,8 @@ public class Controller {
                     setQuestion(game.changeQuestion(),true);
                 },1);
                 break;
+            
         }
     }
+
 }

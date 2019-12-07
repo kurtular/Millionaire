@@ -36,7 +36,7 @@ OptionButton(){
 // setState() will change the style (state) of an option button depending on the possible state value (see the static variables at the start of the class). (between -1 and 1)
 void setState(int state){
         switch (state){
-            case -1:setId("wrongAnswer");break;
+            case -1:{SoundEffects.getInstance("wrongAnswer").play();setId("wrongAnswer");break;}
             case 0: setId("checkingAnswer");break;
             case 1: setId("rightAnswer");break;
             case 2: idProperty().setValue("");break;

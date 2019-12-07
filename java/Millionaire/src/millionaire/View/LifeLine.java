@@ -11,7 +11,8 @@ public class LifeLine extends Label {
     public final static String FRIEND = "friend";
     public final static String HALF = "half";
     public final static String CHANGE = "change";
-
+    public boolean used;
+    public boolean tempDisabled;
     private ImageView img;
     private String type;
 
@@ -23,6 +24,8 @@ public class LifeLine extends Label {
         setClip(new Ellipse(75, 50,75,50));
         setGraphic(img);
         setCursor(Cursor.HAND);
+        used = false;
+        tempDisabled = false;
     }
 
 //

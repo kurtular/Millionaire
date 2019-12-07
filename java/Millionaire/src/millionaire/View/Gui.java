@@ -15,6 +15,7 @@ public class Gui extends Application {
 // start() will be run after calling launch(args) that is inside launchGui(). It's an overridden method after extending Application class. (javaFx).
     @Override
     public void start(Stage stage) {
+        SoundEffects.getInstance("intro").play();
         content=new Pane();
 // set the game intro (IntroScreen) and add it to .
         IntroScreen.addTo(content);
@@ -37,8 +38,10 @@ public class Gui extends Application {
         launch(args);
     }
 
-// updateQuestion() method pass the question that will be shown to the PlayContent class (window will be shown during the match)
+/* updateQuestion() method pass the question that will be shown to the PlayContent class (window will be shown during the match)
+   and to enable temporarily disabled lifelines.*/
    public void updateQuestion(String question,String option1,String option2,String option3,String option4,byte currentQuestion,boolean resetTimer){
+        LifeLineArea.getInstance().enableTempDisabledLifeLines();
         PriceTable.getInstance().setCurrentPlace(currentQuestion);
         String balance = FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion-1];
         QuestionArea.getInstance().updateQuestion(question, option1, option2, option3, option4, balance);

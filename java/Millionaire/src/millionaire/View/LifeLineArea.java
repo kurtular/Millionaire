@@ -37,55 +37,113 @@ public class LifeLineArea extends VBox {
         setSpacing(30);
         setAlignment(Pos.TOP_CENTER);
         setPadding(new Insets(5));
-        this.setActions();
+        this.setActions(1,2,3,4);
     }
 
     // Creating actionevents if click on the images.
 
-    private void setActions(){
-        audience.setOnMouseClicked(event-> {
-                disableActions(1);
-                Controller.getInstance().useLifeLine("askThePeople");});
-        friend.setOnMouseClicked(event-> {
-                disableActions(2);
-                Controller.getInstance().useLifeLine("callAFriend");});
-        half.setOnMouseClicked(event-> {
-                disableActions(3);
-                Controller.getInstance().useLifeLine("removeHalf");});
-        change.setOnMouseClicked(event-> {
-                 disableActions(4);
-                Controller.getInstance().useLifeLine("changeQuestion");});
+    private void setActions(int...integers){
+        for (int i : integers) {
+            if (i==1) {
+                audience.setOnMouseClicked(event -> {
+                    disableActions(1);
+                    Controller.getInstance().callTheHintMethods("askThePeople");
+                });
+            }
+            if (i==2) {
+                friend.setOnMouseClicked(event -> {
+                    disableActions(2);
+                    Controller.getInstance().callTheHintMethods("callAFriend");
+                });
+            }
+            if (i==3) {
+                half.setOnMouseClicked(event -> {
+                    disableActions(3);
+                    Controller.getInstance().callTheHintMethods("removeHalf");
+                });
+            }
+            if (i==4) {
+                change.setOnMouseClicked(event -> {
+                    disableActions(4);
+                    Controller.getInstance().callTheHintMethods("changeQuestion");
+                });
+            }
+        }
     }
 
-    // A method to change the image to the one with the red X(used) and turn off the actionevent.
+    // A method to change the image to the one with the red X(used) and turn off the actionevent and make it used.
     public void disableActions(int x){
         switch (x) {
             case 1: {
                 audience.switchToUsedImage();
                 audience.setOnMouseClicked(null);
+                audience.used = true;
                 break;
             }
             case 2: {
+                SoundEffects.getInstance("phoneAFriend").play();
                 friend.switchToUsedImage();
                 friend.setOnMouseClicked(null);
+                friend.used = true;
                 break;
             }
             case 3: {
                 half.switchToUsedImage();
                 half.setOnMouseClicked(null);
+                half.used = true;
                 break;
             }
             case 4: {
                 change.switchToUsedImage();
                 change.setOnMouseClicked(null);
+                change.used = true;
                 break;
             }
 
         }
     }
 
+    //A method to temporarily unused disable lifelines after answered a question.
+
+    public void tempDisableLifeLinesAfterAnswer(){
+        if (!audience.used ) {
+            audience.setOnMouseClicked(null);
+            audience.tempDisabled = true;
+        }
+        if (!friend.used ) {
+            friend.setOnMouseClicked(null);
+            friend.tempDisabled = true;
+        }
+        if (!half.used ) {
+            half.setOnMouseClicked(null);
+            half.tempDisabled = true;
+        }
+        if (!change.used ) {
+            change.setOnMouseClicked(null);
+            change.tempDisabled = true;
+        }
+    }
+
+    // A method to enable the temporarily disabled lifelines.
+
+    protected void enableTempDisabledLifeLines() {
+        if (LifeLineArea.getInstance().audience.tempDisabled) {
+            LifeLineArea.getInstance().setActions(1);
+        }
+        if (LifeLineArea.getInstance().friend.tempDisabled) {
+            LifeLineArea.getInstance().setActions(2);
+        }
+        if (LifeLineArea.getInstance().half.tempDisabled) {
+            LifeLineArea.getInstance().setActions(3);
+        }
+        if (LifeLineArea.getInstance().change.tempDisabled) {
+            LifeLineArea.getInstance().setActions(4);
+        }
+
+    }
+
     // A method to return the object because lifeLineArea object is private.
-    protected static LifeLineArea getInstance(){
+    public static LifeLineArea getInstance(){
         return lifeLineArea;
     }
     // A method to set the text to screen showing friends answer.
