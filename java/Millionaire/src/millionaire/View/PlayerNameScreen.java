@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -49,7 +50,7 @@ class PlayerNameScreen extends VBox {
         errorMessage.setTextFill(Color.RED);
 
         confirmButton = new OptionButton();
-        confirmButton.setText("strata spelet");
+        confirmButton.setText("Starta spelet");
         confirmButton.setScaleX(0.7);
         confirmButton.setScaleY(0.7);
         confirmButton.setFont(Font.font(30));
@@ -66,10 +67,21 @@ class PlayerNameScreen extends VBox {
         setPrefSize(1024, 768);
 
     }
-
+    //Added enterkey to work as confirm.
     static void addTo(Pane pane) {
         pane.getChildren().clear();
         pane.getChildren().add(getInstance());
+        aliasInput.setOnKeyReleased(event -> {
+            if (event.getCode() == KeyCode.ENTER){
+                if (aliasInput.getText().isEmpty()) {
+                    errorMessage.setText("Du måste ange ett alias!");
+                }
+                else {
+                    PlayScreen.addTo(pane);
+                    Controller.getInstance().startTheGame(aliasInput.getText());
+                }
+            }
+        });
         confirmButton.setOnMouseClicked(event -> {
             if (aliasInput.getText().isEmpty()) {
                 errorMessage.setText("Du måste ange ett alias!");
@@ -78,7 +90,6 @@ class PlayerNameScreen extends VBox {
                 PlayScreen.addTo(pane);
                 Controller.getInstance().startTheGame(aliasInput.getText());
             }
-            });
-        }
+        });
     }
-
+}

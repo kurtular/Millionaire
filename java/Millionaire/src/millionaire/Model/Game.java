@@ -26,6 +26,7 @@ public class Game implements getJson {
     private byte currentQuestion;
     private boolean reserveQuestionIsrunning = false;
     final private Player player = Player.getInstance();
+    public boolean withDraw = false;
 
     private Game() {
     }
@@ -46,10 +47,24 @@ public class Game implements getJson {
         currentQuestion = 1;
         player.setName(playerName);
     }
+    // Added safetylevelpayment if player guess at wrong answer.
     public String[] getMoneyCheckData(){
         String[] returnedData = new String[3];
         returnedData[0] = player.getName();
-        returnedData[1] = FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion-1];
+        if (getInstance().withDraw) {
+            returnedData[1] = FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion-1];
+        }
+        else  {
+            if (currentQuestion <= 5) {
+                returnedData[1] = "0";
+            }
+            else if (currentQuestion <= 10) {
+                returnedData[1] = "1000";
+            }
+            else if (currentQuestion <= 15) {
+                returnedData[1] = "32000";
+            }
+        }
         DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         returnedData[2] = date.format(LocalDateTime.now());
         return returnedData;
@@ -98,7 +113,7 @@ public class Game implements getJson {
         }
         return returnedValue;
     }
-//
+    //
     public char getCorrectAnswerSymbol(){
         char symbol = '0';
         for (symbol='A';symbol<='D';symbol++){
@@ -108,7 +123,7 @@ public class Game implements getJson {
         }
         return symbol;
     }
-//
+    //
     public void nextQuestion() {
         currentQuestion++;
         if (reserveQuestionIsrunning) {
@@ -240,17 +255,17 @@ public class Game implements getJson {
 
         for (byte j=0,i = 0; i < options.length; i++) {
             if (shownOptions.size() != options.length){
-                    if(j<shownOptions.size() && options[i]==shownOptions.get(j)){
-                        returnedResult.append(shownOptions.get(j)).append(" : ").append(percent[j]).append("% ");
-                        j++;
-                    }
+                if(j<shownOptions.size() && options[i]==shownOptions.get(j)){
+                    returnedResult.append(shownOptions.get(j)).append(" : ").append(percent[j]).append("% ");
+                    j++;
+                }
                 else {
                     returnedResult.append(options[i]).append(" : 0%");
                 }
 
             }
             else {
-            returnedResult.append(shownOptions.get(i)).append(" : ").append(percent[i]).append("% ");
+                returnedResult.append(shownOptions.get(i)).append(" : ").append(percent[i]).append("% ");
             }
         }
         return returnedResult.toString();

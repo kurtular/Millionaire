@@ -13,14 +13,14 @@ public class Controller {
         return instance;
     }
 
-///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
 // Controller member variables.
 // game variable represents the Model of MVC design pattern.
 // gui variable represents the View of MVC design pattern.
     private Gui gui;
     private Game game;
 
-///////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////
 // Controller constructor.
     private Controller() {
     }
@@ -30,16 +30,16 @@ public class Controller {
         instance.gui = gui;
     }
 
-///////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////
     public void startTheGame(String playerName) {
         game.newGame(playerName);
         setQuestion(true);
         checkTimerSeconds();
     }
 
-/* setAnswer() will be called when the player will select an answer for the question.
- It's make some changes that fits the situation for example: making the background color of the selection button yellow
- and disable the other selections. It will also temporarily disabling the lifelines. */
+    /* setAnswer() will be called when the player will select an answer for the question.
+     It's make some changes that fits the situation for example: making the background color of the selection button yellow
+     and disable the other selections. It will also temporarily disabling the lifelines. */
     public void setAnswer(char buttonSymbol) { // TODO PlayContent instead of QuestionArea and add delay to button effects-+
         gui.setOptionButtonState(buttonSymbol, OptionButton.CHECKING);
         gui.disableActions();
@@ -56,8 +56,8 @@ public class Controller {
 
 
             } else {
-                    gui.setOptionButtonState(buttonSymbol, OptionButton.WRONG);
-                    endTheGame();
+                gui.setOptionButtonState(buttonSymbol, OptionButton.WRONG);
+                endTheGame(false);
             }
         },3);
         gui.setLifeLineHint("");
@@ -85,8 +85,10 @@ public class Controller {
 
     }
     //
-    private void endTheGame(){
+    public void endTheGame(boolean withDraw){
         gui.setOptionButtonState(game.getCorrectAnswerSymbol() , OptionButton.CORRECT);
+        if (withDraw) {
+            Game.getInstance().withDraw = true;}
         Timer.delay(()->{
             String[] moneyCheckData = game.getMoneyCheckData();
             gui.showEndGameScreen(moneyCheckData[0],moneyCheckData[1],moneyCheckData[2]);
@@ -96,7 +98,7 @@ public class Controller {
     private void checkTimerSeconds(){
         Timer.delay(()->{
             if (Gui.shownSecondsInTimerLabel<=0){
-                endTheGame();
+                endTheGame(false);
             }else {checkTimerSeconds();}
         },1);
 
@@ -119,7 +121,7 @@ public class Controller {
                     setQuestion(game.changeQuestion(),true);
                 },1);
                 break;
-            
+
         }
     }
 
