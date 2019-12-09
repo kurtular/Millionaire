@@ -67,26 +67,32 @@ class PlayerNameScreen extends VBox {
         setPrefSize(1024, 768);
 
     }
+    //
+    private boolean aliasInputISEmpty(){
+        if(aliasInput.getText().isEmpty()){
+            errorMessage.setText("Du måste ange ett alias!");
+            return true;
+        }
+        return false;
+    }
+
     //Added enterkey to work as confirm.
     static void addTo(Pane pane) {
         pane.getChildren().clear();
         pane.getChildren().add(getInstance());
+
         aliasInput.setOnKeyReleased(event -> {
             if (event.getCode() == KeyCode.ENTER){
-                if (aliasInput.getText().isEmpty()) {
-                    errorMessage.setText("Du måste ange ett alias!");
-                }
-                else {
+                //
+                if (!instance.aliasInputISEmpty()) {
                     PlayScreen.addTo(pane);
                     Controller.getInstance().startTheGame(aliasInput.getText());
                 }
             }
         });
         confirmButton.setOnMouseClicked(event -> {
-            if (aliasInput.getText().isEmpty()) {
-                errorMessage.setText("Du måste ange ett alias!");
-            }
-            else {
+            //
+            if (!instance.aliasInputISEmpty()) {
                 PlayScreen.addTo(pane);
                 Controller.getInstance().startTheGame(aliasInput.getText());
             }

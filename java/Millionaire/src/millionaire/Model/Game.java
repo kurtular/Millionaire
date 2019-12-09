@@ -26,7 +26,6 @@ public class Game implements getJson {
     private byte currentQuestion;
     private boolean reserveQuestionIsrunning = false;
     final private Player player = Player.getInstance();
-    public boolean withDraw = false;
 
     private Game() {
     }
@@ -48,22 +47,15 @@ public class Game implements getJson {
         player.setName(playerName);
     }
     // Added safetylevelpayment if player guess at wrong answer.
-    public String[] getMoneyCheckData(){
+    public String[] getMoneyCheckData(boolean withDraw){
         String[] returnedData = new String[3];
         returnedData[0] = player.getName();
-        if (getInstance().withDraw) {
+        if (withDraw) {
             returnedData[1] = FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion-1];
         }
         else  {
-            if (currentQuestion <= 5) {
-                returnedData[1] = "0";
-            }
-            else if (currentQuestion <= 10) {
-                returnedData[1] = "1000";
-            }
-            else if (currentQuestion <= 15) {
-                returnedData[1] = "32000";
-            }
+            int safetyLevel = currentQuestion - (currentQuestion%5);
+            returnedData[1] = FINAL_GLOBAL_VARIABLES.getPRIZES()[safetyLevel];
         }
         DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         returnedData[2] = date.format(LocalDateTime.now());

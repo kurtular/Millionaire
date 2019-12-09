@@ -87,10 +87,8 @@ public class Controller {
     //
     public void endTheGame(boolean withDraw){
         gui.setOptionButtonState(game.getCorrectAnswerSymbol() , OptionButton.CORRECT);
-        if (withDraw) {
-            Game.getInstance().withDraw = true;}
         Timer.delay(()->{
-            String[] moneyCheckData = game.getMoneyCheckData();
+            String[] moneyCheckData = game.getMoneyCheckData(withDraw);
             gui.showEndGameScreen(moneyCheckData[0],moneyCheckData[1],moneyCheckData[2]);
         }, 3);
     }
