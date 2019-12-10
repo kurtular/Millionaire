@@ -33,7 +33,7 @@ public class Controller {
     ///////////////////////////////////////////////////////////
     public void startTheGame(String playerName) {
         game.newGame(playerName);
-        setQuestion(true);
+        setQuestion();
         checkTimerSeconds();
     }
 
@@ -41,15 +41,15 @@ public class Controller {
      It's make some changes that fits the situation for example: making the background color of the selection button yellow
      and disable the other selections. It will also temporarily disabling the lifelines. */
     public void setAnswer(char buttonSymbol) { // TODO PlayContent instead of QuestionArea and add delay to button effects-+
+
         gui.setOptionButtonState(buttonSymbol, OptionButton.CHECKING);
         gui.disableActions();
-        Gui.stop = true;
         Timer.delay(() -> {
             if (game.checkAnswer(buttonSymbol)) {
                 gui.setOptionButtonState(buttonSymbol, OptionButton.CORRECT);
                 Timer.delay(()->{
                     game.nextQuestion();
-                    setQuestion(true);
+                    setQuestion();
                     gui.enableActions();
                     gui.setOptionButtonState(buttonSymbol, OptionButton.DEFAULT);
                 }, 3);
@@ -59,29 +59,30 @@ public class Controller {
                 gui.setOptionButtonState(buttonSymbol, OptionButton.WRONG);
                 endTheGame(false);
             }
+            gui.setLifeLineHint("");
         },3);
-        gui.setLifeLineHint("");
+
     }
 
     // setQuestion() method brings the question and its options and send them to View (gui) that will show it on the screen.
-    private void setQuestion(boolean resetTimer) {
+    private void setQuestion() {
         String question = game.getValue(Game.QUESTION_TEXT);
         String option1 = game.getValue(Game.OPTION1);
         String option2 = game.getValue(Game.OPTION2);
         String option3 = game.getValue(Game.OPTION3);
         String option4 = game.getValue(Game.OPTION4);
         byte currentQuestion = Byte.parseByte(game.getValue(Game.CURRENT_QUESTION));
-        gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion,resetTimer);
+        gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
     }
     // Overriding
-    private void setQuestion(String[] fullQuestion,boolean resetTimer) {
+    private void setQuestion(String[] fullQuestion) {
         String question = fullQuestion[0];
         String option1 = fullQuestion[1];
         String option2 = fullQuestion[2];
         String option3 = fullQuestion[3];
         String option4 = fullQuestion[4];
         byte currentQuestion = Byte.parseByte(game.getValue(Game.CURRENT_QUESTION));
-        gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion,resetTimer);
+        gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
 
     }
     //
@@ -95,7 +96,7 @@ public class Controller {
     //
     private void checkTimerSeconds(){
         Timer.delay(()->{
-            if (Gui.shownSecondsInTimerLabel<=0){
+            if (gui.getShownSeconds()<=0){
                 endTheGame(false);
             }else {checkTimerSeconds();}
         },1);
@@ -103,6 +104,8 @@ public class Controller {
     }
     // A method to recieve which lifeline is clicked and call the different lifelines.
     public void useLifeLine(String lifeLineSelection) {
+        gui.stopTimer();
+        Timer.delay(()->{
         switch (lifeLineSelection) {
             case "askThePeople":
                 gui.setLifeLineHint(game.askAudience());
@@ -111,16 +114,15 @@ public class Controller {
                 gui.setLifeLineHint(game.callAFriend());
                 break;
             case "removeHalf":
-                setQuestion(game.removeHalf() ,false);
+                setQuestion(game.removeHalf());
                 break;
             case "changeQuestion":
-                Gui.stop=true;
-                Timer.delay(()->{
-                    setQuestion(game.changeQuestion(),true);
-                },1);
+                setQuestion(game.changeQuestion());
                 break;
+            default:
+                System.err.println("There is no lifeline related to ("+lifeLineSelection+").");
 
         }
+        },1);
     }
-
 }

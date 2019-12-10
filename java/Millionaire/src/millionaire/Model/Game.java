@@ -54,7 +54,7 @@ public class Game implements getJson {
             returnedData[1] = FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion-1];
         }
         else  {
-            int safetyLevel = currentQuestion - (currentQuestion%5);
+            int safetyLevel = (currentQuestion-1) - ((currentQuestion-1)%5);
             returnedData[1] = FINAL_GLOBAL_VARIABLES.getPRIZES()[safetyLevel];
         }
         DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyy/MM/dd");

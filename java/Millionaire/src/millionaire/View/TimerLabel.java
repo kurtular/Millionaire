@@ -6,10 +6,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
+import millionaire.FINAL_GLOBAL_VARIABLES;
 import millionaire.Timer;
 
 public class TimerLabel extends Label {
     private static final TimerLabel instance = new TimerLabel();
+    static TimerLabel getInstance(){
+        return instance;
+    }
+
+    private boolean isStopped;
+    private byte shownSeconds;
     private TimerLabel(){
         super();
         Circle shape =new Circle();
@@ -27,16 +34,25 @@ public class TimerLabel extends Label {
         this.setContentDisplay(ContentDisplay.CENTER);
         this.setFocusTraversable(false);
     }
-    protected static void startTimer(){
-        instance.setText(Integer.toString(Gui.shownSecondsInTimerLabel));
+    void startTimer(){
+        isStopped=false;
+        setText(Integer.toString(shownSeconds));
         Timer.delay(()->{
-            if(Gui.shownSecondsInTimerLabel>0 && !Gui.stop){
-                Gui.shownSecondsInTimerLabel--;
+            if(shownSeconds > 0 && !isStopped){
+                shownSeconds--;
                 startTimer();
             }
         }, 1);
     }
-    static TimerLabel getInstance(){
-        return instance;
+    void resetTimer(){
+        stopTimer();
+        shownSeconds = (byte)FINAL_GLOBAL_VARIABLES.getQuestionDuration();
+    }
+    void stopTimer(){
+        isStopped = true;
+    }
+    public byte getShownSeconds() {
+        return shownSeconds;
     }
 }
+

@@ -105,6 +105,7 @@ class QuestionArea extends BorderPane {
     }
 //
     private void setAnswer(char answerSymbol){
+        TimerLabel.getInstance().stopTimer();
         LifeLineArea.getInstance().tempDisableLifeLinesAfterAnswer();
         Controller.getInstance().setAnswer(answerSymbol);
     }

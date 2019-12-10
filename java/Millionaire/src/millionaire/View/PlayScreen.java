@@ -1,7 +1,5 @@
 package millionaire.View;
 
-import javafx.geometry.Insets;
-import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -14,13 +12,16 @@ class PlayScreen extends BorderPane {
     private PlayScreen(){
         super();
         ImageView withDrawBkImage = new ImageView("img/withdraw.png");
-        withDrawBkImage.setFitWidth(150);
-        withDrawBkImage.setFitHeight(75);
+        withDrawBkImage.setFitWidth(115);
+        withDrawBkImage.setFitHeight(50);
         Button withDrawButton = new Button();
         withDrawButton.setId("withDrawButton");
         withDrawButton.setGraphic(withDrawBkImage);
 
         withDrawButton.setOnMouseClicked(event -> {
+            //
+            TimerLabel.getInstance().stopTimer();
+            //
             Controller.getInstance().endTheGame(true);
         });
 
@@ -30,7 +31,6 @@ class PlayScreen extends BorderPane {
         setBottom(QuestionArea.getInstance());
         setRight(PriceTable.getInstance());
         this.setPrefSize(1024, 768);
-        //TODO bring the other parts
     }
 
     //

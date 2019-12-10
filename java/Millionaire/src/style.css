@@ -54,7 +54,7 @@ OptionButton:hover{
 #withDrawButton{
 -fx-padding:10;
 -fx-translate-x:5;
--fx-translate-y:5;
+-fx-translate-y:15;
 
 -fx-cursor:hand;
 
