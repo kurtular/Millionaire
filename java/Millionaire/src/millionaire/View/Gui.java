@@ -41,7 +41,7 @@ public class Gui extends Application {
         LifeLineArea.getInstance().enableTempDisabledLifeLines();
         PriceTable.getInstance().setCurrentPlace(currentQuestion);
         String balance = FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion-1];
-        QuestionArea.getInstance().updateQuestion(question, option1, option2, option3, option4, balance);
+        QuestionArea.getInstance().updateQuestion(question, option1, option2, option3, option4, balance,currentQuestion);
         //
         TimerLabel.getInstance().resetTimer();
         TimerLabel.getInstance().startTimer();
@@ -78,5 +78,8 @@ public class Gui extends Application {
     }
     public byte getShownSeconds(){
        return TimerLabel.getInstance().getShownSeconds();
+    }
+    public void playSound(String effectName){
+       SoundEffect.play(effectName);
     }
 }

@@ -10,20 +10,20 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import millionaire.Controller;
+import millionaire.Timer;
 
 import static javafx.geometry.Pos.CENTER;
 
 
 class PlayerNameScreen extends VBox {
     final private static PlayerNameScreen instance = new PlayerNameScreen();
-
-    private static  Label errorMessage;
-    private static TextField aliasInput;
-    private static OptionButton confirmButton;
-
     static PlayerNameScreen getInstance() {
         return instance;
     }
+
+    private  Label errorMessage;
+    private TextField aliasInput;
+    private OptionButton confirmButton;
 
     private PlayerNameScreen() {
         super();
@@ -75,26 +75,36 @@ class PlayerNameScreen extends VBox {
         }
         return false;
     }
+    private void reset(){
+        // To make aliasInput enabled and empty (reset).
+        aliasInput.setDisable(false);
+        aliasInput.setText("");
+    }
 
     //Added enterkey to work as confirm.
     static void addTo(Pane pane) {
+        instance.reset();
+// Add playerNameScreen to (gui)
         pane.getChildren().clear();
         pane.getChildren().add(getInstance());
-
-        aliasInput.setOnKeyReleased(event -> {
+        instance.aliasInput.setOnKeyReleased(event -> {
             if (event.getCode() == KeyCode.ENTER){
                 //
                 if (!instance.aliasInputISEmpty()) {
+                    instance.aliasInput.setDisable(true);
+                    instance.errorMessage.setText(null);
                     PlayScreen.addTo(pane);
-                    Controller.getInstance().startTheGame(aliasInput.getText());
+                    Timer.delay(()->Controller.getInstance().startTheGame(instance.aliasInput.getText()), 3);
                 }
             }
         });
-        confirmButton.setOnMouseClicked(event -> {
+        instance.confirmButton.setOnMouseClicked(event -> {
             //
             if (!instance.aliasInputISEmpty()) {
+                instance.aliasInput.setDisable(true);
+                instance.errorMessage.setText(null);
                 PlayScreen.addTo(pane);
-                Controller.getInstance().startTheGame(aliasInput.getText());
+                Timer.delay(()->Controller.getInstance().startTheGame(instance.aliasInput.getText()), 3);
             }
         });
     }

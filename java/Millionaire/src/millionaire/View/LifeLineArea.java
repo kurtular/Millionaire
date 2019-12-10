@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import millionaire.Controller;
+import millionaire.Timer;
 
 // LifeLineArea class will create the the images of the lifelines and the result of the lifelines.
 class LifeLineArea extends VBox {
@@ -47,25 +48,33 @@ class LifeLineArea extends VBox {
             if (i==1) {
                 audience.setOnMouseClicked(event -> {
                     disableActions(1);
-                    Controller.getInstance().useLifeLine("askThePeople");
+                    SoundEffect.play(SoundEffect.AUDIENCE);
+                    TimerLabel.getInstance().stopTimer();
+                    Timer.delay(()->Controller.getInstance().useLifeLine("askThePeople"), 4);
                 });
             }
             if (i==2) {
                 friend.setOnMouseClicked(event -> {
                     disableActions(2);
-                    Controller.getInstance().useLifeLine("callAFriend");
+                    SoundEffect.play(SoundEffect.CALL_FRIEND);
+                    TimerLabel.getInstance().stopTimer();
+                    Timer.delay(()->Controller.getInstance().useLifeLine("callAFriend"), 4);
                 });
             }
             if (i==3) {
                 half.setOnMouseClicked(event -> {
                     disableActions(3);
-                    Controller.getInstance().useLifeLine("removeHalf");
+                    SoundEffect.play(SoundEffect.REMOVE_HALF_CHANGE_QUESTION);
+                    TimerLabel.getInstance().stopTimer();
+                    Timer.delay(()->Controller.getInstance().useLifeLine("removeHalf"), 4);
                 });
             }
             if (i==4) {
                 change.setOnMouseClicked(event -> {
                     disableActions(4);
-                    Controller.getInstance().useLifeLine("changeQuestion");
+                    SoundEffect.play(SoundEffect.REMOVE_HALF_CHANGE_QUESTION);
+                    TimerLabel.getInstance().stopTimer();
+                    Timer.delay(()->Controller.getInstance().useLifeLine("changeQuestion"), 4);
                 });
             }
         }
@@ -81,7 +90,6 @@ class LifeLineArea extends VBox {
                 break;
             }
             case 2: {
-                SoundEffect.play(SoundEffect.CALL_FRIEND);
                 friend.switchToUsedImage();
                 friend.setOnMouseClicked(null);
                 friend.used = true;
@@ -118,7 +126,7 @@ class LifeLineArea extends VBox {
             half.setOnMouseClicked(null);
             half.tempDisabled = true;
         }
-        if (!change.used ) {
+        if (!change.used) {
             change.setOnMouseClicked(null);
             change.tempDisabled = true;
         }

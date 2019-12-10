@@ -117,7 +117,9 @@ public class Game implements getJson {
     }
     //
     public void nextQuestion() {
-        currentQuestion++;
+        if (currentQuestion <= FINAL_GLOBAL_VARIABLES.getPRIZES().length)
+            currentQuestion++;
+
         if (reserveQuestionIsrunning) {
             reserveQuestionIsrunning = false;
         }

@@ -94,19 +94,32 @@ class QuestionArea extends BorderPane {
         return instance;
     }
 //
-    void updateQuestion(String question, String option1, String option2, String option3, String option4, String balance){
+    void updateQuestion(String question, String option1, String option2, String option3, String option4, String balance ,byte currentQuestion){
         instance.question.setText(question);
         instance.buttonA.setText(option1);
         instance.buttonB.setText(option2);
         instance.buttonC.setText(option3);
         instance.buttonD.setText(option4);
         instance.balance.setText(balance+ FINAL_GLOBAL_VARIABLES.getCurrencySymbol());
-        SoundEffect.play(SoundEffect.QUESTION_BACKGROUND_SOUND);
+        playSound(currentQuestion);
     }
 //
     private void setAnswer(char answerSymbol){
         TimerLabel.getInstance().stopTimer();
         LifeLineArea.getInstance().tempDisableLifeLinesAfterAnswer();
         Controller.getInstance().setAnswer(answerSymbol);
+    }
+    private void playSound(byte currentQuestion){
+        if(currentQuestion<6){
+            SoundEffect.play(SoundEffect.FIRST_5_QUESTIONS);
+        }else if (currentQuestion<11){
+            SoundEffect.play(SoundEffect.SECOND_5_QUESTIONS);
+        }else if (currentQuestion==11){
+            SoundEffect.play(SoundEffect.ELEVEN);
+        }else if(currentQuestion<14){
+            SoundEffect.play(SoundEffect.TWELVE_THIRTEEN);
+        }
+        else if (currentQuestion==14){SoundEffect.play(SoundEffect.FOURTEEN);
+        }else {SoundEffect.play(SoundEffect.FIFTEEN);}
     }
 }

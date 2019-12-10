@@ -5,6 +5,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import millionaire.Controller;
+import millionaire.Timer;
 
 
 class PlayScreen extends BorderPane {
@@ -42,8 +43,11 @@ class PlayScreen extends BorderPane {
 //  addTo()
     static void addTo(Pane pane){
         SoundEffect.play(SoundEffect.PLAY_SCREEN_INTRO);
-        pane.getChildren().clear();
-        pane.getChildren().add(getInstance());
+        Timer.delay(()->{
+            pane.getChildren().clear();
+            pane.getChildren().add(getInstance());
+        },3);
+
         // TODO: Decide when PlayScreen move to EndGameScreen.
     }
 }

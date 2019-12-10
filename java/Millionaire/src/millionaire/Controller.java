@@ -49,9 +49,13 @@ public class Controller {
                 gui.setOptionButtonState(buttonSymbol, OptionButton.CORRECT);
                 Timer.delay(()->{
                     game.nextQuestion();
-                    setQuestion();
-                    gui.enableActions();
-                    gui.setOptionButtonState(buttonSymbol, OptionButton.DEFAULT);
+
+                    if (Byte.parseByte(game.getValue(Game.CURRENT_QUESTION)) == FINAL_GLOBAL_VARIABLES.getPRIZES().length){
+                        endTheGame(false);
+                    }else{
+                        setQuestion();
+                        gui.enableActions();
+                        gui.setOptionButtonState(buttonSymbol, OptionButton.DEFAULT);}
                 }, 3);
 
 
@@ -88,6 +92,7 @@ public class Controller {
     //
     public void endTheGame(boolean withDraw){
         gui.setOptionButtonState(game.getCorrectAnswerSymbol() , OptionButton.CORRECT);
+        Timer.delay(()->gui.playSound(SoundEffect.WRONG_ANSWER), 0.1);
         Timer.delay(()->{
             String[] moneyCheckData = game.getMoneyCheckData(withDraw);
             gui.showEndGameScreen(moneyCheckData[0],moneyCheckData[1],moneyCheckData[2]);

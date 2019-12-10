@@ -69,9 +69,9 @@ class EndGameScreen extends VBox {
         setPrefSize(1024, 768);
     }
     private void setCheckData(String playerName, String playerBalance, String gameDate) {
-        instance.playerName.setText(playerName);
-        instance.balance.setText(playerBalance+FINAL_GLOBAL_VARIABLES.getCurrencySymbol());
-        instance.date.setText(gameDate);
+        this.playerName.setText(playerName);
+        this.balance.setText(playerBalance+FINAL_GLOBAL_VARIABLES.getCurrencySymbol());
+        this.date.setText(gameDate);
     }
 
     public static EndGameScreen getInstance() {
@@ -83,6 +83,7 @@ class EndGameScreen extends VBox {
         instance.setCheckData(playerName,playerBalance,gameDate);
         pane.getChildren().clear();
         pane.getChildren().add(getInstance());
+        SoundEffect.play(SoundEffect.GAME_END);
         home.setOnMouseClicked(event -> {
             IntroScreen.addTo(pane);
         });
