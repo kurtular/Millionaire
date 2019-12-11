@@ -158,6 +158,12 @@ class LifeLineArea extends VBox {
     public void setLifeLineHint(String lifeLineHint) {
         this.lifeLineHint.setText(lifeLineHint);
     }
+    public void resetLifeLineArea(){
+        audience.reset();
+        half.reset();
+        friend.reset();
+        change.reset();
+    }
 }
 
 

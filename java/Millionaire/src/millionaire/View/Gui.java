@@ -84,5 +84,6 @@ public class Gui extends Application {
     }
     public static void reset(){
        PriceTable.getInstance().resetPriceTable();
+       LifeLineArea.getInstance().resetLifeLineArea();
     }
 }
