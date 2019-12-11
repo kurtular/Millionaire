@@ -49,5 +49,6 @@ class PriceLabel extends HBox {
     void showCircle(){
         circle.setVisible(true);
     }
+    void hideCircle() { circle.setVisible(false);}
 }
 

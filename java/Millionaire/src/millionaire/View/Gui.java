@@ -82,4 +82,7 @@ public class Gui extends Application {
     public void playSound(String effectName){
        SoundEffect.play(effectName);
     }
+    public static void reset(){
+       PriceTable.getInstance().resetPriceTable();
+    }
 }
