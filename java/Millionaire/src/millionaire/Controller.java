@@ -1,7 +1,12 @@
 package millionaire;
 
+import millionaire.Model.DBConnection;
 import millionaire.Model.Game;
 import millionaire.View.*;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 // Controller class (MVC design pattern).
 
@@ -48,7 +53,8 @@ public class Controller {
             if (game.checkAnswer(buttonSymbol)) {
                 gui.setOptionButtonState(buttonSymbol, OptionButton.CORRECT);
                 Timer.delay(()->{
-                    game.nextQuestion();
+                    // send current time to nextQuestion method. Millad
+                    game.nextQuestion(gui.getShownSeconds());
 
                     if (Byte.parseByte(game.getValue(Game.CURRENT_QUESTION)) == FINAL_GLOBAL_VARIABLES.getPRIZES().length){
                         endTheGame(false);
@@ -94,7 +100,12 @@ public class Controller {
         gui.setOptionButtonState(game.getCorrectAnswerSymbol() , OptionButton.CORRECT);
         Timer.delay(()->gui.playSound(SoundEffect.WRONG_ANSWER), 0.1);
         Timer.delay(()->{
-            String[] moneyCheckData = game.getMoneyCheckData(withDraw);
+            String[] moneyCheckData = new String[0];
+            try {
+                moneyCheckData = game.getMoneyCheckData(withDraw);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             gui.showEndGameScreen(moneyCheckData[0],moneyCheckData[1],moneyCheckData[2]);
         }, 3);
     }

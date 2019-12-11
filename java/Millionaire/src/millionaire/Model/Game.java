@@ -3,6 +3,9 @@ package millionaire.Model;
 import millionaire.FINAL_GLOBAL_VARIABLES;
 import org.json.*;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -47,7 +50,7 @@ public class Game implements getJson {
         player.setName(playerName);
     }
     // Added safetylevelpayment if player guess at wrong answer.
-    public String[] getMoneyCheckData(boolean withDraw){
+    public String[] getMoneyCheckData(boolean withDraw) throws SQLException {
         String[] returnedData = new String[3];
         returnedData[0] = player.getName();
         if (withDraw) {
@@ -59,7 +62,16 @@ public class Game implements getJson {
         }
         DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         returnedData[2] = date.format(LocalDateTime.now());
+        sendToDB(getUserInfo());
         return returnedData;
+    }
+    // läs Millad
+    private void sendToDB(String[] nameandhighscore) throws SQLException {
+        DBConnection connectionToDB = new DBConnection();
+        Connection connection = connectionToDB.getConnection();
+        String sql = "INSERT INTO nameandhighscore(Username,Highscore) VALUES ('"+ nameandhighscore[0] + "','"+ nameandhighscore[1] + "')";
+        Statement statement = connection.createStatement();
+        statement.executeUpdate(sql,1);
     }
 
     // getValue() return a specific string value of the question object depending on value parameter (check class variables above).
@@ -115,10 +127,12 @@ public class Game implements getJson {
         }
         return symbol;
     }
-    //
-    public void nextQuestion() {
-        if (currentQuestion <= FINAL_GLOBAL_VARIABLES.getPRIZES().length)
+    // läs millad
+    public void nextQuestion(int second) {
+        if (currentQuestion <= FINAL_GLOBAL_VARIABLES.getPRIZES().length) {
+            player.addToScore(second,Integer.parseInt(FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion]));
             currentQuestion++;
+        }
 
         if (reserveQuestionIsrunning) {
             reserveQuestionIsrunning = false;
@@ -263,5 +277,11 @@ public class Game implements getJson {
             }
         }
         return returnedResult.toString();
+    }
+
+    // Läs Millad.
+    private String[] getUserInfo(){
+
+        return new String[]{player.getName(),Integer.toString(player.getScore())};
     }
 }
