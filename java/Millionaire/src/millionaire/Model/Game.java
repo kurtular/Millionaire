@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Game implements getJson {
     // Class variables.
@@ -50,7 +51,7 @@ public class Game implements getJson {
         player.setName(playerName);
     }
     // Added safetylevelpayment if player guess at wrong answer.
-    public String[] getMoneyCheckData(boolean withDraw) throws SQLException {
+    public String[] getMoneyCheckData(boolean withDraw) {
         String[] returnedData = new String[3];
         returnedData[0] = player.getName();
         if (withDraw) {
@@ -62,16 +63,22 @@ public class Game implements getJson {
         }
         DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         returnedData[2] = date.format(LocalDateTime.now());
-        sendToDB(getUserInfo());
+        try {
+            sendToDB(returnedData);
+        }catch (Exception e){
+            System.err.println("!!Couldn't send player log (score) to db!!"+e);
+        }
+
         return returnedData;
     }
     // läs Millad
-    private void sendToDB(String[] nameandhighscore) throws SQLException {
+    private void sendToDB(String[] moneyCheckData) throws SQLException {
+
         DBConnection connectionToDB = new DBConnection();
         Connection connection = connectionToDB.getConnection();
-        String sql = "INSERT INTO nameandhighscore(Username,Highscore) VALUES ('"+ nameandhighscore[0] + "','"+ nameandhighscore[1] + "')";
+        String sql = "INSERT INTO high_score(player_name,player_balance,player_score) VALUES ('"+ moneyCheckData[0] + "','"+ Integer.parseInt(moneyCheckData[1].replaceAll(" ","" )) + "','" + player.getScore() + "')";
         Statement statement = connection.createStatement();
-        statement.executeUpdate(sql,1);
+        statement.executeUpdate(sql);
     }
 
     // getValue() return a specific string value of the question object depending on value parameter (check class variables above).
@@ -130,10 +137,9 @@ public class Game implements getJson {
     // läs millad
     public void nextQuestion(int second) {
         if (currentQuestion <= FINAL_GLOBAL_VARIABLES.getPRIZES().length) {
-            player.addToScore(second,Integer.parseInt(FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion]));
+            player.addToScore(second,Integer.parseInt(FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion].replaceAll(" ", "")));
             currentQuestion++;
         }
-
         if (reserveQuestionIsrunning) {
             reserveQuestionIsrunning = false;
         }
@@ -277,11 +283,5 @@ public class Game implements getJson {
             }
         }
         return returnedResult.toString();
-    }
-
-    // Läs Millad.
-    private String[] getUserInfo(){
-
-        return new String[]{player.getName(),Integer.toString(player.getScore())};
     }
 }

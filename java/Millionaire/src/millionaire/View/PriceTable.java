@@ -39,7 +39,9 @@ class PriceTable extends VBox {
     }
 
     void setCurrentPlace(int position) {
-        priceLabels[position].showCircle();
+        if (position>1)
+            priceLabels[position-1].showCircle();
+
         priceLabels[position].setStyle("-fx-background-color: orange;");
 
         if (position > 1) {
@@ -51,7 +53,6 @@ class PriceTable extends VBox {
         for (int i = 1; i < priceLabels.length; i++) {
             priceLabels[i].hideCircle();
             priceLabels[i].setStyle("");
-
         }
 
     }

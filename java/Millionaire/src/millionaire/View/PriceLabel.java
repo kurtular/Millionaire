@@ -27,7 +27,7 @@ class PriceLabel extends HBox {
         pane.setCenter(circle);
         pane.setPadding(new Insets(0, 10, 0, 5));
 
-        balanceLabel = new Label(balance + FINAL_GLOBAL_VARIABLES.getCurrencySymbol());
+        balanceLabel = new Label(FINAL_GLOBAL_VARIABLES.getCurrencySymbol()+balance);
         balanceLabel.setFont(Font.font(15));
 
         numberLabel = new Label(number);

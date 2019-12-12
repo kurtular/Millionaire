@@ -30,7 +30,7 @@ public class TimerLabel extends Label {
         this.setGraphic(img);
         this.setWrapText(true);
         this.setTextFill(Color.valueOf("#fff"));
-        this.setFont(Font.font("arial",20));
+        this.setFont(Font.font("arial",30));
         this.setContentDisplay(ContentDisplay.CENTER);
         this.setFocusTraversable(false);
     }

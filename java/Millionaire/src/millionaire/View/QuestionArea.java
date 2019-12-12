@@ -100,7 +100,7 @@ class QuestionArea extends BorderPane {
         instance.buttonB.setText(option2);
         instance.buttonC.setText(option3);
         instance.buttonD.setText(option4);
-        instance.balance.setText(balance+ FINAL_GLOBAL_VARIABLES.getCurrencySymbol());
+        instance.balance.setText(FINAL_GLOBAL_VARIABLES.getCurrencySymbol()+balance);
         playSound(currentQuestion);
     }
 //
