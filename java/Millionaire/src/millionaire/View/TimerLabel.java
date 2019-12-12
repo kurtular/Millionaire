@@ -4,6 +4,7 @@ import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import millionaire.FINAL_GLOBAL_VARIABLES;
@@ -37,6 +38,7 @@ public class TimerLabel extends Label {
     void startTimer(){
         isStopped=false;
         setText(Integer.toString(shownSeconds));
+        setSecondsColor();
         Timer.delay(()->{
             if(shownSeconds > 0 && !isStopped){
                 shownSeconds--;
@@ -53,6 +55,16 @@ public class TimerLabel extends Label {
     }
     public byte getShownSeconds() {
         return shownSeconds;
+    }
+    private void setSecondsColor(){
+        if(shownSeconds<6){
+            setTextFill(Paint.valueOf("#ff3434"));
+        } else if(shownSeconds<16){
+            setTextFill(Paint.valueOf("#faff6a"));
+        }
+        else {
+            setTextFill(Paint.valueOf("#fff"));
+        }
     }
 }
 
