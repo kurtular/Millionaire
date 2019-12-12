@@ -90,8 +90,10 @@ public class Controller {
     }
     //
     public void endTheGame(boolean withDraw){
-        gui.setOptionButtonState(game.getCorrectAnswerSymbol() , OptionButton.CORRECT);
-        Timer.delay(()->gui.playSound(SoundEffect.WRONG_ANSWER), 0.1);
+        if (Byte.parseByte(game.getValue(Game.CURRENT_QUESTION)) != FINAL_GLOBAL_VARIABLES.getPRIZES().length){
+            gui.setOptionButtonState(game.getCorrectAnswerSymbol() , OptionButton.CORRECT);
+            Timer.delay(()->gui.playSound(SoundEffect.WRONG_ANSWER), 0.1);
+        }
         Timer.delay(()->{
             String[] moneyCheckData = game.getMoneyCheckData(withDraw);
             gui.showEndGameScreen(moneyCheckData[0],moneyCheckData[1],moneyCheckData[2]);
@@ -110,23 +112,13 @@ public class Controller {
     public void useLifeLine(String lifeLineSelection) {
         gui.stopTimer();
         Timer.delay(()->{
-        switch (lifeLineSelection) {
-            case "askThePeople":
-                gui.setLifeLineHint(game.askAudience());
-                break;
-            case "callAFriend":
-                gui.setLifeLineHint(game.callAFriend());
-                break;
-            case "removeHalf":
-                setQuestion(game.removeHalf());
-                break;
-            case "changeQuestion":
-                setQuestion(game.changeQuestion());
-                break;
-            default:
+            if(lifeLineSelection.equals("askThePeople") || lifeLineSelection.equals("callAFriend")){
+                gui.setLifeLineHint(game.runLifeLine(lifeLineSelection)[0]);
+            }else if (lifeLineSelection.equals("removeHalf") || lifeLineSelection.equals("changeQuestion")){
+                setQuestion(game.runLifeLine(lifeLineSelection));
+            }else {
                 System.err.println("There is no lifeline related to ("+lifeLineSelection+").");
-
-        }
+            }
         },1);
     }
 }

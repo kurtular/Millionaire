@@ -1,5 +1,6 @@
 package millionaire.View;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -25,5 +26,6 @@ class TextLabel extends Label {
         this.setFont(Font.font("arial",20));
         this.setContentDisplay(ContentDisplay.CENTER);
         this.setFocusTraversable(false);
+        setMaxSize(width, height);
     }
 }
