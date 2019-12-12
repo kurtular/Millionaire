@@ -34,7 +34,7 @@ OptionButton(){
 ///////////////////////////////////////////////////////////////////////////////////
 // The member methods.
 // setState() will change the style (state) of an option button depending on the possible state value (see the static variables at the start of the class). (between -1 and 1)
-void setState(int state){
+public void setState(int state){
         switch (state){
             case -1:
                 setId("wrongAnswer");

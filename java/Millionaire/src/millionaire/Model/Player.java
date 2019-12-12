@@ -2,11 +2,11 @@ package millionaire.Model;
 
 import millionaire.FINAL_GLOBAL_VARIABLES;
 
-class Player {
+public class Player {
     //
     private static Player instance = new Player();
 
-    static Player getInstance() {
+    public static Player getInstance() {
         return instance;
     }
 
@@ -25,11 +25,11 @@ class Player {
         return name;
     }
 
-     int getScore() {
+     public int getScore() {
         return score;
     }
 
-    void addToScore(int seconds, int currentBalance) {
+    public void addToScore(int seconds, int currentBalance) {
         score += currentBalance + (currentBalance / 2 * (seconds / (double) FINAL_GLOBAL_VARIABLES.getQuestionDuration()));
     }
 

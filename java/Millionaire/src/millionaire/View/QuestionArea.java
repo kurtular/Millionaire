@@ -122,4 +122,10 @@ class QuestionArea extends BorderPane {
         else if (currentQuestion==14){SoundEffect.play(SoundEffect.FOURTEEN);
         }else {SoundEffect.play(SoundEffect.FIFTEEN);}
     }
+    public void resetQuestionArea(){
+        buttonA.setState(OptionButton.DEFAULT);
+        buttonB.setState(OptionButton.DEFAULT);
+        buttonC.setState(OptionButton.DEFAULT);
+        buttonD.setState(OptionButton.DEFAULT);
+    }
 }

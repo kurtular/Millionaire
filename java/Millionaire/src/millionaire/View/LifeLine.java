@@ -32,5 +32,6 @@ class LifeLine extends Label {
     public void switchToUsedImage(){
         img.setImage(new Image("img/"+type+"-used.png"));
     }
+    public void reset(){img.setImage(new Image("img/"+type+".gif"));}
 
 }
