@@ -5,19 +5,21 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Ellipse;
+import millionaire.Controller;
+import millionaire.FINAL_GLOBAL_VARIABLES;
+import millionaire.Timer;
 
 class LifeLine extends Label {
-    public final static String AUDIENCE = "audience";
-    public final static String FRIEND = "friend";
-    public final static String HALF = "half";
-    public final static String CHANGE = "change";
-    public boolean used;
-    public boolean tempDisabled;
+
+//
+    private boolean used;
     private ImageView img;
     private String type;
+    private String soundEffectName;
 
-    LifeLine(String type) {
-        this.type = type;
+    LifeLine(String LifeLineType,String SoundEffectName) {
+        this.type = LifeLineType;
+        soundEffectName = SoundEffectName;
         img = new ImageView("img/"+type+".gif");
         img.setFitWidth(150);
         img.setFitHeight(100);
@@ -25,13 +27,41 @@ class LifeLine extends Label {
         setGraphic(img);
         setCursor(Cursor.HAND);
         used = false;
-        tempDisabled = false;
+        setAction();
     }
 
 //
-    public void switchToUsedImage(){
-        img.setImage(new Image("img/"+type+"-used.png"));
+    private void switchToUsedImage(){ img.setImage(new Image("img/"+type+"-used.png")); }
+    //
+    void setAction() {
+        setOnMouseClicked(event -> {
+            QuestionArea.getInstance().disableActions();
+            LifeLineArea.getInstance().deactivateTemporarily();
+            PlayScreen.getInstance().disableWithdrawing();
+            disableAction();
+            SoundEffect.play(soundEffectName);
+            TimerLabel.getInstance().stopTimer();
+            Timer.delay(() -> Controller.getInstance().useLifeLine(type), 4);
+        });
     }
-    public void reset(){img.setImage(new Image("img/"+type+".gif"));}
-
+    //
+    private void disableAction(){
+        switchToUsedImage();
+        setDisable(true);
+        setOpacity(0.8);
+        setOnMouseClicked(null);
+        setAsUsed();
+    }
+    //
+    void reset(){
+        img.setImage(new Image("img/"+type+".gif"));
+        setAction();
+        used=false;
+        setDisable(false);
+        setOpacity(1);
+    }
+    //
+    private void setAsUsed(){used=true;}
+    //
+    boolean isUsed(){return used;}
 }

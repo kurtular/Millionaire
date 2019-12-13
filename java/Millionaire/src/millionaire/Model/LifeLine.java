@@ -2,7 +2,7 @@ package millionaire.Model;
 
 class LifeLine {
     private boolean isUsed;
-    LifeLineBehavior behavior;
+    private LifeLineBehavior behavior;
 
     LifeLine(LifeLineBehavior behavior){
         isUsed=false;
@@ -16,7 +16,7 @@ class LifeLine {
         }else return null;
     }
 
-    boolean isUsed(){
-        return isUsed;
+    void reset(){
+         isUsed=false;
     }
 }

@@ -1,5 +1,7 @@
 package millionaire.Model;
 
+import millionaire.FINAL_GLOBAL_VARIABLES.*;
+
 class RemoveHalf implements LifeLineBehavior {
     private static RemoveHalf instance = new RemoveHalf();
     protected static RemoveHalf getInstance(){return instance;}
@@ -28,7 +30,7 @@ class RemoveHalf implements LifeLineBehavior {
                 }
             }
         }
-        String[] returnedResult = {game.getValue(game.QUESTION_TEXT), game.getValue(game.OPTION1), game.getValue(game.OPTION2), game.getValue(game.OPTION3), game.getValue(game.OPTION4)};
+        String[] returnedResult = {game.getValue(QuestionPart.QUESTION_TEXT), game.getValue(QuestionPart.OPTION1), game.getValue(QuestionPart.OPTION2), game.getValue(QuestionPart.OPTION3), game.getValue(QuestionPart.OPTION4)};
         return returnedResult;
     }
 }

@@ -1,24 +1,16 @@
 package millionaire.Model;
 
 import millionaire.FINAL_GLOBAL_VARIABLES;
-import org.json.*;
-
+import org.json.JSONArray;
+import org.json.JSONObject;
+import millionaire.FINAL_GLOBAL_VARIABLES.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
 
 public class Game implements getJson {
-    // Class variables.
-    public final static byte QUESTION_TEXT = 0;
-    public final static byte OPTION1 = 1;
-    public final static byte OPTION2 = 2;
-    public final static byte OPTION3 = 3;
-    public final static byte OPTION4 = 4;
-    public final static byte CURRENT_QUESTION = 5;
     static private final Game game = new Game();
 
     public static Game getInstance() {
@@ -30,9 +22,9 @@ public class Game implements getJson {
     byte currentQuestion;
     final private Player player = Player.getInstance();
     ChangeQuestion changeQuestion = ChangeQuestion.getInstance();
-    LifeLine removeHalf = new LifeLine(RemoveHalf.getInstance());
-    LifeLine callAFriend = new LifeLine(CallAFriend.getInstance());
-    LifeLine askAudience = new LifeLine(AskAudience.getInstance());
+    private LifeLine removeHalf = new LifeLine(RemoveHalf.getInstance());
+    private LifeLine callAFriend = new LifeLine(CallAFriend.getInstance());
+    private LifeLine askAudience = new LifeLine(AskAudience.getInstance());
 
 
     private Game() { }
@@ -49,8 +41,13 @@ public class Game implements getJson {
     }
 
     public void newGame(String playerName) {
-        setQuestions();
         currentQuestion = 1;
+        setQuestions();
+        player.resetPlayer();
+        askAudience.reset();
+        callAFriend.reset();
+        changeQuestion.reset();
+        removeHalf.reset();
         player.setName(playerName);
     }
     //
@@ -127,7 +124,7 @@ public class Game implements getJson {
     }
 //
     public char getCorrectAnswerSymbol(){
-        char symbol = '0';
+        char symbol;
         for (symbol='A';symbol<='D';symbol++){
             if (checkAnswer(symbol)) {
                 break;
@@ -155,17 +152,20 @@ public class Game implements getJson {
     }
 
 //
-    public String[] runLifeLine(String lifeLineType){
-        String[] returnedResult;
-        switch (lifeLineType){
-            case "changeQuestion":  returnedResult = changeQuestion.run();break;
-            case "removeHalf"    :  returnedResult = removeHalf.run();break;
-            case "callAFriend"   :  returnedResult = callAFriend.run();break;
-            case "askThePeople"  :  returnedResult = askAudience.run();break;
-            default:
-                System.err.println("There is no lifeline related to ("+lifeLineType+").");
-                returnedResult=null;
-        }
-        return returnedResult;
+public String[] runLifeLine(String lifeLineType) {
+    String[] returnedResult;
+    if (lifeLineType.equals(LifeLineType.CHANGE)) {
+        returnedResult = changeQuestion.run();
+    } else if (lifeLineType.equals(LifeLineType.HALF)) {
+        returnedResult = removeHalf.run();
+    } else if (lifeLineType.equals(LifeLineType.FRIEND)) {
+        returnedResult = callAFriend.run();
+    } else if (lifeLineType.equals(LifeLineType.AUDIENCE)) {
+        returnedResult = askAudience.run();
+    } else {
+        System.err.println("There is no lifeline related to (" + lifeLineType + ").");
+        returnedResult = null;
     }
+    return returnedResult;
+}
 }

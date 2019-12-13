@@ -5,15 +5,10 @@ import javafx.scene.control.Label;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
+import millionaire.FINAL_GLOBAL_VARIABLES.SoundEffectName;
 
 // OptionButton class will create the options buttons that will be shown underneath question text.
-public class OptionButton extends Label {
-// Some static variable that represents the states of an option button. These will be usable when  calling setState().
-    public static final int WRONG = -1;
-    public static final int CHECKING = 0;
-    public static final int CORRECT = 1;
-    public static final int DEFAULT = 2;
-
+class OptionButton extends Label {
 /////////////////////////////////////////////////////////////////////
 // Constructor
 OptionButton(){
@@ -34,19 +29,19 @@ OptionButton(){
 ///////////////////////////////////////////////////////////////////////////////////
 // The member methods.
 // setState() will change the style (state) of an option button depending on the possible state value (see the static variables at the start of the class). (between -1 and 1)
-public void setState(int state){
+void setState(int state){
         switch (state){
             case -1:
                 setId("wrongAnswer");
-                SoundEffect.play(SoundEffect.WRONG_ANSWER);
+                SoundEffect.play(SoundEffectName.WRONG_ANSWER);
                 break;
             case 0:
                 setId("checkingAnswer");
-                SoundEffect.play(SoundEffect.CHECKING_ANSWER);
+                SoundEffect.play(SoundEffectName.CHECKING_ANSWER);
             break;
             case 1:
                 setId("rightAnswer");
-                SoundEffect.play(SoundEffect.CORRECT_ANSWER);
+                SoundEffect.play(SoundEffectName.CORRECT_ANSWER);
             break;
             case 2:
                 idProperty().setValue("");

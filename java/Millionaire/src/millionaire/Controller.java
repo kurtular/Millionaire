@@ -2,6 +2,7 @@ package millionaire;
 
 import millionaire.Model.Game;
 import millionaire.View.*;
+import millionaire.FINAL_GLOBAL_VARIABLES.*;
 
 // Controller class (MVC design pattern).
 
@@ -25,7 +26,7 @@ public class Controller {
     private Controller() {
     }
     //
-    public static void setupController(Game game, Gui gui) {
+    static void setupController(Game game, Gui gui) {
         instance.game = game;
         instance.gui = gui;
     }
@@ -42,24 +43,24 @@ public class Controller {
      and disable the other selections. It will also temporarily disabling the lifelines. */
     public void setAnswer(char buttonSymbol) { // TODO PlayContent instead of QuestionArea and add delay to button effects-+
 
-        gui.setOptionButtonState(buttonSymbol, OptionButton.CHECKING);
+        gui.setOptionButtonState(buttonSymbol, OptionButtonState.CHECKING);
         gui.disableActions();
         Timer.delay(() -> {
             if (game.checkAnswer(buttonSymbol)) {
-                gui.setOptionButtonState(buttonSymbol, OptionButton.CORRECT);
+                gui.setOptionButtonState(buttonSymbol, OptionButtonState.CORRECT);
                 Timer.delay(()->{
                     game.nextQuestion(gui.getShownSeconds());
-                    if (Byte.parseByte(game.getValue(Game.CURRENT_QUESTION)) == FINAL_GLOBAL_VARIABLES.getPRIZES().length){
+                    if (Byte.parseByte(game.getValue(QuestionPart.CURRENT_QUESTION)) == FINAL_GLOBAL_VARIABLES.getPRIZES().length){
                         endTheGame(false);
                     }else{
                         setQuestion();
-                        gui.enableActions();
-                        gui.setOptionButtonState(buttonSymbol, OptionButton.DEFAULT);}
+                        gui.setOptionButtonState(buttonSymbol, OptionButtonState.DEFAULT);}
                 }, 3);
 
 
             } else {
-                gui.setOptionButtonState(buttonSymbol, OptionButton.WRONG);
+                gui.setOptionButtonState(buttonSymbol, OptionButtonState.WRONG);
+
                 endTheGame(false);
             }
             gui.setLifeLineHint("");
@@ -69,12 +70,12 @@ public class Controller {
 
     // setQuestion() method brings the question and its options and send them to View (gui) that will show it on the screen.
     private void setQuestion() {
-        String question = game.getValue(Game.QUESTION_TEXT);
-        String option1 = game.getValue(Game.OPTION1);
-        String option2 = game.getValue(Game.OPTION2);
-        String option3 = game.getValue(Game.OPTION3);
-        String option4 = game.getValue(Game.OPTION4);
-        byte currentQuestion = Byte.parseByte(game.getValue(Game.CURRENT_QUESTION));
+        String question = game.getValue(QuestionPart.QUESTION_TEXT);
+        String option1 = game.getValue(QuestionPart.OPTION1);
+        String option2 = game.getValue(QuestionPart.OPTION2);
+        String option3 = game.getValue(QuestionPart.OPTION3);
+        String option4 = game.getValue(QuestionPart.OPTION4);
+        byte currentQuestion = Byte.parseByte(game.getValue(QuestionPart.CURRENT_QUESTION));
         gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
     }
     // Overriding
@@ -84,15 +85,14 @@ public class Controller {
         String option2 = fullQuestion[2];
         String option3 = fullQuestion[3];
         String option4 = fullQuestion[4];
-        byte currentQuestion = Byte.parseByte(game.getValue(Game.CURRENT_QUESTION));
+        byte currentQuestion = Byte.parseByte(game.getValue(QuestionPart.CURRENT_QUESTION));
         gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
-
     }
     //
     public void endTheGame(boolean withDraw){
-        if (Byte.parseByte(game.getValue(Game.CURRENT_QUESTION)) != FINAL_GLOBAL_VARIABLES.getPRIZES().length){
-            gui.setOptionButtonState(game.getCorrectAnswerSymbol() , OptionButton.CORRECT);
-            Timer.delay(()->gui.playSound(SoundEffect.WRONG_ANSWER), 0.1);
+        if (Byte.parseByte(game.getValue(QuestionPart.CURRENT_QUESTION)) != FINAL_GLOBAL_VARIABLES.getPRIZES().length){
+            gui.setOptionButtonState(game.getCorrectAnswerSymbol() , OptionButtonState.CORRECT);
+            Timer.delay(()->gui.playSound(SoundEffectName.WRONG_ANSWER), 0.1);
         }
         Timer.delay(()->{
             String[] moneyCheckData = game.getMoneyCheckData(withDraw);
@@ -112,9 +112,9 @@ public class Controller {
     public void useLifeLine(String lifeLineSelection) {
         gui.stopTimer();
         Timer.delay(()->{
-            if(lifeLineSelection.equals("askThePeople") || lifeLineSelection.equals("callAFriend")){
+            if(lifeLineSelection.equals(LifeLineType.AUDIENCE) || lifeLineSelection.equals(LifeLineType.FRIEND)){
                 gui.setLifeLineHint(game.runLifeLine(lifeLineSelection)[0]);
-            }else if (lifeLineSelection.equals("removeHalf") || lifeLineSelection.equals("changeQuestion")){
+            }else if (lifeLineSelection.equals(LifeLineType.HALF) || lifeLineSelection.equals(LifeLineType.CHANGE)){
                 setQuestion(game.runLifeLine(lifeLineSelection));
             }else {
                 System.err.println("There is no lifeline related to ("+lifeLineSelection+").");

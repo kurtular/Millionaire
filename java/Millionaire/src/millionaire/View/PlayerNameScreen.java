@@ -17,7 +17,7 @@ import static javafx.geometry.Pos.CENTER;
 
 class PlayerNameScreen extends VBox {
     final private static PlayerNameScreen instance = new PlayerNameScreen();
-    static PlayerNameScreen getInstance() {
+    private static PlayerNameScreen getInstance() {
         return instance;
     }
 
@@ -79,6 +79,7 @@ class PlayerNameScreen extends VBox {
         // To make aliasInput enabled and empty (reset).
         aliasInput.setDisable(false);
         aliasInput.setText("");
+        confirmButton.setDisable(false);
     }
 
     //Added enterkey to work as confirm.
@@ -92,6 +93,7 @@ class PlayerNameScreen extends VBox {
                 //
                 if (!instance.aliasInputISEmpty()) {
                     instance.aliasInput.setDisable(true);
+                    instance.confirmButton.setDisable(true);
                     instance.errorMessage.setText(null);
                     PlayScreen.addTo(pane);
                     Timer.delay(()->Controller.getInstance().startTheGame(instance.aliasInput.getText()), 3);
@@ -102,6 +104,7 @@ class PlayerNameScreen extends VBox {
             //
             if (!instance.aliasInputISEmpty()) {
                 instance.aliasInput.setDisable(true);
+                instance.confirmButton.setDisable(true);
                 instance.errorMessage.setText(null);
                 PlayScreen.addTo(pane);
                 Timer.delay(()->Controller.getInstance().startTheGame(instance.aliasInput.getText()), 3);

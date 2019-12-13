@@ -7,6 +7,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import millionaire.FINAL_GLOBAL_VARIABLES;
+import millionaire.FINAL_GLOBAL_VARIABLES.SoundEffectName;
 
 class EndGameScreen extends VBox {
     private static EndGameScreen instance = new EndGameScreen();
@@ -83,7 +84,7 @@ class EndGameScreen extends VBox {
         instance.setCheckData(playerName,playerBalance,gameDate);
         pane.getChildren().clear();
         pane.getChildren().add(getInstance());
-        SoundEffect.play(SoundEffect.GAME_END);
+        SoundEffect.play(SoundEffectName.GAME_END);
         home.setOnMouseClicked(event -> {
             IntroScreen.addTo(pane);
             Gui.reset();

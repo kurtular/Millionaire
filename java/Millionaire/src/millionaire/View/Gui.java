@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import millionaire.FINAL_GLOBAL_VARIABLES;
+import millionaire.Timer;
 
 // The main class of the View packet and it's represent the View class of the MVC design pattern.
 public class Gui extends Application {
@@ -38,26 +39,30 @@ public class Gui extends Application {
 /* updateQuestion() method pass the question that will be shown to the PlayContent class (window will be shown during the match)
    and to enable temporarily disabled lifelines.*/
    public void updateQuestion(String question,String option1,String option2,String option3,String option4,byte currentQuestion){
-        LifeLineArea.getInstance().enableTempDisabledLifeLines();
+//        LifeLineArea.getInstance().enableTempDisabledLifeLines();
         PriceTable.getInstance().setCurrentPlace(currentQuestion);
         String balance = FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion-1];
         QuestionArea.getInstance().updateQuestion(question, option1, option2, option3, option4, balance,currentQuestion);
         //
         TimerLabel.getInstance().resetTimer();
         TimerLabel.getInstance().startTimer();
-
+        enableActions();
    }
 //
     public void setOptionButtonState(char optionButtonSymbol,int optionButtonState){
         QuestionArea.getInstance().setOptionButtonState(optionButtonSymbol,optionButtonState);
     }
 //
-    public void enableActions(){
-        QuestionArea.getInstance().enableActions();
+    private void enableActions(){
+            PlayScreen.getInstance().enableWithdrawing();
+            QuestionArea.getInstance().enableActions();
+            LifeLineArea.getInstance().activate();
     }
 //
     public void disableActions(){
+        PlayScreen.getInstance().disableWithdrawing();
         QuestionArea.getInstance().disableActions();
+        LifeLineArea.getInstance().deactivateTemporarily();
     }
 
 //A method who recieves the lifelinehint from controller and push it forward to Lifelineareaclass
@@ -67,6 +72,7 @@ public class Gui extends Application {
         if (!hint.isEmpty()){
         TimerLabel.getInstance().resetTimer();
         TimerLabel.getInstance().startTimer();
+        enableActions();
         }
     }
 //
@@ -82,7 +88,7 @@ public class Gui extends Application {
     public void playSound(String effectName){
        SoundEffect.play(effectName);
     }
-    public static void reset(){
+    static void reset(){
        PriceTable.getInstance().resetPriceTable();
        LifeLineArea.getInstance().resetLifeLineArea();
        QuestionArea.getInstance().resetQuestionArea();

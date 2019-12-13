@@ -1,5 +1,7 @@
 package millionaire.Model;
 
+import millionaire.FINAL_GLOBAL_VARIABLES.*;
+
 class ChangeQuestion extends LifeLine {
     private static ChangeQuestion instance = new ChangeQuestion();
     protected static ChangeQuestion getInstance(){return instance;}
@@ -8,8 +10,7 @@ class ChangeQuestion extends LifeLine {
         //
         super(() -> {
             Question reserveQuestion = LifeLineBehavior.game.questions[0];
-            String[] returnedResult = {reserveQuestion.getValue(LifeLineBehavior.game.QUESTION_TEXT),reserveQuestion.getValue(LifeLineBehavior.game.OPTION1), reserveQuestion.getValue(LifeLineBehavior.game.OPTION2),reserveQuestion.getValue(LifeLineBehavior.game.OPTION3),reserveQuestion.getValue(LifeLineBehavior.game.OPTION4)};
-            return returnedResult;
+            return new String[]{reserveQuestion.getValue(QuestionPart.QUESTION_TEXT),reserveQuestion.getValue(QuestionPart.OPTION1), reserveQuestion.getValue(QuestionPart.OPTION2),reserveQuestion.getValue(QuestionPart.OPTION3),reserveQuestion.getValue(QuestionPart.OPTION4)};
         });
         isRunning=false;
     }
@@ -24,5 +25,10 @@ class ChangeQuestion extends LifeLine {
     }
     void stop(){
         isRunning =false;
+    }
+
+    void reset(){
+        stop();
+        super.reset();
     }
 }

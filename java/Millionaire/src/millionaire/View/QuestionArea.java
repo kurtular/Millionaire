@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import millionaire.FINAL_GLOBAL_VARIABLES;
+import millionaire.FINAL_GLOBAL_VARIABLES.*;
 
 class QuestionArea extends BorderPane {
     final private static QuestionArea instance = new QuestionArea();
@@ -106,26 +107,26 @@ class QuestionArea extends BorderPane {
 //
     private void setAnswer(char answerSymbol){
         TimerLabel.getInstance().stopTimer();
-        LifeLineArea.getInstance().tempDisableLifeLinesAfterAnswer();
+        LifeLineArea.getInstance().deactivateTemporarily();
         Controller.getInstance().setAnswer(answerSymbol);
     }
     private void playSound(byte currentQuestion){
         if(currentQuestion<6){
-            SoundEffect.play(SoundEffect.FIRST_5_QUESTIONS);
+            SoundEffect.play(SoundEffectName.FIRST_5_QUESTIONS);
         }else if (currentQuestion<11){
-            SoundEffect.play(SoundEffect.SECOND_5_QUESTIONS);
+            SoundEffect.play(SoundEffectName.SECOND_5_QUESTIONS);
         }else if (currentQuestion==11){
-            SoundEffect.play(SoundEffect.ELEVEN);
+            SoundEffect.play(SoundEffectName.ELEVEN);
         }else if(currentQuestion<14){
-            SoundEffect.play(SoundEffect.TWELVE_THIRTEEN);
+            SoundEffect.play(SoundEffectName.TWELVE_THIRTEEN);
         }
-        else if (currentQuestion==14){SoundEffect.play(SoundEffect.FOURTEEN);
-        }else {SoundEffect.play(SoundEffect.FIFTEEN);}
+        else if (currentQuestion==14){SoundEffect.play(SoundEffectName.FOURTEEN);
+        }else {SoundEffect.play(SoundEffectName.FIFTEEN);}
     }
-    public void resetQuestionArea(){
-        buttonA.setState(OptionButton.DEFAULT);
-        buttonB.setState(OptionButton.DEFAULT);
-        buttonC.setState(OptionButton.DEFAULT);
-        buttonD.setState(OptionButton.DEFAULT);
+    void resetQuestionArea(){
+        buttonA.setState(OptionButtonState.DEFAULT);
+        buttonB.setState(OptionButtonState.DEFAULT);
+        buttonC.setState(OptionButtonState.DEFAULT);
+        buttonD.setState(OptionButtonState.DEFAULT);
     }
 }
