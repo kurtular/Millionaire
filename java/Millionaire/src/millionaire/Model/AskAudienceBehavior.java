@@ -2,17 +2,17 @@ package millionaire.Model;
 
 import java.util.ArrayList;
 
-public class AskAudience implements LifeLineBehavior {
-    private static AskAudience instance = new AskAudience();
-    protected static AskAudience getInstance(){return instance;}
-    private AskAudience(){}
+public class AskAudienceBehavior implements LifeLineBehavior {
+    private static AskAudienceBehavior instance = new AskAudienceBehavior();
+    protected static AskAudienceBehavior getInstance(){return instance;}
+    private AskAudienceBehavior(){}
     @Override
     public String[] toDo() {
         StringBuilder returnedResult = new StringBuilder("Folk röst: \n");
         char[] options = {'A', 'B', 'C', 'D'};
         ArrayList<Character> shownOptions = new ArrayList<>();
         for (int i=0;i<options.length;i++){
-            if (game.getValue((byte) (options[i]-64))!=null)
+            if (game.getQuestionPart((byte) (options[i]-64))!=null)
                 shownOptions.add(options[i]);
         }
 

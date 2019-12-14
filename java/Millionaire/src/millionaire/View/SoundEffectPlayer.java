@@ -5,7 +5,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import millionaire.Timer;
 
-abstract class SoundEffect {
+abstract class SoundEffectPlayer {
     private static MediaPlayer mediaPlayer;
     //
     static void play(String EffectName) {

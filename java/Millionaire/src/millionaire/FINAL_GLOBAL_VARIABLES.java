@@ -59,9 +59,9 @@ public abstract class FINAL_GLOBAL_VARIABLES {
     }
 
     public abstract static class LifeLineType {
-        public final static String AUDIENCE = "audience";
-        public final static String FRIEND = "friend";
-        public final static String HALF = "half";
-        public final static String CHANGE = "change";
+        public final static String ASK_AUDIENCE = "audience";
+        public final static String CALL_A_FRIEND = "friend";
+        public final static String REMOVE_HALF = "half";
+        public final static String CHANGE_QUESTION = "change";
     }
 }

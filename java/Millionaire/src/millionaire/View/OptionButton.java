@@ -33,19 +33,19 @@ void setState(int state){
         switch (state){
             case -1:
                 setId("wrongAnswer");
-                SoundEffect.play(SoundEffectName.WRONG_ANSWER);
+                SoundEffectPlayer.play(SoundEffectName.WRONG_ANSWER);
                 break;
             case 0:
                 setId("checkingAnswer");
-                SoundEffect.play(SoundEffectName.CHECKING_ANSWER);
+                SoundEffectPlayer.play(SoundEffectName.CHECKING_ANSWER);
             break;
             case 1:
                 setId("rightAnswer");
-                SoundEffect.play(SoundEffectName.CORRECT_ANSWER);
+                SoundEffectPlayer.play(SoundEffectName.CORRECT_ANSWER);
             break;
             case 2:
                 idProperty().setValue("");
-                SoundEffect.stop();
+                SoundEffectPlayer.stop();
             break;
             default: System.out.println("!!Please use possible state!!");
         }

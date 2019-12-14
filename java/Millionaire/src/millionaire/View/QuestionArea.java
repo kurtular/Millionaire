@@ -110,18 +110,20 @@ class QuestionArea extends BorderPane {
         LifeLineArea.getInstance().deactivateTemporarily();
         Controller.getInstance().setAnswer(answerSymbol);
     }
-    private void playSound(byte currentQuestion){
+    void playSound(byte currentQuestion){
         if(currentQuestion<6){
-            SoundEffect.play(SoundEffectName.FIRST_5_QUESTIONS);
+            SoundEffectPlayer.play(SoundEffectName.FIRST_5_QUESTIONS);
         }else if (currentQuestion<11){
-            SoundEffect.play(SoundEffectName.SECOND_5_QUESTIONS);
+            SoundEffectPlayer.play(SoundEffectName.SECOND_5_QUESTIONS);
         }else if (currentQuestion==11){
-            SoundEffect.play(SoundEffectName.ELEVEN);
+            SoundEffectPlayer.play(SoundEffectName.ELEVEN);
         }else if(currentQuestion<14){
-            SoundEffect.play(SoundEffectName.TWELVE_THIRTEEN);
+            SoundEffectPlayer.play(SoundEffectName.TWELVE_THIRTEEN);
         }
-        else if (currentQuestion==14){SoundEffect.play(SoundEffectName.FOURTEEN);
-        }else {SoundEffect.play(SoundEffectName.FIFTEEN);}
+        else if (currentQuestion==14){
+            SoundEffectPlayer.play(SoundEffectName.FOURTEEN);
+        }else {
+            SoundEffectPlayer.play(SoundEffectName.FIFTEEN);}
     }
     void resetQuestionArea(){
         buttonA.setState(OptionButtonState.DEFAULT);

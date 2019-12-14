@@ -50,7 +50,7 @@ public class Controller {
                 gui.setOptionButtonState(buttonSymbol, OptionButtonState.CORRECT);
                 Timer.delay(()->{
                     game.nextQuestion(gui.getShownSeconds());
-                    if (Byte.parseByte(game.getValue(QuestionPart.CURRENT_QUESTION)) == FINAL_GLOBAL_VARIABLES.getPRIZES().length){
+                    if (Byte.parseByte(game.getQuestionPart(QuestionPart.CURRENT_QUESTION)) == FINAL_GLOBAL_VARIABLES.getPRIZES().length){
                         endTheGame(false);
                     }else{
                         setQuestion();
@@ -63,19 +63,19 @@ public class Controller {
 
                 endTheGame(false);
             }
-            gui.setLifeLineHint("");
+            gui.setLifeLineHint("",Byte.parseByte(game.getQuestionPart(QuestionPart.CURRENT_QUESTION)));
         },3);
 
     }
 
     // setQuestion() method brings the question and its options and send them to View (gui) that will show it on the screen.
     private void setQuestion() {
-        String question = game.getValue(QuestionPart.QUESTION_TEXT);
-        String option1 = game.getValue(QuestionPart.OPTION1);
-        String option2 = game.getValue(QuestionPart.OPTION2);
-        String option3 = game.getValue(QuestionPart.OPTION3);
-        String option4 = game.getValue(QuestionPart.OPTION4);
-        byte currentQuestion = Byte.parseByte(game.getValue(QuestionPart.CURRENT_QUESTION));
+        String question = game.getQuestionPart(QuestionPart.QUESTION_TEXT);
+        String option1 = game.getQuestionPart(QuestionPart.OPTION1);
+        String option2 = game.getQuestionPart(QuestionPart.OPTION2);
+        String option3 = game.getQuestionPart(QuestionPart.OPTION3);
+        String option4 = game.getQuestionPart(QuestionPart.OPTION4);
+        byte currentQuestion = Byte.parseByte(game.getQuestionPart(QuestionPart.CURRENT_QUESTION));
         gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
     }
     // Overriding
@@ -85,12 +85,12 @@ public class Controller {
         String option2 = fullQuestion[2];
         String option3 = fullQuestion[3];
         String option4 = fullQuestion[4];
-        byte currentQuestion = Byte.parseByte(game.getValue(QuestionPart.CURRENT_QUESTION));
+        byte currentQuestion = Byte.parseByte(game.getQuestionPart(QuestionPart.CURRENT_QUESTION));
         gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
     }
     //
     public void endTheGame(boolean withDraw){
-        if (Byte.parseByte(game.getValue(QuestionPart.CURRENT_QUESTION)) != FINAL_GLOBAL_VARIABLES.getPRIZES().length){
+        if (Byte.parseByte(game.getQuestionPart(QuestionPart.CURRENT_QUESTION)) != FINAL_GLOBAL_VARIABLES.getPRIZES().length){
             gui.setOptionButtonState(game.getCorrectAnswerSymbol() , OptionButtonState.CORRECT);
             Timer.delay(()->gui.playSound(SoundEffectName.WRONG_ANSWER), 0.1);
         }
@@ -108,13 +108,14 @@ public class Controller {
         },1);
 
     }
-    // A method to recieve which lifeline is clicked and call the different lifelines.
+    // A method to receive which lifeline is clicked and call the relative lifeline from model(game).
+
     public void useLifeLine(String lifeLineSelection) {
         gui.stopTimer();
         Timer.delay(()->{
-            if(lifeLineSelection.equals(LifeLineType.AUDIENCE) || lifeLineSelection.equals(LifeLineType.FRIEND)){
-                gui.setLifeLineHint(game.runLifeLine(lifeLineSelection)[0]);
-            }else if (lifeLineSelection.equals(LifeLineType.HALF) || lifeLineSelection.equals(LifeLineType.CHANGE)){
+            if(lifeLineSelection.equals(LifeLineType.ASK_AUDIENCE) || lifeLineSelection.equals(LifeLineType.CALL_A_FRIEND)){
+                gui.setLifeLineHint(game.runLifeLine(lifeLineSelection)[0],Byte.parseByte(game.getQuestionPart(QuestionPart.CURRENT_QUESTION)));
+            }else if (lifeLineSelection.equals(LifeLineType.REMOVE_HALF) || lifeLineSelection.equals(LifeLineType.CHANGE_QUESTION)){
                 setQuestion(game.runLifeLine(lifeLineSelection));
             }else {
                 System.err.println("There is no lifeline related to ("+lifeLineSelection+").");

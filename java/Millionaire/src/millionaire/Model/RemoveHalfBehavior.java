@@ -2,10 +2,10 @@ package millionaire.Model;
 
 import millionaire.FINAL_GLOBAL_VARIABLES.*;
 
-class RemoveHalf implements LifeLineBehavior {
-    private static RemoveHalf instance = new RemoveHalf();
-    protected static RemoveHalf getInstance(){return instance;}
-    private RemoveHalf(){}
+class RemoveHalfBehavior implements LifeLineBehavior {
+    private static RemoveHalfBehavior instance = new RemoveHalfBehavior();
+    protected static RemoveHalfBehavior getInstance(){return instance;}
+    private RemoveHalfBehavior(){}
     @Override
     public String[] toDo() {
         byte currentQuestion;
@@ -30,7 +30,7 @@ class RemoveHalf implements LifeLineBehavior {
                 }
             }
         }
-        String[] returnedResult = {game.getValue(QuestionPart.QUESTION_TEXT), game.getValue(QuestionPart.OPTION1), game.getValue(QuestionPart.OPTION2), game.getValue(QuestionPart.OPTION3), game.getValue(QuestionPart.OPTION4)};
+        String[] returnedResult = {game.getQuestionPart(QuestionPart.QUESTION_TEXT), game.getQuestionPart(QuestionPart.OPTION1), game.getQuestionPart(QuestionPart.OPTION2), game.getQuestionPart(QuestionPart.OPTION3), game.getQuestionPart(QuestionPart.OPTION4)};
         return returnedResult;
     }
 }

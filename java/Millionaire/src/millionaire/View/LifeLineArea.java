@@ -25,10 +25,10 @@ class LifeLineArea extends VBox {
     // The constructor
     private LifeLineArea() {
         super();
-        audience = new LifeLine(LifeLineType.AUDIENCE, SoundEffectName.AUDIENCE);
-        friend = new LifeLine(LifeLineType.FRIEND, SoundEffectName.CALL_FRIEND);
-        removeHalf = new LifeLine(LifeLineType.HALF, SoundEffectName.REMOVE_HALF_CHANGE_QUESTION);
-        change = new LifeLine(LifeLineType.CHANGE, SoundEffectName.REMOVE_HALF_CHANGE_QUESTION);
+        audience = new LifeLine(LifeLineType.ASK_AUDIENCE, SoundEffectName.AUDIENCE);
+        friend = new LifeLine(LifeLineType.CALL_A_FRIEND, SoundEffectName.CALL_FRIEND);
+        removeHalf = new LifeLine(LifeLineType.REMOVE_HALF, SoundEffectName.REMOVE_HALF_CHANGE_QUESTION);
+        change = new LifeLine(LifeLineType.CHANGE_QUESTION, SoundEffectName.REMOVE_HALF_CHANGE_QUESTION);
 
         HBox lifeLines = new HBox(audience, friend, removeHalf, change);
         lifeLines.setSpacing(10);
@@ -82,6 +82,7 @@ class LifeLineArea extends VBox {
         removeHalf.reset();
         friend.reset();
         change.reset();
+        lifeLineHint.setText("");
     }
 }
 

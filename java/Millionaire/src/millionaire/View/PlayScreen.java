@@ -57,7 +57,7 @@ class PlayScreen extends BorderPane {
 //  addTo()
     static void addTo(Pane pane){
         instance.enableWithdrawing();
-        SoundEffect.play(SoundEffectName.PLAY_SCREEN_INTRO);
+        SoundEffectPlayer.play(SoundEffectName.PLAY_SCREEN_INTRO);
         Timer.delay(()->{
             pane.getChildren().clear();
             pane.getChildren().add(getInstance());

@@ -84,7 +84,7 @@ class EndGameScreen extends VBox {
         instance.setCheckData(playerName,playerBalance,gameDate);
         pane.getChildren().clear();
         pane.getChildren().add(getInstance());
-        SoundEffect.play(SoundEffectName.GAME_END);
+        SoundEffectPlayer.play(SoundEffectName.GAME_END);
         home.setOnMouseClicked(event -> {
             IntroScreen.addTo(pane);
             Gui.reset();

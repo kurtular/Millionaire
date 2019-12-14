@@ -6,7 +6,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import millionaire.FINAL_GLOBAL_VARIABLES;
-import millionaire.Timer;
 
 // The main class of the View packet and it's represent the View class of the MVC design pattern.
 public class Gui extends Application {
@@ -66,28 +65,33 @@ public class Gui extends Application {
     }
 
 //A method who recieves the lifelinehint from controller and push it forward to Lifelineareaclass
-    public void setLifeLineHint(String hint) {
+    public void setLifeLineHint(String hint,byte currentQuestion) {
        LifeLineArea.getInstance().setLifeLineHint(hint);
         //
         if (!hint.isEmpty()){
         TimerLabel.getInstance().resetTimer();
         TimerLabel.getInstance().startTimer();
         enableActions();
+        QuestionArea.getInstance().playSound(currentQuestion);
         }
     }
 //
     public void showEndGameScreen(String playerName, String playerBalance,String gameDate){
         EndGameScreen.addTo(content,playerName,playerBalance,gameDate);
     }
+    //
     public void stopTimer(){
        TimerLabel.getInstance().stopTimer();
     }
+    //
     public byte getShownSeconds(){
        return TimerLabel.getInstance().getShownSeconds();
     }
+    //
     public void playSound(String effectName){
-       SoundEffect.play(effectName);
+       SoundEffectPlayer.play(effectName);
     }
+    //
     static void reset(){
        PriceTable.getInstance().resetPriceTable();
        LifeLineArea.getInstance().resetLifeLineArea();

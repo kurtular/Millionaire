@@ -22,10 +22,9 @@ public class Game implements getJson {
     byte currentQuestion;
     final private Player player = Player.getInstance();
     ChangeQuestion changeQuestion = ChangeQuestion.getInstance();
-    private LifeLine removeHalf = new LifeLine(RemoveHalf.getInstance());
-    private LifeLine callAFriend = new LifeLine(CallAFriend.getInstance());
-    private LifeLine askAudience = new LifeLine(AskAudience.getInstance());
-
+    private LifeLine removeHalf =  LifeLine.getInstance(LifeLineType.REMOVE_HALF);
+    private LifeLine callAFriend = LifeLine.getInstance(LifeLineType.CALL_A_FRIEND);
+    private LifeLine askAudience = LifeLine.getInstance(LifeLineType.ASK_AUDIENCE);
 
     private Game() { }
 
@@ -80,8 +79,8 @@ public class Game implements getJson {
     }
 
 // getValue() return a specific string value of the question object depending on value parameter (check class variables above).
-    public String getValue(byte value) {
-        if (value == 5) {
+    public String getQuestionPart(byte QuestionPart) {
+        if (QuestionPart == 5) {
             return Byte.toString(currentQuestion);
         } else {
             byte currentQuestion;
@@ -90,7 +89,7 @@ public class Game implements getJson {
             } else {
                 currentQuestion = 0;
             }
-            return questions[currentQuestion].getValue(value);
+            return questions[currentQuestion].getValue(QuestionPart);
         }
     }
 
@@ -154,13 +153,13 @@ public class Game implements getJson {
 //
 public String[] runLifeLine(String lifeLineType) {
     String[] returnedResult;
-    if (lifeLineType.equals(LifeLineType.CHANGE)) {
+    if (lifeLineType.equals(LifeLineType.CHANGE_QUESTION)) {
         returnedResult = changeQuestion.run();
-    } else if (lifeLineType.equals(LifeLineType.HALF)) {
+    } else if (lifeLineType.equals(LifeLineType.REMOVE_HALF)) {
         returnedResult = removeHalf.run();
-    } else if (lifeLineType.equals(LifeLineType.FRIEND)) {
+    } else if (lifeLineType.equals(LifeLineType.CALL_A_FRIEND)) {
         returnedResult = callAFriend.run();
-    } else if (lifeLineType.equals(LifeLineType.AUDIENCE)) {
+    } else if (lifeLineType.equals(LifeLineType.ASK_AUDIENCE)) {
         returnedResult = askAudience.run();
     } else {
         System.err.println("There is no lifeline related to (" + lifeLineType + ").");

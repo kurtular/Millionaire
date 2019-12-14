@@ -6,7 +6,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Ellipse;
 import millionaire.Controller;
-import millionaire.FINAL_GLOBAL_VARIABLES;
 import millionaire.Timer;
 
 class LifeLine extends Label {
@@ -39,7 +38,7 @@ class LifeLine extends Label {
             LifeLineArea.getInstance().deactivateTemporarily();
             PlayScreen.getInstance().disableWithdrawing();
             disableAction();
-            SoundEffect.play(soundEffectName);
+            SoundEffectPlayer.play(soundEffectName);
             TimerLabel.getInstance().stopTimer();
             Timer.delay(() -> Controller.getInstance().useLifeLine(type), 4);
         });
