@@ -63,4 +63,20 @@
   margin-right: 200px;
  
 }
-  
+#fpH1 {
+  text-align: center;
+  font-size: 80px;
+}
+
+#fpP {
+  margin-left: 200px;
+  margin-right: 200px;
+  font-size: 25px;
+}
+#fpPicture {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  height: auto;
+}
