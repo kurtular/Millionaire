@@ -3,6 +3,9 @@ package millionaire.View;
 import javafx.scene.layout.VBox;
 import millionaire.FINAL_GLOBAL_VARIABLES;
 
+/**
+ * @author Jesse, Mohammad, Joakim
+ */
 class PriceTable extends VBox {
     //
     private static PriceTable instance = new PriceTable();

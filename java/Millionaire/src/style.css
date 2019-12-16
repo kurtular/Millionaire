@@ -1,9 +1,7 @@
+/*Mohammad, Jesse, Henrik*/
+
 .root{
-//-fx-background-image: url(img/bk.gif);
-//-fx-background-repeat: no-repeat;
-//-fx-background-size: 100% 100%;
 -fx-background-color: linear-gradient(#0082ac,#004271,#00172B);
-//-fx-background-color: #006181;
 }
 OptionButton{
 -fx-background-image:url(img/default.png);

@@ -9,6 +9,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import millionaire.FINAL_GLOBAL_VARIABLES.*;
 
+/**
+ * @author Henrik, Mohammad, Joakim
+ */
+
 // LifeLineArea class will create the the images of the lifelines and the result of the lifelines.
 class LifeLineArea extends VBox {
     private static LifeLineArea lifeLineArea = new LifeLineArea();

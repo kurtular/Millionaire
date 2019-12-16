@@ -14,10 +14,12 @@ import millionaire.Timer;
 
 import static javafx.geometry.Pos.CENTER;
 
-
-class PlayerNameScreen extends VBox {
-    final private static PlayerNameScreen instance = new PlayerNameScreen();
-    private static PlayerNameScreen getInstance() {
+/**
+ * @author Henrik
+ */
+class AliasScreen extends VBox {
+    final private static AliasScreen instance = new AliasScreen();
+    private static AliasScreen getInstance() {
         return instance;
     }
 
@@ -25,7 +27,7 @@ class PlayerNameScreen extends VBox {
     private TextField aliasInput;
     private OptionButton confirmButton;
 
-    private PlayerNameScreen() {
+    private AliasScreen() {
         super();
 
         ImageView imageView = new ImageView("img/player.png");

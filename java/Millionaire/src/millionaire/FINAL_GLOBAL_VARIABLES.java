@@ -1,5 +1,8 @@
 package millionaire;
 
+/**
+ * @author Mohammad, Jesse
+ */
 public abstract class FINAL_GLOBAL_VARIABLES {
 
     private static final String[] PRIZES = {"0", "100", "200", "300", "500", "1 000", "2 000", "4 000", "8 000", "16 000", "32 000", "64 000", "125 000", "250 000", "500 000", "1 000 000"};
@@ -36,7 +39,7 @@ public abstract class FINAL_GLOBAL_VARIABLES {
         public static final int DEFAULT = 2;
     }
 
-
+//Henrik
     public abstract static class SoundEffectName {
         public final static String INTRO = "intro.mp3";
         public final static String PLAY_SCREEN_INTRO = "play_screen_intro.mp3";

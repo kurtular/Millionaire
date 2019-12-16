@@ -2,6 +2,9 @@ package millionaire.Model;
 
 import millionaire.FINAL_GLOBAL_VARIABLES.*;
 
+/**
+ * @author Mohammad
+ */
 class LifeLine {
     private static LifeLine removeHalf = new LifeLine(RemoveHalfBehavior.getInstance());
     private static LifeLine callAFriend = new LifeLine(CallAFriendBehavior.getInstance());

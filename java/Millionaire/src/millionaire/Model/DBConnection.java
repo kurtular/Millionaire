@@ -3,8 +3,12 @@ package millionaire.Model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+/**
+ * @Millad, Jesse
+ */
 public class DBConnection {
     private Connection connection;
+    //Jesse
     public Connection getConnection(){
         String DB_CONNECTION = "jdbc:mysql://localhost/";
         String DB_DRIVER = "com.mysql.cj.jdbc.Driver";

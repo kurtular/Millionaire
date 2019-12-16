@@ -7,6 +7,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import millionaire.FINAL_GLOBAL_VARIABLES;
 
+/**
+ * @author Mohammad, Joakim, Henrik
+ */
 // The main class of the View packet and it's represent the View class of the MVC design pattern.
 public class Gui extends Application {
     static private Pane content;

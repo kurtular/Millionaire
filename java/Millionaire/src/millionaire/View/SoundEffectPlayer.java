@@ -5,6 +5,9 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import millionaire.Timer;
 
+/**
+ * Mohammad, Henrik
+ */
 abstract class SoundEffectPlayer {
     private static MediaPlayer mediaPlayer;
     //

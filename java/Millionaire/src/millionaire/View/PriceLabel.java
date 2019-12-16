@@ -9,7 +9,9 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import millionaire.FINAL_GLOBAL_VARIABLES;
 
-
+/**
+ * @author Jesse, Mohammad, Joakim
+ */
 class PriceLabel extends HBox {
     final static boolean SAFE_LEVEL_PRICE_LABEL = true;
     final static boolean NORMAL_PRICE_LABEL = false;

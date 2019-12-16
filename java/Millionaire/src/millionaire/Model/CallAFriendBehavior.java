@@ -1,10 +1,14 @@
 package millionaire.Model;
 
+/**
+ * @author Henrik, Mohammad
+ */
+
 class CallAFriendBehavior implements LifeLineBehavior{
     private static CallAFriendBehavior instance = new CallAFriendBehavior();
     protected static CallAFriendBehavior getInstance(){return instance;}
     private CallAFriendBehavior(){}
-
+//Henrik
     @Override
     public String[] toDo() {
         String friendSays = "";

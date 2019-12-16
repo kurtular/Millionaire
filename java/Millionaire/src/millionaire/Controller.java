@@ -4,6 +4,9 @@ import millionaire.Model.Game;
 import millionaire.View.*;
 import millionaire.FINAL_GLOBAL_VARIABLES.*;
 
+/**
+ * @author Mohammad, Henrik, Jesse, Joakim,
+ */
 // Controller class (MVC design pattern).
 
 public class Controller {
@@ -25,13 +28,13 @@ public class Controller {
 // Controller constructor.
     private Controller() {
     }
-    //
+    //Millad
     static void setupController(Game game, Gui gui) {
         instance.game = game;
         instance.gui = gui;
     }
 
-    ///////////////////////////////////////////////////////////
+    //Millad
     public void startTheGame(String playerName) {
         game.newGame(playerName);
         setQuestion();
@@ -41,7 +44,7 @@ public class Controller {
     /* setAnswer() will be called when the player will select an answer for the question.
      It's make some changes that fits the situation for example: making the background color of the selection button yellow
      and disable the other selections. It will also temporarily disabling the lifelines. */
-    public void setAnswer(char buttonSymbol) { // TODO PlayContent instead of QuestionArea and add delay to button effects-+
+    public void setAnswer(char buttonSymbol) {
 
         gui.setOptionButtonState(buttonSymbol, OptionButtonState.CHECKING);
         gui.disableActions();
@@ -88,7 +91,7 @@ public class Controller {
         byte currentQuestion = Byte.parseByte(game.getQuestionPart(QuestionPart.CURRENT_QUESTION));
         gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
     }
-    //
+    //Jesse
     public void endTheGame(boolean withDraw){
         if (Byte.parseByte(game.getQuestionPart(QuestionPart.CURRENT_QUESTION)) != FINAL_GLOBAL_VARIABLES.getPRIZES().length){
             gui.setOptionButtonState(game.getCorrectAnswerSymbol() , OptionButtonState.CORRECT);
@@ -99,7 +102,7 @@ public class Controller {
             gui.showEndGameScreen(moneyCheckData[0],moneyCheckData[1],moneyCheckData[2]);
         }, 3);
     }
-    //
+    //Joakim
     private void checkTimerSeconds(){
         Timer.delay(()->{
             if (gui.getShownSeconds()<=0){
@@ -109,7 +112,7 @@ public class Controller {
 
     }
     // A method to receive which lifeline is clicked and call the relative lifeline from model(game).
-
+//Henrik
     public void useLifeLine(String lifeLineSelection) {
         gui.stopTimer();
         Timer.delay(()->{

@@ -8,6 +8,9 @@ import javafx.scene.layout.VBox;
 import millionaire.FINAL_GLOBAL_VARIABLES;
 import millionaire.FINAL_GLOBAL_VARIABLES.*;
 
+/**
+ * @author Mohammad, Joakim
+ */
 class QuestionArea extends BorderPane {
     final private static QuestionArea instance = new QuestionArea();
     private final OptionButton buttonA;

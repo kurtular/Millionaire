@@ -7,6 +7,10 @@ import java.net.http.HttpResponse;
 // import 3 party library
 import org.json.JSONArray;
 
+/**
+ * @author Mohammad
+ */
+
 // getJson interface have the methods that will handle getting a Json data.
 interface getJson {
     // getJsonData() will get json text from get.php page(backend) url: is the url to the page that show json text.

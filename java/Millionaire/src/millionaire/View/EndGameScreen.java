@@ -9,6 +9,9 @@ import javafx.scene.text.Font;
 import millionaire.FINAL_GLOBAL_VARIABLES;
 import millionaire.FINAL_GLOBAL_VARIABLES.SoundEffectName;
 
+/**
+ * @author Jesse, Mohammad
+ */
 class EndGameScreen extends VBox {
     private static EndGameScreen instance = new EndGameScreen();
     private Label playerName;

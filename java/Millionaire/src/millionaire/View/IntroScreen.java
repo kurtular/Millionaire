@@ -11,6 +11,9 @@ import millionaire.FINAL_GLOBAL_VARIABLES.SoundEffectName;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * @author Mohammad
+ */
 // GameContent class include the methods that is responsible to switch between game scenes.
 class IntroScreen extends BorderPane{
     private static final IntroScreen instance = new IntroScreen();
@@ -59,6 +62,6 @@ static void addTo(Pane pane){
         pane.getChildren().clear();
         SoundEffectPlayer.play(SoundEffectName.INTRO);
         pane.getChildren().add(getInstance());
-        start.setOnMouseClicked(event -> PlayerNameScreen.addTo(pane));
+        start.setOnMouseClicked(event -> AliasScreen.addTo(pane));
 }
 }

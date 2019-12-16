@@ -7,6 +7,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import millionaire.FINAL_GLOBAL_VARIABLES.SoundEffectName;
 
+/**
+ * @author Mohammad
+ */
 // OptionButton class will create the options buttons that will be shown underneath question text.
 class OptionButton extends Label {
 /////////////////////////////////////////////////////////////////////

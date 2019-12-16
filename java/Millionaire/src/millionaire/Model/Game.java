@@ -10,9 +10,12 @@ import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * @author Mohammad, Henrik, Millad, Jesse
+ */
 public class Game implements getJson {
     static private final Game game = new Game();
-
+//Mohammad
     public static Game getInstance() {
         return game;
     }
@@ -25,7 +28,7 @@ public class Game implements getJson {
     private LifeLine removeHalf =  LifeLine.getInstance(LifeLineType.REMOVE_HALF);
     private LifeLine callAFriend = LifeLine.getInstance(LifeLineType.CALL_A_FRIEND);
     private LifeLine askAudience = LifeLine.getInstance(LifeLineType.ASK_AUDIENCE);
-
+//Mohammad
     private Game() { }
 
     // To set questions array from the server this method will called inside getJsonData.

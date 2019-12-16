@@ -2,11 +2,16 @@ package millionaire.Model;
 
 import millionaire.FINAL_GLOBAL_VARIABLES.*;
 
+/**
+ * @author Mohammad
+ */
+
 class ChangeQuestion extends LifeLine {
     private static ChangeQuestion instance = new ChangeQuestion();
     static ChangeQuestion getInstance(){return instance;}
 
     private boolean isRunning;
+    //Mohammad
     private ChangeQuestion(){
         //
         super();

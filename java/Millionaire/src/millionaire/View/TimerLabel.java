@@ -10,6 +10,9 @@ import javafx.scene.text.Font;
 import millionaire.FINAL_GLOBAL_VARIABLES;
 import millionaire.Timer;
 
+/**
+ * @author Mohammad, Millad
+ */
 public class TimerLabel extends Label {
     private static final TimerLabel instance = new TimerLabel();
     static TimerLabel getInstance(){

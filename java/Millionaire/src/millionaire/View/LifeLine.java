@@ -8,6 +8,9 @@ import javafx.scene.shape.Ellipse;
 import millionaire.Controller;
 import millionaire.Timer;
 
+/**
+ * @author Henrik, Mohammad, Joakim
+ */
 class LifeLine extends Label {
 
 //

@@ -8,6 +8,9 @@ import millionaire.Controller;
 import millionaire.Timer;
 import millionaire.FINAL_GLOBAL_VARIABLES.SoundEffectName;
 
+/**
+ * @author Mohammad
+ */
 
 class PlayScreen extends BorderPane {
     private static PlayScreen instance = new PlayScreen();

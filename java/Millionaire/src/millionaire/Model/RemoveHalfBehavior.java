@@ -2,6 +2,9 @@ package millionaire.Model;
 
 import millionaire.FINAL_GLOBAL_VARIABLES.*;
 
+/**
+ * @author Mohammad
+ */
 class RemoveHalfBehavior implements LifeLineBehavior {
     private static RemoveHalfBehavior instance = new RemoveHalfBehavior();
     protected static RemoveHalfBehavior getInstance(){return instance;}

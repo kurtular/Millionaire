@@ -7,6 +7,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
+/**
+ * @author Mohammad
+ */
 // TextLabel class will create the text labels that will be shown underneath the non interactive texts like question text and balance text.
 class TextLabel extends Label {
 

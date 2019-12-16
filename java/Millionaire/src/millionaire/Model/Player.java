@@ -2,6 +2,9 @@ package millionaire.Model;
 
 import millionaire.FINAL_GLOBAL_VARIABLES;
 
+/**
+ * @author Joakim, Mohammad
+ */
 public class Player {
     //
     private static Player instance = new Player();

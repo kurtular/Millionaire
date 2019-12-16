@@ -2,13 +2,19 @@ package millionaire.Model;
 
 import java.util.ArrayList;
 
+/**
+ * @author Jesse, Mohammad
+ */
+
 public class AskAudienceBehavior implements LifeLineBehavior {
     private static AskAudienceBehavior instance = new AskAudienceBehavior();
     protected static AskAudienceBehavior getInstance(){return instance;}
     private AskAudienceBehavior(){}
+
+    //Jesse
     @Override
     public String[] toDo() {
-        StringBuilder returnedResult = new StringBuilder("Folk röst: \n");
+        StringBuilder returnedResult = new StringBuilder("Publikens röst: \n");
         char[] options = {'A', 'B', 'C', 'D'};
         ArrayList<Character> shownOptions = new ArrayList<>();
         for (int i=0;i<options.length;i++){

@@ -1,5 +1,8 @@
 package millionaire.Model;
 
+/**
+ * @author Mohammad
+ */
 class Question{
 // Class variables.
 /////////////////////////////////////////////
