@@ -111,8 +111,11 @@ public class Controller {
         },1);
 
     }
-    // A method to receive which lifeline is clicked and call the relative lifeline from model(game).
-//Henrik
+
+    /**
+     * Calls the different lifeline methods in game class and send the result to the lifelinearea or the questionarea.
+     * @param lifeLineSelection The different lifelines
+     */
     public void useLifeLine(String lifeLineSelection) {
         gui.stopTimer();
         Timer.delay(()->{

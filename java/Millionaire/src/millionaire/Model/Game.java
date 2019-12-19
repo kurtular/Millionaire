@@ -153,8 +153,12 @@ public class Game implements getJson {
         }
     }
 
-//
-public String[] runLifeLine(String lifeLineType) {
+    /**
+     * Running the selected lifeline
+     * @param lifeLineType
+     * @return the different stringarrays with hints or questionchanges.
+     */
+    public String[] runLifeLine(String lifeLineType) {
     String[] returnedResult;
     if (lifeLineType.equals(LifeLineType.CHANGE_QUESTION)) {
         returnedResult = changeQuestion.run();

@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import millionaire.FINAL_GLOBAL_VARIABLES;
 
 /**
- * @author Mohammad, Joakim, Henrik
+ * @author Mohammad, Joakim, Henrik, Jesse
  */
 // The main class of the View packet and it's represent the View class of the MVC design pattern.
 public class Gui extends Application {
@@ -54,20 +54,30 @@ public class Gui extends Application {
     public void setOptionButtonState(char optionButtonSymbol,int optionButtonState){
         QuestionArea.getInstance().setOptionButtonState(optionButtonSymbol,optionButtonState);
     }
-//
+
+    /**
+     * Enable the actionevents in different viewclasses.
+     */
     private void enableActions(){
             PlayScreen.getInstance().enableWithdrawing();
             QuestionArea.getInstance().enableActions();
             LifeLineArea.getInstance().activate();
     }
-//
+
+    /**
+     * Disable the actionevents in different viewclasses.
+     */
     public void disableActions(){
         PlayScreen.getInstance().disableWithdrawing();
         QuestionArea.getInstance().disableActions();
         LifeLineArea.getInstance().deactivateTemporarily();
     }
 
-//A method who recieves the lifelinehint from controller and push it forward to Lifelineareaclass
+    /**
+     * Push the hint forward, reset timer, enable actions and play a sound.
+     * @param hint The lifeline hint
+     * @param currentQuestion which number of the question
+     */
     public void setLifeLineHint(String hint,byte currentQuestion) {
        LifeLineArea.getInstance().setLifeLineHint(hint);
         //

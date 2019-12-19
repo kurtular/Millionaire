@@ -2,13 +2,27 @@ package millionaire.Model;
 
 /**
  * @author Henrik, Mohammad
+ * Singleton class for call a friend lifeline with a get method.
  */
-
 class CallAFriendBehavior implements LifeLineBehavior{
     private static CallAFriendBehavior instance = new CallAFriendBehavior();
+
+    /**
+     * The get method
+     * @return the lifelineobject
+     */
     protected static CallAFriendBehavior getInstance(){return instance;}
-    private CallAFriendBehavior(){}
-//Henrik
+
+    /**
+     * The constructor
+     */
+        private CallAFriendBehavior(){}
+
+    /**
+     * Lifeline call a friend are taking care of here. 50% of the time you get for sure the right answer.
+     * 25% of the time you get the right answer but the friend are in doubt. And in 25% of the cases you get the wrong answer.
+     * @return The string to be shown at the screen.
+     */
     @Override
     public String[] toDo() {
         String friendSays = "";

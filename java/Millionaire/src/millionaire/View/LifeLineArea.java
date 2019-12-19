@@ -11,22 +11,25 @@ import millionaire.FINAL_GLOBAL_VARIABLES.*;
 
 /**
  * @author Henrik, Mohammad, Joakim
+ * A singleton class for showing the lifelife hints at the screen. The class also creates the lifeline objects.
  */
-
-// LifeLineArea class will create the the images of the lifelines and the result of the lifelines.
 class LifeLineArea extends VBox {
     private static LifeLineArea lifeLineArea = new LifeLineArea();
 
-    // A method to return the object because lifeLineArea object is private.
+    /**
+     * A getter to return the object
+     * @return the private object
+     */
     public static LifeLineArea getInstance() {
         return lifeLineArea;
     }
 
-    //
     private LifeLine audience, friend, removeHalf, change;
     private Label lifeLineHint;
 
-    // The constructor
+    /**
+     * The constructor creating the lifelines, the lifelinehint label and the lifelinearea.
+     */
     private LifeLineArea() {
         super();
         audience = new LifeLine(LifeLineType.ASK_AUDIENCE, SoundEffectName.AUDIENCE);
@@ -52,7 +55,9 @@ class LifeLineArea extends VBox {
 
     }
 
-    //
+    /**
+     * Disable the actionevents temporarily until next question.
+     */
     void deactivateTemporarily() {
         audience.setOnMouseClicked(null);
         friend.setOnMouseClicked(null);
@@ -60,7 +65,9 @@ class LifeLineArea extends VBox {
         change.setOnMouseClicked(null);
     }
 
-    //
+    /**
+     * Enable the temporarily disabled actionevents if the lifeline isn't used.
+     */
     void activate() {
         if (!audience.isUsed()) {
             audience.setAction();
@@ -76,11 +83,15 @@ class LifeLineArea extends VBox {
         }
     }
 
-    // A method to set the text to screen showing friends answer.
+    /**
+     * Setting the lifeline hints from the audience or the friend.
+     * @param lifeLineHint The hint
+     */
     void setLifeLineHint(String lifeLineHint) {
         this.lifeLineHint.setText(lifeLineHint);
     }
 
+    //Joakim
     void resetLifeLineArea() {
         audience.reset();
         removeHalf.reset();

@@ -10,15 +10,20 @@ import millionaire.Timer;
 
 /**
  * @author Henrik, Mohammad, Joakim
+ * A class for creating the different lifelines and their view properties.
  */
 class LifeLine extends Label {
 
-//
     private boolean used;
     private ImageView img;
     private String type;
     private String soundEffectName;
 
+    /**
+     * The constructor for creating the label with the images.
+     * @param LifeLineType String including which lifeline to be created.
+     * @param SoundEffectName String including which soundeffectname the lifelineobject will earn.
+     */
     LifeLine(String LifeLineType,String SoundEffectName) {
         this.type = LifeLineType;
         soundEffectName = SoundEffectName;
@@ -32,9 +37,14 @@ class LifeLine extends Label {
         setAction();
     }
 
-//
+    /**
+     * To switch image to the one with a red cross when used the lifeline.
+     */
     private void switchToUsedImage(){ img.setImage(new Image("img/"+type+"-used.png")); }
-    //
+
+    /**
+     * Creating actionevent when clicking at the lifeline to disable all other options, play a sound and activate the lifeline.
+     */
     void setAction() {
         setOnMouseClicked(event -> {
             QuestionArea.getInstance().disableActions();
@@ -46,7 +56,10 @@ class LifeLine extends Label {
             Timer.delay(() -> Controller.getInstance().useLifeLine(type), 4);
         });
     }
-    //
+
+    /**
+     * Disable the label and calling the other methods that will switch the image and set it as used.
+     */
     private void disableAction(){
         switchToUsedImage();
         setDisable(true);
@@ -54,7 +67,7 @@ class LifeLine extends Label {
         setOnMouseClicked(null);
         setAsUsed();
     }
-    //
+    //Joakim
     void reset(){
         img.setImage(new Image("img/"+type+".gif"));
         setAction();
@@ -62,8 +75,15 @@ class LifeLine extends Label {
         setDisable(false);
         setOpacity(1);
     }
-    //
+
+    /**
+     * Setting the lifeline as used.
+     */
     private void setAsUsed(){used=true;}
-    //
+
+    /**
+     *
+     * @return True or false depending if the lifeline is used or not
+     */
     boolean isUsed(){return used;}
 }

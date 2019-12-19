@@ -15,10 +15,16 @@ import millionaire.Timer;
 import static javafx.geometry.Pos.CENTER;
 
 /**
- * @author Henrik
+ * @author Henrik, Joakim
+ * Singleton class for showing the userinput dialog before starting the game
  */
 class AliasScreen extends VBox {
     final private static AliasScreen instance = new AliasScreen();
+
+    /**
+     * The get method
+     * @return the object
+     */
     private static AliasScreen getInstance() {
         return instance;
     }
@@ -27,6 +33,9 @@ class AliasScreen extends VBox {
     private TextField aliasInput;
     private OptionButton confirmButton;
 
+    /**
+     * The constructor using JavaFX to build the graphics including playerimage and textfield.
+     */
     private AliasScreen() {
         super();
 
@@ -69,7 +78,11 @@ class AliasScreen extends VBox {
         setPrefSize(1024, 768);
 
     }
-    //
+
+    /**
+     * Checking if textfield is empty and creating errormessage if so.
+     * @return false if its not empty and true if its empty
+     */
     private boolean aliasInputISEmpty(){
         if(aliasInput.getText().isEmpty()){
             errorMessage.setText("Du måste ange ett alias!");
@@ -77,6 +90,7 @@ class AliasScreen extends VBox {
         }
         return false;
     }
+    //Joakim
     private void reset(){
         // To make aliasInput enabled and empty (reset).
         aliasInput.setDisable(false);
@@ -84,10 +98,12 @@ class AliasScreen extends VBox {
         confirmButton.setDisable(false);
     }
 
-    //Added enterkey to work as confirm.
+    /**
+     * Add object to playscreen when pressing enter or click at confirmbutton.
+     * @param pane the introscreen object.
+     */
     static void addTo(Pane pane) {
         instance.reset();
-// Add playerNameScreen to (gui)
         pane.getChildren().clear();
         pane.getChildren().add(getInstance());
         instance.aliasInput.setOnKeyReleased(event -> {
