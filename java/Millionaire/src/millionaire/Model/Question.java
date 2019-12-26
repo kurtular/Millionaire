@@ -2,56 +2,97 @@ package millionaire.Model;
 
 /**
  * @author Mohammad
+ * This class reprsents qustion object (qustion text and its alternatives etc)
  */
-class Question{
-// Class variables.
-/////////////////////////////////////////////
-//The member variables.
-    private final String questionText;                                                                                        // The show question to the player.
-    private final String[] options;                                                                                           // Option variables is the alternative that will be shown to the user.
-    private final int token;                                                                                                  // Token that refer to the right answer index of the options array.
+class Question {
+    //           >>>>Class method.<<<<
+    /**
+     * It decodes the question token to get the index of the correct answer.
+     *
+     * @param encodedToken is a token that every question have (created from backend).
+     * @return a number between 1-4.
+     */
+    private static int decodeToken(int encodedToken) {
+        // The following line should fit encode process from the backend.
+        return (encodedToken - 2019) % 5;
+    }
 
-/////////////////////////////////////////////
-// Question constructor
-Question(String questionText, String[] options, int token){
+    /////////////////////////////////////////////////////////////
+    //              >>>>Member variables.<<<<
+    private final String questionText;
+    // options variable store 4 alternatives that will be shown to the player.
+    private final String[] options;
+    // Token that refer to the correct answer index of the options array.
+    private final int token;
+
+    ////////////////////////////////////////////////////////////
+    //              >>>>Class constructor.<<<<
+
+    /**
+     * It will create question object.
+     *
+     * @param questionText is a sting (text) will be shown as question to the player.
+     * @param options      is a string array that hold a question alternatives.
+     * @param token        is a encoded number that will refer to the index of the correct answer after calling decodeToken() method.
+     */
+    Question(String questionText, String[] options, int token) {
         this.questionText = questionText;
         this.options = options;
-        this.token= token;
+        this.token = token;
     }
+    /////////////////////////////////////////////////////////////
+    //                >>>> Member methods.<<<<
 
-/////////////////////////////////////////////
-//The member methods.
-// decodeToken() will decode the question token to get the index of the right answer. returned indexes will be between (1-4) ((it will not return  0))
-private static int decodeToken(int encodedToken){
-    return (encodedToken-2019)%5;
-    }
-
-// getValue() return a specific string value of the question object depending on value parameter.
-
-String getValue(byte value) {
+    /**
+     * It returns a specific (part) string of the question object depending on QuestionPart value.
+     *
+     * @param QuestionPart the part that will be returned.
+     * @return sting value that have a question as like as (question text or an option of its options)
+     */
+    String getValue(byte QuestionPart) {
         String returnedValue;
-        switch (value){
-            case 0:returnedValue = questionText;break;
-            case 1:returnedValue = options[0];break;
-            case 2:returnedValue = options[1];break;
-            case 3:returnedValue = options[2];break;
-            case 4:returnedValue = options[3];break;
-            default:returnedValue ="";
+        switch (QuestionPart) {
+            case 0:
+                returnedValue = questionText;
+                break;
+            case 1:
+                returnedValue = options[0];
+                break;
+            case 2:
+                returnedValue = options[1];
+                break;
+            case 3:
+                returnedValue = options[2];
+                break;
+            case 4:
+                returnedValue = options[3];
+                break;
+            default:
+                returnedValue = "";
         }
         return returnedValue;
     }
 
-// checkAnswer() will return either true or false depending on the playerAnswerIndex value. ()
-boolean checkAnswer(byte playerAnswerIndex){
+    /**
+     * It returns either true or false depending on the playerAnswerIndex value.
+     *
+     * @param playerAnswerIndex should be a number between 1-4 that refer to player selected answer (It uses for other purpose also).
+     * @return true if playerAnswerIndex refer to correct answer otherwise returns false.
+     */
+    boolean checkAnswer(byte playerAnswerIndex) {
         return (playerAnswerIndex == decodeToken(token));
     }
-// removeOption()
-    void removeOption(byte optionIndex){
-    if (optionIndex>0 && optionIndex<5){
-        options[optionIndex-1] =null;
-    }
-    else {
-        System.out.println("wrong option index to remove");
-    }
+
+    /**
+     * It will remove an option of a question options depending on optionIndex value.
+     *
+     * @param optionIndex should be a number between 1-4.
+     */
+    void removeOption(byte optionIndex) {
+        if (optionIndex > 0 && optionIndex < 5) {
+            options[optionIndex - 1] = null;
+        } else {
+            System.out.println("wrong option index to remove");
+        }
     }
 }

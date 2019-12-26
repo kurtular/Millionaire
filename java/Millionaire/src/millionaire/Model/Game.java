@@ -1,21 +1,24 @@
 package millionaire.Model;
 
 import millionaire.FINAL_GLOBAL_VARIABLES;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import millionaire.FINAL_GLOBAL_VARIABLES.*;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+// import third-party library. This used to be able to handle Json array,object that will be fetched from the server.
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  * @author Mohammad, Henrik, Millad, Jesse
  */
-public class Game implements getJson {
+public class Game implements GetJson {
     static private final Game game = new Game();
-//Mohammad
+
+    //Mohammad
     public static Game getInstance() {
         return game;
     }
@@ -25,21 +28,22 @@ public class Game implements getJson {
     byte currentQuestion;
     final private Player player = Player.getInstance();
     ChangeQuestion changeQuestion = ChangeQuestion.getInstance();
-    private LifeLine removeHalf =  LifeLine.getInstance(LifeLineType.REMOVE_HALF);
+    private LifeLine removeHalf = LifeLine.getInstance(LifeLineType.REMOVE_HALF);
     private LifeLine callAFriend = LifeLine.getInstance(LifeLineType.CALL_A_FRIEND);
     private LifeLine askAudience = LifeLine.getInstance(LifeLineType.ASK_AUDIENCE);
-//Mohammad
-    private Game() { }
 
-    // To set questions array from the server this method will called inside getJsonData.
+    //Mohammad
+    private Game() {
+    }
+
+    // To set questions array from the server.
     @Override
-    public boolean getJsonArray(String data) {
+    public void setupJsonData(String data) {
         JSONArray questions = new JSONArray(data);
         for (int i = 0; i < questions.length(); i++) {
             JSONObject question = questions.getJSONObject(i);
             this.questions[i] = new Question(question.getString("questionText"), toStringArray(question.getJSONArray("options")), question.getInt("token"));
         }
-        return false;
     }
 
     public void newGame(String playerName) {
@@ -52,36 +56,37 @@ public class Game implements getJson {
         removeHalf.reset();
         player.setName(playerName);
     }
+
     //
     public String[] getMoneyCheckData(boolean withDraw) {
         String[] returnedData = new String[3];
         returnedData[0] = player.getName();
         if (withDraw) {
-            returnedData[1] = FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion-1];
-        }
-        else  {
-            int safetyLevel = (currentQuestion-1) - ((currentQuestion-1)%5);
+            returnedData[1] = FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion - 1];
+        } else {
+            int safetyLevel = (currentQuestion - 1) - ((currentQuestion - 1) % 5);
             returnedData[1] = FINAL_GLOBAL_VARIABLES.getPRIZES()[safetyLevel];
         }
         DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         returnedData[2] = date.format(LocalDateTime.now());
         try {
             sendToDB(returnedData);
-        }catch (Exception e){
-            System.err.println("!!Couldn't send player log (score) to db!!"+e);
+        } catch (Exception e) {
+            System.err.println("!!Couldn't send player log (score) to db!!" + e);
         }
 
         return returnedData;
     }
+
     private void sendToDB(String[] moneyCheckData) throws SQLException {
         DBConnection connectionToDB = new DBConnection();
         Connection connection = connectionToDB.getConnection();
-        String sql = "INSERT INTO high_score(player_name,player_balance,player_score) VALUES ('"+ moneyCheckData[0] + "','"+ Integer.parseInt(moneyCheckData[1].replaceAll(" ","" )) + "','" + player.getScore() + "')";
+        String sql = "INSERT INTO high_score(player_name,player_balance,player_score) VALUES ('" + moneyCheckData[0] + "','" + Integer.parseInt(moneyCheckData[1].replaceAll(" ", "")) + "','" + player.getScore() + "')";
         Statement statement = connection.createStatement();
         statement.executeUpdate(sql);
     }
 
-// getValue() return a specific string value of the question object depending on value parameter (check class variables above).
+    // getValue() return a specific string value of the question object depending on value parameter (check class variables above).
     public String getQuestionPart(byte QuestionPart) {
         if (QuestionPart == 5) {
             return Byte.toString(currentQuestion);
@@ -96,7 +101,7 @@ public class Game implements getJson {
         }
     }
 
-// checkAnswer() will return either true or false depending on the playerAnswer value. ()
+    // checkAnswer() will return either true or false depending on the playerAnswer value. ()
     public boolean checkAnswer(char playerAnswer) {
         boolean returnedValue;
         // To be able to check the reserve question answer
@@ -124,27 +129,30 @@ public class Game implements getJson {
         }
         return returnedValue;
     }
-//
-    public char getCorrectAnswerSymbol(){
+
+    //
+    public char getCorrectAnswerSymbol() {
         char symbol;
-        for (symbol='A';symbol<='D';symbol++){
+        for (symbol = 'A'; symbol <= 'D'; symbol++) {
             if (checkAnswer(symbol)) {
                 break;
             }
         }
         return symbol;
     }
-//
+
+    //
     public void nextQuestion(int second) {
         if (currentQuestion <= FINAL_GLOBAL_VARIABLES.getPRIZES().length) {
-            player.addToScore(second,Integer.parseInt(FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion].replaceAll(" ", "")));
+            player.addToScore(second, Integer.parseInt(FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion].replaceAll(" ", "")));
             currentQuestion++;
         }
         if (changeQuestion.isRunning()) {
             changeQuestion.stop();
         }
     }
-//
+
+    //
     private void setQuestions() {
         try {
             getJsonText("http://localhost/millionaire/get/");                                                       // Link to the questions rest api.
@@ -155,23 +163,24 @@ public class Game implements getJson {
 
     /**
      * Running the selected lifeline
+     *
      * @param lifeLineType
      * @return the different stringarrays with hints or questionchanges.
      */
     public String[] runLifeLine(String lifeLineType) {
-    String[] returnedResult;
-    if (lifeLineType.equals(LifeLineType.CHANGE_QUESTION)) {
-        returnedResult = changeQuestion.run();
-    } else if (lifeLineType.equals(LifeLineType.REMOVE_HALF)) {
-        returnedResult = removeHalf.run();
-    } else if (lifeLineType.equals(LifeLineType.CALL_A_FRIEND)) {
-        returnedResult = callAFriend.run();
-    } else if (lifeLineType.equals(LifeLineType.ASK_AUDIENCE)) {
-        returnedResult = askAudience.run();
-    } else {
-        System.err.println("There is no lifeline related to (" + lifeLineType + ").");
-        returnedResult = null;
+        String[] returnedResult;
+        if (lifeLineType.equals(LifeLineType.CHANGE_QUESTION)) {
+            returnedResult = changeQuestion.run();
+        } else if (lifeLineType.equals(LifeLineType.REMOVE_HALF)) {
+            returnedResult = removeHalf.run();
+        } else if (lifeLineType.equals(LifeLineType.CALL_A_FRIEND)) {
+            returnedResult = callAFriend.run();
+        } else if (lifeLineType.equals(LifeLineType.ASK_AUDIENCE)) {
+            returnedResult = askAudience.run();
+        } else {
+            System.err.println("There is no lifeline related to (" + lifeLineType + ").");
+            returnedResult = null;
+        }
+        return returnedResult;
     }
-    return returnedResult;
-}
 }
