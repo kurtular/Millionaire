@@ -1,0 +1,144 @@
+@import url("animationnav.css");
+@import url("stylefooter.css");
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Poppins', sans-serif;
+	color: white;
+	background: radial-gradient(rgb(31, 104, 163), rgb(23, 70, 122), rgb(10, 15, 36));
+}
+section
+{
+	width: 85%;
+	margin: auto;
+}
+.container{
+	margin-top: 15vh;
+	background-color: white;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+.container > div{
+	width: 80%;
+	border: 1px white solid;
+
+}
+.inner-container {
+    display: flex;
+    margin: auto;
+	align-items: center;
+}
+.inner-container > div{
+	margin-top: 20px;
+	padding: 10px;
+}
+.inner-container h3{
+    font-size: 30px;
+    font-weight: 500;
+    background: linear-gradient(to right, #32a2d6,#083f4e , #022833);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.inner-container p{
+    margin-top: 5px;
+	font-size: 20px;
+    color: #585772;
+}
+
+/* showcase in section */
+.presentation {
+    min-height: 90vh;
+    display: flex;
+	align-items: center;
+}
+/*showcase in rulepage*/
+.presentation-rulepage{
+	min-height: 70vh;
+    display: flex;
+	align-items: center;
+}
+/* give some space between the container inside presentation container */
+.presentation div {
+	padding: 2px;
+}
+.space-between-nav-and-section-in-rulespage{
+	height: 20vh;
+}
+/*add style to h1 in section*/
+.intro-text h1 {
+	font-size: 45px;
+	font-weight: 400;
+	background: linear-gradient(to right, rgb(255, 255, 255), #6f6f89);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+/*add style to p in section*/
+.intro-text p {
+	margin-top: 5px;
+	font-size: 20px;
+    color: white;
+    position: relative;
+}
+.slidshow-container{
+	position: relative;
+    margin: 50px auto;
+}
+
+@media screen and (max-width: 1024px) {
+	.presentation {
+		min-height: 70vh;
+    	display: flex;
+		align-items: center;
+	}
+	.introduction {
+		margin-top: 5vh;
+	}
+	.intro-text h1{
+		font-size: 30px;
+	}
+	.intro-text p{
+		font-size: 13px;
+	}
+	.slideshow-container > div{
+		display: flex;
+		margin: auto;
+		justify-content: center;
+	}
+	.mySlides img,.cover1 img {
+		height: 100%;
+		width: 100%;
+	}
+	.container img{
+		height: 80%;
+		width: 80%;
+	}
+	.container > div {
+		display: flex;
+		margin: auto;
+		align-items: flex-start;
+	}
+	.inner-container > div{
+		padding: 2px;
+	}
+}
+@media screen and (max-width: 768px){
+	.presentation{
+		min-height: 50vh;
+	}
+	.presentation-rulepage{
+		min-height: 40vh;
+	}
+	.intro-text h1 {
+		font-size: 20px;
+	}
+	.intro-text p {
+		font-size: 8px;
+	}
+	.container h3,.container p{
+		font-size: 8px;
+	}	
+}
+
