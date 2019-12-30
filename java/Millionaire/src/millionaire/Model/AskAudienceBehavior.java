@@ -8,8 +8,13 @@ import java.util.ArrayList;
 
 public class AskAudienceBehavior implements LifeLineBehavior {
     private static AskAudienceBehavior instance = new AskAudienceBehavior();
-    protected static AskAudienceBehavior getInstance(){return instance;}
-    private AskAudienceBehavior(){}
+
+    protected static AskAudienceBehavior getInstance() {
+        return instance;
+    }
+
+    private AskAudienceBehavior() {
+    }
 
     //Jesse
     @Override
@@ -17,8 +22,8 @@ public class AskAudienceBehavior implements LifeLineBehavior {
         StringBuilder returnedResult = new StringBuilder("Publikens röst: \n");
         char[] options = {'A', 'B', 'C', 'D'};
         ArrayList<Character> shownOptions = new ArrayList<>();
-        for (int i=0;i<options.length;i++){
-            if (game.getQuestionPart((byte) (options[i]-64))!=null)
+        for (int i = 0; i < options.length; i++) {
+            if (game.getQuestionPart((byte) (options[i] - 64)) != null)
                 shownOptions.add(options[i]);
         }
 
@@ -32,7 +37,7 @@ public class AskAudienceBehavior implements LifeLineBehavior {
             if (i == shownOptions.size() - 1) {
                 percent[i] = max;
             } else {
-                percent[i] =(int) Math.round(Math.random() * max);
+                percent[i] = (int) Math.round(Math.random() * max);
                 max -= percent[i];
             }
         }
@@ -62,18 +67,16 @@ public class AskAudienceBehavior implements LifeLineBehavior {
             }
         }
 
-        for (byte j=0,i = 0; i < options.length; i++) {
-            if (shownOptions.size() != options.length){
-                if(j<shownOptions.size() && options[i]==shownOptions.get(j)){
+        for (byte j = 0, i = 0; i < options.length; i++) {
+            if (shownOptions.size() != options.length) {
+                if (j < shownOptions.size() && options[i] == shownOptions.get(j)) {
                     returnedResult.append(shownOptions.get(j)).append(" : ").append(percent[j]).append("% ");
                     j++;
-                }
-                else {
+                } else {
                     returnedResult.append(options[i]).append(" : 0%");
                 }
 
-            }
-            else {
+            } else {
                 returnedResult.append(shownOptions.get(i)).append(" : ").append(percent[i]).append("% ");
             }
         }

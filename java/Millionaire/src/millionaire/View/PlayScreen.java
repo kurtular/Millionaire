@@ -9,77 +9,94 @@ import millionaire.Timer;
 import millionaire.FINAL_GLOBAL_VARIABLES.SoundEffectName;
 
 /**
- * @author Mohammad, Henrik
- * A singleton class for showing the main playscreen.
+ * It represents the main playScreen (There will be shown a question with its alternatives).
+ *
+ * @author Mohammad, Henrik.
  */
 class PlayScreen extends BorderPane {
+    //           >>>>Class variables and methods.<<<<
+    // The following variable and method created to apply singleton design pattern.
+    /**
+     * It is the only instance of this class (singleton).
+     */
     private static PlayScreen instance = new PlayScreen();
-    private Button withDrawButton;
 
     /**
-     * The constructor creating the withdrawalbutton and putting the other parts of the playscreen together.
+     * It returns PlayScreen object.
+     *
+     * @return the only possible instance of this class (singleton).
      */
-    private PlayScreen(){
+    public static PlayScreen getInstance() {
+        return instance;
+    }
+
+    /////////////////////////////////////////////////////////////
+    //              >>>>Member variables.<<<<
+    /**
+     * It is withdrawal button.
+     */
+    private Button withDrawButton;
+
+    ////////////////////////////////////////////////////////////
+    //              >>>>Class constructor.<<<<
+
+    /**
+     * It is a constructor method creates a PlayScreen object.
+     */
+    private PlayScreen() {
+        // call BorderPane constructor and enable it.
         super();
+        // Setup withdraw button.
         ImageView withDrawBkImage = new ImageView("img/withdraw.png");
         withDrawBkImage.setFitWidth(115);
         withDrawBkImage.setFitHeight(50);
-
         withDrawButton = new Button();
         withDrawButton.setId("withDrawButton");
         withDrawButton.setGraphic(withDrawBkImage);
-
         enableWithdrawing();
-
+        // Order PlayScreen's content positions.
         setLeft(withDrawButton);
         setCenter(LifeLineArea.getInstance());
         setBottom(QuestionArea.getInstance());
         setRight(PriceTable.getInstance());
         this.setPrefSize(1024, 768);
     }
+    /////////////////////////////////////////////////////////////
+    //                >>>> Member methods.<<<<
 
     /**
-     * A getter
-     * @return the object
+     * Creating the action event to withdrawal button and enabling the button.
      */
-    public static PlayScreen getInstance(){
-        return instance;
-    }
-
-    /**
-     * Creating the actionevents to withdrawalbutton and enabling the button.
-     */
-    void enableWithdrawing(){
+    void enableWithdrawing() {
         withDrawButton.setDisable(false);
         withDrawButton.setOnMouseClicked(event -> {
-            //
+            // Disable QuestionArea and LifeLineArea.
             QuestionArea.getInstance().disableActions();
             LifeLineArea.getInstance().deactivateTemporarily();
-            //
+            // Stop timer.
             TimerLabel.getInstance().stopTimer();
-            //
+            // End the game.
             Controller.getInstance().endTheGame(true);
         });
     }
 
     /**
-     * Temporarily disabling the button and chenging the opacity.
+     * Temporarily disabling withDrawButton and changing its opacity.
      */
-    void disableWithdrawing(){
+    void disableWithdrawing() {
         withDrawButton.setDisable(true);
         withDrawButton.setOpacity(1);
     }
 
     /**
-     * Clearing the aliasscreen and showing the playscreen. Playing a sound and enable withdrawal.
-     * @param pane The aliasscreen pane
+     * It shows game play screen.
      */
-    static void addTo(Pane pane){
+    static void show() {
         instance.enableWithdrawing();
         SoundEffectPlayer.play(SoundEffectName.PLAY_SCREEN_INTRO);
-        Timer.delay(()->{
-            pane.getChildren().clear();
-            pane.getChildren().add(getInstance());
-        },3);
+        Timer.delay(() -> {
+            Gui.content.getChildren().clear();
+            Gui.content.getChildren().add(instance);
+        }, 3);
     }
 }

@@ -4,14 +4,24 @@ import millionaire.FINAL_GLOBAL_VARIABLES;
 import millionaire.FINAL_GLOBAL_VARIABLES.*;
 
 /**
- * @author Mohammad
  * This class represents life lines that can be used of a player
+ *
+ * @author Mohammad.
  */
 class LifeLine {
     //           >>>>Class variables and methods.<<<<
     // The following variables and methods created to apply singleton design pattern.
+    /**
+     * It is the only instance of this removeHalf life line (singleton).
+     */
     private static LifeLine removeHalf = new LifeLine(RemoveHalfBehavior.getInstance());
+    /**
+     * It is the only instance of this callAFriend life line (singleton).
+     */
     private static LifeLine callAFriend = new LifeLine(CallAFriendBehavior.getInstance());
+    /**
+     * It is the only instance of this askAudience life line (singleton).
+     */
     private static LifeLine askAudience = new LifeLine(AskAudienceBehavior.getInstance());
 
     /**
@@ -35,15 +45,19 @@ class LifeLine {
 
     /////////////////////////////////////////////////////////////
     //              >>>>Member variables.<<<<
-    //isUsed will store the status of a life line if it used or not during a game.
+    /**
+     * It stores the status of a life line if it used or not during a game.
+     */
     private boolean isUsed;
-    // behavior store the behavior (the action that will applied when a player use it) of a life line.
+    /**
+     * It stores the behavior (the action that will applied when a player use it) of a life line.
+     */
     private LifeLineBehavior behavior;
     ////////////////////////////////////////////////////////////
     //              >>>>Class constructors.<<<<
 
     /**
-     * a constructor method that will create a lifeline.
+     * It is a constructor method creates a ChangeQuestion object.
      *
      * @param behavior is a behavior that the created life line will have. (Used strategy design pattern)
      */

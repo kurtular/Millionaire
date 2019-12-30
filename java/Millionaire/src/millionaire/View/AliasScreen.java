@@ -15,10 +15,14 @@ import millionaire.Timer;
 import static javafx.geometry.Pos.CENTER;
 
 /**
- * @author Henrik, Joakim
  * Singleton class for showing the userinput dialog before starting the game
+ *
+ * @author Henrik, Joakim.
  */
 class AliasScreen extends VBox {
+    /**
+     * It is the only instance of this class (singleton).
+     */
     final private static AliasScreen instance = new AliasScreen();
 
     /**
@@ -100,21 +104,20 @@ class AliasScreen extends VBox {
 
     /**
      * Add object to playscreen when pressing enter or click at confirmbutton.
-     * @param pane the introscreen object.
      */
-    static void addTo(Pane pane) {
+    static void show() {
         instance.reset();
-        pane.getChildren().clear();
-        pane.getChildren().add(getInstance());
+        Gui.content.getChildren().clear();
+        Gui.content.getChildren().add(instance);
         instance.aliasInput.setOnKeyReleased(event -> {
-            if (event.getCode() == KeyCode.ENTER){
+            if (event.getCode() == KeyCode.ENTER) {
                 //
                 if (!instance.aliasInputISEmpty()) {
                     instance.aliasInput.setDisable(true);
                     instance.confirmButton.setDisable(true);
                     instance.errorMessage.setText(null);
-                    PlayScreen.addTo(pane);
-                    Timer.delay(()->Controller.getInstance().startTheGame(instance.aliasInput.getText()), 3);
+                    PlayScreen.show();
+                    Timer.delay(() -> Controller.getInstance().startTheGame(instance.aliasInput.getText()), 3);
                 }
             }
         });
@@ -124,8 +127,8 @@ class AliasScreen extends VBox {
                 instance.aliasInput.setDisable(true);
                 instance.confirmButton.setDisable(true);
                 instance.errorMessage.setText(null);
-                PlayScreen.addTo(pane);
-                Timer.delay(()->Controller.getInstance().startTheGame(instance.aliasInput.getText()), 3);
+                PlayScreen.show();
+                Timer.delay(() -> Controller.getInstance().startTheGame(instance.aliasInput.getText()), 3);
             }
         });
     }

@@ -1,11 +1,14 @@
 package millionaire.Model;
 
 /**
- * @author Mohammad
  * This interface represents life line behavior and it is created to use strategy design pattern.
+ *
+ * @author Mohammad
  */
 interface LifeLineBehavior {
-    // The following behavior needed to be able reach game object.
+    /**
+     * It needed to be able reach game object.
+     */
     Game game = Game.getInstance();
 
     /**

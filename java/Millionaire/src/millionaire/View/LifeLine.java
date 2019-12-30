@@ -9,38 +9,60 @@ import millionaire.Controller;
 import millionaire.Timer;
 
 /**
- * @author Henrik, Mohammad, Joakim
  * A class for creating the different lifelines and their view properties.
+ *
+ * @author Henrik, Mohammad, Joakim
  */
 class LifeLine extends Label {
-
+    /////////////////////////////////////////////////////////////
+    //              >>>>Member variables.<<<<
+    /**
+     * It stores a boolean value that show if a life line have used (true) or not (false).
+     */
     private boolean used;
+    /**
+     * It a image that a life line will have.
+     */
     private ImageView img;
+    /**
+     * It stores a string that refers to a lifeline type.
+     */
     private String type;
-    private String soundEffectName;
+    /**
+     * It store audio tuck name that is related to a life line.
+     */
+    private String SoundEffectName;
+
+    ////////////////////////////////////////////////////////////
+    //              >>>>Class constructor.<<<<
 
     /**
-     * The constructor for creating the label with the images.
-     * @param LifeLineType String including which lifeline to be created.
+     * It is a constructor method creates a LifeLine object.
+     *
+     * @param LifeLineType    String including which lifeline to be created.
      * @param SoundEffectName String including which soundeffectname the lifelineobject will earn.
      */
-    LifeLine(String LifeLineType,String SoundEffectName) {
+    LifeLine(String LifeLineType, String SoundEffectName) {
         this.type = LifeLineType;
-        soundEffectName = SoundEffectName;
-        img = new ImageView("img/"+type+".gif");
+        this.SoundEffectName = SoundEffectName;
+        img = new ImageView("img/" + type + ".gif");
         img.setFitWidth(150);
         img.setFitHeight(100);
-        setClip(new Ellipse(75, 50,75,50));
+        setClip(new Ellipse(75, 50, 75, 50));
         setGraphic(img);
         setCursor(Cursor.HAND);
         used = false;
         setAction();
     }
+    /////////////////////////////////////////////////////////////
+    //                >>>> Member methods.<<<<
 
     /**
      * To switch image to the one with a red cross when used the lifeline.
      */
-    private void switchToUsedImage(){ img.setImage(new Image("img/"+type+"-used.png")); }
+    private void switchToUsedImage() {
+        img.setImage(new Image("img/" + type + "-used.png"));
+    }
 
     /**
      * Creating actionevent when clicking at the lifeline to disable all other options, play a sound and activate the lifeline.
@@ -51,7 +73,7 @@ class LifeLine extends Label {
             LifeLineArea.getInstance().deactivateTemporarily();
             PlayScreen.getInstance().disableWithdrawing();
             disableAction();
-            SoundEffectPlayer.play(soundEffectName);
+            SoundEffectPlayer.play(SoundEffectName);
             TimerLabel.getInstance().stopTimer();
             Timer.delay(() -> Controller.getInstance().useLifeLine(type), 4);
         });
@@ -60,18 +82,19 @@ class LifeLine extends Label {
     /**
      * Disable the label and calling the other methods that will switch the image and set it as used.
      */
-    private void disableAction(){
+    private void disableAction() {
         switchToUsedImage();
         setDisable(true);
         setOpacity(0.8);
         setOnMouseClicked(null);
         setAsUsed();
     }
+
     //Joakim
-    void reset(){
-        img.setImage(new Image("img/"+type+".gif"));
+    void reset() {
+        img.setImage(new Image("img/" + type + ".gif"));
         setAction();
-        used=false;
+        used = false;
         setDisable(false);
         setOpacity(1);
     }
@@ -79,11 +102,16 @@ class LifeLine extends Label {
     /**
      * Setting the lifeline as used.
      */
-    private void setAsUsed(){used=true;}
+    private void setAsUsed() {
+        used = true;
+    }
 
     /**
+     * It returns a boolean value depending on life lines used variable value.
      *
-     * @return True or false depending if the lifeline is used or not
+     * @return True or false depending if the lifeline is used or not.
      */
-    boolean isUsed(){return used;}
+    boolean isUsed() {
+        return used;
+    }
 }

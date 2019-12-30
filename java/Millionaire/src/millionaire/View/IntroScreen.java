@@ -1,67 +1,83 @@
 package millionaire.View;
 
-import javafx.scene.layout.Pane;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import millionaire.FINAL_GLOBAL_VARIABLES.SoundEffectName;
-
-import java.util.Timer;
-import java.util.TimerTask;
+import millionaire.Timer;
 
 /**
- * @author Mohammad
+ * It represnts IntroScreen (will be shown at application start).
+ *
+ * @author Mohammad.
  */
-// GameContent class include the methods that is responsible to switch between game scenes.
-class IntroScreen extends BorderPane{
+class IntroScreen extends BorderPane {
+    //           >>>>Class variable.<<<<
+    // The following variable and method created to apply singleton design pattern.
+    /**
+     * It is the only instance of this class (singleton).
+     */
     private static final IntroScreen instance = new IntroScreen();
-    private static IntroScreen getInstance(){
+
+    /**
+     * It will return IntroScreen object.
+     *
+     * @return the only possible instance of this class (singleton).
+     */
+    static IntroScreen getInstance() {
         return instance;
     }
 
-    private static OptionButton start;
-    private IntroScreen(){
+    /////////////////////////////////////////////////////////////
+    //              >>>>Member variables.<<<<
+    /**
+     * It is the new game button.
+     */
+    private OptionButton newGame;
+    ////////////////////////////////////////////////////////////
+    //              >>>>Class constructor.<<<<
+
+    /**
+     * It is a constructor method creates an IntroScreen object.
+     */
+    private IntroScreen() {
         super();
-        ImageView logo =new ImageView();
+        // Setup the logo image that will shown in intro screen.
+        ImageView logo = new ImageView();
         logo.setFitWidth(500);
         logo.setFitHeight(500);
         setTop(logo);
         setAlignment(logo, Pos.TOP_CENTER);
+        Timer.delay(() -> {
+            logo.setImage(new Image("img/logo1.gif"));
+        }, 0.150);
 
-        Timer setLogo = new Timer();
-        setLogo.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                logo.setImage(new Image("img/logo1.gif"));
-            }
-        }, 150);
-        Timer changeLogo = new Timer();
-        changeLogo.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                logo.setImage(new Image("img/logo2.gif"));
-            }
-        }, 4500);
+        // Change logo image after 4,5 seconds.
+        Timer.delay(() -> {
+            logo.setImage(new Image("img/logo2.gif"));
+        }, 4.5);
 
-// Create and add a start button with its style and action commands when it will be clicked
-        start = new OptionButton();
-        start.setText("Nytt spel");
-        setBottom(start);
-        setAlignment(start, Pos.BOTTOM_CENTER);
+        // Create and add a new game button with its style and action commands ( runs when it will be clicked)
+        newGame = new OptionButton();
+        newGame.setText("Nytt spel");
+        setBottom(newGame);
+        setAlignment(newGame, Pos.BOTTOM_CENTER);
         setPadding(new Insets(25, 0, 50, 0));
         setPrefSize(1024, 768);
     }
+    /////////////////////////////////////////////////////////////
+    //                >>>> Member methods.<<<<
 
-//
-
-///////////////////////////////////////////////////////////////////////
-//  addTo() will return a scene that contain game intro.
-static void addTo(Pane pane){
-        pane.getChildren().clear();
+    /**
+     * It shows game intro screen.
+     */
+    void show() {
+        Gui.content.getChildren().clear();
         SoundEffectPlayer.play(SoundEffectName.INTRO);
-        pane.getChildren().add(getInstance());
-        start.setOnMouseClicked(event -> AliasScreen.addTo(pane));
-}
+        Gui.content.getChildren().add(instance);
+        // set new game button's action.
+        instance.newGame.setOnMouseClicked(event -> AliasScreen.show());
+    }
 }

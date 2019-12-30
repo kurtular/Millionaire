@@ -13,17 +13,29 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
+ * The main class of the Model package and it's represent the Model part of the MVC design pattern.
+ *
  * @author Mohammad, Henrik, Millad, Jesse
  */
 public class Game implements GetJson {
+    //           >>>>Class variables and methods.<<<<
+    // The following variable and method created to apply singleton design pattern.
+    /**
+     * It is the only instance of this class (singleton).
+     */
     static private final Game game = new Game();
 
-    //Mohammad
+    /**
+     *  It returns change question life line object.
+     * @return the only possible instance of this class (singleton).
+     */
     public static Game getInstance() {
         return game;
     }
 
-    //The member variables.
+    /////////////////////////////////////////////////////////////
+    //              >>>>Member variables.<<<<
+
     final Question[] questions = new Question[16];
     byte currentQuestion;
     final private Player player = Player.getInstance();
@@ -31,12 +43,19 @@ public class Game implements GetJson {
     private LifeLine removeHalf = LifeLine.getInstance(LifeLineType.REMOVE_HALF);
     private LifeLine callAFriend = LifeLine.getInstance(LifeLineType.CALL_A_FRIEND);
     private LifeLine askAudience = LifeLine.getInstance(LifeLineType.ASK_AUDIENCE);
+    ////////////////////////////////////////////////////////////
+    //              >>>>Class constructor.<<<<
 
-    //Mohammad
+    /**
+     * It is a constructor method creates a Game object.
+     */
     private Game() {
     }
 
-    // To set questions array from the server.
+    /////////////////////////////////////////////////////////////
+    //                >>>> Member methods.<<<<
+
+    // To set questions array from the server.todo after asking Rickard
     @Override
     public void setupJsonData(String data) {
         JSONArray questions = new JSONArray(data);
@@ -84,6 +103,7 @@ public class Game implements GetJson {
         String sql = "INSERT INTO high_score(player_name,player_balance,player_score) VALUES ('" + moneyCheckData[0] + "','" + Integer.parseInt(moneyCheckData[1].replaceAll(" ", "")) + "','" + player.getScore() + "')";
         Statement statement = connection.createStatement();
         statement.executeUpdate(sql);
+        connection.close();
     }
 
     // getValue() return a specific string value of the question object depending on value parameter (check class variables above).
@@ -155,7 +175,9 @@ public class Game implements GetJson {
     //
     private void setQuestions() {
         try {
-            getJsonText("http://localhost/millionaire/get/");                                                       // Link to the questions rest api.
+            getJsonText("http://mohammad-ahmad.se/millionaire/get/");
+            // The following commented code can be used for locally hosted backend instead of the above one.
+            //getJsonText("http://localhost/millionaire/get/");                                                       // Link to the questions rest api.
         } catch (Exception e) {
             System.out.println(e.toString());
         }
@@ -164,8 +186,8 @@ public class Game implements GetJson {
     /**
      * Running the selected lifeline
      *
-     * @param lifeLineType
-     * @return the different stringarrays with hints or questionchanges.
+     * @param lifeLineType refers to a life line that will run.
+     * @return the different string arrays with hints or question changes.
      */
     public String[] runLifeLine(String lifeLineType) {
         String[] returnedResult;

@@ -1,37 +1,76 @@
 package millionaire;
 
 /**
- * @author Mohammad, Jesse
+ * This class is as acontainer to all global variables and it's include other classes (nested classes).<br>
+ * This way used to make it easier to understand instead of sending unrelated value.<br>
+ * This class is used in diffrent places of this application so make sure that you understand the purbose of this class before using it or editing a part of this application.
+ *
+ * @author Mohammad, Jesse, Henrik.
  */
 public abstract class FINAL_GLOBAL_VARIABLES {
-
+    //           >>>>Class variables and methods.<<<<
+    /**
+     * It stores all possible prizes.
+     */
     private static final String[] PRIZES = {"0", "100", "200", "300", "500", "1 000", "2 000", "4 000", "8 000", "16 000", "32 000", "64 000", "125 000", "250 000", "500 000", "1 000 000"};
 
+    /**
+     * It returns a string array(Prizes array). see {@link #PRIZES}
+     *
+     * @return a string array.
+     */
     public static String[] getPRIZES() {
         return PRIZES;
     }
 
+    /**
+     * It stores the used currency symbol.(kan be $,kr,sek,£,€)
+     */
     private static final String CURRENCY_SYMBOL = "$";
 
+    /**
+     * It returns used currency symbol. see {@link #CURRENCY_SYMBOL}
+     *
+     * @return CURRENCY_SYMBOL value.
+     */
     public static String getCurrencySymbol() {
         return CURRENCY_SYMBOL;
     }
 
+    /**
+     * It stores question duration (max timer value).
+     */
     private static final int QUESTION_DURATION = 30;
 
+    /**
+     * It returns QUESTION_DURATION value. see {@link #QUESTION_DURATION}
+     *
+     * @return a number that refers to question duration.
+     */
     public static int getQuestionDuration() {
         return QUESTION_DURATION;
     }
+    /////////////////////////////////////////////////////////////
+    //              >>>>Nested classes.<<<<
 
+    /**
+     * It stores all possible question parts like the question text and its options (alternatives) and the order of the shown question.<br>
+     * Every variable name describe the purpose of creating it.
+     */
     public abstract static class QuestionPart {
         public final static byte QUESTION_TEXT = 0;
         public final static byte OPTION1 = 1;
         public final static byte OPTION2 = 2;
         public final static byte OPTION3 = 3;
         public final static byte OPTION4 = 4;
+        // That doesn't mean that the current question will be 5 always. That mean the programmer refer to the order of the shown question.
         public final static byte CURRENT_QUESTION = 5;
     }
 
+    /**
+     * It stores all possible option button states.<br>
+     * Every variable name describe the purpose of creating it.
+     */
     public abstract static class OptionButtonState {
         public static final int WRONG = -1;
         public static final int CHECKING = 0;
@@ -39,7 +78,7 @@ public abstract class FINAL_GLOBAL_VARIABLES {
         public static final int DEFAULT = 2;
     }
 
-//Henrik
+    //Henrik
     public abstract static class SoundEffectName {
         public final static String INTRO = "intro.mp3";
         public final static String PLAY_SCREEN_INTRO = "play_screen_intro.mp3";

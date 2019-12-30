@@ -7,7 +7,8 @@ import millionaire.Timer;
 
 /**
  * Abstract class for handling the sounds.
- * @author Mohammad, Henrik
+ *
+ * @author Henrik , Mohammad.
  */
 abstract class SoundEffectPlayer {
     private static MediaPlayer mediaPlayer;

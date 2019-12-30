@@ -63,7 +63,7 @@ class EndGameScreen extends VBox {
         VBox content = new VBox();
         content.getChildren().addAll(pane, home);
         content.setSpacing(70);
-        content.setMaxSize(920,600);
+        content.setMaxSize(920, 600);
         content.setPadding(new Insets(20));
         content.setAlignment(Pos.CENTER);
         content.setId("EndGameScreenContent");
@@ -72,9 +72,10 @@ class EndGameScreen extends VBox {
         setAlignment(Pos.CENTER);
         setPrefSize(1024, 768);
     }
+
     private void setCheckData(String playerName, String playerBalance, String gameDate) {
         this.playerName.setText(playerName);
-        this.balance.setText(playerBalance+FINAL_GLOBAL_VARIABLES.getCurrencySymbol());
+        this.balance.setText(playerBalance + FINAL_GLOBAL_VARIABLES.getCurrencySymbol());
         this.date.setText(gameDate);
     }
 
@@ -83,13 +84,13 @@ class EndGameScreen extends VBox {
     }
 
     // Back to intro screen.
-    static void addTo(Pane pane,String playerName, String playerBalance,String gameDate) {
-        instance.setCheckData(playerName,playerBalance,gameDate);
+    static void show(Pane pane, String playerName, String playerBalance, String gameDate) {
+        instance.setCheckData(playerName, playerBalance, gameDate);
         pane.getChildren().clear();
-        pane.getChildren().add(getInstance());
+        pane.getChildren().add(instance);
         SoundEffectPlayer.play(SoundEffectName.GAME_END);
         home.setOnMouseClicked(event -> {
-            IntroScreen.addTo(pane);
+            IntroScreen.getInstance().show();
             Gui.reset();
         });
     }

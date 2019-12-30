@@ -1,11 +1,13 @@
 package millionaire.Model;
 
 /**
- * @author Mohammad
- * This class reprsents qustion object (qustion text and its alternatives etc)
+ * This class represents question object (question text and its alternatives etc).
+ *
+ * @author Mohammad.
  */
 class Question {
     //           >>>>Class method.<<<<
+
     /**
      * It decodes the question token to get the index of the correct answer.
      *
@@ -19,17 +21,24 @@ class Question {
 
     /////////////////////////////////////////////////////////////
     //              >>>>Member variables.<<<<
+    /**
+     * It stores a question text.
+     */
     private final String questionText;
-    // options variable store 4 alternatives that will be shown to the player.
+    /**
+     * It stores 4 alternatives that will be shown to the player.
+     */
     private final String[] options;
-    // Token that refer to the correct answer index of the options array.
+    /**
+     * It refers to the correct answer index of the options array.
+     */
     private final int token;
 
     ////////////////////////////////////////////////////////////
     //              >>>>Class constructor.<<<<
 
     /**
-     * It will create question object.
+     * It is a constructor method creates a Question object.
      *
      * @param questionText is a sting (text) will be shown as question to the player.
      * @param options      is a string array that hold a question alternatives.

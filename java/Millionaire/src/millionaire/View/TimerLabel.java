@@ -11,19 +11,44 @@ import millionaire.FINAL_GLOBAL_VARIABLES;
 import millionaire.Timer;
 
 /**
- * @author Mohammad, Millad
+ * It represents TimerLabel there will be shown timer value (seconds).
+ *
+ * @author Mohammad, Millad.
  */
 public class TimerLabel extends Label {
+    //           >>>>Class variables and methods.<<<<
+    // The following variable and method created to apply singleton design pattern.
+    /**
+     * It is the only instance of this class (singleton).
+     */
     private static final TimerLabel instance = new TimerLabel();
-    static TimerLabel getInstance(){
+
+    /**
+     * It returns TimerLabel object.
+     *
+     * @return the only possible instance of this class (singleton).
+     */
+    static TimerLabel getInstance() {
         return instance;
     }
 
+    /////////////////////////////////////////////////////////////
+    //              >>>>Member variables.<<<<
     private boolean isStopped;
     private byte shownSeconds;
-    private TimerLabel(){
+
+    ////////////////////////////////////////////////////////////
+    //              >>>>Class constructor.<<<<
+
+    /**
+     * It is a constructor method creates a TimerLabel object.
+     */
+    private TimerLabel() {
+        // Calling Label constructor.
         super();
-        Circle shape =new Circle();
+
+        // setup TimerLabel object
+        Circle shape = new Circle();
         shape.setRadius(110 / 2f);
         shape.setCenterX(110 / 2f);
         shape.setCenterY(110 / 2f);
@@ -34,38 +59,63 @@ public class TimerLabel extends Label {
         this.setGraphic(img);
         this.setWrapText(true);
         this.setTextFill(Color.valueOf("#fff"));
-        this.setFont(Font.font("arial",30));
+        this.setFont(Font.font("arial", 30));
         this.setContentDisplay(ContentDisplay.CENTER);
         this.setFocusTraversable(false);
     }
-    void startTimer(){
-        isStopped=false;
+    /////////////////////////////////////////////////////////////
+    //                >>>> Member methods.<<<<
+
+    /**
+     * It starts the timer.
+     */
+    void startTimer() {
+        isStopped = false;
         setText(Integer.toString(shownSeconds));
+        // Set text color depending on seconds value.
         setSecondsColor();
-        Timer.delay(()->{
-            if(shownSeconds > 0 && !isStopped){
+        // decrease seconds with -1 after a second.
+        Timer.delay(() -> {
+            if (shownSeconds > 0 && !isStopped) {
                 shownSeconds--;
                 startTimer();
             }
         }, 1);
     }
-    void resetTimer(){
+
+    /**
+     * It resets TimerLabel value (set its value to max value).
+     */
+    void resetTimer() {
         stopTimer();
-        shownSeconds = (byte)FINAL_GLOBAL_VARIABLES.getQuestionDuration();
+        shownSeconds = (byte) FINAL_GLOBAL_VARIABLES.getQuestionDuration();
     }
-    void stopTimer(){
+
+    /**
+     * It stops the timer.
+     */
+    void stopTimer() {
         isStopped = true;
     }
+
+    /**
+     * It returns the remaining seconds.
+     *
+     * @return a number that refer to the remaining seconds;
+     */
     public byte getShownSeconds() {
         return shownSeconds;
     }
-    private void setSecondsColor(){
-        if(shownSeconds<6){
+
+    /**
+     * It changes timer text color depending on its value.
+     */
+    private void setSecondsColor() {
+        if (shownSeconds < 6) {
             setTextFill(Paint.valueOf("#ff3434"));
-        } else if(shownSeconds<16){
+        } else if (shownSeconds < 16) {
             setTextFill(Paint.valueOf("#faff6a"));
-        }
-        else {
+        } else {
             setTextFill(Paint.valueOf("#fff"));
         }
     }

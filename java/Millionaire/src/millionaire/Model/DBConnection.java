@@ -4,17 +4,26 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- * @Millad, Jesse
+ * @author Millad, Jesse
  */
 public class DBConnection {
     private Connection connection;
     //Jesse
     public Connection getConnection(){
+
+        String DB_CONNECTION = "jdbc:mysql://mohammad-ahmad.se/";
+        String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
+        String DB_NAME = "rmvigsfl_millionaire";
+        String DB_USER = "rmvigsfl_molndal";
+        String DB_PASSWORD = "molndalmolndal";
+
+        // The following commented code can be used for locally hosted database instead of the above one.
+        /*
         String DB_CONNECTION = "jdbc:mysql://localhost/";
         String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
         String DB_NAME = "millionaire";
         String DB_USER = "root";
-        String DB_PASSWORD = "";
+        String DB_PASSWORD = "";*/
 
         try {
             Class.forName(DB_DRIVER);

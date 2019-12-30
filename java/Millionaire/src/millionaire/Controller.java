@@ -5,34 +5,50 @@ import millionaire.View.*;
 import millionaire.FINAL_GLOBAL_VARIABLES.*;
 
 /**
- * @author Mohammad, Henrik, Jesse, Joakim,
+ * It represents the connection between Gui class and Game class. (The controller of  MVC design pattern).
+ *
+ * @author Mohammad, Henrik, Jesse, Joakim.
  */
-// Controller class (MVC design pattern).
 
 public class Controller {
-
+    //           >>>>Class variables and methods.<<<<
+    // The following variable and method created to apply singleton design pattern.
+    /**
+     * It is the only instance of this class (singleton).
+     */
     final private static Controller instance = new Controller();
 
+    /**
+     * It returns a controller object.
+     * @return the only possible instance of this class (singleton).
+     */
     public static Controller getInstance() {
         return instance;
     }
+    /////////////////////////////////////////////////////////////
 
-    ///////////////////////////////////////////////////////////////////////
-// Controller member variables.
-// game variable represents the Model of MVC design pattern.
-// gui variable represents the View of MVC design pattern.
-    private Gui gui;
-    private Game game;
-
-    ///////////////////////////////////////////////////////////
-// Controller constructor.
-    private Controller() {
-    }
     //Millad
     static void setupController(Game game, Gui gui) {
         instance.game = game;
         instance.gui = gui;
     }
+    /////////////////////////////////////////////////////////////
+    //              >>>>Member variables.<<<<
+    /**
+     * game variable represents the View of MVC design pattern.
+     */
+    private Gui gui;
+    /**
+     * It represents the Model of MVC design pattern.
+     */
+    private Game game;
+
+    ////////////////////////////////////////////////////////////
+    //              >>>>Class constructor.<<<<
+    private Controller() {
+    }
+    /////////////////////////////////////////////////////////////
+    //              >>>>Member variables.<<<<
 
     //Millad
     public void startTheGame(String playerName) {

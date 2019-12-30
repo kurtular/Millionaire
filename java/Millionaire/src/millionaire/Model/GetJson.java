@@ -8,8 +8,9 @@ import java.net.http.HttpResponse;
 import org.json.JSONArray;
 
 /**
- * @author Mohammad
  * This interface have methods that will handle getting a Json data from the server (game questions).
+ *
+ * @author Mohammad.
  */
 interface GetJson {
     /**

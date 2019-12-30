@@ -1,26 +1,32 @@
 package millionaire.Model;
 
 /**
- * @author Henrik, Mohammad
  * Singleton class for call a friend lifeline with a get method.
+ *
+ * @author Henrik, Mohammad.
  */
-class CallAFriendBehavior implements LifeLineBehavior{
+class CallAFriendBehavior implements LifeLineBehavior {
     private static CallAFriendBehavior instance = new CallAFriendBehavior();
 
     /**
      * The get method
+     *
      * @return the lifelineobject
      */
-    protected static CallAFriendBehavior getInstance(){return instance;}
+    protected static CallAFriendBehavior getInstance() {
+        return instance;
+    }
 
     /**
      * The constructor
      */
-        private CallAFriendBehavior(){}
+    private CallAFriendBehavior() {
+    }
 
     /**
      * Lifeline call a friend are taking care of here. 50% of the time you get for sure the right answer.
      * 25% of the time you get the right answer but the friend are in doubt. And in 25% of the cases you get the wrong answer.
+     *
      * @return The string to be shown at the screen.
      */
     @Override
@@ -39,12 +45,12 @@ class CallAFriendBehavior implements LifeLineBehavior{
         //25% the friend is pretty sure but guessing at the wrong answer.
         else {
             boolean isAnswerCorrect;
-            while (true){
-                int i =(int) (Math.random()*4+1);
-                isAnswerCorrect = game.checkAnswer((char)(i+64));
+            while (true) {
+                int i = (int) (Math.random() * 4 + 1);
+                isAnswerCorrect = game.checkAnswer((char) (i + 64));
                 String answerText = game.getQuestionPart((byte) (i));
-                if (!isAnswerCorrect && answerText!=null) {
-                    friendSays = "Jag TROR att det är: " + (char)(i+64) + ". " + answerText;
+                if (!isAnswerCorrect && answerText != null) {
+                    friendSays = "Jag TROR att det är: " + (char) (i + 64) + ". " + answerText;
                     break;
                 }
             }

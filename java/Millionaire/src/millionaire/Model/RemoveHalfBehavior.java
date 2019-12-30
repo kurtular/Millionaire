@@ -3,16 +3,22 @@ package millionaire.Model;
 import millionaire.FINAL_GLOBAL_VARIABLES.*;
 
 /**
- * @author Mohammad.
  * This class represents remove half life line behavior.
- * It is created to apply strategy design pattern so it implements LifeLineBehavior inteface.
+ * It is created to apply strategy design pattern so it implements LifeLineBehavior interface.
+ *
+ * @author Mohammad.
  */
 class RemoveHalfBehavior implements LifeLineBehavior {
     //           >>>>Class variable and method.<<<<
     // The following variable and method created to apply singleton design pattern.
+    /**
+     * It is the only instance of this class (singleton).
+     */
     private static RemoveHalfBehavior instance = new RemoveHalfBehavior();
+
     /**
      * It will return remove half life line behavior.
+     *
      * @return the only possible instance of this class (singleton).
      */
     protected static RemoveHalfBehavior getInstance() {
@@ -20,7 +26,12 @@ class RemoveHalfBehavior implements LifeLineBehavior {
     }
     ////////////////////////////////////////////////////////////
     //              >>>>Class constructor.<<<<
-    private RemoveHalfBehavior() {}
+
+    /**
+     * It is a constructor method creates a RemoveHalfBehavior object.
+     */
+    private RemoveHalfBehavior() {
+    }
 
     /////////////////////////////////////////////////////////////
     //                >>>> Member methods.<<<<

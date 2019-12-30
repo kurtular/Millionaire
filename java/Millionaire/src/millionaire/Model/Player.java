@@ -3,7 +3,7 @@ package millionaire.Model;
 import millionaire.FINAL_GLOBAL_VARIABLES;
 
 /**
- * @author Joakim, Mohammad
+ * @author Joakim, Mohammad.
  */
 public class Player {
     //
