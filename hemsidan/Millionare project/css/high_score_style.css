@@ -1,0 +1,101 @@
+/* styling the main container of the page content*/
+main{
+    min-height: 90%;
+    width: 85%;
+    margin: 0 auto ;
+    margin-top: 20vh;
+}
+/* styling all links that is inside the introduction part of the page.*/
+.intro-text a{
+    text-decoration: none;
+    color: #f45905;
+}
+.intro-text a:hover{
+    color: #fff;
+}
+/* styling the container of the high-score list table.*/
+#high-score-container{
+    margin:0 auto;
+    margin-top: 100px;
+    padding: 50px 100px;
+    background-color: #00000050;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 3px solid #fff;
+    margin-bottom: 20px;
+}
+/* styling the high-score list table.*/
+#high-score-list{
+    width: 100%;
+    border-collapse: collapse;
+}
+/* styling the table head row (give it some rounded borders)*/
+#high-score-list tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+}
+#high-score-list tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+}
+/* styling the last row of the table (give it some rounded borders)*/
+#high-score-list tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+#high-score-list tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+/*styling table cells*/
+#high-score-list th,#high-score-list td{
+    text-align: center;
+    min-width: 20%;
+    padding: 10px;
+}
+/*styling the table head row */
+#high-score-list >thead{
+    background: linear-gradient(#0082ac,#004271,#00172B);
+    color:#fff;
+    font-size: x-large
+}
+/* styling the table body (table content)*/
+#high-score-list >tbody>tr{
+    font-size: large;
+}
+/* styling the rows that have even order (rows of table body)*/
+#high-score-list >tbody>tr:nth-child(even){
+background-color:#0082ac;
+color: #d3d3d3;
+}
+/* styling the rows that have odd order ( rows of table body)*/
+#high-score-list >tbody>tr:nth-child(odd){
+    background-color:#d3d3d3;
+    color: #0082ac;
+}
+
+#high-score-list > thead  i{
+margin: 0 5px;
+}
+/* make this page responisve with some screen sizes*/
+@media screen and (max-width: 1024px){
+    #high-score-container{
+        padding: 25px 50px;
+    }
+
+    #high-score-list >thead{
+        font-size: small;
+    }
+    #high-score-list >tbody>tr{
+        font-size: x-small;
+    }
+    
+@media screen and (max-width: 768px){
+    #high-score-container{
+        padding: 10px 20px;
+    }
+
+    #high-score-list >thead{
+        font-size: x-small;
+    }
+    #high-score-list >tbody>tr{
+        font-size: xx-small;
+    }
+}
+}

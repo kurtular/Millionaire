@@ -1,0 +1,165 @@
+.logo-container,
+.nav-links,.burger>div
+{
+	display: flex;
+}
+.logo-container {
+	flex: 1;
+}
+.logo {
+	letter-spacing: 1px;
+	font-weight: 400;
+	margin: auto;
+    margin-left: 15px;
+	color: black;
+}
+#logo-Link{
+	text-decoration: none;
+    display: inline-flex;
+}
+/* navigation bar follow when the page scroll down */
+nav{
+	background-color: #e3f6f5;
+	position:fixed;
+	top:0;
+	left:0; 
+	width:100%;
+	z-index: 100;
+}
+/* all the container inside nav-container in horizontal */
+.nav-container {
+	display: flex;
+	width: 85%;
+	height: 8vh;
+	margin: auto;
+	align-items: center;
+}
+/* make space between the link */
+.nav-links {
+	justify-content: space-around;
+	width: 50%;
+	list-style: none;
+}
+/* remove decoration from list and give space between letter and increase the size of letter */
+.nav-link {
+	letter-spacing: 2px;
+	text-decoration: none;
+}
+/* create space between the links, position relative so that element can move around */
+.nav-links a {
+	padding: 6px;
+	color: black;
+	position: relative;
+  }
+  /* before and after allow to select an element from html and add content to it*/
+  .nav-links a::before {
+	position: absolute;
+	transition: all 1s;
+	opacity: 0;
+	left: 0;
+	right: 0;
+	bottom: 25%;
+	top: 25%;
+	border-top: 3px solid #5edfff;
+	border-bottom: 3px solid  #6decb9;
+	border-radius: 5px;
+	/* The content property is used with the ::before and ::after pseudo-elements, to insert generated content. 
+	the content here is the border which is created above*/
+	content: '';
+  }
+  /* change color of links when the mouse on it */
+  .nav-links a:hover {
+	color: #f45905;
+  }
+  .nav-links a:hover:before{
+	opacity: 1;
+	top: 0;
+	bottom: 0;
+  }
+  /* hide navigation, show only when the screen is at 768px */
+.burger{
+	display: none;
+	cursor: pointer;
+}
+/* create form for the burger*/
+.burger div {
+	width: 20px;
+	height: 2px;
+	margin: 5px;
+	background-color: black;
+	transition: all 0,3s ease-in;
+}
+/* Handle responsive */
+@media screen and (min-width: 836px) {
+
+	.nav-links {
+		display: flex;
+		font-size: 12px;
+		width: 60%;
+	}
+	.nav-link{
+		font-size: 13px;
+	}
+}
+/* Handle responsive for moble */
+@media screen and (max-width: 835px){
+	
+	body{
+		overflow-x: hidden;
+	}
+	.logo-container{
+		display: flex;
+		align-items: center;
+	}
+	.logo-container img{
+		width: 7%;
+		height: 7%;
+	}
+	.logo-container h4{
+		font-size: 10px;
+	}
+	.nav-links{
+		right: 0px;
+		top: 8vh;
+		font-size: 20px;
+		font-weight: bold;
+		position: absolute;
+		height: 92vh;
+		background-color: #e3f6f599;
+		flex-direction: column;
+		width: 100%;
+		align-items: center;
+		transform: translateX(100%);
+		transition: transform 0.5s ease-in;
+	}
+	.nav-links li{
+		opacity: 0;
+	}
+	.burger{
+		display: block;
+	}
+	
+}
+.nav-active{
+	transform: translateX(0%);
+}
+@keyframes navLinkFade{
+	from{
+		opacity: 0;
+		transform: translateX(50px);
+	}
+	to{
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+.rotateLine .one{
+	transform: rotate(-45deg) translate(-4px,5px);
+}
+.rotateLine .two{
+	opacity: 0;
+}
+.rotateLine .three{
+	transform: rotate(45deg) translate(-4px,-5px);
+}
