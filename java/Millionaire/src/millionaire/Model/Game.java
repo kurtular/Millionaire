@@ -39,10 +39,10 @@ public class Game implements GetJson {
     final Question[] questions = new Question[16];
     byte currentQuestion;
     final private Player player = Player.getInstance();
-    ChangeQuestion changeQuestion = ChangeQuestion.getInstance();
-    private LifeLine removeHalf = LifeLine.getInstance(LifeLineType.REMOVE_HALF);
-    private LifeLine callAFriend = LifeLine.getInstance(LifeLineType.CALL_A_FRIEND);
-    private LifeLine askAudience = LifeLine.getInstance(LifeLineType.ASK_AUDIENCE);
+    final ChangeQuestion changeQuestion = ChangeQuestion.getInstance();
+    private final LifeLine removeHalf = LifeLine.getInstance(LifeLineType.REMOVE_HALF);
+    private final LifeLine callAFriend = LifeLine.getInstance(LifeLineType.CALL_A_FRIEND);
+    private final LifeLine askAudience = LifeLine.getInstance(LifeLineType.ASK_AUDIENCE);
     ////////////////////////////////////////////////////////////
     //              >>>>Class constructor.<<<<
 
@@ -197,17 +197,23 @@ public class Game implements GetJson {
      */
     public String[] runLifeLine(String lifeLineType) {
         String[] returnedResult;
-        if (lifeLineType.equals(LifeLineType.CHANGE_QUESTION)) {
-            returnedResult = changeQuestion.run();
-        } else if (lifeLineType.equals(LifeLineType.REMOVE_HALF)) {
-            returnedResult = removeHalf.run();
-        } else if (lifeLineType.equals(LifeLineType.CALL_A_FRIEND)) {
-            returnedResult = callAFriend.run();
-        } else if (lifeLineType.equals(LifeLineType.ASK_AUDIENCE)) {
-            returnedResult = askAudience.run();
-        } else {
-            System.err.println("There is no lifeline related to (" + lifeLineType + ").");
-            returnedResult = null;
+        switch (lifeLineType) {
+            case LifeLineType.CHANGE_QUESTION:
+                returnedResult = changeQuestion.run();
+                break;
+            case LifeLineType.REMOVE_HALF:
+                returnedResult = removeHalf.run();
+                break;
+            case LifeLineType.CALL_A_FRIEND:
+                returnedResult = callAFriend.run();
+                break;
+            case LifeLineType.ASK_AUDIENCE:
+                returnedResult = askAudience.run();
+                break;
+            default:
+                System.err.println("There is no lifeline related to (" + lifeLineType + ").");
+                returnedResult = null;
+                break;
         }
         return returnedResult;
     }

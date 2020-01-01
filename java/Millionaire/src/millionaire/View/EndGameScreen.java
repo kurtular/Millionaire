@@ -17,10 +17,10 @@ import millionaire.FINAL_GLOBAL_VARIABLES.SoundEffectName;
  * @version 1.0
  */
 class EndGameScreen extends VBox {
-    private static EndGameScreen instance = new EndGameScreen();
-    private Label playerName;
-    private Label balance;
-    private Label date;
+    private static final EndGameScreen instance = new EndGameScreen();
+    private final Label playerName;
+    private final Label balance;
+    private final Label date;
     private static OptionButton home;
 
     /**
@@ -90,14 +90,6 @@ class EndGameScreen extends VBox {
         this.playerName.setText(playerName);
         this.balance.setText(playerBalance + FINAL_GLOBAL_VARIABLES.getCurrencySymbol());
         this.date.setText(gameDate);
-    }
-
-    /**
-     * This method return an object of EndGameScreen
-     * @return an object of EndGameScreen
-     */
-    public static EndGameScreen getInstance() {
-        return instance;
     }
     /**
      *  This method will firstly set the value of player's name, balance and date to the EndGameScreen's object after the game ends with the purpose later to update to database.

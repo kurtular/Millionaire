@@ -6,7 +6,7 @@ package millionaire.Model;
  * @author Henrik, Mohammad.
  */
 class CallAFriendBehavior implements LifeLineBehavior {
-    private static CallAFriendBehavior instance = new CallAFriendBehavior();
+    private static final CallAFriendBehavior instance = new CallAFriendBehavior();
 
     /**
      * The get method
@@ -31,7 +31,7 @@ class CallAFriendBehavior implements LifeLineBehavior {
      */
     @Override
     public String[] toDo() {
-        String friendSays = "";
+        String friendSays;
         int rand = (int) (Math.random() * 100);
 
         //50% of the times your friend is completely sure what the answer is.

@@ -17,9 +17,7 @@ import millionaire.FINAL_GLOBAL_VARIABLES;
 class PriceLabel extends HBox {
     final static boolean SAFE_LEVEL_PRICE_LABEL = true;
     final static boolean NORMAL_PRICE_LABEL = false;
-    private Label balanceLabel;
-    private Label numberLabel;
-    private Circle circle;
+    private final Circle circle;
 
     /**
      * Constructor will need three arguments (number, balance and a boolean type to decide the safe level or not) to create an object from PriceLabel.
@@ -37,10 +35,10 @@ class PriceLabel extends HBox {
         pane.setCenter(circle);
         pane.setPadding(new Insets(0, 10, 0, 5));
 
-        balanceLabel = new Label(FINAL_GLOBAL_VARIABLES.getCurrencySymbol()+balance);
+        Label balanceLabel = new Label(FINAL_GLOBAL_VARIABLES.getCurrencySymbol() + balance);
         balanceLabel.setFont(Font.font(15));
 
-        numberLabel = new Label(number);
+        Label numberLabel = new Label(number);
         numberLabel.setFont(Font.font(15));
         numberLabel.setMinWidth(20);
         numberLabel.setMaxWidth(20);
@@ -54,7 +52,7 @@ class PriceLabel extends HBox {
         }
 
         setPadding(new Insets(0,10,0,10));
-        getChildren().addAll(numberLabel,pane,balanceLabel);
+        getChildren().addAll(numberLabel,pane, balanceLabel);
     }
 
     /**

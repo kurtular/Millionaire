@@ -15,7 +15,7 @@ class ChangeQuestion extends LifeLine {
     /**
      * It is the only instance of this class (singleton).
      */
-    private static ChangeQuestion instance = new ChangeQuestion();
+    private static final ChangeQuestion instance = new ChangeQuestion();
 
     /**
      * It returns change question life line object.

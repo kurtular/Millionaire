@@ -6,15 +6,16 @@ import java.sql.DriverManager;
 /**
  * @author Millad, Jesse
  */
-public class DBConnection {
+class DBConnection {
     private Connection connection;
     //Jesse
 
     /**
-     *  This method will get the connection to database
+     * This method will get the connection to database
+     *
      * @return an object that contain the information to connect to the database.
      */
-    public Connection getConnection(){
+    Connection getConnection() {
 
         String DB_CONNECTION = "jdbc:mysql://mohammad-ahmad.se/";
         String DB_DRIVER = "com.mysql.cj.jdbc.Driver";

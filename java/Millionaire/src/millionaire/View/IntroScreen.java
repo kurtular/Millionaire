@@ -35,7 +35,7 @@ class IntroScreen extends BorderPane {
     /**
      * It is the new game button.
      */
-    private OptionButton newGame;
+    private final OptionButton newGame;
     ////////////////////////////////////////////////////////////
     //              >>>>Class constructor.<<<<
 
@@ -50,14 +50,10 @@ class IntroScreen extends BorderPane {
         logo.setFitHeight(500);
         setTop(logo);
         setAlignment(logo, Pos.TOP_CENTER);
-        Timer.delay(() -> {
-            logo.setImage(new Image("img/logo1.gif"));
-        }, 0.150);
+        Timer.delay(() -> logo.setImage(new Image("img/logo1.gif")), 0.150);
 
         // Change logo image after 4,5 seconds.
-        Timer.delay(() -> {
-            logo.setImage(new Image("img/logo2.gif"));
-        }, 4.5);
+        Timer.delay(() -> logo.setImage(new Image("img/logo2.gif")), 4.5);
 
         // Create and add a new game button with its style and action commands ( runs when it will be clicked)
         newGame = new OptionButton();

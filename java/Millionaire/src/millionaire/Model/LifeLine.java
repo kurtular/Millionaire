@@ -1,7 +1,6 @@
 package millionaire.Model;
 
 import millionaire.FINAL_GLOBAL_VARIABLES;
-import millionaire.FINAL_GLOBAL_VARIABLES.*;
 
 /**
  * This class represents life lines that can be used of a player
@@ -14,15 +13,15 @@ class LifeLine {
     /**
      * It is the only instance of this removeHalf life line (singleton).
      */
-    private static LifeLine removeHalf = new LifeLine(RemoveHalfBehavior.getInstance());
+    private static final LifeLine removeHalf = new LifeLine(RemoveHalfBehavior.getInstance());
     /**
      * It is the only instance of this callAFriend life line (singleton).
      */
-    private static LifeLine callAFriend = new LifeLine(CallAFriendBehavior.getInstance());
+    private static final LifeLine callAFriend = new LifeLine(CallAFriendBehavior.getInstance());
     /**
      * It is the only instance of this askAudience life line (singleton).
      */
-    private static LifeLine askAudience = new LifeLine(AskAudienceBehavior.getInstance());
+    private static final LifeLine askAudience = new LifeLine(AskAudienceBehavior.getInstance());
 
     /**
      * It will return a life line.
@@ -31,15 +30,16 @@ class LifeLine {
      * @return a life line depending on received LifeLineType value.
      */
     static LifeLine getInstance(String LifeLineType) {
-        if (LifeLineType.equals(FINAL_GLOBAL_VARIABLES.LifeLineType.REMOVE_HALF)) {
-            return removeHalf;
-        } else if (LifeLineType.equals(FINAL_GLOBAL_VARIABLES.LifeLineType.CALL_A_FRIEND)) {
-            return callAFriend;
-        } else if (LifeLineType.equals(FINAL_GLOBAL_VARIABLES.LifeLineType.ASK_AUDIENCE)) {
-            return askAudience;
-        } else {
-            System.err.println("!!There is not a relative LifeLine.!!\nMake sure you send the correct lifeLineType.");
-            return null;
+        switch (LifeLineType) {
+            case FINAL_GLOBAL_VARIABLES.LifeLineType.REMOVE_HALF:
+                return removeHalf;
+            case FINAL_GLOBAL_VARIABLES.LifeLineType.CALL_A_FRIEND:
+                return callAFriend;
+            case FINAL_GLOBAL_VARIABLES.LifeLineType.ASK_AUDIENCE:
+                return askAudience;
+            default:
+                System.err.println("!!There is not a relative LifeLine.!!\nMake sure you send the correct lifeLineType.");
+                return null;
         }
     }
 

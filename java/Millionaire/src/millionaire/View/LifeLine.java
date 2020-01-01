@@ -23,15 +23,15 @@ class LifeLine extends Label {
     /**
      * It a image that a life line will have.
      */
-    private ImageView img;
+    private final ImageView img;
     /**
      * It stores a string that refers to a lifeline type.
      */
-    private String type;
+    private final String type;
     /**
      * It store audio tuck name that is related to a life line.
      */
-    private String SoundEffectName;
+    private final String SoundEffectName;
 
     ////////////////////////////////////////////////////////////
     //              >>>>Class constructor.<<<<

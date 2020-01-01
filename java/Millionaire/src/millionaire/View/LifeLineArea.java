@@ -14,18 +14,21 @@ import millionaire.FINAL_GLOBAL_VARIABLES.*;
  * A singleton class for showing the lifelife hints at the screen. The class also creates the lifeline objects.
  */
 class LifeLineArea extends VBox {
-    private static LifeLineArea lifeLineArea = new LifeLineArea();
+    private static final LifeLineArea lifeLineArea = new LifeLineArea();
 
     /**
      * A getter to return the object
      * @return the private object
      */
-    public static LifeLineArea getInstance() {
+    static LifeLineArea getInstance() {
         return lifeLineArea;
     }
 
-    private LifeLine audience, friend, removeHalf, change;
-    private Label lifeLineHint;
+    private final LifeLine audience;
+    private final LifeLine friend;
+    private final LifeLine removeHalf;
+    private final LifeLine change;
+    private final Label lifeLineHint;
 
     /**
      * The constructor creating the lifelines, the lifelinehint label and the lifelinearea.

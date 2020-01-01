@@ -3,7 +3,6 @@ package millionaire.View;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import millionaire.Controller;
 import millionaire.Timer;
 import millionaire.FINAL_GLOBAL_VARIABLES.SoundEffectName;
@@ -19,7 +18,7 @@ class PlayScreen extends BorderPane {
     /**
      * It is the only instance of this class (singleton).
      */
-    private static PlayScreen instance = new PlayScreen();
+    private static final PlayScreen instance = new PlayScreen();
 
     /**
      * It returns PlayScreen object.
@@ -35,7 +34,7 @@ class PlayScreen extends BorderPane {
     /**
      * It is withdrawal button.
      */
-    private Button withDrawButton;
+    private final Button withDrawButton;
 
     ////////////////////////////////////////////////////////////
     //              >>>>Class constructor.<<<<

@@ -5,11 +5,11 @@ import millionaire.FINAL_GLOBAL_VARIABLES;
 /**
  * @author Joakim, Mohammad.
  */
-public class Player {
+class Player {
     //
-    private static Player instance = new Player();
+    private static final Player instance = new Player();
 
-    public static Player getInstance() {
+    static Player getInstance() {
         return instance;
     }
 
@@ -28,11 +28,11 @@ public class Player {
         return name;
     }
 
-    public int getScore() {
+    int getScore() {
         return score;
     }
 
-    public void addToScore(int seconds, int currentBalance) {
+    void addToScore(int seconds, int currentBalance) {
         score += currentBalance + (currentBalance / 2 * (seconds / (double) FINAL_GLOBAL_VARIABLES.getQuestionDuration()));
     }
 

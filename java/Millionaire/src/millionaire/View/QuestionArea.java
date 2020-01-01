@@ -26,7 +26,7 @@ class QuestionArea extends BorderPane {
      *
      * @return the only possible instance of this class (singleton)
      */
-    public static QuestionArea getInstance() {
+    static QuestionArea getInstance() {
         return instance;
     }
 
@@ -41,8 +41,6 @@ class QuestionArea extends BorderPane {
     private final TextLabel question;
     // Label that will hold a player balance.
     private final TextLabel balance;
-    // Label that will hold the Timer.
-    private final TimerLabel timer;
     ////////////////////////////////////////////////////////////
     //              >>>>Class constructor.<<<<
 
@@ -62,7 +60,8 @@ class QuestionArea extends BorderPane {
         buttonC = new OptionButton();
         buttonD = new OptionButton();
         balance = new TextLabel(494, 56);
-        timer = TimerLabel.getInstance();
+        // Label that will hold the Timer.
+        TimerLabel timer = TimerLabel.getInstance();
         timer.setId("timer");
 
         // Setting Options buttons in the correct place.

@@ -12,14 +12,14 @@ import millionaire.FINAL_GLOBAL_VARIABLES;
  */
 class PriceTable extends VBox {
     //
-    private static PriceTable instance = new PriceTable();
+    private static final PriceTable instance = new PriceTable();
 
     static PriceTable getInstance() {
         return instance;
     }
 
     //
-    private PriceLabel[] priceLabels;
+    private final PriceLabel[] priceLabels;
 
     /**
      * Constructor will create a list of prizes and priceLabel to an object of PriceTable.

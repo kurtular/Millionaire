@@ -1,3 +1,0 @@
-Ladda up nya class filar i följande mappet: "Millionaire\src\Millionaire\".
-Skriva inte över annan gammal fil utan byta fil namnet exempel: om finns Main.java nya fil namn ska bli Main(moAh).java
-:)

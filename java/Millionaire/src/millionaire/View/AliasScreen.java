@@ -25,17 +25,9 @@ class AliasScreen extends VBox {
      */
     final private static AliasScreen instance = new AliasScreen();
 
-    /**
-     * The get method
-     * @return the object
-     */
-    private static AliasScreen getInstance() {
-        return instance;
-    }
-
-    private  Label errorMessage;
-    private TextField aliasInput;
-    private OptionButton confirmButton;
+    private final Label errorMessage;
+    private final TextField aliasInput;
+    private final OptionButton confirmButton;
 
     /**
      * The constructor using JavaFX to build the graphics including playerimage and textfield.

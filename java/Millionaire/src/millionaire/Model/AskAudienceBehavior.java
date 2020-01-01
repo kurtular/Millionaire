@@ -8,12 +8,13 @@ import java.util.ArrayList;
  * The following class is using singleton pattern which can only generate single object from this class.
  * The only way to create the object of this class is by getInstance() method. This method is protected and static.
  * AskAudienceBehavior has a private static class variable
+ *
  * @author Jesse, Mohammad
  * @version 1.0
  */
 
-public class AskAudienceBehavior implements LifeLineBehavior {
-    private static AskAudienceBehavior instance = new AskAudienceBehavior();
+class AskAudienceBehavior implements LifeLineBehavior {
+    private static final AskAudienceBehavior instance = new AskAudienceBehavior();
 
     protected static AskAudienceBehavior getInstance() {
         return instance;
@@ -25,12 +26,13 @@ public class AskAudienceBehavior implements LifeLineBehavior {
     //Jesse
 
     /**
-     *  This method will randomly give a vote to each alternatives (A, B, C, D).
-     *  the first for-loop will add alternatives to ArrayList
-     *  the second for-loop below will randomly generate a random number for each percent[i]. Pay attention to else-scoop where the max value will decrease to keep the number within 100 where it represent 100%.
-     *  the third for-loop will look for a correct answer.
-     *  in the if-else decide if the rand is less than 75(represent 75%) means majority of public sure of the highest voted is correct else they are note sure.
-     *  the last for-loop will add extra string to the returnedResult.
+     * This method will randomly give a vote to each alternatives (A, B, C, D).
+     * the first for-loop will add alternatives to ArrayList
+     * the second for-loop below will randomly generate a random number for each percent[i]. Pay attention to else-scoop where the max value will decrease to keep the number within 100 where it represent 100%.
+     * the third for-loop will look for a correct answer.
+     * in the if-else decide if the rand is less than 75(represent 75%) means majority of public sure of the highest voted is correct else they are note sure.
+     * the last for-loop will add extra string to the returnedResult.
+     *
      * @return an array of string that show the percent of each alternative that has been voted by audience
      */
     @Override
@@ -38,9 +40,9 @@ public class AskAudienceBehavior implements LifeLineBehavior {
         StringBuilder returnedResult = new StringBuilder("Publikens röst: \n");
         char[] options = {'A', 'B', 'C', 'D'};
         ArrayList<Character> shownOptions = new ArrayList<>();
-        for (int i = 0; i < options.length; i++) {
-            if (game.getQuestionPart((byte) (options[i] - 64)) != null)
-                shownOptions.add(options[i]);
+        for (char option : options) {
+            if (game.getQuestionPart((byte) (option - 64)) != null)
+                shownOptions.add(option);
         }
         int rand = (int) (Math.random() * 100 + 1);
         int max = 100;

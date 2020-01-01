@@ -14,7 +14,7 @@ class RemoveHalfBehavior implements LifeLineBehavior {
     /**
      * It is the only instance of this class (singleton).
      */
-    private static RemoveHalfBehavior instance = new RemoveHalfBehavior();
+    private static final RemoveHalfBehavior instance = new RemoveHalfBehavior();
 
     /**
      * It will return remove half life line behavior.
@@ -61,7 +61,6 @@ class RemoveHalfBehavior implements LifeLineBehavior {
                 }
             }
         }
-        String[] returnedResult = {game.getQuestionPart(QuestionPart.QUESTION_TEXT), game.getQuestionPart(QuestionPart.OPTION1), game.getQuestionPart(QuestionPart.OPTION2), game.getQuestionPart(QuestionPart.OPTION3), game.getQuestionPart(QuestionPart.OPTION4)};
-        return returnedResult;
+        return new String[]{game.getQuestionPart(QuestionPart.QUESTION_TEXT), game.getQuestionPart(QuestionPart.OPTION1), game.getQuestionPart(QuestionPart.OPTION2), game.getQuestionPart(QuestionPart.OPTION3), game.getQuestionPart(QuestionPart.OPTION4)};
     }
 }

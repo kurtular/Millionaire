@@ -15,7 +15,7 @@ import millionaire.Timer;
  *
  * @author Mohammad, Millad.
  */
-public class TimerLabel extends Label {
+class TimerLabel extends Label {
     //           >>>>Class variables and methods.<<<<
     // The following variable and method created to apply singleton design pattern.
     /**
@@ -103,7 +103,7 @@ public class TimerLabel extends Label {
      *
      * @return a number that refer to the remaining seconds;
      */
-    public byte getShownSeconds() {
+    byte getShownSeconds() {
         return shownSeconds;
     }
 
