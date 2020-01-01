@@ -10,7 +10,9 @@ import javafx.scene.text.Font;
 import millionaire.FINAL_GLOBAL_VARIABLES;
 
 /**
+ * PriceLabel is a HBox and it have three private class variables (BalanceLabel,numberLabel and a circle) and two final static boolean variables.
  * @author Jesse, Mohammad, Joakim
+ * @version 1.0
  */
 class PriceLabel extends HBox {
     final static boolean SAFE_LEVEL_PRICE_LABEL = true;
@@ -19,6 +21,12 @@ class PriceLabel extends HBox {
     private Label numberLabel;
     private Circle circle;
 
+    /**
+     * Constructor will need three arguments (number, balance and a boolean type to decide the safe level or not) to create an object from PriceLabel.
+     * @param number The number will decide which level players att
+     * @param balance is the prize from 0 to 1 000 000 dollars. The balance will get value from FINAL-GLOBAL-VARIABLES
+     * @param type will decide where is the safe level.
+     */
     PriceLabel(String number,String balance,boolean type){
         super();
         circle = new Circle();
@@ -48,9 +56,17 @@ class PriceLabel extends HBox {
         setPadding(new Insets(0,10,0,10));
         getChildren().addAll(numberLabel,pane,balanceLabel);
     }
+
+    /**
+     * This method will show the visibility of the circle.
+     */
     void showCircle(){
         circle.setVisible(true);
     }
+
+    /**
+     * This method will disable the visibility of the circle .
+     */
     void hideCircle() { circle.setVisible(false);}
 }
 

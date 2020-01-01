@@ -88,7 +88,13 @@ public class Gui extends Application {
         QuestionArea.getInstance().playSound(currentQuestion);
         }
     }
-//
+
+    /**
+     * This method will show the showEndGameScreen. The method require three arguments, player's name, balance and date.
+     * @param playerName an argument as a string
+     * @param playerBalance an argument as a string
+     * @param gameDate an argument as a string
+     */
     public void showEndGameScreen(String playerName, String playerBalance,String gameDate){
         EndGameScreen.addTo(content,playerName,playerBalance,gameDate);
     }

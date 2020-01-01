@@ -10,7 +10,11 @@ import millionaire.FINAL_GLOBAL_VARIABLES;
 import millionaire.FINAL_GLOBAL_VARIABLES.SoundEffectName;
 
 /**
+ * EndGameScreen is a VBox. In EndGameScreen contains two private static class variables and 3 private class variables.
+ * The following class is using singleton pattern which can only generate single object from this class.
+ * The only way to create the object of this class is by calling getInstance() method. This method is public and static.
  * @author Jesse, Mohammad
+ * @version 1.0
  */
 class EndGameScreen extends VBox {
     private static EndGameScreen instance = new EndGameScreen();
@@ -19,7 +23,10 @@ class EndGameScreen extends VBox {
     private Label date;
     private static OptionButton home;
 
-
+    /**
+     * Constructor will create a player's name, balance and date label to EndGameScreen's object.
+     * The EndGameScreen's object will also has a button. The child node in the object would get a specific position in VBox.
+     */
     private EndGameScreen() {
         super();
 
@@ -72,17 +79,39 @@ class EndGameScreen extends VBox {
         setAlignment(Pos.CENTER);
         setPrefSize(1024, 768);
     }
+
+    /**
+     * This method take in three arguments and set the value to player's name, balance and date to the paycheck to assign player's name, balance and date for paycheck.
+     * @param playerName Player's name
+     * @param playerBalance player's balance
+     * @param gameDate Date of player when the game ended
+     */
     private void setCheckData(String playerName, String playerBalance, String gameDate) {
         this.playerName.setText(playerName);
         this.balance.setText(playerBalance+FINAL_GLOBAL_VARIABLES.getCurrencySymbol());
         this.date.setText(gameDate);
     }
 
+    /**
+     * This method return an object of EndGameScreen
+     * @return an object of EndGameScreen
+     */
     public static EndGameScreen getInstance() {
         return instance;
     }
 
     // Back to intro screen.
+
+    /**
+     *  This method will firstly set the value of player's name, balance and date to the EndGameScreen's object after the game ends with the purpose later to update to database.
+     *  After the information has assigned to the EndGameScreen's object. The EndGameScreen will be reset by using clear() to clear all the child nodes.
+     *  The EndGameScreen's object add to pane with an unassigned player's name, balance and date. The sounds effect will be played.
+     *  When player click on home button will caused an event and return to IntroScreen and reset the PriceTable, LifeLineArea and QuestionArea to it's default value.
+     * @param pane contains other UI elements ("child nodes") and manages the layout of those nodes within the Pane.
+     * @param playerName Player's name
+     * @param playerBalance player's balance
+     * @param gameDate Date of player when the game ended
+     */
     static void addTo(Pane pane,String playerName, String playerBalance,String gameDate) {
         instance.setCheckData(playerName,playerBalance,gameDate);
         pane.getChildren().clear();
