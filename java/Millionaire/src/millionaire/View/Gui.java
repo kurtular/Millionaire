@@ -147,7 +147,7 @@ public class Gui extends Application {
      * @param gameDate      refers to game date.
      */
     public void showEndGameScreen(String playerName, String playerBalance, String gameDate) {
-        EndGameScreen.show(content, playerName, playerBalance, gameDate);
+        EndGameScreen.show(playerName, playerBalance, gameDate);
     }
 
     /**

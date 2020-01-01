@@ -104,15 +104,14 @@ class EndGameScreen extends VBox {
      *  After the information has assigned to the EndGameScreen's object. The EndGameScreen will be reset by using clear() to clear all the child nodes.
      *  The EndGameScreen's object add to pane with an unassigned player's name, balance and date. The sounds effect will be played.
      *  When player click on home button will caused an event and return to IntroScreen and reset the PriceTable, LifeLineArea and QuestionArea to it's default value.
-     * @param pane contains other UI elements ("child nodes") and manages the layout of those nodes within the Pane.
      * @param playerName Player's name
      * @param playerBalance player's balance
      * @param gameDate Date of player when the game ended
      */
-    static void show(Pane pane, String playerName, String playerBalance, String gameDate) {
+    static void show(String playerName, String playerBalance, String gameDate) {
         instance.setCheckData(playerName, playerBalance, gameDate);
-        pane.getChildren().clear();
-        pane.getChildren().add(instance);
+        Gui.content.getChildren().clear();
+        Gui.content.getChildren().add(instance);
         SoundEffectPlayer.play(SoundEffectName.GAME_END);
         home.setOnMouseClicked(event -> {
             IntroScreen.getInstance().show();
