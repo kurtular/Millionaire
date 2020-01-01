@@ -9,6 +9,11 @@ import java.sql.DriverManager;
 public class DBConnection {
     private Connection connection;
     //Jesse
+
+    /**
+     *  This method will get the connection to database
+     * @return an object that contain the information to connect to the database.
+     */
     public Connection getConnection(){
 
         String DB_CONNECTION = "jdbc:mysql://mohammad-ahmad.se/";

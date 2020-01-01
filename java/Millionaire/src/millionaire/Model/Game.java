@@ -97,6 +97,12 @@ public class Game implements GetJson {
         return returnedData;
     }
 
+
+    /**
+     * This method will send information from javafx to database
+     * @param moneyCheckData An array of string where it contain player's name,balance and date.
+     * @throws SQLException An exception that provides information on a database access error or other errors.
+     */
     private void sendToDB(String[] moneyCheckData) throws SQLException {
         DBConnection connectionToDB = new DBConnection();
         Connection connection = connectionToDB.getConnection();

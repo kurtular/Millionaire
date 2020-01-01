@@ -108,9 +108,15 @@ public class Controller {
         gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
     }
     //Jesse
+
+    /**
+     * if the player is not at the last level of the game and get wrong answer, it will send the correct answer and send wrong sound effect to gui to later show in EndGameScreen.
+     *  This method will send the player's name,balance and date to the EndGameScreen.
+     * @param withDraw a boolean parameter
+     */
     public void endTheGame(boolean withDraw){
         if (Byte.parseByte(game.getQuestionPart(QuestionPart.CURRENT_QUESTION)) != FINAL_GLOBAL_VARIABLES.getPRIZES().length){
-            gui.setOptionButtonState(game.getCorrectAnswerSymbol() , OptionButtonState.CORRECT);
+            gui.setOptionButtonState(game.getCorrectAnswerSymbol(), OptionButtonState.CORRECT);
             Timer.delay(()->gui.playSound(SoundEffectName.WRONG_ANSWER), 0.1);
         }
         Timer.delay(()->{
