@@ -11,7 +11,8 @@ import millionaire.FINAL_GLOBAL_VARIABLES.*;
 
 /**
  * @author Henrik, Mohammad, Joakim
- * A singleton class for showing the lifelife hints at the screen. The class also creates the lifeline objects.
+ * A singleton class for showing the lifelife hints at the screen. The class is a VBox and also creates the lifeline objects.
+ *
  */
 class LifeLineArea extends VBox {
     private static final LifeLineArea lifeLineArea = new LifeLineArea();

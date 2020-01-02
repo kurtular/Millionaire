@@ -1,0 +1,73 @@
+@import url("animationnav.css");
+@import url("stylefooter.css");
+
+/* styling distance between navbar and content*/
+.space-between-nav-and-section-in-fpPage{
+   height: 20vh;
+}
+
+/* styling main heading */
+#fpH1 {
+   text-align: center;
+   font-size: 60px;
+}
+
+/*styling the main divs*/
+.fpInfo{
+   width: 85%;
+   padding: 50px;
+   display: flex;
+   margin: auto;
+   align-items: center;
+}
+
+/* Styling the distance between the divs inside the div*/
+.fpInfo > div{
+   padding: 30px;
+}
+
+/* Hiding a image for computer screens*/
+#responivePic {
+   display: none;
+}
+
+/* Handling tablets*/
+@media screen and (max-width: 768px) {
+   #fpH1 {
+      font-size: 30px;
+   }
+
+   .fpInfo {
+      width: 100%;
+   }
+    
+   p {
+	   font-size: 13px;
+   }
+}
+
+/* Handling phones*/
+@media screen and (max-width: 414px){
+   body {
+      width: fit-content;
+   }
+
+   /* Displays the hidden image*/
+   #responivePics {
+      display: block;
+   }
+
+   /*Hide a image that usually shows*/
+   #normalPics {
+      display: none;
+   }
+
+   /* Prevents the text and images to not appear next to each other*/
+   .fpInfo{
+   display: inline;
+   }
+
+   .fpPics {
+		text-align: center;
+   }
+}

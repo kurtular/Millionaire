@@ -1,24 +1,25 @@
 package millionaire.Model;
 
 /**
- * Singleton class for call a friend lifeline with a get method.
+ * Singleton class for call a friend lifeline. It implements LifelineBehavior interface and because of that
+ * it must override one method.
  *
  * @author Henrik, Mohammad.
  */
 class CallAFriendBehavior implements LifeLineBehavior {
-    private static final CallAFriendBehavior instance = new CallAFriendBehavior();
+    private static CallAFriendBehavior instance = new CallAFriendBehavior();
 
     /**
-     * The get method
+     * The get method witch will return the call a friend object.
      *
-     * @return the lifelineobject
+     * @return the only instance of this Singleton class.
      */
     protected static CallAFriendBehavior getInstance() {
         return instance;
     }
 
     /**
-     * The constructor
+     * The constructor creates the only call a friend object.
      */
     private CallAFriendBehavior() {
     }
@@ -31,7 +32,7 @@ class CallAFriendBehavior implements LifeLineBehavior {
      */
     @Override
     public String[] toDo() {
-        String friendSays;
+        String friendSays = "";
         int rand = (int) (Math.random() * 100);
 
         //50% of the times your friend is completely sure what the answer is.
