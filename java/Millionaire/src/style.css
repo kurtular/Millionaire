@@ -6,17 +6,25 @@
 OptionButton{
 -fx-background-image:url(img/default.png);
 -fx-alignment:center;
--fx-text-fill:#ffffff;
 -fx-padding:3 30 3 30 ;
+}
+#OptionButton_text{
+-fx-text-fill:#fff;
+}
+
+#OptionButton_text:hover{
+-fx-text-fill:#faff6a;
 }
 
 OptionButton:hover{
 -fx-background-image:url(img/hover.png);
--fx-text-fill:#faff6a;
+}
+
+#checkingAnswer_text{
+-fx-text-fill:#333;
 }
 #checkingAnswer{
 -fx-background-image:url(img/checking.png);
--fx-text-fill:#333;
 }
 #wrongAnswer{
 -fx-background-image:url(img/wrong.gif);

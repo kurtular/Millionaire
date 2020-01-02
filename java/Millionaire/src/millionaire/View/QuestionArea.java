@@ -55,10 +55,10 @@ class QuestionArea extends BorderPane {
         int space = 10;                                                                                                  // Empty space between option buttons.
         this.setPadding(new Insets(0, 0, space, 0));
         question = new TextLabel(790, 99);
-        buttonA = new OptionButton();
-        buttonB = new OptionButton();
-        buttonC = new OptionButton();
-        buttonD = new OptionButton();
+        buttonA = new OptionButton('A');
+        buttonB = new OptionButton('B');
+        buttonC = new OptionButton('C');
+        buttonD = new OptionButton('D');
         balance = new TextLabel(494, 56);
         // Label that will hold the Timer.
         TimerLabel timer = TimerLabel.getInstance();
@@ -116,10 +116,10 @@ class QuestionArea extends BorderPane {
      * It disables option buttons which question area have(A,B,C,D). (player will be not able to click them)
      */
     void disableActions() {
-        buttonA.setDisable(true);
-        buttonB.setDisable(true);
-        buttonC.setDisable(true);
-        buttonD.setDisable(true);
+        buttonA.setAsDisabled(true);
+        buttonB.setAsDisabled(true);
+        buttonC.setAsDisabled(true);
+        buttonD.setAsDisabled(true);
         buttonA.setOpacity(1);
         buttonB.setOpacity(1);
         buttonC.setOpacity(1);
