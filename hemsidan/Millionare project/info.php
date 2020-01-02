@@ -61,11 +61,4 @@ include "parts/head.html";
      include "parts/footer.html";?>
     <script src="js/fun.js"></script>
 </body>
-<script>
-    // call the method that show players data inside the table and make the table up to date every 3 seconds.
-    document.onload = showHighScoreList();
-    document.onload = setInterval(function(){
-    showHighScoreList();
-},3000);
-</script>
 </html>
