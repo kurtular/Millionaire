@@ -15,7 +15,7 @@ import millionaire.Timer;
 import static javafx.geometry.Pos.CENTER;
 
 /**
- * Singleton class for showing the userinput dialog before starting the game
+ * Singleton class for showing the userinput dialog before starting the game. This class is a VBox.
  *
  * @author Henrik, Joakim.
  */
@@ -76,7 +76,7 @@ class AliasScreen extends VBox {
     }
 
     /**
-     * Checking if textfield is empty and creating errormessage if so.
+     * This method checking if textfield is empty and creating errormessage if so.
      * @return false if its not empty and true if its empty
      */
     private boolean aliasInputISEmpty(){
