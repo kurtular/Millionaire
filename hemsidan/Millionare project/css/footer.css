@@ -3,30 +3,33 @@ footer{
 	padding: 10px 0;
 	color: black;
 }
+/* container in horizontal and space between them evenly */
 .info-container{
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-gap: 5px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
 }
 .info-container > div {
 	margin: auto 0px;
 }
 .copyright{
-	padding: 50px;
+	padding: 30px;
 	text-align: center;
 }
 .copyright div{
-	margin-bottom: 20px;
+	padding: 5px;
 }
+/* container lay in vertical */
 .footer-navigation{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
+/* lay container in horizontal and with 2 containers each column */
 .more-info{
 	display: grid;
-	grid-template-columns: 50px 2fr;
-	grid-gap: 5px;
+	grid-template-columns: 0.3fr 1fr;
+	grid-gap: 10px;
 }
 .fa {
 	padding: 15px 0px;
@@ -49,16 +52,29 @@ footer{
 	margin-bottom: 5px;
 }
 .fa-phone-volume{
-	margin-top: 90px;
+	margin-top: 80px;
 }
 .fa-envelope{
-	margin-top: 55px;
+	margin-top: 65px;
 }
 .developer-img img{
 	border-radius: 50%;
 	border: 1px solid #fff;
 	width: 60px;
 	height: 60px;
+}
+/* reponsive footer */
+@media screen and (max-width: 768px) {
+
+	.text-info h4,.text-info h5,.text-info p{
+		font-size: 13px;
+	}
+	.fa-phone-volume{
+		margin-top: 70px;
+	}
+	.fa-envelope{
+		margin-top: 55px;
+	}
 }
 /* To top button style (The button that scrolling to the top of the page)*/
 #toTop a{

@@ -1,8 +1,10 @@
+/* display elements in horizontal */
 .logo-container,
 .nav-links,.burger>div
 {
 	display: flex;
 }
+/* give a container a certain width */
 .logo-container {
 	flex: 1;
 }
@@ -13,6 +15,7 @@
     margin-left: 15px;
 	color: black;
 }
+/* remove decoration and display horizontal */
 #logo-Link{
 	text-decoration: none;
     display: inline-flex;
@@ -90,11 +93,16 @@ nav{
 	transition: all 0,3s ease-in;
 }
 /* Handle responsive */
+@media screen and (max-width: 1150px) {
+	.nav-links a {
+		font-size: 10px;
+	}
+}
 @media screen and (min-width: 836px) {
 
 	.nav-links {
 		display: flex;
-		font-size: 12px;
+		font-size: 14px;
 		width: 60%;
 	}
 	.nav-link{
@@ -102,7 +110,7 @@ nav{
 	}
 }
 /* Handle responsive for moble */
-@media screen and (max-width: 835px){
+@media screen and (max-width: 965px){
 	
 	body{
 		overflow-x: hidden;
@@ -121,7 +129,7 @@ nav{
 	.nav-links{
 		right: 0px;
 		top: 8vh;
-		font-size: 20px;
+		font-size: 14px;
 		font-weight: bold;
 		position: absolute;
 		height: 92vh;
@@ -131,6 +139,9 @@ nav{
 		align-items: center;
 		transform: translateX(100%);
 		transition: transform 0.5s ease-in;
+	}
+	.nav-links a{
+		font-size: 15px;
 	}
 	.nav-links li{
 		opacity: 0;
@@ -153,7 +164,7 @@ nav{
 		transform: translateX(0px);
 	}
 }
-
+/* rotate the burger in cross shape */
 .rotateLine .one{
 	transform: rotate(-45deg) translate(-4px,5px);
 }

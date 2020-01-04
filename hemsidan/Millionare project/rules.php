@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <?php include "parts/head.html";?>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <?php include "parts/nav.html";?>

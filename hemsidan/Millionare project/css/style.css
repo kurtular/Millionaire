@@ -50,12 +50,6 @@ section
     color: #585772;
 }
 
-/* showcase in section */
-.presentation {
-    min-height: 90vh;
-    display: flex;
-	align-items: center;
-}
 /*showcase in rulepage*/
 .presentation-rulepage{
 	min-height: 70vh;
@@ -90,11 +84,6 @@ section
 }
 
 @media screen and (max-width: 1024px) {
-	.presentation {
-		min-height: 70vh;
-    	display: flex;
-		align-items: center;
-	}
 	.introduction {
 		margin-top: 5vh;
 	}
@@ -127,11 +116,8 @@ section
 	}
 }
 @media screen and (max-width: 768px){
-	.presentation{
-		min-height: 50vh;
-	}
 	.presentation-rulepage{
-		min-height: 40vh;
+		min-height: 30vh;
 	}
 	.intro-text h1 {
 		font-size: 20px;
