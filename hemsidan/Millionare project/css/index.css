@@ -15,7 +15,7 @@ section
 	width: 100%;
 	margin: auto;
 }
-/* showcase in section */
+/* showcase in section, aligning container in horizontal */
 .presentation {
     min-height: 100vh;
     display: flex;
@@ -58,7 +58,6 @@ section
 .btn:hover{
     opacity: 0.6;
 }
-/*button to change background color*/
 .slidshow-container{
 	position: relative;
 	margin: 50px auto;
@@ -81,6 +80,7 @@ section
 .container1 > div, .container2 > div{
 	border-bottom: 2px #083f4e solid;
 }
+/*  aligning item in horizontal and at the center of the container */
 .inner-container {
 	display: flex;
     margin: auto;
@@ -96,6 +96,7 @@ section
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+/* responsive */
 @media screen and (max-width: 1024px) {
 	.presentation {
 		min-height: 70vh;
@@ -133,6 +134,7 @@ section
 		font-size: 20px;
 	}
 }
+/* responsive for mobel */
 @media screen and (max-width: 768px){
 	.presentation{
 		min-height: 60vh;

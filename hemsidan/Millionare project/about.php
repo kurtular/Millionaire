@@ -3,13 +3,15 @@
 <head>
 <?php include "parts/head.html";?>
 <link rel="stylesheet" href="css/aboutstyle.css">
+<title>Om Oss</title>
 </head>
 <body>
 <?php include "parts/nav.html"; ?>
+<!-- main content -->
     <section>
         <div class="wrapper">
             <div class="intro-aboutus">
-                <h3>About Us</h3>
+                <h3>Om Oss</h3>
                 <p>
                     Here can we write a little about ourself.
                 </p>
@@ -80,7 +82,8 @@
         </div>
     </section>
     <?php include "parts/footer.html"; ?>
-    <script src="js/fun.js"></script>
+    <!-- add animation to navigation-bar -->
+    <script src="js/nav-bar-animation.js"></script>
 </body>
 
 </html>

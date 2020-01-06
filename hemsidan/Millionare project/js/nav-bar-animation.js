@@ -4,7 +4,7 @@ const navSlide = () => {
     const navLinks = document.querySelectorAll('.nav-links li');
 
     burger.addEventListener('click', () => {
-        //toggle the navi
+        //toggle the nav
         nav.classList.toggle('nav-active');
 
         // animate links
@@ -23,17 +23,3 @@ const navSlide = () => {
     });
 }
 navSlide();
-
-var slideIndex = 0;
-function showSlides() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1 }
-    slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 5000); // Change image every 2 seconds
-}
-showSlides();
