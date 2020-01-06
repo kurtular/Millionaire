@@ -7,7 +7,7 @@ package millionaire.Model;
  * @author Henrik, Mohammad.
  */
 class CallAFriendBehavior implements LifeLineBehavior {
-    private static CallAFriendBehavior instance = new CallAFriendBehavior();
+    private static final CallAFriendBehavior instance = new CallAFriendBehavior();
 
     /**
      * The get method witch will return the call a friend object.
@@ -32,9 +32,8 @@ class CallAFriendBehavior implements LifeLineBehavior {
      */
     @Override
     public String[] toDo() {
-        String friendSays = "";
+        String friendSays;
         int rand = (int) (Math.random() * 100);
-
         //50% of the times your friend is completely sure what the answer is.
         if (rand > 50) {
             friendSays = "Jag är säker på att det är: " + game.getCorrectAnswerSymbol() + ". " + game.getQuestionPart((byte) (game.getCorrectAnswerSymbol() - 64));  //  Beacuse of "i" is a char and getValue of the answer demand a byte the method subtract 64 using ASCInumbers.

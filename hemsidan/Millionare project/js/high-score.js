@@ -16,6 +16,29 @@ function showHighScoreList() {
       }
       }
     };
-    xhttp.open("GET", "high_score/", true);
+    // get sorted result of hig score restful api.
+    if(localStorage.sorting>=-3 && localStorage.sorting<=3){
+      xhttp.open("GET",`high_score/?sort=${localStorage.sorting}`, true);
+  }
+else{
+      // get defalut result of hig score restful api.
+  xhttp.open("GET", "high_score/", true);
+}
     xhttp.send();
   }
+
+// >>>>>>>>jquery part
+$(document).ready(function(){
+  // Deleting sorting variable vlaue(which decide ordering way) if it have a value.
+  if(localStorage.sorting!=null){localStorage.removeItem("sorting");}
+      // call the method that show players data inside the table and make the table up to date every 3 seconds.
+      showHighScoreList();
+      setInterval(function(){
+      showHighScoreList();
+  },3000);
+  // update the table if changed the ordning way.
+  $("#sorting-scores select").change(function(){
+    localStorage.sorting = $(this).val();
+    showHighScoreList();
+  });
+});

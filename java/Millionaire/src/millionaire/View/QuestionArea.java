@@ -116,10 +116,10 @@ class QuestionArea extends BorderPane {
      * It disables option buttons which question area have(A,B,C,D). (player will be not able to click them)
      */
     void disableActions() {
-        buttonA.setAsDisabled(true);
-        buttonB.setAsDisabled(true);
-        buttonC.setAsDisabled(true);
-        buttonD.setAsDisabled(true);
+        buttonA.setAsDisabled();
+        buttonB.setAsDisabled();
+        buttonC.setAsDisabled();
+        buttonD.setAsDisabled();
         buttonA.setOpacity(1);
         buttonB.setOpacity(1);
         buttonC.setOpacity(1);

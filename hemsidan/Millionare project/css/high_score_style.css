@@ -24,6 +24,25 @@ main{
     border: 3px solid #fff;
     margin-bottom: 20px;
 }
+/*Styling table sorting button*/
+#sorting-scores{
+    margin-top: -53px;
+    margin-right: -103px;
+    margin-bottom: 10px;
+    direction: rtl;
+}
+#sorting-scores select{
+    background-color: rgb(0, 0, 0,0);
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-top: 3px solid #ffffff00;
+    border-right: 3px solid #ffffff00;
+    border-left: 3px solid #ffffff;
+    border-bottom: 3px solid #ffffff;
+    color: #00d6a0;
+    margin-bottom: 10px;
+    direction: ltr;
+}
 /* styling the high-score list table.*/
 #high-score-list{
     width: 100%;
@@ -78,24 +97,34 @@ margin: 0 5px;
     #high-score-container{
         padding: 25px 50px;
     }
-
+    #sorting-scores{
+    margin-top: -28px;
+    margin-right: -53px;
+    margin-bottom: 5px;
+    }
     #high-score-list >thead{
         font-size: small;
     }
     #high-score-list >tbody>tr{
         font-size: x-small;
     }
-    
+}
 @media screen and (max-width: 768px){
     #high-score-container{
         padding: 10px 20px;
     }
-
+    #sorting-scores{
+        margin-top: -13px;
+        margin-right: -23px;
+        margin-bottom: 2px;
+        }
+    #sorting-scores select{
+        font-size: 1.8vw;
+    }
     #high-score-list >thead{
-        font-size: x-small;
+        font-size: 1.8vw;
     }
     #high-score-list >tbody>tr{
-        font-size: xx-small;
+        font-size: 1.7vw;
     }
-}
 }

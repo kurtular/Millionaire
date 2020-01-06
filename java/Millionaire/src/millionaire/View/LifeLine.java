@@ -69,6 +69,7 @@ class LifeLine extends Label {
      */
     void setAction() {
         setOnMouseClicked(event -> {
+            LifeLineArea.getInstance().setLifeLineHint("");
             QuestionArea.getInstance().disableActions();
             LifeLineArea.getInstance().deactivateTemporarily();
             PlayScreen.getInstance().disableWithdrawing();

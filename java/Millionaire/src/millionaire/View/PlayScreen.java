@@ -25,7 +25,7 @@ class PlayScreen extends BorderPane {
      *
      * @return the only possible instance of this class (singleton).
      */
-    public static PlayScreen getInstance() {
+    static PlayScreen getInstance() {
         return instance;
     }
 

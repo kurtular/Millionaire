@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- linking jquery-->
+<script src="js/jq.js"></script>
 <?php 
 //Adding the head tag content. This way is used because website have almost collective head tag. It is used as well with other collective page parts as the footer and navigation bar. 
 include "parts/head.html";
@@ -23,8 +25,8 @@ include "parts/head.html";
                     </h1>
                     <p>
                        Den här sidan visar en <a href="#high-score-list">high-score lista</a> där står en rigerster tillhör till alla spelare som har spelat.<br>
-                       Varje rad visar en spelare uppgifter där står namnet,datumet,beloppet man fick och spelarenspoäng.<br>
-                       Spelarenspoäng är beröende på hur snabbt svarar man på en fråga och på vilken fråga nådde sist under matchen.<br>
+                       Varje rad visar en spelare uppgifter där står namnet,datumet,beloppet och spelarenspoäng man fick.<br>
+                       Spelarenspoäng är beröende på hur snabbt man svarar på frågarna samt på vilken fråga man nådde sist under spelomgång.<br>
                        En spelare kan ha flera rader så vi recomenderar att använda riktiga namn om man vill visa sina score till dem andra.<br>
                        Den här sidan kan besökas lätt genom att skanna <a href="https://sv.wikipedia.org/wiki/QR-kod">QR koden</a> some står till vänster på "money check" som visas i slutet av matchen. 
                     </p>
@@ -38,6 +40,20 @@ include "parts/head.html";
         </div>
         <!--The page content (high score table)-->
         <div id="high-score-container">
+            <!--table sorting button-->
+            <div id="sorting-scores">
+                <select>
+                    <option selected="selected" disabled="disabled">Sortera</option>
+                    <option value="">Senaste</option>
+                    <option value="0">Äldsta</option>
+                    <option value="1">Namn A-Ö</option>
+                    <option value="-1">Namn Ö-A</option>
+                    <option value="-2">Högsta belopp</option>
+                    <option value="2">Lägsta belopp</option>
+                    <option value="-3">Högsta poäng</option>
+                    <option value="3">Lägsta poäng</option>
+                </select>
+            </div>
     <table id="high-score-list">
         <!--table's head-->
         <thead>
@@ -60,11 +76,4 @@ include "parts/head.html";
      <!-- include js that is related to navigation bar-->
     <script src="js/fun.js"></script>
 </body>
-<script>
-    // call the method that show players data inside the table and make the table up to date every 3 seconds.
-    document.onload = showHighScoreList();
-    document.onload = setInterval(function(){
-    showHighScoreList();
-},3000);
-</script>
 </html>

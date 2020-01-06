@@ -3,7 +3,6 @@ package millionaire.View;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
@@ -20,7 +19,7 @@ class OptionButton extends Region {
     /**
      * It is The shown text inside the object.
      */
-    private Label text;
+    private final Label text;
     ////////////////////////////////////////////////////////////
     //              >>>>Class constructor.<<<<
 
@@ -104,10 +103,10 @@ class OptionButton extends Region {
 
     /**
      * It disables the option button.
-     * @param value is a boolean value that will refer to the desired state.
      */
-    void setAsDisabled(boolean value){
-        setDisable(value);
+    void setAsDisabled(){
+        setDisable(true);
+        getChildren().get(0).setOpacity(1);
         text.setOpacity(1);
     }
     /**
