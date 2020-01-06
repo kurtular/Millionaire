@@ -3,6 +3,7 @@
 <head>
 <?php include "parts/head.html";?>
 <link rel="stylesheet" href="css/index.css">
+<title>Index</title>
 </head>
 <body>
     <?php include "parts/nav.html";?>
@@ -94,6 +95,9 @@
         </div>
     </section>
     <?php include "parts/footer.html";?>
-    <script src="js/fun.js"></script>
+    <!-- add animation to navigation-bar. -->
+    <script src="js/nav-bar-animation.js"></script>
+    <!-- add js to slideshow-container -->
+    <script src="js/slideshow.js"></script>
 </body>
 </html>

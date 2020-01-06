@@ -3,6 +3,7 @@
 <head>
 <?php include "parts/head.html";?>
 <link rel="stylesheet" href="css/style.css">
+<title>Regler</title>
 </head>
 <body>
 <?php include "parts/nav.html";?>
@@ -46,7 +47,7 @@
             </div>
 
             <div class="inner-container">
-                <div><img src="img/questionArea.png" alt="Question Area" width="600px" height="200"></div>
+                <div><img src="img/questionarea.png" alt="Question Area" width="600px" height="200"></div>
                 <div class="text">
                     <h3>
                         Frågorna
@@ -87,6 +88,18 @@
                         man aldrig förlora pengarna. Svarar man fel på en vit fråga kommer man få det senaste gröna
                         beloppet
                         man klarat. Det maximala beloppet man kan vinna är $1000000.
+                    </p>
+                </div>
+            </div>
+
+            <div class="inner-container">
+                <div><img src="img/paycheckbutton.png" alt=""></div>
+                <div class="text">
+                    <h3>
+                        Avslut spel knapp
+                    </h3>
+                    <p>
+                        Knappen längst upp till vänster avslutar spelet om spelaren vill inte fortsätta spelet.
                     </p>
                 </div>
             </div>
@@ -175,7 +188,7 @@
                 </div>
             </div>
             <div class="inner-container">
-                <div><img src="/img/endscreen.png" alt="" width="450" height="250"></div>
+                <div><img src="img/endscreen.png" alt="" width="450" height="250"></div>
                 <div>
                     <h3>
                         Summering
@@ -197,7 +210,8 @@
             </div>
     </section>
     <?php include "parts/footer.html";?>
-    <script src="js/fun.js"></script>
+    <!-- add animation to navigation-bar -->
+    <script src="js/nav-bar-animation.js"></script>
 </body>
 
 </html>

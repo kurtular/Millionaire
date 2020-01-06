@@ -1,7 +1,7 @@
 body {
 	font-family: 'Poppins', sans-serif;
 }
-/* wrapper container */
+/* wrapper container, aligning item on top of each other */
 .wrapper
 {
 	display: flex;
@@ -80,24 +80,6 @@ body {
 	flex-wrap: wrap;
 	width: 50%;
 }
-/* layout for outer image */
-.outer-img1 {
-	position: relative;
-	text-align: center;
-	margin-top: 8%;
-	margin-right: 25%;
-}
-/* layout for outer image */
-.outer-img2{
-	position: relative;
-	text-align: center;
-	margin-top: 8%;
-	margin-left: 25% ;
-}
-/* give image a cirkle shape */
-.outer-img1 img, .outer-img2 img{
-	border-radius: 50%;
-}
 /* give image a cirkle shape */
 .inner-img1 img, .inner-img2 img{
 	border-radius: 50%;
@@ -114,7 +96,7 @@ body {
 	width: 70%;
 	margin: 0 auto;
 }
-/* Responsive */
+/* Responsive for mobel */
 @media screen and (max-width: 768px) {
 	.intro-aboutus h3,.intro-aboutus p{
 		font-size: 80%;

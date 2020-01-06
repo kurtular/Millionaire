@@ -58,7 +58,7 @@ include "parts/head.html";
         // Adding the footer to the page.
      include "parts/footer.html";?>
      <!-- include js that is related to navigation bar-->
-    <script src="js/fun.js"></script>
+     <script src="js/nav-bar-animation.js"></script>
 </body>
 <script>
     // call the method that show players data inside the table and make the table up to date every 3 seconds.

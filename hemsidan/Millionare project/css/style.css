@@ -1,6 +1,6 @@
 @import url("nav.css");
 @import url("footer.css");
-
+/* set margin and padding to 0px to all elements */
 * {
 	margin: 0px;
 	padding: 0px;
@@ -17,6 +17,7 @@ section
 	width: 85%;
 	margin: auto;
 }
+/* style the container */
 .container{
 	margin-top: 15vh;
 	background-color: white;
@@ -28,15 +29,18 @@ section
 	border: 1px white solid;
 
 }
+/* aligning container in horizontal */
 .inner-container {
     display: flex;
     margin: auto;
 	align-items: center;
 }
+/* give some spaces for container inside inner-container */
 .inner-container > div{
 	margin-top: 20px;
 	padding: 10px;
 }
+/* style all the h3 inside h3 */
 .inner-container h3{
     font-size: 30px;
     font-weight: 500;
@@ -44,6 +48,7 @@ section
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+/* style all p-tagg inside inner-container */
 .inner-container p{
     margin-top: 5px;
 	font-size: 20px;
@@ -78,11 +83,13 @@ section
     color: white;
     position: relative;
 }
+/* this container in relative position so that the image inside the container could adjust */
 .slidshow-container{
 	position: relative;
     margin: 50px auto;
 }
 
+/* responsive */
 @media screen and (max-width: 1024px) {
 	.introduction {
 		margin-top: 5vh;
@@ -115,6 +122,7 @@ section
 		padding: 2px;
 	}
 }
+/* responsive for mobel */
 @media screen and (max-width: 768px){
 	.presentation-rulepage{
 		min-height: 30vh;

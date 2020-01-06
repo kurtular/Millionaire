@@ -59,6 +59,6 @@ include "parts/head.html";
         <?php
         // Adding the footer to the page.
      include "parts/footer.html";?>
-    <script src="js/fun.js"></script>
+    <script src="js/nav-bar-animation.js"></script>
 </body>
 </html>
