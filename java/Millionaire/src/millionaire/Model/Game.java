@@ -91,7 +91,7 @@ public class Game implements GetJson {
         try {
             sendToDB(returnedData);
         } catch (Exception e) {
-            System.err.println("!!Couldn't send player log (score) to db!!" + e);
+            System.err.println("!!Couldn't send player log (score) to db!!");
         }
 
         return returnedData;

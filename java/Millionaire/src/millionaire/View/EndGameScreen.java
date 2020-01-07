@@ -49,7 +49,7 @@ class EndGameScreen extends VBox {
         date.setFont(Font.font(20));
 
         home = new OptionButton();
-        home.setText("HOME");
+        home.setText("HEM");
         home.setScaleX(0.7);
         home.setScaleY(0.7);
         home.setFont(Font.font(30));

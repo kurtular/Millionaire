@@ -108,8 +108,18 @@ class AliasScreen extends VBox {
                     instance.aliasInput.setDisable(true);
                     instance.confirmButton.setDisable(true);
                     instance.errorMessage.setText(null);
-                    PlayScreen.show();
-                    Timer.delay(() -> Controller.getInstance().startTheGame(instance.aliasInput.getText()), 3);
+                    //
+                    Timer.delay(() -> {
+                        try{
+                            Controller.getInstance().startTheGame(instance.aliasInput.getText());
+                            PlayScreen.show();
+                        }
+                    catch (Exception e){
+                        instance.errorMessage.setText("Kan ej starta spelet!!\nVänligen anslut datorn till nätverket.");
+                        instance.errorMessage.setTextAlignment(TextAlignment.CENTER);
+                        instance.confirmButton.setDisable(false);
+                        instance.aliasInput.setDisable(false);
+                    }}, 3);
                 }
             }
         });
@@ -119,8 +129,17 @@ class AliasScreen extends VBox {
                 instance.aliasInput.setDisable(true);
                 instance.confirmButton.setDisable(true);
                 instance.errorMessage.setText(null);
-                PlayScreen.show();
-                Timer.delay(() -> Controller.getInstance().startTheGame(instance.aliasInput.getText()), 3);
+                Timer.delay(() -> {
+                    try{
+                        Controller.getInstance().startTheGame(instance.aliasInput.getText());
+                        PlayScreen.show();
+                    }
+                    catch (Exception e){
+                        instance.errorMessage.setText("Kan ej starta spelet!!\nVänligen anslut datorn till nätverket.");
+                        instance.errorMessage.setTextAlignment(TextAlignment.CENTER);
+                        instance.confirmButton.setDisable(false);
+                        instance.aliasInput.setDisable(false);
+                    }}, 3);
             }
         });
     }

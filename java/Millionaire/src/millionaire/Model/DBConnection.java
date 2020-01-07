@@ -34,12 +34,12 @@ class DBConnection {
         try {
             Class.forName(DB_DRIVER);
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            System.err.println("Couldn't load mysql-connector library.");
         }
         try {
             connection = DriverManager.getConnection(DB_CONNECTION + DB_NAME, DB_USER, DB_PASSWORD);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("!!Couldn't create a connection to db!!");
         }
         return connection;
     }
