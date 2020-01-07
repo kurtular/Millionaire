@@ -124,7 +124,10 @@ public class Controller {
             gui.showEndGameScreen(moneyCheckData[0],moneyCheckData[1],moneyCheckData[2]);
         }, 3);
     }
-    //Joakim
+
+    /**
+     * Method that checks if the time reaches 0, and calls the endTheGame method, which ends the game.
+     */
     private void checkTimerSeconds(){
         Timer.delay(()->{
             if (gui.getShownSeconds()<=0){

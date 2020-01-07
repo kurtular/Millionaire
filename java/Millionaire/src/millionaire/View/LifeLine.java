@@ -91,7 +91,9 @@ class LifeLine extends Label {
         setAsUsed();
     }
 
-    //Joakim
+    /**
+     * method that resets LifeLine to default state when starting a new game.
+     */
     void reset() {
         img.setImage(new Image("img/" + type + ".gif"));
         setAction();
