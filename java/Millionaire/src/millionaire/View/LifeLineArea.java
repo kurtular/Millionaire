@@ -95,7 +95,9 @@ class LifeLineArea extends VBox {
         this.lifeLineHint.setText(lifeLineHint);
     }
 
-    //Joakim
+    /**
+     * Method that calls all the reset method that are affected in LifeLineArea when starting new game.
+     */
     void resetLifeLineArea() {
         audience.reset();
         removeHalf.reset();

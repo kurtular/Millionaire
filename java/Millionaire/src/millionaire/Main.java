@@ -7,6 +7,10 @@ import millionaire.View.Gui;
  * @author Joakim
  * @version 1.0
  */
+
+/**
+ * Main method. Creates the mvc Connection and starts the GUI.
+ */
 class Main {
     public static void main(String[] args) {
         //Create a controller.

@@ -86,7 +86,10 @@ class AliasScreen extends VBox {
         }
         return false;
     }
-    //Joakim
+
+    /**
+     * Method that resets aliasInput to default state when starting new game.
+     */
     private void reset(){
         // To make aliasInput enabled and empty (reset).
         aliasInput.setDisable(false);
