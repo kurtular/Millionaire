@@ -27,7 +27,11 @@ public class Controller {
     }
     /////////////////////////////////////////////////////////////
 
-    //Millad
+    /**
+     *
+     * @param game reference to controller
+     * @param gui reference to controller
+     */
     static void setupController(Game game, Gui gui) {
         instance.game = game;
         instance.gui = gui;
@@ -50,16 +54,23 @@ public class Controller {
     /////////////////////////////////////////////////////////////
     //              >>>>Member variables.<<<<
 
-    //Millad
+    /**
+     *  start new game for user and name, questions and seconds on timer will start
+     * @param playerName create a field that player can insert ID
+     */
     public void startTheGame(String playerName) {
         game.newGame(playerName);
         setQuestion();
         checkTimerSeconds();
     }
 
-    /* setAnswer() will be called when the player will select an answer for the question.
-     It's make some changes that fits the situation for example: making the background color of the selection button yellow
-     and disable the other selections. It will also temporarily disabling the lifelines. */
+    /**
+     * setAnswer() will be called when the player will select an answer for the question.
+     *      It's make some changes that fits the situation for example: making the background color of the selection button yellow
+     *      and disable the other selections. It will also temporarily disabling the lifelines.
+     * @param buttonSymbol will be yellow if clicked on. green if correct answer. red if wrong answer.
+     */
+
     public void setAnswer(char buttonSymbol) {
 
         gui.setOptionButtonState(buttonSymbol, OptionButtonState.CHECKING);
@@ -87,7 +98,11 @@ public class Controller {
 
     }
 
-    // setQuestion() method brings the question and its options and send them to View (gui) that will show it on the screen.
+    /**
+     * this method brings the question and its options and send them to View (gui) that will show it on the screen.
+     */
+
+
     private void setQuestion() {
         String question = game.getQuestionPart(QuestionPart.QUESTION_TEXT);
         String option1 = game.getQuestionPart(QuestionPart.OPTION1);

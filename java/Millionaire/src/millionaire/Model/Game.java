@@ -65,6 +65,10 @@ public class Game implements GetJson {
         }
     }
 
+    /**
+     * prepare game object so the user can start new game and reset player name.
+     * @param playerName create a player name so user can input ID after the game is reset.
+     */
     public void newGame(String playerName) {
         currentQuestion = 1;
         setQuestions();
@@ -76,6 +80,11 @@ public class Game implements GetJson {
         player.setName(playerName);
     }
 
+    /**
+     *  gets balance/date/name and current question to the writercheck
+     * @param withDraw if withDraw is true the player wont be send back below safety level
+     * @return  data from users game
+     */
     //
     public String[] getMoneyCheckData(boolean withDraw) {
         String[] returnedData = new String[3];
@@ -112,6 +121,11 @@ public class Game implements GetJson {
         connection.close();
     }
 
+    /**
+     * gets question running if user answer wrong ends the game and calculate score
+     * @param QuestionPart question stage of the game
+     * @return current question and score value
+     */
     // getValue() return a specific string value of the question object depending on value parameter (check class variables above).
     public String getQuestionPart(byte QuestionPart) {
         if (QuestionPart == 5) {
@@ -126,6 +140,12 @@ public class Game implements GetJson {
             return questions[currentQuestion].getValue(QuestionPart);
         }
     }
+
+    /**
+     *
+     * @param playerAnswer checks if player answer is true or false
+     * @return false answer
+     */
 
     // checkAnswer() will return either true or false depending on the playerAnswer value. ()
     public boolean checkAnswer(char playerAnswer) {
@@ -156,6 +176,11 @@ public class Game implements GetJson {
         return returnedValue;
     }
 
+    /**
+     * create method that the right answer will have matching symbol
+     * @return right symbol.
+     */
+
     //
     public char getCorrectAnswerSymbol() {
         char symbol;
@@ -167,6 +192,11 @@ public class Game implements GetJson {
         return symbol;
     }
 
+    /**
+     * create a method that makes game move on to the next question after users answer
+     * @param second adds points depending on how much seconds it takes for the user to answer
+     */
+
     //
     public void nextQuestion(int second) {
         if (currentQuestion <= FINAL_GLOBAL_VARIABLES.getPRIZES().length) {
@@ -177,6 +207,8 @@ public class Game implements GetJson {
             changeQuestion.stop();
         }
     }
+
+
 
     //
     private void setQuestions() {

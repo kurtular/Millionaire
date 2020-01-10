@@ -1,3 +1,4 @@
+/* import the style from nav.css and footer.css */
 @import url("nav.css");
 @import url("footer.css");
 * {
@@ -24,9 +25,9 @@ section
 }
 /* give some space between the container inside presentation container */
 .presentation div {
-	padding: 2px;
-	padding: 10px;
+	flex: 1;
 }
+/* style text */
 .intro-text h1 {
 	font-size: 40px;
 	font-weight: 400;
@@ -41,6 +42,7 @@ section
     color: white;
     position: relative;
 }
+/* play button */
 .btn{
     display: inline-block;
     border: none;
@@ -53,27 +55,30 @@ section
 /* take away the underline*/
 .btn a{
 	text-decoration: none;
-	font-size: 25px;
 }
 .btn:hover{
     opacity: 0.6;
 }
+/* adjust container */
 .slidshow-container{
 	position: relative;
 	margin: 50px auto;
 }
+/* style container1 */
 .container1{
 	background-color: white;
 	width: 100%;
 	padding: 5% 15% 5% 15%;
 	border-bottom: 10px #083f4e solid ;
 }
+/* style container */
 .container2{
 	background-color: rgb(221, 218, 218);
 	width: 100%;
 	padding: 5% 15% 5% 15%;
 	border-bottom: 10px #083f4e solid ;
 }
+/* choose third container of container1 */
 .container1:nth-child(3n){
 	border-bottom: none;
 }
@@ -86,22 +91,30 @@ section
     margin: auto;
 	justify-content: center;
 }
-.inner-container > div{
-	padding: 10px;
+.inner-container h4{
+	flex: 0.8;
+	padding: 5px;
 }
-.text h4{
-    font-size: 25px;
+.inner-container a{
+	flex: 1;
+}
+/* style h4 */
+.inner-container h4{
+    font-size: 20px;
     font-weight: 500;
     background: linear-gradient(to right, #32a2d6,#083f4e , #022833);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+	-webkit-text-fill-color: transparent;
 }
 /* responsive */
 @media screen and (max-width: 1024px) {
 	.presentation {
-		min-height: 70vh;
+		min-height: 80vh;
     	display: flex;
 		align-items: center;
+	}
+	.btn h3{
+		font-size: 22px;
 	}
 	.intro-text h1{
 		font-size: 25px;
@@ -127,17 +140,20 @@ section
 		margin: auto;
 		align-items: center;
 	}
-	.inner-container > div{
-		padding: 5px;
-	}
-	.text h4{
-		font-size: 20px;
+	.inner-container h4{
+		font-size: 15px;
 	}
 }
 /* responsive for mobel */
 @media screen and (max-width: 768px){
 	.presentation{
-		min-height: 60vh;
+		min-height: 70vh;
+	}
+	.btn{
+		padding: 0.5rem 1.0rem;
+	}
+	.btn h3{
+		font-size: 18px;
 	}
 	.intro-text h1 {
 		font-size: 20px;
@@ -146,13 +162,36 @@ section
 		font-size: 8px;
 	}
 	.container1 h3,.container1 p{
-		font-size: 8px;
+		font-size: 10px;
 	}
 	.container2 h3,.container2 p{
-		font-size: 8px;
+		font-size: 10px;
 	}
-	.text h4{
-		font-size: 13px;
+	.inner-container h4{
+		font-size: 12px;
+	}
+}
+@media screen and (max-width: 320px){
+	.presentation{
+		min-height: 50vh;
+	}
+	.btn{
+		padding: 0.3rem 0.7rem;
+	}
+	.btn h3{
+		font-size: 5px;
+	}
+	.intro-text p {
+		font-size: 6px;
+	}
+	.container1 h3,.container1 p{
+		font-size: 6px;
+	}
+	.container2 h3,.container2 p{
+		font-size: 6px;
+	}
+	.inner-container h4{
+		font-size: 8px;
 	}
 }
 
