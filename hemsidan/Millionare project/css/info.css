@@ -1,5 +1,5 @@
-@import url("animationnav.css");
-@import url("stylefooter.css");
+@import url("nav.css");
+@import url("footer.css");
 
 /* styling distance between navbar and content*/
 .space-between-nav-and-section-in-fpPage{
@@ -12,13 +12,25 @@
    font-size: 60px;
 }
 
+/*styling the text in p */
+p {
+   color:black;
+}
+
+
+
 /*styling the main divs*/
 .fpInfo{
    width: 85%;
-   padding: 50px;
+   padding: 10px;
    display: flex;
    margin: auto;
+   margin-top: 70px;
+   margin-bottom: 70px;
    align-items: center;
+   background-color: white;
+	border-radius: 55px;
+   
 }
 
 /* Styling the distance between the divs inside the div*/
@@ -42,12 +54,13 @@
    }
     
    p {
-	   font-size: 13px;
+      font-size: 13px;
+      
    }
 }
 
 /* Handling phones*/
-@media screen and (max-width: 414px){
+@media screen and (max-width: 600px){
    body {
       width: fit-content;
    }
@@ -58,16 +71,29 @@
    }
 
    /*Hide a image that usually shows*/
-   #normalPics {
+   #normalPic {
       display: none;
    }
 
    /* Prevents the text and images to not appear next to each other*/
    .fpInfo{
    display: inline;
+   background-color: transparent;
    }
-
+   /*Centering the images*/
    .fpPics {
 		text-align: center;
    }
+
+   p {
+      color: white;
+   }
+   /* Makes the images smaller*/
+    img {
+      width: 50%;
+      height: 50%;
+      margin-top: 30px;
+   }
+   
+   
 }

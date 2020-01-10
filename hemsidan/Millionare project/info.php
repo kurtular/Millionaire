@@ -17,7 +17,7 @@ include "parts/head.html";
 
 </div>
 <!-- main content -->
-<section class="fpMain">
+<section>
     <h1 id=fpH1>
         Funktionell programmering
     </h1>
@@ -31,7 +31,7 @@ include "parts/head.html";
         </div>
     </div>
     <div class="fpInfo">
-        <div class=fpPics id="normalPics">
+        <div class=fpPics id="normalPic">
             <img src="img/funcprogramming.jpeg" alt="" width="200" height="200">
         </div>
         <div class="fpText">
