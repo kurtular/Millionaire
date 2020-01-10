@@ -1,5 +1,5 @@
-@import url("animationnav.css");
-@import url("stylefooter.css");
+@import url("nav.css");
+@import url("footer.css");
 
 /* styling distance between navbar and content*/
 .space-between-nav-and-section-in-fpPage{

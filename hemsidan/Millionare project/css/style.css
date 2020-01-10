@@ -17,6 +17,40 @@ section
 	width: 85%;
 	margin: auto;
 }
+
+/*showcase in rulepage*/
+.presentation-rulepage{
+	min-height: 70vh;
+    display: flex;
+	align-items: center;
+}
+/* give some space between the container inside presentation container */
+.presentation div {
+	padding: 2px;
+}
+.space-between-nav-and-section-in-rulespage{
+	height: 20vh;
+}
+/*add style to h1 in section*/
+.intro-text h1 {
+	font-size: 45px;
+	font-weight: 400;
+	background: linear-gradient(to right, rgb(255, 255, 255), #6f6f89);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+/*add style to p in section*/
+.intro-text p {
+	margin-top: 5px;
+	font-size: 22px;
+    color: white;
+    position: relative;
+}
+/* this container in relative position so that the image inside the container could adjust */
+.slidshow-container{
+	position: relative;
+    margin: 50px auto;
+}
 /* style the container */
 .container{
 	margin-top: 15vh;
@@ -43,7 +77,7 @@ section
 /* style all the h3 inside h3 */
 .inner-container h3{
     font-size: 30px;
-    font-weight: 500;
+    font-weight: 400;
     background: linear-gradient(to right, #32a2d6,#083f4e , #022833);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -54,51 +88,20 @@ section
 	font-size: 20px;
     color: #585772;
 }
-
-/*showcase in rulepage*/
-.presentation-rulepage{
-	min-height: 70vh;
-    display: flex;
-	align-items: center;
-}
-/* give some space between the container inside presentation container */
-.presentation div {
-	padding: 2px;
-}
-.space-between-nav-and-section-in-rulespage{
-	height: 20vh;
-}
-/*add style to h1 in section*/
-.intro-text h1 {
-	font-size: 45px;
-	font-weight: 400;
-	background: linear-gradient(to right, rgb(255, 255, 255), #6f6f89);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
-/*add style to p in section*/
-.intro-text p {
-	margin-top: 5px;
-	font-size: 20px;
-    color: white;
-    position: relative;
-}
-/* this container in relative position so that the image inside the container could adjust */
-.slidshow-container{
-	position: relative;
-    margin: 50px auto;
+.text p{
+	font-size: 15px;
 }
 
 /* responsive */
-@media screen and (max-width: 1024px) {
-	.introduction {
-		margin-top: 5vh;
+@media screen and (max-width: 1270px) {
+	.presentation-rulepage{
+		min-height: 50vh;
 	}
 	.intro-text h1{
 		font-size: 30px;
 	}
 	.intro-text p{
-		font-size: 13px;
+		font-size: 16px;
 	}
 	.slideshow-container > div{
 		display: flex;
@@ -110,16 +113,22 @@ section
 		width: 100%;
 	}
 	.container img{
-		height: 80%;
-		width: 80%;
+		height: 100%;
+		width: 100%;
 	}
 	.container > div {
 		display: flex;
 		margin: auto;
-		align-items: flex-start;
+		align-items:center;
 	}
 	.inner-container > div{
-		padding: 2px;
+		padding: 5px;
+	}
+	.text h3{
+		font-size: 15px;
+	}
+	.text p{
+		font-size: 12px;
 	}
 }
 /* responsive for mobel */
@@ -131,9 +140,33 @@ section
 		font-size: 20px;
 	}
 	.intro-text p {
-		font-size: 8px;
+		font-size: 13px;
 	}
 	.container h3,.container p{
 		font-size: 8px;
-	}	
+	}
+	.text h3{
+		font-size: 11px;
+	}
+	.text p{
+		font-size: 9px;
+	}
+}
+@media screen and (max-width: 320px){
+	.presentation-rulepage{
+		min-height: 20vh;
+	}
+	.intro-text h1 {
+		font-size: 14px;
+	}
+	.intro-text p {
+		font-size: 6px;
+	}
+	.text h3{
+		font-size: 7px;
+	}
+	.text p{
+		font-size: 5px;
+	}
+		
 }

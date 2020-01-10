@@ -11,8 +11,9 @@
     <div class="space-between-nav-and-section-in-rulespage">
 
     </div>
-    <!-- main content -->
+
     <section>
+        <!-- slideshow -->
         <div class="presentation-rulepage">
             <div class="introduction">
                 <div class="intro-text">
@@ -32,9 +33,10 @@
                 </div>
             </div>
         </div>
+        <!-- main content -->
         <div class="container">
             <div class="inner-container">
-                <div><img src="img/Register.png" alt="Register Area"></div>
+                <div><img src="img/Register.png" alt="Register Area" width="350" height="500"></div>
                 <div class="text">
                     <h3>
                         Registrering
@@ -96,10 +98,11 @@
                 <div><img src="img/paycheckbutton.png" alt=""></div>
                 <div class="text">
                     <h3>
-                        Avslut spel knapp
+                        Avsluta spelet
                     </h3>
                     <p>
-                        Knappen längst upp till vänster avslutar spelet om spelaren vill inte fortsätta spelet.
+                        Knappen längst upp till vänster avslutar spelet. När som helst under spelets gång kan spelaren avsluta spelet 
+                        och få pengarna som man hittills tjänat in. Så i detta fall spelar inte säkerhetsnivåerna någon roll. 
                     </p>
                 </div>
             </div>
@@ -189,7 +192,7 @@
             </div>
             <div class="inner-container">
                 <div><img src="img/endscreen.png" alt="" width="450" height="250"></div>
-                <div>
+                <div class="text">
                     <h3>
                         Summering
                     </h3>

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<?php include "parts/head.html";?>
-<link rel="stylesheet" href="css/index.css">
-<title>Index</title>
+    <?php include "parts/head.html"; ?>
+    <link rel="stylesheet" href="css/index.css">
+    <title>Hem</title>
 </head>
+
 <body>
-    <?php include "parts/nav.html";?>
+    <?php include "parts/nav.html"; ?>
     <section>
         <!-- intro of website -->
         <div class="presentation">
@@ -27,7 +29,7 @@
                     <img src="img/startscreen.png" name="slide" alt="" width="600" height="390">
                 </div>
                 <div class="mySlides">
-                    <img src="img/Register.png" alt="" width="600" height="390">
+                    <img src="img/Register.png" alt="" width="350" height="450">
                 </div>
                 <div class="mySlides">
                     <img src="img/playscreen.png" alt="" width="600" height="390">
@@ -40,64 +42,54 @@
         <!-- main content of page -->
         <div class="container1">
             <div class="inner-container">
-                <div><img src="img/withdraw.png" alt="Register Area" width="600" height="400"></div>
-                <div class="text">
-                   <p>
-                         Klick Spel Nu för att vinna 1 000 000$!!!! 
-                   </p>
-                <button class="btn"><a href="#"><h3>Spel Nu !</h3></a></button>
-                </div>
+                <img src="img/withdraw.png" alt="Register Area" width="600" height="400">
+                <p>
+                    Klick Spel Nu för att vinna 1 000 000$!!!! <br>
+                    <button class="btn"><a href="#">
+                            <h3>Spel Nu !</h3>
+                        </a></button>
+                </p>
             </div>
         </div>
         <div class="container2">
             <div class="inner-container">
-                <div class="text">
-                    <h4>
-                         Vi lär ut dig hur spelet går till! <br>
-                         Klick på bilden!
-                    </h4>
-                </div>
-                <div><a href="rules.php"><img src="img/regler.png" alt="Register Area" width="400" height="300"></a></div>
+                <h4>
+                    Vi lär ut dig hur spelet går till!
+                </h4>
+                <a href="rules.php"><img src="img/regler.png" alt="Register Area" width="400" height="300"></a>
             </div>
         </div>
         <div class="container1">
             <div class="inner-container">
-                <div><a href="high_score.php"><img src="img/highscore.png" alt="Register Area" width="300" height="500"></a></div>
-                <div class="text">
-                    <h4>
-                         Här kan du hitta din high-score! <br>
-                         Klick på bilden!
-                    </h4>
-                </div>
+                <a href="high_score.php"><img src="img/HighscoreTable.jpg" alt="Register Area" width="550" height="250"></a>
+                <h4>
+                    Här kan du hitta din high-score!
+                </h4>
             </div>
         </div>
         <div class="container2">
             <div class="inner-container">
-                <div class="text">
-                    <h4>
-                         Är du interesserad av funktionell programmering? Vi har den bästa förklaringen!
-                         Klick på bilden!
-                    </h4>
-                </div>
-                <div><a href="info.php"><img src="img/funcprogramming.jpeg" alt="Register Area" width="500" height="300"></a></div>
+                <h4>
+                    Är du interesserad av funktionell programmering? Vi har den bästa förklaringen!
+                    Klick på bilden!
+                </h4>
+                <a href="info.php"><img src="img/funktionellprogrammering.png" alt="Register Area" width="500" height="300"></a>
             </div>
         </div>
         <div class="container1">
             <div class="inner-container">
-                <div><a href="about.php"><img src="img/team.png" alt="Register Area" width="350" height="500"></a></div>
-                <div class="text">
-                    <h4>
-                         Läs gärna mer om oss <br>
-                         Klick på bilden!
-                    </h4>
-                </div>
+                <a href="about.php"><img src="img/profile-info.png" alt="Register Area" width="583" height="258"></a>
+                <h4>
+                    Klick på bilden för att läsa mer om oss!
+                </h4>
             </div>
         </div>
     </section>
-    <?php include "parts/footer.html";?>
+    <?php include "parts/footer.html"; ?>
     <!-- add animation to navigation-bar. -->
     <script src="js/nav-bar-animation.js"></script>
     <!-- add js to slideshow-container -->
     <script src="js/slideshow.js"></script>
 </body>
+
 </html>

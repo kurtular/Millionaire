@@ -1,3 +1,4 @@
+
 footer{
 	background-color: darkgrey;
 	padding: 10px 0;
@@ -8,14 +9,23 @@ footer{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
+	align-items: flex-start;
+	padding: 10px;
 }
+/* ajust the container to the screen */
 .info-container > div {
 	margin: auto 0px;
+	flex-wrap: wrap;
+	padding: 5px;
+	flex: 1;
 }
+/* align text and container in center */
 .copyright{
-	padding: 30px;
 	text-align: center;
+	border-bottom: 1px black solid;
+	justify-content: center;
 }
+/* give container some space around element */
 .copyright div{
 	padding: 5px;
 }
@@ -28,52 +38,78 @@ footer{
 /* lay container in horizontal and with 2 containers each column */
 .more-info{
 	display: grid;
-	grid-template-columns: 0.3fr 1fr;
-	grid-gap: 10px;
+	grid-template-columns: 0.2fr 0.3fr;
+	grid-gap: 2px;
 }
-.fa {
-	padding: 15px 0px;
-	width: 50px;
-	text-decoration: none;
-	border-radius: 50%;
-  }
-.fa:hover {
-	opacity: 0.5;
-}
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
-.fa-google {
-	background: #dd4b39;
-	color: white;
-}
-.more-info h4{
-	margin-bottom: 5px;
-}
+/* adjust postion */
 .fa-phone-volume{
-	margin-top: 80px;
+	margin-top: 77px;
 }
+/* adjust position */
 .fa-envelope{
-	margin-top: 65px;
+	margin-top: 60px;
 }
+/* adjust image */
 .developer-img img{
 	border-radius: 50%;
 	border: 1px solid #fff;
-	width: 60px;
-	height: 60px;
+	width: 70px;
+	height: 70px;
 }
-/* reponsive footer */
-@media screen and (max-width: 768px) {
+/* remove links decoration */
+.links{
+	text-decoration: none;
+}
+.links a{
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 15px;
+}
+.links a:hover{
+	color: rgb(139, 51, 0);
+}
+.link{
+	list-style: none;
+}
 
-	.text-info h4,.text-info h5,.text-info p{
+/* responsive */
+@media screen and (max-width: 1024px) {
+	.developer-img img{
+		width: 50px;
+		height: 50px;
+	}
+	.text-info h4,.text-info h5,.text-info p,.termandcondition{
 		font-size: 13px;
 	}
 	.fa-phone-volume{
-		margin-top: 70px;
+		margin-top: 67px;
 	}
 	.fa-envelope{
-		margin-top: 55px;
+		margin-top: 52px;
+	}
+	.link a{
+		font-size: 12px;
+	}
+}
+
+/* reponsive for mobel */
+@media screen and (max-width: 768px) {
+	.developer-img img{
+		width: 40px;
+		height: 40px;
+	}
+	.text-info h4,.text-info h5,.text-info p,.termandcondition{
+		font-size: 11px;
+	}
+	.fa-phone-volume{
+		margin-top: 52px;
+	}
+	.fa-envelope{
+		margin-top: 45px;
+	}
+	.link a{
+		font-size: 9px;
 	}
 }
 /* To top button style (The button that scrolling to the top of the page)*/
@@ -82,7 +118,7 @@ footer{
     color: #00d6a0;
     border-radius: 100%;
     text-align: center;
-    border:3px solid #00d6a0; 
+    border:3px solid #00d6a0;
     position: fixed;
     bottom: 10px;
     right: 10px;
