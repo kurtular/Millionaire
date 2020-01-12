@@ -4,6 +4,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import millionaire.Controller;
+import millionaire.FINAL_GLOBAL_VARIABLES;
 import millionaire.Timer;
 import millionaire.FINAL_GLOBAL_VARIABLES.SoundEffectName;
 
@@ -96,6 +97,10 @@ class PlayScreen extends BorderPane {
         Timer.delay(() -> {
             Gui.content.getChildren().clear();
             Gui.content.getChildren().add(instance);
+            // the timer resets usually by Gui while updating the shown question but the following lines is wrote to fix a bug that show the timer have spent 3 seconds already because of the current delay.
+            TimerLabel.getInstance().resetTimer();
+            Timer.delay(()->TimerLabel.getInstance().startTimer(), 0.1);
+            SoundEffectPlayer.play(SoundEffectName.FIRST_5_QUESTIONS);
         }, 3);
     }
 }
