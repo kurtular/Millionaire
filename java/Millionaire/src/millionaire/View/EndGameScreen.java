@@ -12,7 +12,7 @@ import millionaire.FINAL_GLOBAL_VARIABLES.SoundEffectName;
 /**
  * EndGameScreen is a VBox. In EndGameScreen contains two private static class variables and 3 private class variables.
  * The following class is using singleton pattern which can only generate single object from this class.
- * The only way to create the object of this class is by calling getInstance() method. This method is public and static.
+ * The only way to get the object of this class is by calling getInstance() method. This method is public and static.
  * @author Jesse, Mohammad
  * @version 1.0
  */

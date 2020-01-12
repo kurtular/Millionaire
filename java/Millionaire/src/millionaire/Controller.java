@@ -125,7 +125,7 @@ public class Controller {
     //Jesse
 
     /**
-     * if the player is not at the last level of the game and get wrong answer, it will send the correct answer and send wrong sound effect to gui to later show in EndGameScreen.
+     * if the player is not at the last level of the game and get wrong answer, it will send the correct answer(just to show the player the right answer before moving to EndGameScreen) and send wrong sound effect to gui to later show in EndGameScreen.
      *  This method will send the player's name,balance and date to the EndGameScreen.
      * @param withDraw a boolean parameter
      */

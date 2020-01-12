@@ -5,7 +5,7 @@ import millionaire.FINAL_GLOBAL_VARIABLES;
 
 /**
  * PriceTable is a VBox. This class only allowed to create a single instance from it because of the private constructor (singleton).
- * To create an instance of this class, you need to call getInstance() method. getInstance() method has no modifier and it's static.
+ * To get an instance of this class, you need to call getInstance() method. getInstance() method has no modifier and it's static.
  * PriceTable class contains a private static class variables and a private class variable.
  * @author Jesse, Mohammad, Joakim
  * @version 1.0
@@ -24,7 +24,7 @@ class PriceTable extends VBox {
     /**
      * Constructor will create a list of prizes and priceLabel to an object of PriceTable.
      * the first for-loop decide where is the safe and not safe level.
-     * the second for-loop below will add all priceLabels to PriceTable.
+     * the second for-loop below will add all priceLabels to PriceTable's object.
      */
     private PriceTable() {
         super();
@@ -67,7 +67,7 @@ class PriceTable extends VBox {
     }
 
     /**
-     * This method will reset the PriceTable to it default.
+     * This method will reset the PriceTable to its default.
      */
     void resetPriceTable() {
         for (int i = 1; i < priceLabels.length; i++) {

@@ -26,10 +26,10 @@
             <!-- Slideshow pictures -->
             <div class="slideshow-container">
                 <div class="mySlides">
-                    <img src="img/startscreen.png" name="slide" alt="" width="600" height="390">
+                    <img src="img/startscreen.png" alt="" width="600" height="390">
                 </div>
                 <div class="mySlides">
-                    <img src="img/Register.png" alt="" width="350" height="450">
+                    <img src="img/registerscreen.png" alt="" width="600" height="390">
                 </div>
                 <div class="mySlides">
                     <img src="img/playscreen.png" alt="" width="600" height="390">
@@ -54,7 +54,7 @@
         <div class="container2">
             <div class="inner-container">
                 <h4>
-                    Vi lär ut dig hur spelet går till!
+                    Vi lär ut dig hur spelet går till! Klick på bilden!
                 </h4>
                 <a href="rules.php"><img src="img/regler.png" alt="Register Area" width="400" height="300"></a>
             </div>
@@ -63,7 +63,7 @@
             <div class="inner-container">
                 <a href="high_score.php"><img src="img/HighscoreTable.jpg" alt="Register Area" width="550" height="250"></a>
                 <h4>
-                    Här kan du hitta din high-score!
+                    Här kan du hitta din high-score! Klick på bilden! 
                 </h4>
             </div>
         </div>

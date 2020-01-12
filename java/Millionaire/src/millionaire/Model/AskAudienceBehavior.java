@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * AskAudienceBehavior class implements a behavior from interface(LifeLineBehavior). By implementing LifeLineBehavior we need to override toDomethod.
  * toDomethod decide what is the behavior of AskAudienceBehavior object.
  * The following class is using singleton pattern which can only generate single object from this class.
- * The only way to create the object of this class is by getInstance() method. This method is protected and static.
+ * The only way to get the object of this class is by getInstance() method. This method is protected and static.
  * AskAudienceBehavior has a private static class variable
  *
  * @author Jesse, Mohammad

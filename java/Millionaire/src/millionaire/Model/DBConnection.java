@@ -11,7 +11,7 @@ class DBConnection {
     //Jesse
 
     /**
-     * This method will get the connection to database
+     * This method will create a connection to database.
      *
      * @return an object that contain the information to connect to the database.
      */
