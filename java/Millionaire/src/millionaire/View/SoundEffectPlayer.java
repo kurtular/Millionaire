@@ -14,7 +14,7 @@ abstract class SoundEffectPlayer {
     private static MediaPlayer mediaPlayer;
 
     /**
-     * Playing the right sound depending on the effectname
+     * Playing the right sound depending on the effectname and its a part of the View.
      * @param EffectName The different sounds in our library.
      */
     static void play(String EffectName) {

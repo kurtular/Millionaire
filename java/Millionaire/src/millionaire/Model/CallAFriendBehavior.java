@@ -1,8 +1,9 @@
 package millionaire.Model;
 
 /**
- * Singleton class for call a friend lifeline. It implements LifelineBehavior interface and because of that
- * it must override one method.
+ * Singleton class for call a friend lifeline. It implements LifelineBehavior interface and because of that <br>
+ * it must override one method. It creates the object which calculate what answer the "friend" will tell the <br>
+ * player. It belongs to the Model.
  *
  * @author Henrik, Mohammad.
  */
@@ -10,7 +11,7 @@ class CallAFriendBehavior implements LifeLineBehavior {
     private static final CallAFriendBehavior instance = new CallAFriendBehavior();
 
     /**
-     * The get method witch will return the call a friend object.
+     * The get method will return the reference to call-a-friend object.
      *
      * @return the only instance of this Singleton class.
      */
@@ -26,7 +27,8 @@ class CallAFriendBehavior implements LifeLineBehavior {
 
     /**
      * Lifeline call a friend are taking care of here. 50% of the time you get for sure the right answer.
-     * 25% of the time you get the right answer but the friend are in doubt. And in 25% of the cases you get the wrong answer.
+     * 25% of the time you get the right answer but the friend are in doubt.
+     * And in 25% of the cases you get the wrong answer.
      *
      * @return The string to be shown at the screen.
      */
