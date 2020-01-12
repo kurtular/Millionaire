@@ -15,8 +15,8 @@ import millionaire.Timer;
 import static javafx.geometry.Pos.CENTER;
 
 /**
- * Singleton class for showing the userinput dialog before starting the game. This class is a VBox.
- *
+ * Singleton class for showing the userinput dialog before starting the game. This class is a VBox and <br>
+ * creates the graphics including playerimage and textfield with JavaFX. Its a part of the View.
  * @author Henrik, Joakim.
  */
 class AliasScreen extends VBox {
@@ -30,7 +30,7 @@ class AliasScreen extends VBox {
     private final OptionButton confirmButton;
 
     /**
-     * The constructor using JavaFX to build the graphics including playerimage and textfield.
+     * The constructor
      */
     private AliasScreen() {
         super();
@@ -91,14 +91,15 @@ class AliasScreen extends VBox {
      * Method that resets aliasInput to default state when starting new game.
      */
     private void reset(){
-        // To make aliasInput enabled and empty (reset).
         aliasInput.setDisable(false);
         aliasInput.setText("");
         confirmButton.setDisable(false);
     }
 
     /**
-     * Add object to playscreen when pressing enter or click at confirmbutton.
+     * Method showing the object AliasScreen and sets the lambda expressions needed <br>
+     * when pressing enter or click at confirmbutton. If the lambda expressions is used the method <br>
+     * checking the alias if its valid and trying to start the game and change to playscreen instead.
      */
     static void show() {
         instance.reset();

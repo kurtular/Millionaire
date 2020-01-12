@@ -9,7 +9,9 @@ import millionaire.Controller;
 import millionaire.Timer;
 
 /**
- * A class for creating the different lifelines and their view properties.
+ * A class for creating the different lifelinesimages at the top of the screen
+ * and their view properties. Its a label and belongs to the View.
+ *
  *
  * @author Henrik, Mohammad, Joakim
  */
@@ -65,7 +67,9 @@ class LifeLine extends Label {
     }
 
     /**
-     * Creating actionevent when clicking at the lifeline to disable all other options, play a sound and activate the lifeline.
+     * Creating lambda expressions when clicking at the lifeline to clear the lifelinehint, <br>
+     * disable all other other lifelines, disable the withdrawbutton, play a sound, <br>
+     * stopping the timer and activate the lifeline.
      */
     void setAction() {
         setOnMouseClicked(event -> {

@@ -98,26 +98,23 @@ public class Gui extends Application {
     }
 
     /**
-     * Enable the possible actions in different view classes.
+     * Enable the possible actions in different view classes. If its enabled the player can click
+     * on the withdrawbutton, the lifelines and select the answer.
      */
     private void enableActions() {
-        // Enable withdraw button.
         PlayScreen.getInstance().enableWithdrawing();
-        // Allow the player to select an answer.
         QuestionArea.getInstance().enableActions();
-        // Enable life lines.
         LifeLineArea.getInstance().activate();
     }
 
     /**
-     * Disable the possible actions in different view classes.
+     * Disable the possible actions in different view classes. It is needed to prevent the player to click
+     * the withdrawbutton after selecting a wrong answer, prevent the player to change answer and prevent
+     * the player to select the lifelines.
      */
     public void disableActions() {
-        // Disable withdraw button.
         PlayScreen.getInstance().disableWithdrawing();
-        // Prevent the player to select an answer.
         QuestionArea.getInstance().disableActions();
-        // Disable life lines.
         LifeLineArea.getInstance().deactivateTemporarily();
     }
 

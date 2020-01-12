@@ -1,9 +1,9 @@
 package millionaire;
 
 /**
- * This class is as acontainer to all global variables and it's include other classes (nested classes).<br>
+ * This class is a container to all global variables and it's include other classes (nested classes).<br>
  * This way used to make it easier to understand instead of sending unrelated value.<br>
- * This class is used in diffrent places of this application so make sure that you understand the purbose of this class before using it or editing a part of this application.
+ * This class is used in different places of this application so make sure that you understand the purpose of this class before using it or editing a part of this application.
  *
  * @author Mohammad, Jesse, Henrik.
  */
@@ -78,7 +78,10 @@ public abstract class FINAL_GLOBAL_VARIABLES {
         public static final int DEFAULT = 2;
     }
 
-    //Henrik
+    /**
+     * This class stores the names of the different soundeffects. Its easier to understand the code <br>
+     * doing this and its much safer to prevent misspellings.
+     */
     public abstract static class SoundEffectName {
         public final static String INTRO = "intro.mp3";
         public final static String PLAY_SCREEN_INTRO = "play_screen_intro.mp3";
