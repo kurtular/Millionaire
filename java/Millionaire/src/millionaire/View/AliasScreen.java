@@ -42,7 +42,7 @@ class AliasScreen extends VBox {
         aliasInput = new TextField();
         aliasInput.setPromptText("Skriv in ditt alias:");
         aliasInput.setFocusTraversable(false);
-        aliasInput.setMaxSize(250, 20);
+        aliasInput.setMaxSize(250,20);
         aliasInput.setFont(Font.font(15));
 
         Label hintText = new Label();

@@ -6,7 +6,8 @@ import javafx.scene.media.MediaPlayer;
 import millionaire.Timer;
 
 /**
- * Abstract class for handling the sounds.
+ * Abstract class for handling the sounds and its a part of the View. You cant create any instances <br>
+ * because the class is abstract.
  *
  * @author Henrik , Mohammad.
  */
@@ -14,7 +15,7 @@ abstract class SoundEffectPlayer {
     private static MediaPlayer mediaPlayer;
 
     /**
-     * Playing the right sound depending on the effectname and its a part of the View.
+     * Playing the right sound depending on the effectname.
      * @param EffectName The different sounds in our library.
      */
     static void play(String EffectName) {

@@ -37,8 +37,9 @@ class CallAFriendBehavior implements LifeLineBehavior {
         String friendSays;
         int rand = (int) (Math.random() * 100);
         //50% of the times your friend is completely sure what the answer is.
+        //  Because of "game.getCorrectAnswerSymbol" returns a char and "getQuestionPart" need a byte the method subtract 64 using ASCInumbers.
         if (rand > 50) {
-            friendSays = "Jag är säker på att det är: " + game.getCorrectAnswerSymbol() + ". " + game.getQuestionPart((byte) (game.getCorrectAnswerSymbol() - 64));  //  Beacuse of "i" is a char and getValue of the answer demand a byte the method subtract 64 using ASCInumbers.
+            friendSays = "Jag är säker på att det är: " + game.getCorrectAnswerSymbol() + ". " + game.getQuestionPart((byte) (game.getCorrectAnswerSymbol() - 64));
         }
         // 25% the friend is pretty sure and guessing at the right answer.
         else if (rand > 25) {

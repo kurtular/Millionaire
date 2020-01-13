@@ -23,7 +23,7 @@ class LifeLine extends Label {
      */
     private boolean used;
     /**
-     * It a image that a life line will have.
+     * Its the image of the lifeline.
      */
     private final ImageView img;
     /**
@@ -68,8 +68,8 @@ class LifeLine extends Label {
 
     /**
      * Creating lambda expressions when clicking at the lifeline to clear the lifelinehint, <br>
-     * disable all other other lifelines, disable the withdrawbutton, play a sound, <br>
-     * stopping the timer and activate the lifeline.
+     * disable current lifeline, disable the withdrawbutton, disable the answerbuttons, <br>
+     * temporarily disable the other lifelines, play a sound, stopping the timer and activate the lifeline.
      */
     void setAction() {
         setOnMouseClicked(event -> {
@@ -107,7 +107,7 @@ class LifeLine extends Label {
     }
 
     /**
-     * Setting the lifeline as used.
+     * Setting the lifeline as used to prevent the player to use it again.
      */
     private void setAsUsed() {
         used = true;

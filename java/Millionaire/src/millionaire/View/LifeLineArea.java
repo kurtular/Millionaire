@@ -60,7 +60,7 @@ class LifeLineArea extends VBox {
     }
 
     /**
-     * Disable the actionevents temporarily until next question.
+     * Disable the lambda expressions temporarily until the lifelinehint is displayed.
      */
     void deactivateTemporarily() {
         audience.setOnMouseClicked(null);
@@ -70,7 +70,7 @@ class LifeLineArea extends VBox {
     }
 
     /**
-     * Enable the temporarily disabled actionevents if the lifeline isn't used.
+     * Enabling the temporarily disabled lambdas if the lifeline isn't used.
      */
     void activate() {
         if (!audience.isUsed()) {

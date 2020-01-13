@@ -103,6 +103,10 @@ public abstract class FINAL_GLOBAL_VARIABLES {
         public final static String GAME_END = "end.mp3";
     }
 
+    /**
+     * This class stores the name of the lifelines.
+     */
+
     public abstract static class LifeLineType {
         public final static String ASK_AUDIENCE = "audience";
         public final static String CALL_A_FRIEND = "friend";
