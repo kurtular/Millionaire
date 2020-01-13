@@ -84,10 +84,6 @@ p {
    .fpPics {
 		text-align: center;
    }
-
-   p {
-      color: white;
-   }
    /* Makes the images smaller*/
     img {
       width: 50%;

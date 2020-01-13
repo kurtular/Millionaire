@@ -13,7 +13,7 @@
     </div>
 
     <section>
-        <!-- slideshow -->
+    <!-- Intro text -->
         <div class="presentation-rulepage">
             <div class="introduction">
                 <div class="intro-text">

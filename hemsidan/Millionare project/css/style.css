@@ -149,9 +149,10 @@ section
 		font-size: 11px;
 	}
 	.text p{
-		font-size: 9px;
+		font-size: 8px;
 	}
 }
+/* responsive for mobel */
 @media screen and (max-width: 320px){
 	.presentation-rulepage{
 		min-height: 20vh;
@@ -163,10 +164,10 @@ section
 		font-size: 6px;
 	}
 	.text h3{
-		font-size: 7px;
+		font-size: 6px;
 	}
 	.text p{
-		font-size: 5px;
+		font-size: 4px;
 	}
 		
 }

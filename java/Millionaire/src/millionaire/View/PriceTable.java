@@ -51,7 +51,7 @@ class PriceTable extends VBox {
     }
 
     /**
-     * This method will set the circle to visible at the current balance players have and will show the orange background at a current game's level.
+     * This method will set the circle to visible at the current balance players have and will show the orange background(PriceLabel(level and balance)) at a current game's level.
      * Otherwise there will be no circle shown and the background will be set to default.
      * @param position tell which level players are currently at.
      */
