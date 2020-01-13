@@ -35,8 +35,7 @@ public class Game implements GetJson {
 
     /////////////////////////////////////////////////////////////
     //              >>>>Member variables.<<<<
-
-    final Question[] questions = new Question[16];
+    Question[] questions = new Question[16];
     byte currentQuestion;
     final private Player player = Player.getInstance();
     final ChangeQuestion changeQuestion = ChangeQuestion.getInstance();
@@ -55,7 +54,7 @@ public class Game implements GetJson {
     /////////////////////////////////////////////////////////////
     //                >>>> Member methods.<<<<
 
-    // To set questions array from the server.todo after asking Rickard
+    // To set questions array from the server.
     @Override
     public void setupJsonData(String data) {
         JSONArray questions = new JSONArray(data);
@@ -70,6 +69,7 @@ public class Game implements GetJson {
      * @param playerName create a player name so user can input ID after the game is reset.
      */
     public void newGame(String playerName) {
+        questions= new Question[16];
         currentQuestion = 1;
         setQuestions();
         player.resetPlayer();
@@ -85,7 +85,6 @@ public class Game implements GetJson {
      * @param withDraw if withDraw is true the player wont be send back below safety level
      * @return  data from users game
      */
-    //
     public String[] getMoneyCheckData(boolean withDraw) {
         String[] returnedData = new String[3];
         returnedData[0] = player.getName();
@@ -105,8 +104,6 @@ public class Game implements GetJson {
 
         return returnedData;
     }
-
-
     /**
      * This method will send information from javafx to database
      * @param moneyCheckData An array of string where it contain player's name,balance and date.
@@ -126,7 +123,6 @@ public class Game implements GetJson {
      * @param QuestionPart question stage of the game
      * @return current question and score value
      */
-    // getValue() return a specific string value of the question object depending on value parameter (check class variables above).
     public String getQuestionPart(byte QuestionPart) {
         if (QuestionPart == 5) {
             return Byte.toString(currentQuestion);
@@ -146,8 +142,6 @@ public class Game implements GetJson {
      * @param playerAnswer checks if player answer is true or false
      * @return false answer
      */
-
-    // checkAnswer() will return either true or false depending on the playerAnswer value. ()
     public boolean checkAnswer(char playerAnswer) {
         boolean returnedValue;
         // To be able to check the reserve question answer
@@ -181,7 +175,6 @@ public class Game implements GetJson {
      * @return right symbol.
      */
 
-    //
     public char getCorrectAnswerSymbol() {
         char symbol;
         for (symbol = 'A'; symbol <= 'D'; symbol++) {
@@ -193,11 +186,10 @@ public class Game implements GetJson {
     }
 
     /**
-     * create a method that makes game move on to the next question after users answer
-     * @param second adds points depending on how much seconds it takes for the user to answer
+     * create a method that makes game move on to the next question after users have answered and it call a method that increases player score.
+     * @param second adds points depending on how much seconds it takes for the user to answer.
      */
 
-    //
     public void nextQuestion(int second) {
         if (currentQuestion <= FINAL_GLOBAL_VARIABLES.getPRIZES().length) {
             player.addToScore(second, Integer.parseInt(FINAL_GLOBAL_VARIABLES.getPRIZES()[currentQuestion].replaceAll(" ", "")));
@@ -208,9 +200,9 @@ public class Game implements GetJson {
         }
     }
 
-
-
-    //
+    /**
+     * It be called to get the needed questions from the back-end.
+     */
     private void setQuestions() {
         try {
             getJsonText("http://mohammad-ahmad.se/millionaire/get/");
@@ -220,7 +212,6 @@ public class Game implements GetJson {
             System.out.println(e.toString());
         }
     }
-
     /**
      * Running the selected lifeline
      *

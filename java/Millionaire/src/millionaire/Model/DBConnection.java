@@ -8,8 +8,6 @@ import java.sql.DriverManager;
  */
 class DBConnection {
     private Connection connection;
-    //Jesse
-
     /**
      * This method will create a connection to database.
      *

@@ -10,20 +10,24 @@ import java.util.ArrayList;
  * AskAudienceBehavior has a private static class variable
  *
  * @author Jesse, Mohammad
- * @version 1.0
  */
-
 class AskAudienceBehavior implements LifeLineBehavior {
-    private static final AskAudienceBehavior instance = new AskAudienceBehavior();
 
+    private static final AskAudienceBehavior instance = new AskAudienceBehavior();
+    /**
+     * It returns change question life line object.
+     *
+     * @return the only possible instance of this class (singleton).
+     */
     protected static AskAudienceBehavior getInstance() {
         return instance;
     }
 
+    /**
+     * It is a constructor method creates a AskAudienceBehavior object.
+     */
     private AskAudienceBehavior() {
     }
-
-    //Jesse
 
     /**
      * This method will randomly give a vote to each alternatives (A, B, C, D).

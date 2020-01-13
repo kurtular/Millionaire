@@ -46,8 +46,10 @@ class OptionButton extends Region {
         // Add the text to the button
         getChildren().add(text);
     }
+
     /**
      * It is a constructor method creates a OptionButton object that have a sign at left side like Play screen's option buttons .
+     * @param sign a letter that will be shown inside the object like (A,B,C,D..)
      */
     OptionButton(char sign) {
         super();

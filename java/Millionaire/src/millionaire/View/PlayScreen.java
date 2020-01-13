@@ -4,7 +4,6 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import millionaire.Controller;
-import millionaire.FINAL_GLOBAL_VARIABLES;
 import millionaire.Timer;
 import millionaire.FINAL_GLOBAL_VARIABLES.SoundEffectName;
 

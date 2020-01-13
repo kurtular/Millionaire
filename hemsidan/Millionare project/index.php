@@ -45,7 +45,7 @@
                 <img src="img/withdraw.png" alt="Register Area" width="600" height="400">
                 <p>
                     Klick Spel Nu för att vinna 1 000 000$!!!! <br>
-                    <button class="btn"><a href="#">
+                    <button class="btn"><a href="game.rar">
                             <h3>Spel Nu !</h3>
                         </a></button>
                 </p>

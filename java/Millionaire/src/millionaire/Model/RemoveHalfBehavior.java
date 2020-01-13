@@ -35,8 +35,6 @@ class RemoveHalfBehavior implements LifeLineBehavior {
 
     /////////////////////////////////////////////////////////////
     //                >>>> Member methods.<<<<
-
-    //todo Ask Rickard if we need to write javadoc for overridden methods.
     @Override
     public String[] toDo() {
         byte currentQuestion;

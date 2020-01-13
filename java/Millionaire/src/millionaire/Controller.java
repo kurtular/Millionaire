@@ -101,8 +101,6 @@ public class Controller {
     /**
      * this method brings the question and its options and send them to View (gui) that will show it on the screen.
      */
-
-
     private void setQuestion() {
         String question = game.getQuestionPart(QuestionPart.QUESTION_TEXT);
         String option1 = game.getQuestionPart(QuestionPart.OPTION1);
@@ -112,7 +110,11 @@ public class Controller {
         byte currentQuestion = Byte.parseByte(game.getQuestionPart(QuestionPart.CURRENT_QUESTION));
         gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
     }
-    // Overriding
+
+    /**
+     * Its overloading of {@link #setQuestion()} and it used when the gui need to be updated after using change question or remove half life lines.
+     * @param fullQuestion a string array consist of 5 strings (question text and its alternative)
+     */
     private void setQuestion(String[] fullQuestion) {
         String question = fullQuestion[0];
         String option1 = fullQuestion[1];
@@ -122,7 +124,6 @@ public class Controller {
         byte currentQuestion = Byte.parseByte(game.getQuestionPart(QuestionPart.CURRENT_QUESTION));
         gui.updateQuestion(question, option1, option2, option3, option4, currentQuestion);
     }
-    //Jesse
 
     /**
      * if the player is not at the last level of the game and get wrong answer, it will send the correct answer (just to show the player the right answer before moving to EndGameScreen) and send wrong sound effect to gui to later show in EndGameScreen.

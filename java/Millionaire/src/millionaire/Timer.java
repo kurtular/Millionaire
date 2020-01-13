@@ -5,7 +5,7 @@ import javafx.application.Platform;
 import java.util.TimerTask;
 
 /**
- * It represents timer and it is just an abstract class so it is like utilty.<br>
+ * It represents timer and it is just an abstract class so it is like utility.<br>
  * It kan be used wherever in the application.
  *
  * @author Mohammad.

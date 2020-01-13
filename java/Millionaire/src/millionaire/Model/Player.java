@@ -12,8 +12,9 @@ class Player {
     private static final Player instance = new Player();
 
     /**
-     * Get instance for singleton. returns instance of class, since singleton.
-     * @return
+     * It returns player object.
+     *
+     * @return the only possible instance of this class (singleton).
      */
     static Player getInstance() {
         return instance;
@@ -22,41 +23,41 @@ class Player {
     private int score;
 
     /**
-     * Constructor that calls method resetPlayer.
+     * Constructor that calls method resetPlayer..
      */
     private Player() {
         resetPlayer();
     }
 
+    /**
+     * player name setter
+     * @param name player name
+     */
     void setName(String name) {
         this.name = name;
     }
-
     /**
-     * getter
-     * @return
+     * player name getter.
+     * @return player name.
      */
     String getName() {
         return name;
     }
-
     /**
-     * getter
-     * @return
+     * player score getter
+     * @return player score
      */
     int getScore() {
         return score;
     }
-
     /**
-     * Method that calculates player score using seconds and current balance.
-     * @param seconds
-     * @param currentBalance
+     * Method that increase player score using seconds and current balance.
+     * @param seconds the remaining seconds of QUESTION_DURATION.
+     * @param currentBalance the current balance the player earned.
      */
     void addToScore(int seconds, int currentBalance) {
         score += currentBalance + (currentBalance / 2 * (seconds / (double) FINAL_GLOBAL_VARIABLES.getQuestionDuration()));
     }
-
     /**
      * method that resets player info.
      */
