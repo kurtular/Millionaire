@@ -47,13 +47,14 @@ section
     display: inline-block;
     border: none;
     background-color: rgb(72, 202, 137);
-    padding: 0.75rem 1.5rem;
     margin-top: 1rem;
 	transition: opacity 1s ease-in;
 	border-radius: 10px;
 }
 /* take away the underline*/
 .btn a{
+	display: block;
+	padding: 0.75rem 1.5rem;
 	text-decoration: none;
 }
 .btn:hover{
@@ -149,7 +150,7 @@ section
 	.presentation{
 		min-height: 70vh;
 	}
-	.btn{
+	.btn a{
 		padding: 0.5rem 1.0rem;
 	}
 	.btn h3{
@@ -175,7 +176,7 @@ section
 	.presentation{
 		min-height: 50vh;
 	}
-	.btn{
+	.btn a{
 		padding: 0.3rem 0.7rem;
 	}
 	.btn h3{
