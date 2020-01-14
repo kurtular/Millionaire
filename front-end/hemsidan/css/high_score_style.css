@@ -92,7 +92,7 @@ color: #d3d3d3;
 #high-score-list > thead  i{
 margin: 0 5px;
 }
-/* make this page responisve with some screen sizes*/
+/* make this page responsive with some screen sizes*/
 @media screen and (max-width: 1024px){
     #high-score-container{
         padding: 25px 50px;

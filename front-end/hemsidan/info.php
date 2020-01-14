@@ -40,7 +40,7 @@ include "parts/head.html";
                 Nackdelarna är att det är svårt att få en bra överblick i ett stort program. Det blir också mer ineffektivt när man använder datastrukturer. Det kan vara svårare att lära sig programmeringsstilen.
             </p>
         </div>
-        <div class=fpPics id="responivePic">
+        <div class=fpPics id="responsivePic">
             <img src="img/funcprogramming.jpeg" alt="" width="200" height="200">
         </div>
     </div>

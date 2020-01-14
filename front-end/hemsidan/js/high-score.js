@@ -21,7 +21,7 @@ function showHighScoreList() {
       xhttp.open("GET",`high_score/?sort=${localStorage.sorting}`, true);
   }
 else{
-      // get defalut result of hig score restful api.
+      // get default result of hig score restful api.
   xhttp.open("GET", "high_score/", true);
 }
     xhttp.send();
@@ -29,14 +29,14 @@ else{
 
 // >>>>>>>>jquery part
 $(document).ready(function(){
-  // Deleting sorting variable vlaue(which decide ordering way) if it have a value.
+  // Deleting sorting variable value(which decide ordering way) if it have a value.
   if(localStorage.sorting!=null){localStorage.removeItem("sorting");}
       // call the method that show players data inside the table and make the table up to date every 3 seconds.
       showHighScoreList();
       setInterval(function(){
       showHighScoreList();
   },3000);
-  // update the table if changed the ordning way.
+  // update the table if changed the sorting.
   $("#sorting-scores select").change(function(){
     localStorage.sorting = $(this).val();
     showHighScoreList();

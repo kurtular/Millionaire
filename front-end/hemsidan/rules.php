@@ -72,7 +72,7 @@
                     </h3>
                     <p>
                         När en ny fråga kommer får du alltid 30 sekunder på dig att svara. Om tiden går ut får du fel på
-                        frågan och spelet tar slut.
+                        frågan och spelet tar slut. Använder du en ledtråd får du börjar timern om på 30 sekunder.
                     </p>
                 </div>
             </div>
@@ -88,8 +88,7 @@
                         vilken fråga man befinner sig just nu. Dom vita prickarna visar att man klarat frågan. De gröna
                         sifforna visar att frågan är en säkerhetsnivå vilket betyder att om man väl klarat frågan kan
                         man aldrig förlora pengarna. Svarar man fel på en vit fråga kommer man få det senaste gröna
-                        beloppet
-                        man klarat. Det maximala beloppet man kan vinna är $1000000.
+                        beloppet man klarat. Det maximala beloppet man kan vinna är $1000000.
                     </p>
                 </div>
             </div>
@@ -98,7 +97,7 @@
                 <div><img src="img/paycheckbutton.png" alt=""></div>
                 <div class="text">
                     <h3>
-                        Avsluta spelet
+                        Stanna och vinn pengarna
                     </h3>
                     <p>
                         Knappen längst upp till vänster avslutar spelet. När som helst under spelets gång kan spelaren avsluta spelet 
@@ -115,10 +114,8 @@
                     <p>
                         Längst upp på skärmen ser du de fyra ovala livlinorna. Dessa hjälpmedel får användas när som
                         helst under spelet och kan även kombineras under samma fråga. Det ger inget minuspoäng att
-                        använda
-                        dessa. När man använt en livlina blir den rödkryssad och kan inte användas igen. När du trycker
-                        på en
-                        livlina får du alltid 30 sekunder på dig att svar.
+                        använda dessa. När man använt en livlina blir den rödkryssad och kan inte användas igen. När du trycker
+                        på en livlina får du alltid 30 sekunder på dig att svara.
                     </p>
                 </div>
             </div>
@@ -143,8 +140,7 @@
                     </h3>
                     <p>
                         Om du klickar på denna bild ringer du din vän som får ge sin syn på frågan och svara vad hen
-                        tror är
-                        rätt. Sen får du även här avgöra om du tror att din vän har rätt.
+                        tror är rätt. Sen får du även här avgöra om du tror att din vän har rätt.
                     </p>
                 </div>
             </div>
@@ -167,29 +163,11 @@
                     </h3>
                     <p>
                         Om du klickar på denna bild kommer datorn byta fråga till en helt annan. Du stannar kvar på
-                        samma
-                        prisnivå som innan.
+                        samma prisnivå som innan.
                     </p>
                 </div>
             </div>
-            <div class="inner-container">
-                <div class="inner-container">
-                    <div><img src="img/paycheck.png" alt="" width="400" height="150"></div>
-                    <div class="text">
-                        <h3>
-                            Prischecken
-                        </h3>
-                        <p>
-                            Klickar du på den här bilden längst upp till vänster väljer du att stanna och ta de pengar
-                            du har spelat in. Spelet avslutas då och notera då att du får dina pengar oavsett
-                            säkerhetsnivå
-                            eller inte. När som helst kan du välja att klicka på denna bilden förutsatt att du inte
-                            redan svarat på
-                            den aktuella frågan.
-                        </p>
-                    </div>
-                </div>
-            </div>
+
             <div class="inner-container">
                 <div><img src="img/endscreen.png" alt="" width="450" height="250"></div>
                 <div class="text">
@@ -198,7 +176,7 @@
                     </h3>
                     <p>
                         Efter avslutat spel kommer checken skrivas ut med ditt namn, pengarna du vunnit, datum och en
-                        QRkod som leder till hemsidan där du kan se var i highscoretabellen du placerat dig. Notera här
+                        QR-kod som leder till hemsidan där du kan se var i highscoretabellen du placerat dig. Notera här
                         att
                         vid lika intjänat belopp kommer den med snabbast tid att placera sig överst i highscorelistan.
                         Detta
