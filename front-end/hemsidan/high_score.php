@@ -24,11 +24,11 @@ include "parts/head.html";
                         High-score lista
                     </h1>
                     <p>
-                       Den här sidan visar en <a href="#high-score-list">high-score lista</a> där står en rigerster tillhör till alla spelare som har spelat.<br>
-                       Varje rad visar en spelare uppgifter där står namnet,datumet,beloppet och spelarenspoäng man fick.<br>
-                       Spelarenspoäng är beröende på hur snabbt man svarar på frågarna samt på vilken fråga man nådde sist under spelomgång.<br>
-                       En spelare kan ha flera rader så vi recomenderar att använda riktiga namn om man vill visa sina score till dem andra.<br>
-                       Den här sidan kan besökas lätt genom att skanna <a href="https://sv.wikipedia.org/wiki/QR-kod">QR koden</a> some står till vänster på "money check" som visas i slutet av matchen. 
+                       Den här sidan visar en <a href="#high-score-list">highscore-lista</a> där alla spelomgångar som registrerats visas.<br>
+                       Varje rad visar en spelomgångs uppgifter och där står namnet, datumet, beloppet och spelarens poäng.<br>
+                       Spelarens poäng är beroende på hur snabbt man svarade på frågorna samt på vilken fråga man till sist nådde.<br>
+                       En spelare kan ha flera rader så vi rekommenderar att använda riktiga namn om man vill visa sina olika spelomgångar publikt.<br>
+                       Den här sidan kan besökas lätt genom att skanna <a href="https://sv.wikipedia.org/wiki/QR-kod">QR-koden</a> som står till höger på "money check" som visas i slutet av spelomgången.
                     </p>
                 </div>
             </div>
@@ -58,10 +58,10 @@ include "parts/head.html";
         <!--table's head-->
         <thead>
             <tr>
-                <th><i class="far fa-address-card"></i>Spelarensnamn</th>
-                <th><i class="fas fa-coins"></i>beloppet</th>
-                <th><i class="fas fa-star"></i>Spelarenspoäng</th>
-                <th><i class="far fa-calendar-alt"></i>datum & tid</th>
+                <th><i class="far fa-address-card"></i>Spelarens namn</th>
+                <th><i class="fas fa-coins"></i>Belopp</th>
+                <th><i class="fas fa-star"></i>Spelarens poäng</th>
+                <th><i class="far fa-calendar-alt"></i>Datum & tid</th>
         </tr>
         </thead>
         <tbody>
