@@ -1,0 +1,22 @@
+Dokumentation:
+There is saperats diagrams files (svg or png) in diagrams folder if these are not have good quality inside the word/powerpoint files.
+note! the uml diagram is stored inside the following path:
+front-end > java > UML diagram >
+
+back-end:
+There is a millionaire.sql file inside back-end which is the used database so you can import it to your phpmyadmin before testing the project.
+The connectioninfo.php file should have correct connection information to be able to connect to db.
+The back-end files should be together under same folder with hemsida files except database file "millionaire.sql".
+
+Java:
+Jdk_13 was used to develop this project.
+https://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+javafx_13 was used to develop this project as well.
+https://gluonhq.com/products/javafx/
+
+The game is connected right now with mohammad-ahmad.se but if you want to test it on you local server you have to check out DBConnection class and setQuestions() that is inside Model.Game class.
+
+hemsidan:
+"play now" button at website home page will not work because the related file is large and not able to be uploaded on github but if you want to get the file or test the buttom visit https://mohammad-ahmad.se/millionaire/
+
