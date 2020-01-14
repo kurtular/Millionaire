@@ -60,11 +60,7 @@ section
 .btn:hover{
     opacity: 0.6;
 }
-/* adjust container */
-.slidshow-container{
-	position: relative;
-	margin: 50px auto;
-}
+
 /* style container1 */
 .container1{
 	background-color: white;
@@ -145,7 +141,7 @@ section
 		font-size: 15px;
 	}
 }
-/* responsive for mobel */
+/* responsive for phones */
 @media screen and (max-width: 768px){
 	.presentation{
 		min-height: 70vh;

@@ -109,7 +109,7 @@ nav{
 		font-size: 13px;
 	}
 }
-/* Handle responsive for moble */
+/* Handle responsive for phones */
 @media screen and (max-width: 965px){
 	
 	body{

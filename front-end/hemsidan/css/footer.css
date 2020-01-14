@@ -12,7 +12,7 @@ footer{
 	align-items: flex-start;
 	padding: 10px;
 }
-/* ajust the container to the screen */
+/* adjust the container to the screen */
 .info-container > div {
 	margin: auto 0px;
 	flex-wrap: wrap;
@@ -41,7 +41,7 @@ footer{
 	grid-template-columns: 0.2fr 0.3fr;
 	grid-gap: 2px;
 }
-/* adjust postion */
+/* adjust position */
 .fa-phone-volume{
 	margin-top: 77px;
 }
@@ -93,7 +93,7 @@ footer{
 	}
 }
 
-/* reponsive for mobel */
+/* responsive for phones */
 @media screen and (max-width: 768px) {
 	.developer-img img{
 		width: 40px;

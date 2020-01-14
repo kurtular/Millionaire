@@ -5,20 +5,15 @@
 .space-between-nav-and-section-in-fpPage{
    height: 20vh;
 }
-
 /* styling main heading */
 #fpH1 {
    text-align: center;
    font-size: 60px;
 }
-
 /*styling the text in p */
 p {
    color:black;
 }
-
-
-
 /*styling the main divs*/
 .fpInfo{
    width: 85%;
@@ -30,51 +25,41 @@ p {
    align-items: center;
    background-color: white;
 	border-radius: 55px;
-   
-}
-
+   }
 /* Styling the distance between the divs inside the div*/
 .fpInfo > div{
    padding: 30px;
 }
-
 /* Hiding a image for computer screens*/
-#responivePic {
+#responsivePic {
    display: none;
 }
-
 /* Handling tablets*/
 @media screen and (max-width: 768px) {
    #fpH1 {
       font-size: 30px;
    }
-
-   .fpInfo {
+    .fpInfo {
       width: 100%;
    }
-    
-   p {
+    p {
       font-size: 13px;
       
    }
 }
-
 /* Handling phones*/
 @media screen and (max-width: 600px){
    body {
       width: fit-content;
    }
-
-   /* Displays the hidden image*/
-   #responivePic {
+  /* Displays the hidden image*/
+   #responsivePic {
       display: block;
    }
-
    /*Hide a image that usually shows*/
    #normalPic {
       display: none;
    }
-
    /* Prevents the text and images to not appear next to each other*/
    .fpInfo{
    display: inline;
@@ -89,6 +74,4 @@ p {
       width: 50%;
       height: 50%;
    }
-   
-   
 }

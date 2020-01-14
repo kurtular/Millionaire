@@ -46,11 +46,7 @@ section
     color: white;
     position: relative;
 }
-/* this container in relative position so that the image inside the container could adjust */
-.slidshow-container{
-	position: relative;
-    margin: 50px auto;
-}
+
 /* style the container */
 .container{
 	margin-top: 15vh;
@@ -82,7 +78,7 @@ section
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-/* style all p-tagg inside inner-container */
+/* style all p-tags inside inner-container */
 .inner-container p{
     margin-top: 5px;
 	font-size: 20px;
@@ -131,7 +127,7 @@ section
 		font-size: 12px;
 	}
 }
-/* responsive for mobel */
+/* responsive for phones */
 @media screen and (max-width: 768px){
 	.presentation-rulepage{
 		min-height: 30vh;
@@ -152,7 +148,7 @@ section
 		font-size: 8px;
 	}
 }
-/* responsive for mobel */
+/* responsive for phones */
 @media screen and (max-width: 320px){
 	.presentation-rulepage{
 		min-height: 20vh;
