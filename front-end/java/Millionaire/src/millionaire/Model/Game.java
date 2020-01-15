@@ -205,7 +205,7 @@ public class Game implements GetJson {
      */
     private void setQuestions() {
         try {
-            getJsonText("http://mohammad-ahmad.se/millionaire/get/");
+            getJsonText("https://mohammad-ahmad.se/millionaire/get/");                                             //if this link does not work use the local one or this one "http instead of https": http://mohammad-ahmad.se/millionaire/get/
             // The following commented code can be used for locally hosted backend instead of the above one.
             //getJsonText("http://localhost/millionaire/get/");                                                       // Link to the questions rest api.
         } catch (Exception e) {

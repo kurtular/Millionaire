@@ -40,7 +40,7 @@ class Question{
 // Make the connection and getting the data from the db.
     $conn = new mysqli($servername, $username, $password, $dbname);
     // The queries that will be sent to db. 
-    $sql = "SELECT question,answer,option1,option2,option3 FROM `questions` ORDER BY RAND() LIMIT 1;SELECT question,answer,option1,option2,option3 FROM `questions` WHERE LEVEL=1 ORDER BY RAND() LIMIT 5;SELECT question,answer,option1,option2,option3 FROM `questions` WHERE LEVEL = 2 ORDER BY RAND() LIMIT 5;SELECT question,answer,option1,option2,option3 FROM `questions` WHERE LEVEL = 3 ORDER BY RAND() LIMIT 5;";
+    $sql = "SELECT question,answer,option1,option2,option3 FROM `questions` WHERE LEVEL=1 ORDER BY RAND() LIMIT 5;SELECT question,answer,option1,option2,option3 FROM `questions` WHERE LEVEL = 2 ORDER BY RAND() LIMIT 5;SELECT question,answer,option1,option2,option3 FROM `questions` WHERE LEVEL = 3 ORDER BY RAND() LIMIT 5;";
     // Select the charset for the connection.
     $conn->set_charset("utf8");
     // Send the queries. 
@@ -54,17 +54,34 @@ class Question{
         // Get the data as objects
             while ($row = $result->fetch_object()) {
                 $questions[$i] = new Question($row->question,array ($row->answer,$row->option1,$row->option2,$row->option3));
-
                 $i++;
             }
             $result->free();
            }
-        // Get next query result to handle with next loop.
+    // Get next query result to handle with next loop.
     } while ($conn->next_result());
+    // query to get the question that will be used when a player use change question life line.
+    $sql = "SELECT question,answer,option1,option2,option3 FROM `questions` ORDER BY RAND() LIMIT 1";
+    // Make sure that the question is not dublicated in the questions array.
+    $foundIt=false;
+    while(!$foundIt){
+        // store the question the will maybe added to the array.
+        $result = $conn->query($sql)->fetch_object();
+        //Checking if the question is not duplicated.
+        for($i=0;$i<15;$i++){
+            if(strcmp($questions[$i]->questionText,$result->question)==0){
+            break;
+            }else if($i==14){
+                array_unshift($questions,new Question($result->question,array ($result->answer,$result->option1,$result->option2,$result->option3)));
+                $foundIt=true;
+            }
+        }
+    }
     // End the connection.
     $conn->close();
     // Set the data type that will shown in the page.
     header("Content-type: application/json; charset=utf-8");
     // To write out questions array as json text.
     echo json_encode($questions,JSON_UNESCAPED_UNICODE,JSON_PRETTY_PRINT);    
+    
 ?>
